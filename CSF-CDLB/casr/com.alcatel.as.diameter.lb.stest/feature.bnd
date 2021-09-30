@@ -1,0 +1,8 @@
+Bundle-Version: 1.0.4
+Bundle-Name: CDLB System Tests
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.cdlb";category:List<String>="test"; internal=true
+Include-Resource: stest=stest
+X-Unpack: stest
+
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.test)'

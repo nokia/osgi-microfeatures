@@ -1,0 +1,10 @@
+<clients>
+
+  <client id="main">
+    <servers>
+    <!-- use the sample below to clone with real values -->
+	<!--server ip="127.0.0.1" port="4868" name="server-1">
+	</server-->
+    </servers>
+  </client>                                                                                                                                                                     
+</clients>

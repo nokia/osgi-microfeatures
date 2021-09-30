@@ -1,0 +1,29 @@
+
+
+comment
+
+diameter.avp : diameter.avp.SendDPR.0 7 123 /0
+diameter.avp : diameter.avp.SendDPR.1 7 123 /1
+diameter.avp : diameter.avp.SendDPR.2 7 123 /2
+
+play: @init.incl
+set : open diameter.open: $server $port
+set : dwr diameter.dwr
+set : dpr diameter.dpr
+set : rreq diameter.read-req
+set : rresp diameter.read-resp
+set : sreq diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm
+set : app diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm >> diameter.read-resp
+set : dpr0 diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm diameter.avp.SendDPR.0 >> diameter.read-resp
+set : dpr1 diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm diameter.avp.SendDPR.1 >> diameter.read-resp
+set : dpr2 diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm diameter.avp.SendDPR.2 >> diameter.read-resp
+set : sresp diameter.send-resp
+set : rresp diameter.read-resp
+set : close diameter.close
+
+
+console
+
+
+
+

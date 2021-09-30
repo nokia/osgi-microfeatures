@@ -1,0 +1,45 @@
+
+hate.declare: test1 "DiameterLBTest-01.003 Functional - Invalid handshake (initial is Application request)"
+hate.declare: test2 "DiameterLBTest-01.004 Functional - Invalid handshake (initial is Dwr)"
+hate.declare: test3 "DiameterLBTest-01.005 Functional - Invalid handshake (initial is Dpr)"
+hate.declare: test4 "DiameterLBTest-01.006 Functional - Invalid handshake (immediate subsequent Cer)"
+hate.declare: test5 "DiameterLBTest-01.007 Functional - Timeout on connection setup"
+hate.declare: test6 "DiameterLBTest-01.008 Functional - Timeout on no-Cea"
+hate.declare: test7 "DiameterLBTest-01.009 Functional - Client idleness detection"
+
+hate.enter: test1
+diameter.open: $server $port
+diameter.send-req: 123 100 diameter.avp.OriginHost diameter.avp.OriginRealm
+diameter.closed
+
+hate.enter: test2
+diameter.open: $server $port
+diameter.send-req: 0 $diameter.command.dwr diameter.avp.OriginHost diameter.avp.OriginRealm
+diameter.closed
+
+hate.enter: test3
+diameter.open: $server $port
+diameter.send-req: 0 $diameter.command.dpr diameter.avp.OriginHost diameter.avp.OriginRealm
+diameter.closed
+
+hate.enter: test4
+diameter.open: $server $port
+diameter.send-req: 0 $diameter.command.cer diameter.avp.OriginHost diameter.avp.OriginRealm diameter.avp.TestSleep
+diameter.send-req: 0 $diameter.command.cer diameter.avp.OriginHost diameter.avp.OriginRealm
+diameter.closed
+
+hate.enter: test5
+diameter.open: $server $port
+diameter.closed
+
+hate.enter: test6
+diameter.open: $server $port
+diameter.send-req: 0 $diameter.command.cer diameter.avp.OriginHost diameter.avp.OriginRealm diameter.avp.TestIgnore
+diameter.closed
+
+hate.enter: test7
+play: @init.incl
+#wait 2 DWR
+diameter.read-req
+diameter.read-req
+diameter.closed

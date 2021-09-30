@@ -1,0 +1,182 @@
+##
+# This file contains bnd declaration which are applied to all workspace projects.
+# See http://enroute.osgi.org/tutorial_maven/050-start.html
+#
+
+#
+# Artifactory maven repositories. You can set the following environment variable: CSF_REPO_DELIVERED, CSF_REPO_CANDIDATES, CSF_REPO_SNAPSHOTS
+# in environment, in order to specify specific artifactory repos.
+#
+repo-delivered:  ${env;CSF_REPO_DELIVERED;https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered}
+repo-candidate:  ${env;CSF_REPO_CANDIDATES;https://repo.lab.pl.alcatel-lucent.com/csf-mvn-candidates}
+repo-snapshot: ${env;CSF_REPO_SNAPSHOTS;https://repo.lab.pl.alcatel-lucent.com/csf-mvn-snapshots}
+repo-baseurl = ${env;CSF_REPO;https://repo.lab.pl.alcatel-lucent.com}
+
+#
+# Set here the maven group id for the workspace bundles
+#
+groupId: com.nokia.cdlb
+
+#
+# The following two declaration defines which kind of artifactory the bundles will be deployed to.
+# If CSF_REPO_TYPE env variable is set to SNAPSHOT, then the bundles are deployed to a snapshot repo.
+# else if the CSF_REPO_TYPE env variable is not set, the bundles are deploye to a release repo
+#
+-snapshot: ${env;CSF_REPO_TYPE;}
+-pom: groupid = ${groupId}, version = ${versionmask;====;${@version}}${if;${is;${env;CSF_REPO_TYPE;};SNAPSHOT};-SNAPSHOT;}
+
+#
+# do not include pom dependencies
+#
+-maven-dependencies:
+
+#
+# enable baselining
+#
+-baseline: *
+
+#
+# Bnd Plugin paths.
+#
+-pluginpath: \
+    ${workspace}/cnf/cache/org.apache.felix.dependencymanager.annotation-5.0.2.jar;\
+        url=${repo-delivered}/org/apache/felix/org.apache.felix.dependencymanager.annotation/5.0.2/org.apache.felix.dependencymanager.annotation-5.0.2.jar,\
+    ${workspace}/cnf/cache/com.alcatel_lucent.as.management.annotation.jar;\
+	url=${repo-delivered}/com/nokia/casr/com.alcatel_lucent.as.management.annotation/1.0.4/com.alcatel_lucent.as.management.annotation-1.0.4.jar
+
+
+#
+# Release repo where we push our workspace bundles. 
+#
+-plugin.1.Artifactory: aQute.bnd.repository.maven.provider.MavenBndRepository; \
+    releaseUrl = '${repo-candidate}-local, ${repo-delivered}'; \
+    snapshotUrl = '${repo-snapshot}-local, ${repo-delivered}'; \
+    name = Artifactory; \
+    index = ${.}/artifactory.mvn; \
+    noupdateOnRelease=true
+
+#
+# Baseline repo. You can deploy your bundles here before releasing to Artifactory. Doing so will make it possible to use
+# Semantic Versioning.
+#
+-plugin.2.Baseline: aQute.bnd.deployer.repository.LocalIndexedRepo; \
+    name = Baseline; \
+    pretty = true; \
+    local = ${.}/baseline
+
+#
+# Local repo. You can add whatever bundles here, they will be made available in buildpath.
+#
+-plugin.3.Local: aQute.bnd.deployer.repository.LocalIndexedRepo; \
+    name = Local; \
+    pretty = true; \
+    local = ${.}/local
+
+#
+# Always write generated bundles in ~/.m2/repository
+#
+-plugin.4.M2: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository; \
+    name = M2; \
+    noupdateOnRelease=true
+
+#
+# Templates used to create new projects under Eclipse. Don't remove that.
+#
+-plugin.5.Templates: \
+    aQute.bnd.deployer.repository.LocalIndexedRepo; \
+    name = Templates; \
+    pretty = true; \
+    local = ${build}/templates
+
+#
+# Include local CASR m2 OBR; it allows to possibly depend on some
+# new bundles available from CSF_CASR or CSF_CDLB repository, but not yet available from artifactory
+# Note: we only need to do this when building in SNAPSHOT mode
+#
+OBR: ${if;${is;${env;CSF_REPO_TYPE;};SNAPSHOT};obr.xml;}
+-plugin.6.CASR_OBR_M2: aQute.bnd.repository.osgi.OSGiRepository; \
+    name=CASR_OBR_M2; \
+    poll.time=-1; \
+    cache=${workspace}/cnf/cache; \
+    locations=file:${env;HOME}/.m2/repository/${OBR}    
+
+#
+# Make sure all compiled artifacts are always pushed to local ~/.m2/repository
+#
+-buildrepo: M2
+
+#
+# Name of the repositories where we want to deploy our bundles.
+# By default, we deploy artifacts to our local Baseline repo.
+# but you can deploy to artifactory either using "gradlew -Dreleaserepo=Release,Baseline", or
+# from Eclipse -> Release Workspace Bundles menu you can select "Release" repo.
+#
+-releaserepo: ${def;releaserepo;Baseline}
+
+#
+# baseline repo
+#
+-baselinerepo: Baseline
+
+#
+# Artifactory connection settings
+#
+usr = ${env;ARTIFACTORY_BUILD_LOGIN_USR;}
+pwd = ${env;ARTIFACTORY_BUILD_LOGIN_PSW;}
+-connection-settings: ${if;${pwd};server;-dummy};id=${repo-baseurl};username=${usr};password=${pwd}, -bnd
+
+#
+# include sources in generated bundles. For baselining, we need to include source.
+# But when we release from jenkins to artifactory, then we don't include source
+# (the jenkins jobs always use CSF_BUNDLE_SOURCES=false env property)
+#
+-sources: ${env;CSF_BUNDLE_SOURCES;true}
+
+#
+# Java parameters
+#
+javac.source: 1.8
+javac.target: 1.8
+
+#
+# JUnit
+#
+junit: org.apache.servicemix.bundles.junit; version=4.12
+
+#
+# Common osgi build-time dependencies
+#
+osgi: osgi.annotation;version=6.0.1, osgi.core;version=6.0.0, osgi.cmpn;version=6.0.0
+
+#
+# bndlib
+#
+bndlib=biz.aQute.bndlib;version=5.3.0
+
+#
+# ASR and Dependency Manager Annotations support
+#
+-plugin: \
+	org.apache.felix.dm.annotation.plugin.bnd.AnnotationPlugin;add-require-capability=true,\
+	com.alcatel_lucent.as.management.bnd.AnnotationPlugin
+
+#
+# Removes some headers in order to reduce binary diff between same bundles that are not changed between subsequent releases.
+#
+-removeheaders: Bnd-LastModified,Tool,Created-By,Include-Resource
+
+#
+# Generic header used to indicate that the generated bundle is a CSF artifact (not an external artifact from maven central)
+#
+CSF-Artifact: true
+
+#
+# specify manifest header names and resource paths to ignore during baseline comparison.
+#
+-diffignore: META-INF/maven/**
+
+#
+# Do not import java.* packages
+#
+-noimportjava: true

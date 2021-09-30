@@ -1,0 +1,17 @@
+###############################################################################
+# DiameterLB Loggers
+###############################################################################
+
+##
+# the root logger
+#log4j.logger.as.diameter.lb=DEBUG
+
+##
+# the overload specific logger
+#log4j.logger.as.diameter.lb.overload=DEBUG
+
+##
+# the stats specific logger
+#log4j.logger.as.diameter.lb.stats=DEBUG
+
+

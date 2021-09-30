@@ -1,0 +1,36 @@
+#
+# Indicates for each diameter application the session stickiness policy
+#
+# Format
+# policy [-name <policy-name>] -app <diameter-application> [-cmd <command-code>]* [-noState] [-transactionState] [-sessionState]
+# where
+# <policy-name> :
+#	- an optional name
+# <diameter-application> :
+#	- the diameter application in numeric format (may start with 0x for hexa formatting)
+#	- 0 stands for all applications
+# <command-code> : 
+#	- the command code in numeric format (may start with 0x for hexa formatting)
+#	- 0 stands for all commands (by default when not specified)
+#	- it is possible to mention many command codes in the same line
+# -noState
+#       - the message has no transaction or session stickiness : it can be routed in a random way
+# -transactionState
+#       - the message has a transaction state : its retransmissions must go to the same destination : the message end to end identifier is used
+# -sessionState
+#       - the message carries a session id : Session-ID AVP by default
+# -avp
+#       - indicates the avp to use in the case of sessionState (in lieu of Session-Id). The format is vendor-id/avp-code (hence by default it is 0/263)
+#
+# 
+# examples:
+# policy -name myPolicy -app 123 -cmd 1 -cmd 2 -transactionState
+# policy -name useUserName -app 0xA1 -sessionState -avp 0/1
+# policy -name default -app 0 -noState
+#
+# if the config is empty, -noState applies to all messages.
+#
+
+
+
+

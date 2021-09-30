@@ -1,0 +1,90 @@
+
+hate.declare: test1 "DiameterLBTest-02.001 Functional - Dpr/Dpa exchange"
+hate.declare: test2 "DiameterLBTest-02.002 Functional - Dpr/Dpa Close timeout"
+hate.declare: test3 "DiameterLBTest-02.003 Functional - Dpr/Dpa One server does not respond"
+hate.declare: test4 "DiameterLBTest-02.004 Functional - Dpr/Dpa One server does not respond and client does not close"
+hate.declare: test5 "DiameterLBTest-02.005 Functional - Dpr/Dpa One server closes"
+hate.declare: test6 "DiameterLBTest-02.006 Functional - Dpr/Dpa One server closes and client does not close"
+
+hate.enter: test1
+
+play: @init.incl
+
+diameter.dpr
+diameter.read-resp
+diameter.check-resp
+
+diameter.close
+
+hate.enter: test2
+
+play: @init.incl
+
+diameter.dpr
+diameter.read-resp
+diameter.check-resp
+
+sleep: 3
+
+diameter.closed
+
+hate.enter: test3
+
+play: @init.incl
+
+#ignore DPR will go to one server
+diameter.send-req: 123 60 diameter.avp.OriginHost diameter.avp.OriginRealm
+diameter.read-resp
+
+diameter.dpr
+diameter.read-resp
+diameter.check-resp
+
+diameter.close
+
+hate.enter: test4
+
+play: @init.incl
+
+#ignore DPR will go to one server
+diameter.send-req: 123 60 diameter.avp.OriginHost diameter.avp.OriginRealm
+diameter.read-resp
+
+diameter.dpr
+diameter.read-resp
+diameter.check-resp
+
+sleep: 3
+
+diameter.closed
+
+hate.enter: test5
+
+play: @init.incl
+
+#ignore DPR will go to one server
+diameter.send-req: 123 62 diameter.avp.OriginHost diameter.avp.OriginRealm
+diameter.read-resp
+
+diameter.dpr
+diameter.read-resp
+diameter.check-resp
+
+diameter.close
+
+hate.enter: test6
+
+play: @init.incl
+
+#ignore DPR will go to one server
+diameter.send-req: 123 62 diameter.avp.OriginHost diameter.avp.OriginRealm
+diameter.read-resp
+
+diameter.dpr
+diameter.read-resp
+diameter.check-resp
+
+sleep: 3
+
+diameter.closed
+

@@ -1,0 +1,7 @@
+# insert the keys here in order (from 0 to 15 --> hence 16 lines maximum)
+# 1 key per line
+# key written in hexa
+# example
+# 0033aa11445566778899abbbccddeeff
+
+# blank lines and comments are ignored
