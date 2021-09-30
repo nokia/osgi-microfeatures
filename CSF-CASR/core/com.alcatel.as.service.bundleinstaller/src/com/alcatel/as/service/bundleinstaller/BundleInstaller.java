@@ -8,8 +8,6 @@ import org.osgi.framework.Bundle;
 
 /**
  * Interface registered when
- * @author pderop
- *
  */
 public interface BundleInstaller
 {

@@ -279,10 +279,10 @@ public class GetArtifacts {
 	}
 
 	private String getGroupId(String url) {
-		// url is like file:/home/pderop/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.junit/4.12_1/org.apache.servicemix.bundles.junit-4.12_1.jar
+		// url is like file:/home/user/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.junit/4.12_1/org.apache.servicemix.bundles.junit-4.12_1.jar
 		// or https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered-local/com/nokia/casr/com.nokia.casr.obr/19.3.2/
 		
-		// let's strip the prefix (either file:/home/pderop/.m2/repository/ or https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered-local/
+		// let's strip the prefix (either file:/home/user/.m2/repository/ or https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered-local/
 		int artifactUrlIndex = stripUrlPrefix(url);		
 		
 		// Now url is like org/apache/servicemix/bundles/org.apache.servicemix.bundles.junit/4.12_1/org.apache.servicemix.bundles.junit-4.12_1.jar
@@ -318,7 +318,7 @@ public class GetArtifacts {
 	private String getArtifactId(String url) {
 		int artifactUrlIndex = stripUrlPrefix(url);		
 
-		// url is like file:/home/pderop/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.junit/4.12_1/org.apache.servicemix.bundles.junit-4.12_1.jar
+		// url is like file:/home/user/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.junit/4.12_1/org.apache.servicemix.bundles.junit-4.12_1.jar
 
 		// skip url start using the artifactUrlIndex
 		String u = url.substring(artifactUrlIndex);
@@ -351,7 +351,7 @@ public class GetArtifacts {
 	private String getVersion(String url) {
 		int artifactUrlIndex = stripUrlPrefix(url);		
 
-		// url is like file:/home/pderop/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.junit/4.12_1/org.apache.servicemix.bundles.junit-4.12_1.jar
+		// url is like file:/home/user/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.junit/4.12_1/org.apache.servicemix.bundles.junit-4.12_1.jar
 
 		// skip url start using the artifactUrlIndex
 		String u = url.substring(artifactUrlIndex);

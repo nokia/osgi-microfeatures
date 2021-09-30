@@ -7,7 +7,7 @@ Bundle-SymbolicName:           com.nokia.as.thirdparty.org.apache.httpcomponents
 -includeresource:              @httpclient-osgi-4.5.13.jar!/!org/apache/commons/codec/*;lib:=true
 Bnd-LastModified: 1601736529285
 Build-Jdk: 1.8.0_251
-Built-By: pderop
+Built-By: nokia
 Bundle-Activator: org.apache.http.osgi.impl.HttpProxyConfigurationActivator
 Bundle-Description: Apache HttpComponents Client (OSGi bundle)
 Bundle-DocURL: http://www.apache.org/

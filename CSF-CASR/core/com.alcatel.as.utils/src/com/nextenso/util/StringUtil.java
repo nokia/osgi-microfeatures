@@ -27,11 +27,9 @@ import java.io.UnsupportedEncodingException;
  * <TR><TD>Name:
  *     <TD>$Name$
  * <TR><TD>Author:
- *     <TD>$Author: pierre.de_rop $
  * <TR><TD><SMALL>Log:</SMALL>
  *     <TD><SMALL>
  * <BR> $Log$
- * <BR> Revision 1.2  2005/10/10 13:43:19  pierre.de_rop
  * <BR> Reactor
  * <BR>
  * <BR> Revision 1.1  2004/04/21 12:29:28  thomas.froment

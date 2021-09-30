@@ -9,7 +9,6 @@ import alcatel.tess.hometop.gateways.utils.ConfigException;
 /**
  * The class <code>Log4jTracer</code> is a default tracer implementation.
  *
- * @author <a href="mailto:pierre@nx0047.nextenso.alcatel.fr">Pierre de Rop</a>
  * @version 1.0
  */
 public class Log4jTracer extends TracerImpl {

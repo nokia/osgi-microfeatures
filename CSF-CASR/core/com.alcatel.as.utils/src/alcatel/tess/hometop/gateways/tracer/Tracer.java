@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
  * generate log message. It also includes methods used to
  * override default configuration taken from properties.
  *
- * @author <a href="mailto:pierre@nx0047.nextenso.alcatel.fr">Pierre de Rop</a>
  * @version 1.1
  */
 public interface Tracer extends Level {

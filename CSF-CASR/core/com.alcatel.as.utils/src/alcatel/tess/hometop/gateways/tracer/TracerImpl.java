@@ -10,7 +10,6 @@ import alcatel.tess.hometop.gateways.utils.Hashtable;
 /**
  * The class <code>TracerImpl</code> is a default tracer implementation.
  *
- * @author <a href="mailto:pierre@nx0047.nextenso.alcatel.fr">Pierre de Rop</a>
  * @version 1.0
  */
 @SuppressWarnings("deprecation")
