@@ -1,0 +1,4 @@
+#These values are used to generate the jUnit test report for Jenkins.
+
+TEST_PACKAGE_NAME=%MODULE_NAME%
+TEST_SUITE_NAME=ExampleTest

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+SCRIPTDIR=`which $0`
+SCRIPTDIR=`dirname $SCRIPTDIR`
+SCRIPTDIR=`(unset CDPATH ; cd $SCRIPTDIR ; pwd)`
+
+#
+# Invoke bnd jar
+#
+if [ ! -f $SCRIPTDIR/biz.aQute.bnd*.jar ]; then
+    echo "Missing biz.aQute.bnd jar from $SCRIPTDIR/. Downloading it (the http proxy is assumed to be correctly configured)"
+    wget https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered/biz/aQute/bnd/biz.aQute.bnd/\[RELEASE\]/biz.aQute.bnd-\[RELEASE\].jar -O $SCRIPTDIR/biz.aQute.bnd.jar
+fi
+java -jar $SCRIPTDIR/biz.aQute.bnd*.jar $@
+

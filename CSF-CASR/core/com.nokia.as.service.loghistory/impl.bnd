@@ -1,0 +1,5 @@
+Bundle-Version: 1.0.0
+Private-Package: \
+	com.nokia.as.service.loghistory.impl,\
+	com.nokia.as.service.loghistory.gogo,\
+	com.nokia.as.service.loghistory.common

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1580222418110
+Bundle-ManifestVersion: 2
+Bundle-Name: io.kubernetes.client-java-proto2
+Bundle-SymbolicName: io.kubernetes.client-java-proto2
+Bundle-Version: 2.0.0.1
+Created-By: 1.8.0_221 (Oracle Corporation)
+CSF-Embedded: io.kubernetes:client-java-proto:2.0.0
+Export-Package: io.kubernetes.client.proto;version="2.0.0";uses:="com.
+ google.protobuf"
+Import-Package: com.google.protobuf;version="[3.4,4)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-4.3.1.201911131708
+

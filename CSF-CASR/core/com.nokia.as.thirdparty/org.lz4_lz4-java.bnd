@@ -1,0 +1,30 @@
+CSF-Embedded:                  org.lz4:lz4-java:1.7.1
+Bundle-Version:                1.7.1
+Bundle-Name:                   CASR - org.lz4:lz4-java:1.7.1
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.lz4_lz4-java
+-includeresource:              @lz4-java-1.7.1.jar;lib:=true
+Ant-Version: Apache Ant 1.9.6
+Automatic-Module-Name: org.lz4.java
+Bnd-LastModified: 1579321039864
+Bundle-ManifestVersion: 2
+Bundle-Version: 1.7.1
+Created-By: 1.7.0_95 (Oracle Corporation)
+DSTAMP: 20200117
+Export-Package: \
+  net.jpountz.util.win32.amd64;version="1.7.1",\
+  net.jpountz.util.darwin.x86_64;version="1.7.1",\
+  net.jpountz.util;version="1.7.1",\
+  net.jpountz.util.linux.ppc64le;version="1.7.1",\
+  net.jpountz.xxhash;version="1.7.1",\
+  net.jpountz.lz4;version="1.7.1",\
+  net.jpountz.util.linux.aarch64;version="1.7.1",\
+  net.jpountz.util.linux.i386;version="1.7.1",\
+  net.jpountz.util.linux.s390x;version="1.7.1",\
+  net.jpountz.util.linux.amd64;version="1.7.1"
+Import-Package: \
+  sun.misc;resolution:="optional"
+Manifest-Version: 1.0
+Originally-Created-By: 1.7.0_95-b00 (Oracle Corporation)
+TODAY: January 17 2020
+TSTAMP: 2217
+Tool: Bnd-1.50.0

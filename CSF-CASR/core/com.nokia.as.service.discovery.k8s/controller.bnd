@@ -1,0 +1,3 @@
+Bundle-Version: 4.0.2
+Private-Package: com.nokia.as.service.discovery.k8s.controller,\
+                 com.nokia.as.service.discovery.k8s.controller.objs

@@ -1,0 +1,7 @@
+Bundle-Name: com.alcatel.as.service.mbeanparser.impl
+Bundle-Category: core, internal
+Bundle-Activator: com.alcatel.as.service.mbeanparser.impl.Activator
+Private-Package: com.alcatel.as.service.mbeanparser.impl
+Include-Resource: META-INF/services/com.alcatel.as.service.metatype.PropertyFactory=META-INF/services/com.alcatel.as.service.metatype.PropertyFactory,\
+ META-INF/services/com.alcatel.as.service.metatype.MetatypeParser=META-INF/services/com.alcatel.as.service.metatype.MetatypeParser
+Bundle-Version: 1.0.5

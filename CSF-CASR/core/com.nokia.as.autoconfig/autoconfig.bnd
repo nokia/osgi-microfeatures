@@ -1,0 +1,14 @@
+Bundle-Activator: com.nokia.as.autoconfig.Activator
+Bundle-Name: CASR Auto Configurator
+Bundle-Version: 2.0.20
+Bundle-SymbolicName: com.nokia.as.autoconfig
+Private-Package: \
+	com.nokia.as.autoconfig,\
+	com.nokia.as.autoconfig.transform,\
+	com.nokia.as.autoconfig.legacy,\
+	com.nokia.as.autoconfig.bnd,\
+	com.nokia.as.autoconfig.mbd,\
+	com.nokia.as.autoconfig.file,\
+	com.nokia.as.autoconfig.sys,\
+	com.nokia.as.autoconfig.command,\
+	com.nokia.as.autoconfig.parser

@@ -1,0 +1,4 @@
+Bundle-Version: 1.1.7
+Export-Package: \
+	com.nsn.ood.cls.model.internal,\
+	com.nsn.ood.cls.model.internal.json

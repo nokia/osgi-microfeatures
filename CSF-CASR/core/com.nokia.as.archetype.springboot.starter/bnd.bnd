@@ -1,0 +1,6 @@
+# If you change the Bundle-Version, you must also change
+# resource/META-INF/maven/com.nokia.casr/com.nokia.as.archetype.springboot.starter/pom.properties and
+# resource/META-INF/maven/com.nokia.casr/com.nokia.as.archetype.springboot.starter/pom.xml !
+Bundle-Version: 1.0.12
+Include-Resource: resource
+-pom: false

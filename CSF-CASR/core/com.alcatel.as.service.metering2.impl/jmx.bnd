@@ -1,0 +1,5 @@
+Bundle-Name: JmxMetricsReporter
+Bundle-SymbolicName: com.alcatel.as.util.metering2.reporter.jmx
+Private-Package: com.alcatel.as.util.metering2.reporter.jmx
+Bundle-Activator: com.alcatel.as.util.metering2.reporter.jmx.Activator
+Bundle-Version: 1.0.9

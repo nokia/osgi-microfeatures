@@ -1,0 +1,22 @@
+Bundle-Version: 1.0.0.${tstamp}
+Private-Package: com.nokia.casr.samples.keycloak.vanilla
+-buildpath: \
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	${osgi},\
+	${bndlib},\
+	${junit},\
+	com.nokia.as.thirdparty.servlet.api;version=3.1.1,\
+	com.alcatel.as.service.api;version=1.0
+
+-testpath: \
+	${junit}
+	
+-sourcepath: src/main/java
+
+Web-ContextPath: /vanilla
+Include-Resource: WEB-INF/web.xml=src/main/webapp/WEB-INF/web.xml,\
+WEB-INF/jetty-web.xml=src/main/webapp/WEB-INF/jetty-web.xml,\
+WEB-INF/keycloak.json=src/main/webapp/WEB-INF/keycloak.json,\
+profile.jsp=src/main/webapp/profile.jsp,\
+styles.css=src/main/webapp/styles.css,\
+index.jsp=src/main/webapp/index.jsp

@@ -1,0 +1,4 @@
+Bundle-Activator: com.alcatel.as.service.log.impl.log4j1.Activator
+Private-Package: com.alcatel.as.service.log.impl.log4j1
+Include-Resource: META-INF/log4j.properties=META-INF/log4j.properties
+Bundle-Version: 1.0.7

@@ -1,0 +1,8 @@
+Bundle-Name: Agent LoadBalancer
+Bundle-SymbolicName: com.alcatel.as.ioh.lb.agent
+Bundle-Category: agent
+Private-Package: com.alcatel.as.ioh.lb.mux.agent
+		
+-dsannotations: *
+
+Bundle-Version: 1.0.9

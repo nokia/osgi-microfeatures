@@ -1,0 +1,18 @@
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.alcatel.as.service.api;version=1.0,\
+    com.nokia.as.thirdparty.log4j;version=1.2,\
+	org.apache.felix.gogo.runtime;version=0.16,\
+	com.fasterxml.jackson.core.jackson-core;version=2.9,\
+	com.fasterxml.jackson.core.jackson-databind;version=2.9,\
+	io.netty.common;version=4.1,\
+	org.mousio-etcd4j;version=2.15,\
+	io.netty.handler;version=4.1
+    
+Bundle-Name: EtcdDiscoveryService
+Bundle-Version: 1.0.6
+Private-Package: com.alcatel.as.service.discovery.impl.etcd
+Import-Package: *;resolution:=optional

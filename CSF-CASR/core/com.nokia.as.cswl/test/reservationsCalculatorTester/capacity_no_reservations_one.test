@@ -1,0 +1,74 @@
+// NOW=time					<- must be defined
+// 
+// [capacity | on_off] {	<- all positions are optional
+//	f: capacity										<- feature (default capacity = 100, only for capacity reservation)
+//	l: serial, total, used, [pool | floating]		<- license
+//	r: serial, capacity, time						<- current reservation
+//	n: serial, (capacity), time						<- new reservation
+//	e: [capacity | on_off | release], (capacity)	<- exception
+// }
+
+NOW=2015-02-12T13:30
+BEFORE=2015-01-12T13:30
+
+// one pool license
+capacity {
+	l: abc1, 200, 0, pool
+	n: abc1, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 100, pool
+	n: abc1, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 120, pool
+	e: capacity, 80
+}
+
+capacity {
+	l: abc1, 200, 200, pool
+	e: capacity, 0
+}
+
+capacity {
+	f: 0
+	l: abc1, 200, 0, pool
+}
+
+capacity {
+	f: 0
+	l: abc1, 200, 200, pool
+}
+
+// one floating pool license
+capacity {
+	l: abc1, 200, 0, floating
+	n: abc1, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 100, floating
+	n: abc1, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 120, floating
+	e: capacity, 80
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	e: capacity, 0
+}
+
+capacity {
+	f: 0
+	l: abc1, 200, 0, floating
+}
+
+capacity {
+	f: 0
+	l: abc1, 200, 2000, floating
+}

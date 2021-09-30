@@ -1,0 +1,4 @@
+-baseline: 
+-releaserepo:
+Bundle-Version: 1.0.0
+Private-Package: com.nokia.as.autoconfig.test.bundle.factory

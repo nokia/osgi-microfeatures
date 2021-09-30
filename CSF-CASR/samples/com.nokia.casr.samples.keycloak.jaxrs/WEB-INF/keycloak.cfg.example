@@ -1,0 +1,8 @@
+# path to the keycloak configuration file, remove it to disable keycloak
+file-keycloak.json=keycloak.json
+ 
+# (optional) global webapp descriptor file
+#file-web.xml=web.xml
+ 
+# (optional) limit keycloak to a specific port (property supported only by the jersey server)
+#port=8080

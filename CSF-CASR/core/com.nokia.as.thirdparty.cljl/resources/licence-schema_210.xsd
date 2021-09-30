@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+    <xs:element name="LicenceData">
+        <xs:annotation>
+            <xs:documentation>Licence data for SW features</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="licenceInfo">
+                    <xs:annotation>
+                        <xs:documentation>Name and sales item information</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="licenceCode" type="xs:string" use="required"/>
+                        <xs:attribute name="licenceName" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="order">
+                    <xs:annotation>
+                        <xs:documentation>Identifies the order related to licence purchase</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="orderId" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="serial">
+                    <xs:annotation>
+                        <xs:documentation>Uniquely identifies the licence</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="serialNbr" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="customer">
+                    <xs:annotation>
+                        <xs:documentation>Identifies the customer</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="customerId" type="xs:string" use="required"/>
+                        <xs:attribute name="customerName" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>		
+                <xs:element name="supplementaryInfo" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Supplementary Information</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="licenceType" type="xs:string" use="optional"/>
+                        <xs:attribute name="usageType" type="xs:string" use="optional"/>
+                        <xs:attribute name="capacityUnit" type="xs:string" use="optional"/>
+                        <xs:attribute name="additionalInfo" type="xs:string" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="threshold">
+                    <xs:annotation>
+                        <xs:documentation>Threshold of the licence</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="objectLimit" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>Capacity licensing fields</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:attribute name="maxValue" type="xs:unsignedInt" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="timeLimit">
+                                <xs:annotation>
+                                    <xs:documentation>Time controlled licensing fields</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:attribute name="startTime" type="xs:dateTime" use="required"/>
+                                    <xs:attribute name="endTime" type="xs:dateTime" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="target" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Licence target fields</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="targetNe" minOccurs="0" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>Identifies the network element(s)</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:attribute name="targetId" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="targetNeType" type="xs:string" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="featureData" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>SW features related to that licence</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="featureInfo" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>Feature code and name information</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:attribute name="featureCode" type="xs:unsignedInt" use="required"/>
+                                    <xs:attribute name="featureName" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="Id" type="xs:ID" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Licence">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="LicenceData"/>
+                <xs:element ref="ds:Signature" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="licenceXMLSchemaVersion" type="xs:string" use="required"/>	
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
+

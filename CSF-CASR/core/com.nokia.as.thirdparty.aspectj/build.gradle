@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+jar.dependsOn('copyDependencies')
+clean.dependsOn('cleanAspectjDependencies')
+
+repositories {
+  maven {
+    url 'http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered'
+  }
+  mavenLocal()
+}
+
+configurations {
+  deps
+}
+
+dependencies {
+  deps('org.aspectj:aspectjrt:1.9.4') { transitive = false }
+  deps('org.aspectj:aspectjweaver:1.9.4') { transitive = false }
+}
+
+task copyDependencies(type: Copy) {
+  from configurations.deps
+  into "$projectDir/libs"
+}
+
+task cleanAspectjDependencies(type: Delete) {
+  delete fileTree("$projectDir/libs")
+}

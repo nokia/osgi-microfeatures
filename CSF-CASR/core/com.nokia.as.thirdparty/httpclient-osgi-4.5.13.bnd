@@ -1,0 +1,100 @@
+CSF-Embedded:                  org.apache.httpcomponents:httpclient-osgi:4.5.13
+-classpath:                    ${lsa;.;*.jar}
+-output:                       tmp/httpclient-osgi-4.5.13.jar
+Bundle-Version:                4.5.13.1
+Bundle-Name:                   CASR - org.apache.httpcomponents:httpclient-osgi:4.5.13.1
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.apache.httpcomponents_httpclient-osgi
+-includeresource:              @httpclient-osgi-4.5.13.jar!/!org/apache/commons/codec/*;lib:=true
+Bnd-LastModified: 1601736529285
+Build-Jdk: 1.8.0_251
+Built-By: pderop
+Bundle-Activator: org.apache.http.osgi.impl.HttpProxyConfigurationActivator
+Bundle-Description: Apache HttpComponents Client (OSGi bundle)
+Bundle-DocURL: http://www.apache.org/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 4.5.13
+Created-By: Apache Maven Bundle Plugin
+#Embed-Dependency: *;scope=compile|runtime;inline=true
+Export-Package: \
+  org.apache.http.auth;version="4.5.13",\
+  org.apache.http.auth.params;version="4.5.13",\
+  org.apache.http.cookie;version="4.5.13",\
+  org.apache.http.cookie.params;version="4.5.13",\
+  org.apache.http.conn;version="4.5.13",\
+  org.apache.http.conn.params;version="4.5.13",\
+  org.apache.http.conn.routing;version="4.5.13",\
+  org.apache.http.conn.scheme;version="4.5.13",\
+  org.apache.http.conn.socket;version="4.5.13",\
+  org.apache.http.conn.ssl;version="4.5.13",\
+  org.apache.http.conn.util;version="4.5.13",\
+  org.apache.http.client;version="4.5.13",\
+  org.apache.http.client.cache;version="4.5.13",\
+  org.apache.http.client.config;version="4.5.13",\
+  org.apache.http.client.entity;version="4.5.13",\
+  org.apache.http.client.fluent;version="4.5.13",\
+  org.apache.http.client.methods;version="4.5.13",\
+  org.apache.http.client.params;version="4.5.13",\
+  org.apache.http.client.protocol;version="4.5.13",\
+  org.apache.http.client.utils;version="4.5.13",\
+  org.apache.http.entity.mime;version="4.5.13",\
+  org.apache.http.entity.mime.content;version="4.5.13",\
+  org.apache.http.impl.auth;version="4.5.13",\
+  org.apache.http.impl.cookie;version="4.5.13",\
+  org.apache.http.impl.conn;version="4.5.13",\
+  org.apache.http.impl.conn.tsccm;version="4.5.13",\
+  org.apache.http.impl.execchain;version="4.5.13",\
+  org.apache.http.impl.client;version="4.5.13",\
+  org.apache.http.impl.client.cache;version="4.5.13",\
+  org.apache.http.impl.client.cache.ehcache;version="4.5.13",\
+  org.apache.http.impl.client.cache.memcached;version="4.5.13",\
+  org.apache.http.osgi.services;version="4.5.13"
+#Implementation-Build: ${scmBranch}@r${buildNumber}; 2020-10-03 14:46:38+0000
+Implementation-Title: HttpComponents Apache HttpClient OSGi bundle
+Implementation-URL: http://hc.apache.org/httpcomponents-client
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Vendor-Id: org.apache
+Implementation-Version: 4.5.13
+Import-Package: \
+  org.apache.commons.codec.*;version="[1.11, 2)",\
+  javax.crypto,\
+  javax.crypto.spec,\
+  javax.naming,\
+  javax.naming.directory,\
+  javax.naming.ldap,\
+  javax.net,\
+  javax.net.ssl,\
+  javax.security.auth.x500,\
+  net.sf.ehcache;resolution:="optional",\
+  net.spy.memcached;resolution:="optional",\
+  org.apache.commons.logging;version="[1.1.0,1.3.0)",\
+  org.apache.http;version="[4.4.0,4.5.0)",\
+  org.apache.http.concurrent;version="[4.4.0,4.5.0)",\
+  org.apache.http.config;version="[4.4.0,4.5.0)",\
+  org.apache.http.entity;version="[4.4.0,4.5.0)",\
+  org.apache.http.impl;version="[4.4.0,4.5.0)",\
+  org.apache.http.impl.entity;version="[4.4.0,4.5.0)",\
+  org.apache.http.impl.io;version="[4.4.0,4.5.0)",\
+  org.apache.http.impl.pool;version="[4.4.0,4.5.0)",\
+  org.apache.http.io;version="[4.4.0,4.5.0)",\
+  org.apache.http.message;version="[4.4.0,4.5.0)",\
+  org.apache.http.params;version="[4.4.0,4.5.0)",\
+  org.apache.http.pool;version="[4.4.0,4.5.0)",\
+  org.apache.http.protocol;version="[4.4.0,4.5.0)",\
+  org.apache.http.ssl;version="[4.4.0,4.5.0)",\
+  org.apache.http.util;version="[4.4.0,4.5.0)",\
+  org.ietf.jgss,\
+  org.osgi.framework;version="[1.5,2)",\
+  org.osgi.service.cm;version="[1.3,2)"
+#Include-Resource: @/home/oleg/src/apache.org/httpcomponents/httpclient/httpclient/target/httpclient-4.5.13.jar,@/home/oleg/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar,@/home/oleg/src/apache.org/httpcomponents/httpclient/httpmime/target/httpmime-4.5.13.jar,@/home/oleg/src/apache.org/httpcomponents/httpclient/httpclient-cache/target/httpclient-cache-4.5.13.jar,@/home/oleg/src/apache.org/httpcomponents/httpclient/fluent-hc/target/fluent-hc-4.5.13.jar,OSGI-INF/metatype/metatype.properties=src/main/resources/OSGI-INF/metatype/metatype.properties,OSGI-INF/metatype/metatype.xml=src/main/resources/OSGI-INF/metatype/metatype.xml,META-INF/LICENSE=target/maven-shared-archive-resources/META-INF/LICENSE,META-INF/DEPENDENCIES=target/maven-shared-archive-resources/META-INF/DEPENDENCIES,META-INF/NOTICE=target/maven-shared-archive-resources/META-INF/NOTICE
+Manifest-Version: 1.0
+#Private-Package: org.apache.http.osgi.impl,mozilla,org.apache.commons.codec,org.apache.commons.codec.binary,org.apache.commons.codec.cli,org.apache.commons.codec.digest,org.apache.commons.codec.language,org.apache.commons.codec.language.bm,org.apache.commons.codec.net
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Specification-Title: HttpComponents Apache HttpClient OSGi bundle
+Specification-Vendor: The Apache Software Foundation
+Specification-Version: 4.5.13
+Tool: Bnd-3.5.0.201709291849
+X-Compile-Source-JDK: 1.6
+X-Compile-Target-JDK: 1.6
+url: http://hc.apache.org/httpcomponents-client

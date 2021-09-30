@@ -1,0 +1,12 @@
+Bundle-Version: 1.0.0
+Bundle-Name: CASR Basic File Configurator
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.fileconfig)'
+
+Provide-Capability: com.nokia.as.feature;\
+	com.nokia.as.feature="config.basic";\
+	internal=true;\
+	version:Version="1.0.0";\
+	desc="CASR File Configurator"
+

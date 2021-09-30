@@ -1,0 +1,133 @@
+// NOW=time					<- must be defined
+// 
+// [capacity | on_off] {	<- all positions are optional
+//	f: capacity										<- feature (default capacity = 100, only for capacity reservation)
+//	l: serial, total, used, [pool | floating]		<- license
+//	r: serial, capacity, time						<- current reservation
+//	n: serial, (capacity), time						<- new reservation
+//	e: [capacity | on_off | release], (capacity)	<- exception
+// }
+
+NOW=2015-02-12T13:30
+BEFORE=2015-01-12T13:30
+
+// three mixed licenses
+capacity {
+	f: 0
+	l: abc1, 60, 60, floating
+	l: abc2, 120, 100, floating
+	l: abc3, 60, 50, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 30, BEFORE
+	r: abc3, 20, BEFORE
+	e: release, 20
+}
+
+capacity {
+	f: 19
+	l: abc1, 60, 60, floating
+	l: abc2, 120, 100, floating
+	l: abc3, 60, 50, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 30, BEFORE
+	r: abc3, 20, BEFORE
+	e: release, 20
+}
+
+capacity {
+	f: 20
+	l: abc1, 60, 60, floating
+	l: abc2, 120, 100, floating
+	l: abc3, 60, 50, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 30, BEFORE
+	r: abc3, 20, BEFORE
+	n: abc3, 20, BEFORE
+}
+
+capacity {
+	f: 21
+	l: abc1, 60, 60, floating
+	l: abc2, 120, 100, floating
+	l: abc3, 60, 50, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 30, BEFORE
+	r: abc3, 20, BEFORE
+	n: abc3, 20, BEFORE
+	n: abc1, 1, NOW
+}
+
+capacity {
+	f: 60
+	l: abc1, 60, 60, floating
+	l: abc2, 120, 100, floating
+	l: abc3, 60, 50, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 30, BEFORE
+	r: abc3, 20, BEFORE
+	n: abc3, 20, BEFORE
+	n: abc1, 40, NOW
+}
+
+capacity {
+	f: 61
+	l: abc1, 60, 60, floating
+	l: abc2, 120, 100, floating
+	l: abc3, 60, 50, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 30, BEFORE
+	r: abc3, 20, BEFORE
+	n: abc3, 20, BEFORE
+	n: abc1, 40, NOW
+	n: abc2, 1, NOW
+}
+
+capacity {
+	f: 110
+	l: abc1, 60, 60, floating
+	l: abc2, 120, 100, floating
+	l: abc3, 60, 50, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 30, BEFORE
+	r: abc3, 20, BEFORE
+	n: abc3, 20, BEFORE
+	n: abc1, 40, NOW
+	n: abc2, 50, NOW
+}
+
+capacity {
+	f: 111
+	l: abc1, 60, 60, floating
+	l: abc2, 120, 100, floating
+	l: abc3, 60, 50, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 30, BEFORE
+	r: abc3, 20, BEFORE
+	n: abc3, 21, NOW
+	n: abc1, 40, NOW
+	n: abc2, 50, NOW
+}
+
+capacity {
+	f: 120
+	l: abc1, 60, 60, floating
+	l: abc2, 120, 100, floating
+	l: abc3, 60, 50, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 30, BEFORE
+	r: abc3, 20, BEFORE
+	n: abc3, 30, NOW
+	n: abc1, 40, NOW
+	n: abc2, 50, NOW
+}
+
+capacity {
+	f: 121
+	l: abc1, 60, 60, floating
+	l: abc2, 120, 100, floating
+	l: abc3, 60, 50, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 30, BEFORE
+	r: abc3, 20, BEFORE
+	e: capacity, 120
+}

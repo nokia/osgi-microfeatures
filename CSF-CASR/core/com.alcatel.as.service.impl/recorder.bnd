@@ -1,0 +1,3 @@
+Bundle-Name: Recorder Service
+Private-Package: com.alcatel.as.service.recorder.impl
+Bundle-Version: 1.0.0

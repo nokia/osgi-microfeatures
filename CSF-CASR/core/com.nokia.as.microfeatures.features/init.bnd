@@ -1,0 +1,13 @@
+Bundle-Version: 1.0.10
+Include-Resource: META-INF/=META-INF/,\
+ META-INF/com.nokia.as.osgi.jre18.jar=com.nokia.as.osgi.jre18.jar,\
+ META-INF/org.apache.felix.gogo.jline.jar=org.apache.felix.gogo.jline-1.1.0.jar
+ 
+Private-Package: \
+	com.nokia.as.microfeatures.features.impl.init,\
+	com.nokia.as.microfeatures.features.impl.common
+
+-fixupmessages: \
+    "META-INF\\/com\\.nokia\\.as\\.osgi\\.jre18\\.jar";is:=ignore
+    
+

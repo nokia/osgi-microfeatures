@@ -1,0 +1,8 @@
+CSF-Embedded:                  io.opentracing.contrib:opentracing-concurrent:0.3.0
+Bundle-Version:                0.3.0
+Bundle-Name:                   com.nokia.as.thirdparty.io.opentracing.contrib_opentracing.concurrent
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.opentracing.contrib_opentracing.concurrent
+-includeresource:              @opentracing-concurrent-0.3.0.jar;lib:=true
+-exportcontents:               *; version=0.3.0
+
+-manifest io.opentracing.contrib_opentracing.concurrent.mf

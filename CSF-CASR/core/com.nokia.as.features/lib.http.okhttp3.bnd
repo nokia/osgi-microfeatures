@@ -1,0 +1,15 @@
+Bundle-Name: lib.http.okhttp CASR Feature
+Bundle-Version: 1.0.4
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="lib.http.okhttp";\
+                    version:Version="3.0.0";\
+                    desc="OkHttp HTTP client (Version 3)";\
+                    doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Ok+Http"
+
+Require-Capability: \
+    osgi.identity;filter:='(&(osgi.identity=com.nokia.as.thirdparty.com.squareup.okhttp3_okhttp)(version>=3.14)(!(version>=4.0.0)))',\
+    osgi.identity;filter:='(&(osgi.identity=com.nokia.as.thirdparty.com.squareup.okio_okio)(version>=1.17.2)(!(version>=2.0.0)))'
+
+	

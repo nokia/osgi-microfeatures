@@ -1,0 +1,5 @@
+##################################
+# Etcd Discovery service Logger #
+##################################
+
+log4j.logger.javax.jmdns.impl.EtcdImpl=WARN

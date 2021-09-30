@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1555665478292
+Bundle-ManifestVersion: 2
+Bundle-Name: software.amazon.awssdk:utils:2.5.25
+Bundle-SymbolicName: com.nokia.as.thirdparty.software.amazon.awssdk_utils
+Bundle-Version: 2.5.25
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: software.amazon.awssdk:utils:2.5.25
+Export-Package: software.amazon.awssdk.utils;version="2.5.25";uses:="o
+ rg.slf4j,software.amazon.awssdk.utils.builder",software.amazon.awssdk
+ .utils.async;version="2.5.25";uses:="org.reactivestreams",software.am
+ azon.awssdk.utils.builder;version="2.5.25",software.amazon.awssdk.uti
+ ls.cache;version="2.5.25";uses:="software.amazon.awssdk.utils",softwa
+ re.amazon.awssdk.utils.http;version="2.5.25",software.amazon.awssdk.u
+ tils.internal;version="2.5.25";uses:="software.amazon.awssdk.utils"
+Import-Package: org.reactivestreams;version="[1.0,2)",org.slf4j,softwa
+ re.amazon.awssdk.utils;version="[2.5,3)",software.amazon.awssdk.utils
+ .builder;version="[2.5,3)",software.amazon.awssdk.utils.internal;vers
+ ion="[2.5,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.2.0.201903051501
+

@@ -1,0 +1,26 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	com.nokia.as.microfeatures.bundlerepository;version=1.0.0,\
+	com.nokia.as.microfeatures.features.core;version=1.0.0,\
+	org.apache.felix.http.servlet-api;version=1.1.2,\
+	org.apache.felix.dependencymanager.annotation;version=4.5,\
+	com.nokia.as.thirdparty.json;version=1.0.1,\
+	com.nokia.as.thirdparty.log4j;version=latest,\
+	org.knopflerfish.bundle.http;version=3.1
+	
+
+-testpath: \
+	${junit}
+
+javac.source: 1.8
+javac.target: 1.8
+
+Bundle-Version: 1.0.46
+Private-Package: com.nokia.as.features.admin
+
+-includeresource: resources=caruntimecomposer/build,\
+  META-INF/changelog.txt=changelog.txt
+  
+# This bundle is part of the microfeature group id
+groupId: com.nokia.casr.microfeatures

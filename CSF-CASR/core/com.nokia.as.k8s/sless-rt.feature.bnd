@@ -1,0 +1,14 @@
+Bundle-Name: agent.sless.rt CASR Feature
+Bundle-Version: 1.0.0
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="agent.sless.core";\
+                    version:Version="1.0.0";\
+                    desc="CASR Core Serverless Runtime Agent";\
+                    doc="https://confluence.app.alcatel-lucent.com/display/plateng/CASR+-+MicroFeatures";internal=true
+
+Require-Capability: \
+    	osgi.identity;filter:='(osgi.identity=com.nokia.as.k8s.sless-rt-impl)',\
+    	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.callout.standalone)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.common.standalone)'

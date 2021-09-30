@@ -1,0 +1,15 @@
+# Feature for CLOG Unified Logging API (requires log4j2)
+
+Bundle-Version: 1.0.3
+Bundle-Name: CSF Unified Logging Feature
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.logging.unified.logging.api)'
+ 
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.csf.clog";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+CLOG";\
+  desc="CSF Unified Logging API (requires log4j2)"
+
+

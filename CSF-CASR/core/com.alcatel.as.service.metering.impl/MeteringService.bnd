@@ -1,0 +1,12 @@
+Bundle-Version: 1.0.6
+Bundle-Name: MeteringService
+Bundle-SymbolicName: com.alcatel.as.service.metering.impl
+Bundle-StartLevel: 1
+Import-Package: org.apache.log4j.or; resolution:=optional, *
+Private-Package: com.alcatel.as.service.metering.impl
+Export-Package: com.alcatel.as.service.metering.impl.renderer
+Include-Resource: META-INF/services=META-INF/services
+-dsannotations: *
+Bundle-AutoStart: true
+X-Composite-Singletons: com.alcatel.as.service.metering.MeteringService
+

@@ -1,0 +1,11 @@
+CSF-Embedded:                  org.testcontainers:testcontainers:1.10.4
+Bundle-Version:                1.10.5
+Bundle-Name:                   com.nokia.as.thirdparty.org.testcontainers_testcontainers
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.testcontainers_testcontainers
+-includeresource:              @testcontainers-1.10.4.jar;lib:=true
+-exportcontents:               *; version=1.10.4
+Bundle-StartLevel:             20
+SPI-Provider:                  *
+SPI-Consumer:                  *
+Import-Package: 	       org.testcontainers.shaded.javax.annotation; org.apache.logging.log4j; org.testcontainers.shaded.org.glassfish.jersey.client.spi; net.jpountz.lz4; org.testcontainers.shaded.com.google.appengine.api; com.android.org.conscrypt; android.security; com.jcraft.jzlib; org.testcontainers.shaded.com.google.protobuf; net.jpountz.xxhash; org.conscrypt; com.ning.compress; org.rnorth.visibleassertions; lzma.sdk.lzma; org.testcontainers.shaded.com.google.apphosting.api; com.ning.compress.lzf; android.util; android.net.http; android.net; org.apache.commons.logging; org.apache.logging.log4j.message; org.eclipse.jetty.alpn; org.testcontainers.shaded.com.google.protobuf.nano; org.testcontainers.shaded.org.glassfish.jersey.client; android.os; dalvik.system; org.apache.harmony.xnet.provider.jsse; org.testcontainers.shaded.org.glassfish.hk2.osgiresourcelocator; com.ning.compress.lzf.util; org.testcontainers.shaded.io.netty.internal.tcnative; org.jboss.marshalling; org.testcontainers.shaded.javax.annotation.meta; org.apache.logging.log4j.spi; org.eclipse.jetty.npn; lzma.sdk; org.testcontainers.shaded.org.glassfish.jersey.apache.connector; resolution:=optional, *
+-manifest org.testcontainers_testcontainers.mf

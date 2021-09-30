@@ -1,0 +1,7 @@
+Bundle-Version: 1.0.0
+Bundle-Name: JAXWS CXF System Test
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.cxf";category:List<String>="test"; internal=true
+Include-Resource: stest=stest
+X-Unpack: stest
+Private-Package:
+

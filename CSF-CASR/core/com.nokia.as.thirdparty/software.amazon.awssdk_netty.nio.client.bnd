@@ -1,0 +1,12 @@
+CSF-Embedded:                  software.amazon.awssdk:netty-nio-client:2.5.25
+Bundle-Version:                2.5.25
+Bundle-Name:                   software.amazon.awssdk:netty-nio-client:2.5.25
+Bundle-SymbolicName:           com.nokia.as.thirdparty.software.amazon.awssdk_netty.nio.client
+-includeresource:              @netty-nio-client-2.5.25.jar;lib:=true
+Bundle-StartLevel:             20
+SPI-Provider:                  *
+# This bundle contains a fork of the io.netty.handler.codec.http2 package owned by netty
+# So we need to make sure we don't export the forked package, and also not the internal aws packages
+-exportcontents:               software.amazon.awssdk.http.nio.netty; version=2.5.25
+
+-manifest software.amazon.awssdk_netty.nio.client.mf

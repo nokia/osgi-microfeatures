@@ -1,0 +1,6 @@
+Bundle-Name: DnsAPI
+Bundle-SymbolicName: com.alcatel_lucent.as.service.dns
+Bundle-Category: dns, api
+X-Obsoletes: DnsAPI
+Export-Package: com.alcatel_lucent.as.service.dns
+Import-Package: *

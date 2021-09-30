@@ -1,0 +1,16 @@
+-fixupmessages: \
+ "Can't find super class*";is:=ignore
+
+-buildpath: \
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	javax.ws.rs-api;version=2.1,\
+	org.apache.felix.dependencymanager.annotation;version=5.0,\
+	org.darkphoenixs:log4j;version=1.2,\
+	org.jboss.resteasy:resteasy-client;version=3.13.1.Final,\
+	org.keycloak.keycloak-adapter-core;version=${keycloak.version},\
+	org.keycloak.keycloak-common;version=${keycloak.version},\
+	org.keycloak.keycloak-core;version=${keycloak.version},\
+	org.keycloak:keycloak-admin-client;version=${keycloak.version}
+	
+-sub: *.bnd
+

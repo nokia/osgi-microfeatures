@@ -1,0 +1,142 @@
+#!/bin/bash
+
+_bndtools() {
+    local i=1 cmd
+    local opts="bnd build feature gradle find lj lb help print"
+
+    # find the subcommand
+    while [[ "$i" -lt "$COMP_CWORD" ]]
+    do
+	local s="${COMP_WORDS[i]}"
+	case "$s" in
+	    -*) ;;
+	    *)
+		cmd="$s"
+		break
+		;;
+	esac
+	(( i++ ))
+    done
+
+    if [[ "$i" -eq "$COMP_CWORD" ]]
+    then
+	local cur="${COMP_WORDS[COMP_CWORD]}"
+	COMPREPLY=($(compgen -W "${opts}" -- "$cur"))
+	return # return early if we're still completing the 'current' command
+    fi
+
+    # we've completed the 'current' command and now need to call the next completion function
+    # subcommands have their own completion functions
+    case "$cmd" in
+	print)
+	    _print
+	    ;;
+
+	bnd)
+	    _generate_bnd
+	    ;;
+
+	build)
+	    _build
+	    ;;
+	
+	feature)
+	    _feature
+	    ;;
+	
+	find)
+	    _find
+	    ;;
+	
+	*)
+	    ;;
+    esac
+}
+
+_generate_bnd ()
+{  
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local prev="${COMP_WORDS[COMP_CWORD-1]}"
+    local opts="-p"
+
+    case "${prev}" in
+	-p)
+            COMPREPLY=( $(compgen -W "com.nokia.as.thirdparty" -- ${cur}) )
+            return 0
+	    ;;
+	*)
+	    files=`ls *.jar 2>/dev/null`
+            COMPREPLY=( $(compgen -W "-p $files" -- "${cur}") )
+            return 0
+	    ;;
+    esac
+    
+    COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+}
+
+_build ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    files=`ls *.bnd 2>/dev/null`
+    COMPREPLY=( $(compgen -W "$files" -- ${cur}) )
+}
+
+_print ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    files=`ls *.jar 2>/dev/null`
+    COMPREPLY=( $(compgen -W "-b $files" -- ${cur}) )
+}
+
+_feature ()
+{  
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=($(compgen -W "-f --doc --desc" -- "$cur"))
+}
+
+_get_prev() # get previous significant word, i.e. not an option flag
+{
+	case "${COMP_WORDS[COMP_CWORD-$1]}" in
+	    -*)
+		_get_prev  $(($1+1))
+		;;
+	    *)
+		echo "${COMP_WORDS[COMP_CWORD-$1]}"
+		;;
+	esac
+}
+
+function _biz_aqute_bnd()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    [[ ${cur} == -* ]] && return 0 # Not even trying to complete options
+
+    # Basic commands
+    opts="_merge _par action add baseline bash bnd bootstrap bsn2url build buildx bump changes classpath classtoresource clean collect com compile convert copy create debug defaults deliverables dependencies diff digest do eclipse ees enroute export exportreport extract find flatten generate graph grep index info junit macro maven mbr nexus package packagetoresource plugins print profile project properties release remote remove repo resolve run runtests schema select settings shell source sync syntax test type verify version view wrap xref help"
+
+    prev=$(_get_prev 1)
+    
+    #
+    # Argument completion
+    #	
+    case "${prev}" in
+	bnd|help)
+	    COMPREPLY=($(compgen -W "${opts}" $cur))
+	    return 0
+	    ;; 
+	*)
+	    COMPREPLY=( $(compgen -f ${cur}) ) # List of files by default
+        return 0
+        ;;	
+    esac
+}
+
+
+# completion for the bndtools command
+complete -o bashdefault -F _bndtools bndtools
+
+# completion for the biz.aQute.bnd command
+complete -o bashdefault -F _biz_aqute_bnd biz.aQute.bnd
+

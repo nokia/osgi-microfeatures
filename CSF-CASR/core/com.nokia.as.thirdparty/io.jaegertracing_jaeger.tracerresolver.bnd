@@ -1,0 +1,13 @@
+CSF-Embedded:                  io.jaegertracing:jaeger-tracerresolver:1.6.0
+Bundle-Version:                1.6.0
+Bundle-Name:                   CASR - io.jaegertracing:jaeger-tracerresolver:1.6.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.jaegertracing_jaeger.tracerresolver
+-includeresource:              @jaeger-tracerresolver-1.6.0.jar;lib:=true
+-exportcontents:               *; version=1.6.0
+Bundle-StartLevel:             20
+SPI-Provider:                  *
+Import-Package: \
+  io.jaegertracing;version="[1.6,2)",\
+  io.jaegertracing.internal;version="[1.6,2)",\
+  io.opentracing;version="[0.33,1)",\
+  io.opentracing.contrib.tracerresolver;version="[0.1,2)"

@@ -1,0 +1,218 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Gogo Web Console</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  		<link rel="stylesheet" href="gogo/res/materialize.min.css">
+  		<style>
+			html, body {
+			    height: 100%;
+			    width: 100%;
+			    margin: 0;
+			    padding: 0;
+			}
+			
+			#shell {
+			    background-color: #0A0A0A;
+			}
+			
+			.ui-tabs-panel {
+			    overflow-y: auto;
+			    height:100%;
+			}
+							
+			#console {
+				display:block;
+				width:100%;
+				word-wrap: break-word;      /* IE 5.5-7 */
+   			    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+			 	white-space: pre-wrap; 
+			    background-color: #0A0A0A;
+			    color: white;
+			    padding: 10px;
+			    margin-bottom:50px;
+			 
+			}
+			
+			.console-input-container {
+				position: fixed;
+				width: 100%;
+				bottom:0px;
+				margin-bottom:0px;
+			    background-color: #0A0A0A;
+			}
+			
+			#console-input {
+				color:white;
+			}
+			
+			.tab-screen {
+				height:100%;
+			}
+			
+			.error {
+				color: red;
+			}
+			
+			.gogo-logo {
+				font-size: 1.5em;
+				margin-left: 8px;
+			}
+			
+			.navbar-fixed {
+				height: 32px;
+			}
+			
+			.collapsible-body {
+				overflow: scroll;
+			}
+			
+		   .console-input-container input[type=text]:focus {
+		     border-bottom: 1px solid white !important;
+		     box-shadow: 0 1px 0 0 black !important;
+		   }
+	
+		</style>
+  		<link rel="stylesheet" href="gogo/res/jquery-ui.min.css">
+  		<link rel="stylesheet" href="gogo/res/jquery-ui.theme.min.css">
+		
+    </head>
+    <body>     
+		<script src="gogo/res/resources/webjars/jquery/3.4.1/jquery.min.js"></script>
+		<script src="gogo/res/materialize.min.js"></script>   
+		<script src="gogo/res/jquery-ui.min.js"></script>   
+		
+	  <div class="navbar-fixed">
+	    <nav class="nav-extended blue darken-4">
+
+	      <div class="nav-content">
+	        <ul class="tabs tabs-transparent">
+	          <li class="tab"><a href="#shell">Gogo Console</a></li>
+	          <li class="tab"><a href="#commands">Command List</a></li>
+	        </ul>
+	      </div>
+	    </nav>
+	  </div>
+	          
+	  <div id="shell" class="tab-screen">
+  	  	<div class="console-input-container input-field">
+	  		<input id="console-input" class="autocomplete" placeholder="Type your command here..." type="text"/>
+	  	</div>
+	  	<pre id="console">
+		</pre>
+
+	  </div>
+	  <div id="commands" class="tab-screen">
+	  
+		<ul id="command-list" class="collapsible" >
+			
+		 </ul>
+	  </div>
+
+		<script type="text/javascript">		
+			function sendGogoCommand(command) {
+				var contextPath = window.location.pathname;
+				return $.post({
+					url: contextPath + "/execCommand",
+					data: JSON.stringify({command: command}),
+					contentType: "application/json"
+				});
+			}	
+			
+			function submitConsoleInput(input) {
+				sendGogoCommand(input)
+					.done(function(data) {
+						$("#console").append("\ng! " + input + "\n\n");
+						$("#console").append(data.standardOut);
+						
+						if(data.errorOut) {
+							$("#console").append('<span class="error"> ' + data.errorOut + '</span>');
+						}
+						$("#console-input").val("");
+						
+						var height = $("html").prop('scrollHeight');
+					    $("html").scrollTop(height);
+					});
+			}
+			
+			function renderGogoList(commands) {
+				$('#commands-list').empty();
+				
+				if(!commands) {
+					return;
+				}
+				
+				commands.forEach(function(el) {
+					if(!el) {
+						return;
+					}
+					var element = $('<li/>', {
+						data: { commandName : el }
+					});
+					
+					element.append($('<div/>', {
+						text: el,
+						class: 'collapsible-header'
+					}));
+					
+					element.append($('<div/>', {
+						text: el,
+						class: 'collapsible-body'
+					}));
+					
+					$('#command-list').append(element);
+				});
+				
+				$('#command-list').collapsible({
+					onOpenStart: function(arg) {
+						sendGogoCommand("help " + $(arg).data("commandName")).done(function(data) {
+							$(arg).find(".collapsible-body").html("<pre>" + data.standardOut + " </pre>");
+						}).fail(function() { 
+						  M.toast({html: 'An error occured when reaching the runtime server'});				
+						});;
+					}
+			 	});
+			}
+			
+		
+			$(function() {
+				var tabs = $(".tabs").tabs();
+					
+				sendGogoCommand("help").done(function(data) {
+					if(data.errorOut || !data.standardOut) {
+					  M.toast({html: 'An error occured when reaching the runtime server'});
+					  return;
+					}
+					
+					var array = data.standardOut.split('\n');
+					renderGogoList(array);
+				    $('#console-input').autocomplete({
+				    	source: function(request, response) {
+					        var results = $.ui.autocomplete.filter(array, request.term);
+					
+					        response(results.slice(0, 8));
+					    },
+				    	position: { collision: "flip" }
+				    });
+
+					$('#console-input').on('keypress', function (e) {
+         				if (e.which === 13) {
+  					 		submitConsoleInput(($('#console-input').val()));
+  					 		$('#console-input').val("");
+  					 		$('#console-input').autocomplete("close");
+  					 	}
+					});					
+
+					
+				    
+				}).fail(function() { 
+				  M.toast({html: 'An error occured when reaching the runtime server'});				
+				});
+	
+			});
+		</script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+API_SRC_PREFIX := src
+API_SRC_DIR := api/src
+API_SRC_JAR := $(API_SRC_PREFIX)-$(notdir $(SESSIONAPI_TARGET))
+
+user: moduleend 
+
+moduleend: $(API_SRC_DIR)/$(API_SRC_JAR)
+
+$(API_SRC_DIR)/$(API_SRC_JAR) : $(SESSIONAPI_SRC) srcfiles
+	@echo "Generating api source code jar file ..."
+	mkdir -p $(API_SRC_DIR)
+	$(JAR) $(JAR_FLAGS) $(API_SRC_DIR)/$(API_SRC_JAR) $(SESSIONAPI_SRC)
+
+clean::
+	rm -fr $(API_SRC_DIR)/$(API_SRC_JAR)
+

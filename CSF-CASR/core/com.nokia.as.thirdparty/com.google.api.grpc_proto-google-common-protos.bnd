@@ -1,0 +1,12 @@
+CSF-Embedded:                  com.google.api.grpc:proto-google-common-protos:2.0.1
+Bundle-Version:                2.0.1
+Bundle-Name:                   CASR - com.google.api.grpc:proto-google-common-protos:2.0.1
+Bundle-SymbolicName:           com.nokia.as.thirdparty.com.google.api.grpc_proto-google-common-protos
+-includeresource:              @proto-google-common-protos-2.0.1.jar;lib:=true
+-exportcontents:               *; version=2.0.1
+Import-Package: \
+  com.google.api;version="[2.0,3)",\
+  com.google.protobuf;version="[3.12,4)",\
+  com.google.rpc;version="[2.0,3)",\
+  com.google.rpc.context;version="[2.0,3)",\
+  com.google.type;version="[2.0,3)"

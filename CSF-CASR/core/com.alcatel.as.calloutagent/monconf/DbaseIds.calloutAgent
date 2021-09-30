@@ -1,0 +1,21 @@
+//
+// Tables used to store CalloutAgent data & sessions
+//
+
+//
+// CalloutAgent data
+//
+ID          170
+NAME        CalloutAgent Data
+AUTOCLEAR   False
+CRYPTED     False
+CONFIG      False
+
+//
+// CalloutAgent sessions
+//
+ID          171
+NAME        CalloutAgent Sessions
+AUTOCLEAR   True
+CRYPTED     False
+CONFIG      False

@@ -1,0 +1,43 @@
+Bundle-Version: 1.0.17
+Bundle-Name: Common Bundles
+dir: bnd/feature/common
+Include-Resource: \
+ META-INF/assembly.cfg=${dir}/assembly.cfg,\
+ META-INF/defTcpServer.txt=${dir}/defTcpServer.txt,\
+ scripts/gogo.sh=${dir}/gogo.sh
+X-Unpack: scripts/gogo.sh
+
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="Common Bundles"; internal=true
+
+Require-Capability: \
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.ioh.impl.rmeters)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.ioh.impl.core)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.mux.impl)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.api)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.asrcommands)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.concurrent)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.diagnostics)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.asrlog)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel_lucent.as.management.annotation)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.gs)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.metering2.impl)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.metering.impl)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.shutdown)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.utils)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.reactor.socks)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.sctp.native.linux32)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.sctp.native.linux64)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.utils)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.standalone-discovery)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.gatewaysutils.configs.environment)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.util.gogoclient)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.recorder)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.service.gogo)',\
+ osgi.identity;filter:='(osgi.identity=DNSClient)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.dnsjava)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.standalone-reporter)'
+ 
+ 
+
+
+

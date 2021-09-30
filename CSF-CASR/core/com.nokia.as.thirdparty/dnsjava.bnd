@@ -1,0 +1,10 @@
+Bundle-Name: DNSJava
+Bundle-Category: api
+X-Obsoletes: DNSJava
+Include-Resource: @dnsjava-2.0.1.jar!/org**
+-exportcontents: *;version="2.0.1"
+Bundle-Version: 2.0.3
+CSF-Embedded: dnsjava:dnsjava:2.0.1
+Import-Package: sun.net.spi.nameservice;resolution:=optional,*
+-manifest dnsjava.mf
+

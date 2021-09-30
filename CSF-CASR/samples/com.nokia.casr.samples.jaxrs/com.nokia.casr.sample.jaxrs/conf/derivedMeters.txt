@@ -1,0 +1,15 @@
+#
+#
+#
+#createRateMeter -m <monitorable> -mt <meter> -period 1000
+#createMaxValueMeter -m <monitorable> -mt <meter>
+#createMaxValueMeter -m <monitorable> -mt <meter> -scheduled 1000
+#createMovingMaxValueMeter -m <monitorable> -mt <max-meter>
+
+# other merge operations : -avg -max -min -or -nor -and -nand
+#mergeMeters -m <monitorable> -to <dest-meter> -mts <metersPattern>
+#mergeMeters -m <monitorable> -to <dest-meter> -mt <meter1> -mt <meter2>
+#mergeMeters -ms <monitorables> -to <dest-meter> -mt <meter1> -mt <meter2>
+
+#mergeMonitorables -to <dest-monitorable> -ms <monitorablesPattern> -mt <meter1> -mt <meter2>
+#mergeMonitorables -to <dest-monitorable> -m <monitorable1> -m <monitorable2> -mts <metersPattern1> -mts <metersPattern2>

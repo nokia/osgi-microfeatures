@@ -1,0 +1,11 @@
+# Disable the base feature as we are inlining another version of slf4j in this bundle
+-buildfeatures.blueprint-base:
+-buildpath: \
+	${osgi},\
+	org.apache.felix.dependencymanager,\
+	osgi.core,\
+	slf4j.api;version=1.7,\
+	org.quartz-scheduler.quartz;version=2.3,\
+	com.nokia.as.thirdparty.servlet.api;version=latest
+
+-sub: *.bnd

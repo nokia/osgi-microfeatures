@@ -1,0 +1,21 @@
+# keep "CalloutAgent" for the assembly used for legacy deployments
+Bundle-Name: CalloutServer
+Export-Package: com.nextenso.agent,\
+ com.nextenso.agent.event,\
+ com.nextenso.proxylet.impl,\
+ com.nextenso.proxylet.engine,\
+ com.nextenso.proxylet.engine.criterion,\
+ com.nextenso.proxylet.mgmt.impl,\
+ com.nextenso.proxylet.license
+DynamicImport-Package: *
+Bundle-Activator: com.nextenso.agent.Activator
+X-Composite-Singletons: \
+ java.util.Dictionary,\
+ com.alcatel.as.service.diagnostics.ServiceDiagnostics,\
+ org.osgi.service.packageadmin.PackageAdmin,\
+ com.alcatel.as.service.diagnostics.ServiceDiagnosticsPlugin,\
+ org.osgi.service.event.EventAdmin,\
+ com.alcatel.as.service.concurrent.PlatformExecutors,\
+ com.alcatel.as.session.distributed.SessionManager
+ASR-CoordinatorParticipants: 1
+Bundle-Version: 3.1.0

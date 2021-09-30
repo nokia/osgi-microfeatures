@@ -1,0 +1,12 @@
+CSF-Artifact: false
+-sub: *.bnd
+-fixupmessages: \
+   "Can't find super class";\
+   "io.kubernetes.client-java2: The bundle version \\(2.0.0/2.0.0\\) is too low, must be at least 2.0.1";\
+   "Host io.kubernetes.client-java-api2=bundle-version=*";\
+   is:=ignore
+
+-buildpath:\
+    io.kubernetes:client-java;version=2.0.0,\
+    io.kubernetes:client-java-api;version=2.0.0,\
+    io.kubernetes:client-java-proto;version=2.0.0

@@ -1,0 +1,22 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	com.alcatel_lucent.as.service.dns;version=1.0,\
+	com.alcatel.as.ioh;version=1.21,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.alcatel.as.utils;version=2.18,\
+	com.alcatel.as.service.api;version=2.5.0,\
+	com.alcatel.as.service.metering2;version=1.1.0,\
+	com.nextenso.mux;version=3.1,\
+	com.alcatel.as.mux.impl;version=3.2,\
+	com.alcatel.as.service.metering2.impl;version=1.0,\
+	org.apache.felix.gogo.runtime;version=1.1.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.thoughtworks.xstream:xstream;version=1.4,\
+	com.nokia.as.thirdparty.jsr166e;version=1.7,\
+	com.nokia.as.service.logadmin.api;version=1.0,\
+	org.jline;version=3.11
+	
+-sub: \
+    *.bnd

@@ -1,0 +1,15 @@
+Bundle-Version: 1.0.2
+Bundle-Name: tools.k8s.client6
+
+Require-Capability: \
+	osgi.identity;filter:='(&(osgi.identity=io.kubernetes.client-java-api6)(version>=6.0.1)(!(version >= 7.0.0)))',\
+        osgi.identity;filter:='(&(osgi.identity=io.kubernetes.client-java-extended6)(version>=6.0.1)(!(version>=7.0.0)))',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.lib.http.okhttp2)'
+	
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.k8s.client";\
+  alias:List<String>="tools.k8s.client";\
+  internal=false;\
+  version:Version="6.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Kubernetes+Java+Client";\
+  desc="Kubernetes Client API Libraries 6.0.1"

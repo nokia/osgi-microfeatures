@@ -1,0 +1,26 @@
+CSF-Embedded:                  io.jaegertracing:jaeger-thrift:1.6.0
+Bundle-Version:                1.6.0
+Bundle-Name:                   CASR - io.jaegertracing:jaeger-thrift:1.6.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.jaegertracing_jaeger.thrift
+-includeresource:              @jaeger-thrift-1.6.0.jar;lib:=true
+-exportcontents:               *; version=1.6.0
+Bundle-StartLevel:             20
+SPI-Provider:                  *
+Import-Package: \
+  com.twitter.zipkin.thriftjava;version="[1.6,2)",\
+  io.jaegertracing;version="[1.6,2)",\
+  io.jaegertracing.agent.thrift;version="[1.6,2)",\
+  io.jaegertracing.internal;version="[1.6,2)",\
+  io.jaegertracing.internal.exceptions;version="[1.6,2)",\
+  io.jaegertracing.spi;version="[1.6,2)",\
+  io.jaegertracing.thrift.internal.reporters.protocols;version="[1.6,2)",\
+  io.jaegertracing.thriftjava;version="[1.6,2)",\
+  okhttp3;version="[4.9,5)",\
+  org.apache.thrift;version="[0.14,1)",\
+  org.apache.thrift.async;version="[0.14,1)",\
+  org.apache.thrift.meta_data;version="[0.14,1)",\
+  org.apache.thrift.protocol;version="[0.14,1)",\
+  org.apache.thrift.scheme;version="[0.14,1)",\
+  org.apache.thrift.server;version="[0.14,1)",\
+  org.apache.thrift.transport;version="[0.14,1)",\
+  org.slf4j;version="[1.7,2)"

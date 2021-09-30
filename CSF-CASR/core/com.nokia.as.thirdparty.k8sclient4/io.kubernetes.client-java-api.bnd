@@ -1,0 +1,8 @@
+CSF-Embedded:                  io.kubernetes:client-java-api:4.0.0
+Bundle-Version:                4.0.0
+Bundle-Name:                   io.kubernetes.client-java-api
+Bundle-SymbolicName:           io.kubernetes.client-java-api
+-includeresource:              @client-java-api-4.0.0.jar;lib:=true
+-exportcontents:               *; version=4.0.0
+
+-manifest io.kubernetes.client-java-api.mf

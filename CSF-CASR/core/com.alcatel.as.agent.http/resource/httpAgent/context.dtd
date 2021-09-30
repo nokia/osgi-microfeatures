@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Root element -->
+<!ELEMENT contexts (context)*>
+
+<!ELEMENT context (context-name, description?, context-param*,
+context-criterion*, request-chain?, response-chain?, (session-listener | request-listener | response-listener | context-listener)*, next-hop?)>
+
+<!-- context ID - a unique int among contexts which must be > 0 -->
+<!ATTLIST context
+	id	CDATA	#REQUIRED
+> 
+
+<!ELEMENT context-name (#PCDATA)>
+
+<!-- Information describing the parent element -->
+<!ELEMENT description (#PCDATA)>
+
+<!-- Context-wide initialization parameters -->
+<!ELEMENT context-param (param-name, param-value, description?)>
+
+<!ELEMENT param-name (#PCDATA)>
+<!ELEMENT param-value (#PCDATA)>
+
+<!-- Context-wide pre-defined criterion -->
+<!ELEMENT context-criterion (criterion-name, criterion-value, criterion-description?)>
+
+<!-- Class implementing a listener that should be loaded -->
+<!ELEMENT session-listener (listener-class)>
+<!ELEMENT request-listener (listener-class)>
+<!ELEMENT response-listener (listener-class)>
+<!ELEMENT context-listener (listener-class)>
+<!ELEMENT listener-class (#PCDATA)>
+
+<!-- Next hop to use by default. The format is host:port
+The special value "direct" means direct connection to the network.
+-->
+<!ELEMENT next-hop (#PCDATA)>
+
+<!-- The list of proxylets that handle requests. -->
+<!ELEMENT request-chain (proxylet*)>
+
+<!-- The list of proxylets that handle responses. -->
+<!ELEMENT response-chain (proxylet*)>
+
+<!ELEMENT proxylet (proxylet-name, description?, protocol, proxylet-class, init-param*, criterion)>
+
+<!--
+The proxylet-name element contains the canonical name of the
+proxylet. Each proxylet name is unique within the context.
+-->
+<!ELEMENT proxylet-name (#PCDATA)>
+
+<!-- currently only HTTP -->
+<!ELEMENT protocol (#PCDATA)>
+
+<!ELEMENT proxylet-class (#PCDATA)>
+
+<!ELEMENT init-param (param-name, param-value, description?)>
+
+<!ELEMENT criterion (criterion-name, criterion-value, criterion-description?)>
+<!ELEMENT criterion-name (#PCDATA)>
+<!ELEMENT criterion-value (from|until|day|date|month|session-attr|message-attr|header|clid|ipsrc|ipdest|port|domain|path|or|and|not|criterion-ref|all)>
+<!ELEMENT criterion-description (#PCDATA)>
+
+<!--
+#################################################
+Date-related criteria
+#################################################
+-->
+
+<!-- inclusive from -->
+<!ELEMENT from (day|date|month|time)>
+
+<!-- inclusive until -->
+<!ELEMENT until (day|date|month|time)>
+
+<!-- day of the week : mon, tue, wed, thu, fri, sat, sun
+	The first day of the week is monday
+	-->
+<!ELEMENT day (#PCDATA)>
+
+<!-- date : from 1 to 31 -->
+<!ELEMENT date (#PCDATA)>
+
+<!-- month : jan, feb , mar, apr, may, jun, jul, aug, sep, oct, nov, dec -->
+<!ELEMENT month (#PCDATA)>
+
+<!-- Specifies a time in the format HH:mm
+	Used within <from> or <until>
+	ex: 15:30
+	-->
+<!ELEMENT time (#PCDATA)>
+
+
+<!-- Examples
+every sunday of may
+<and>
+	<day>sun</day>
+	<month>may</month>
+</and>
+
+everyday from 8am until 5pm except on the weekend
+<and>
+	<from>  <time>8:00</time> </from>
+	<until> <time>16:59</time></until>
+	<until> <day>fri</day>    </until>
+</and>
+
+End Examples
+-->
+
+
+<!--
+#################################################
+Attribute-related criteria
+#################################################
+-->
+
+<!ELEMENT session-attr (attr-name, attr-value, description?)>
+<!ELEMENT message-attr (attr-name, attr-value, description?)>
+
+<!ELEMENT attr-name (#PCDATA)>
+<!ELEMENT attr-value (#PCDATA)>
+		 
+<!--
+#################################################
+URL-related criteria
+#################################################
+-->
+
+<!-- The destination IP address -->
+<!ELEMENT ipdest (#PCDATA)>
+<!-- The source IP address -->
+<!ELEMENT ipsrc (#PCDATA)>
+<!-- URL fields -->
+<!ELEMENT port (#PCDATA)>
+<!ELEMENT domain (#PCDATA)>
+<!ELEMENT path (#PCDATA)>
+
+<!--
+#################################################
+Header-related criteria
+#################################################
+-->
+
+<!ELEMENT clid (#PCDATA)>
+
+<!-- Any request (or response) header -->
+<!ELEMENT header (header-name, header-value)>
+<!ELEMENT header-name (#PCDATA)>
+<!ELEMENT header-value (#PCDATA)>
+
+<!--
+#################################################
+Logical bricks
+#################################################
+-->
+
+<!ELEMENT and (from|until|day|date|month|session-attr|message-attr|header|clid|ipsrc|ipdest|port|domain|path|or|not|criterion-ref)+>
+<!ELEMENT or  (from|until|day|date|month|session-attr|message-attr|header|clid|ipsrc|ipdest|port|domain|path|and|not|criterion-ref)+>
+<!ELEMENT not (from|until|day|date|month|session-attr|message-attr|header|clid|ipsrc|ipdest|port|domain|path|or|and|criterion-ref)>
+ 
+<!ELEMENT all EMPTY>
+ 
+<!ELEMENT criterion-ref (#PCDATA)>
+
+
+
+<!-- Example
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<context>
+
+	<context-name>Nextenso Context</context-name>
+	
+	<description>Nextenso domain context</description>
+	
+	<context-param>
+		<param-name>Contact</param-name>
+		<param-value>bill@nextenso.com</param-value>
+	</context-param>
+
+	<request-chain>
+		<proxylet>
+			<proxylet-name>Internal Authentication</proxylet-name>
+			<description>Proxylet that authenticates incoming requests</description>
+			<protocol>HTTP</protocol>
+			<proxylet-class>com.InternalAuthentication</proxylet-class>
+			<init-param>
+				<param-name>LoginPage</param-name>
+				<param-value>http://nx/index.html</param-value>
+	    </init-param>
+			<criterion>
+				<criterion-name>Internal</criterion-name>
+				<criterion-value>
+					<and>
+						<port>80</port>
+						<domain>www.nextenso.com</domain>
+					</and>
+			</criterion>
+		</proxylet>
+	</request-chain>
+
+	<response-chain>
+	</response-chain>
+	
+</context>
+
+End Example -->
+
+
+

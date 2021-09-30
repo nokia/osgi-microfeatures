@@ -1,0 +1,14 @@
+CSF-Embedded:                  org.apache.zookeeper:zookeeper-jute:3.5.8
+Bundle-Version:                3.5.8
+Bundle-Name:                   CASR - org.apache.zookeeper:zookeeper-jute:3.5.8
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.apache.zookeeper_zookeeper-jute
+-includeresource:              @zookeeper-jute-3.5.8.jar;lib:=true
+-exportcontents:               *; version=3.5.8
+Import-Package: \
+  javax.xml.parsers,\
+  org.apache.jute;version="[3.5,4)",\
+  org.apache.jute.compiler;version="[3.5,4)",\
+  org.apache.yetus.audience;version="[0.5,1)",\
+  org.apache.zookeeper.data;version="[3.5,4)",\
+  org.xml.sax,\
+  org.xml.sax.helpers

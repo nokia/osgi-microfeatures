@@ -1,0 +1,6 @@
+CSF-Embedded:                  com.bettercloud:vault-java-driver:5.1.0
+Bundle-Version:                5.1.0
+Bundle-Name:                   com.nokia.as.thirdparty.com.bettercloud_vault.java.driver
+Bundle-SymbolicName:           com.nokia.as.thirdparty.com.bettercloud_vault.java.driver
+-includeresource:              @vault-java-driver-5.1.0.jar;lib:=true
+-exportcontents:               *; version=5.1.0

@@ -1,0 +1,15 @@
+CSF-Artifact: false
+-sub: *.bnd
+-fixupmessages: \
+   "Can't find super class"; is:=ignore,\
+   "io.kubernetes.client-java-extended6: The bundle version \\(6.0.1/6.0.1\\) is too low, must be at least 6.0.2"; is:=ignore,\
+   "io.kubernetes.client-java-api6: The bundle version \\(6.0.1/6.0.1\\) is too low, must be at least 6.0.2"; is:=ignore,\
+   "io.kubernetes.client-java-proto6: The bundle version \\(6.0.1/6.0.1\\) is too low, must be at least 6.0.2"; is:=ignore,\
+   "io.kubernetes.client-java6: The bundle version \\(6.0.1/6.0.1\\) is too low, must be at least 6.0.2"; is:=ignore,\
+   "*Host io.kubernetes.client-*=bundle-version=*"; is:=ignore
+
+-buildpath:\
+    io.kubernetes:client-java;version=6.0.1,\
+    io.kubernetes:client-java-api;version=6.0.1,\
+    io.kubernetes:client-java-extended;version=6.0.1,\
+    io.kubernetes:client-java-proto;version=6.0.1

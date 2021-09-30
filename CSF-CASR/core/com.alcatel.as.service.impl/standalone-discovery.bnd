@@ -1,0 +1,6 @@
+Bundle-Name: Standalone Discovery
+Bundle-Category: core, internal
+Private-Package: com.alcatel.as.service.discovery.impl.standalone
+Import-Package: *
+-plugin org.apache.felix.dm.annotation.plugin.bnd.AnnotationPlugin;add-require-capability=true
+Bundle-Version: 1.0.5

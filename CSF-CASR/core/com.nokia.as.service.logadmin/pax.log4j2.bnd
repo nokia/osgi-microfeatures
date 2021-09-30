@@ -1,0 +1,5 @@
+Bundle-Version: 1.0.2
+Import-Package: !org.apache.logging.*,*
+Fragment-Host: org.ops4j.pax.logging.pax-logging-log4j2
+CASR-Fragment-Activator: com.nokia.as.log.admin.impl.pax.Activator
+Private-Package: com.nokia.as.log.admin.impl.pax,com.nokia.as.log.admin.impl.log4j2helper

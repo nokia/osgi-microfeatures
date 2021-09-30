@@ -1,0 +1,17 @@
+CSF-Embedded:                  io.grpc:grpc-api:1.36.0
+Bundle-Version:                1.36.0
+Bundle-Name:                   CASR - io.grpc:grpc-api:1.36.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.grpc_grpc-api
+-includeresource:              @grpc-api-1.36.0.jar;lib:=true
+-exportcontents:               *; version=1.36.0
+SPI-Consumer:                  *
+Import-Package: \
+  com.google.common.base;version="[30.0,31)",\
+  com.google.common.io;version="[30.0,31)",\
+  com.google.common.util.concurrent;version="[30.0,31)",\
+  io.grpc.internal;version="[1.36,2)",\
+  io.grpc.netty;version="[1.36,2)",\
+  io.grpc.okhttp;resolution:=optional,\
+  io.grpc.util;version="[1.36,2)",\
+  javax.annotation,\
+  javax.net.ssl

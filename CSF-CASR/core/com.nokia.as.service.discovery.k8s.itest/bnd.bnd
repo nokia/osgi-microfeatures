@@ -1,0 +1,166 @@
+# we do not release this project in binary distribution.
+-releaserepo: 
+-baseline:
+
+-runtrace: true
+
+# Include common integration test bnd instruction
+-include ${workspace}/cnf/itest-custom-logging.bnd
+
+-runblacklist: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.log4j2.log4j12.api)',\
+	bnd.identity;version='1.0.0.RELEASE';id='com.nokia.as.features.lib.jre.9',\
+	bnd.identity;version='1.0.0.RELEASE';id='com.nokia.as.features.lib.jre.10',\
+	bnd.identity;version='1.0.0.RELEASE';id='com.nokia.as.features.lib.jre.11',\
+	bnd.identity;version='1.0.0.RELEASE';id='com.nokia.as.features.lib.jre.9',\
+	bnd.identity;version='1.0.0.RELEASE';id='com.nokia.as.osgi.jre.10',\
+	bnd.identity;version='1.0.0.RELEASE';id='com.nokia.as.osgi.jre.11',\
+	bnd.identity;version='1.0.0.RELEASE';id='com.nokia.as.osgi.jre.9',\
+	bnd.identity;version='6.0.0.201505202027';id='osgi.cmpn',\
+	bnd.identity;version='7.0.0.201802012110';id='osgi.cmpn'
+
+# Build dependencies 
+-buildpath: \
+	${itest},\
+	com.alcatel.as.service.api;version=latest,\
+	com.nokia.as.k8s.controller-api;version=latest,\
+	com.nokia.as.service.discovery.k8s.client;version=latest,\
+	com.nokia.as.thirdparty.gson;version=latest,\
+	com.nokia.as.util.test;version=latest,\
+	io.kubernetes:client-java;version=12.0,\
+	io.kubernetes:client-java-proto;version=12.0,\
+	io.kubernetes:client-java-api;version=12.0,\
+	org.apache.felix.dependencymanager.lambda;version=latest,\
+	org.apache.felix.dependencymanager;version=latest,\
+	org.apache.servicemix.bundles:org.apache.servicemix.bundles.okhttp;version=4.9,\
+	org.apache.servicemix.bundles.okio;version=latest,\
+	osgi.annotation,\
+	osgi.cmpn,\
+	osgi.core,\
+	slf4j.api;version=1.7,\
+	org.jetbrains.kotlin:kotlin-osgi-bundle;version=1.4.10,\
+	commons-io:commons-io;version=2.11.0
+
+Bundle-Version: 2.0.3
+Private-Package: \
+	com.nokia.as.service.discovery.k8s.itest.client
+
+-runsystempackages: \
+    com.sun.nio.sctp,sun.net.util,sun.security.action,com.sun.net.httpserver,sun.misc,\
+    com.sun.org.apache.xerces.internal.jaxp,sun.management,com.sun.management,\
+    sun.net.spi.nameservice,javax.annotation.meta,\
+    org.bouncycastle.jsse;\
+    org.bouncycastle.jsse.provider;\
+    org.bouncycastle.jce.provider;\
+    org.bouncycastle.openssl;\
+    org.bouncycastle.openssl.jcajce;\
+    org.bouncycastle.operator;\
+    org.bouncycastle.operator.jcajce;\
+    org.bouncycastle.pkcs;\
+    org.bouncycastle.util.io.pem;\
+    org.bouncycastle.pkcs.jcajce;version=1.68,\
+    org.jose4j.json.internal.json_simple,\
+    org.jose4j.json.internal.json_simple.parser,\
+    android.net.http,\
+    org.openjsse.javax.net.ssl;version=1.1,\
+    org.openjsse.net.ssl;version=1.1,\
+    io.prometheus.client;version=0.10,\
+    io.prometheus.client.exporter;version=0.10,\
+    okhttp3;version=4.9,\
+    okhttp3.internal.http;version=4.9,\
+    okhttp3.internal.tls;version=4.9,\
+    okhttp3.logging;version=4.9
+    
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.junit)',\
+	osgi.identity;filter:='(osgi.identity=org.mockito.mockito-core)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.test.common)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.discovery.k8s)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.lib.k8s.resourcesvc.mock)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.service.discovery.k8s.itest)'
+
+-runrepos: \
+	Artifactory,\
+	Workspace
+	
+-runbundles: \
+	org.apache.commons.commons-io;version=2.11,\
+	org.jline;version=latest,\
+	com.nokia.as.service.tlsexport;version=snapshot,\
+	com.nokia.as.thirdparty.com.bettercloud_vault.java.driver;version=snapshot,\
+	com.alcatel.as.service.api;version=snapshot,\
+	com.alcatel.as.service.impl.concurrent;version=snapshot,\
+	com.alcatel.as.service.impl.diagnostics;version=snapshot,\
+	com.alcatel.as.service.impl.mbeanparser;version=snapshot,\
+	com.alcatel.as.service.metering2;version=snapshot,\
+	com.alcatel.as.service.metering2.impl;version=snapshot,\
+	com.alcatel.as.utils;version=snapshot,\
+	com.alcatel_lucent.as.management.annotation;version=snapshot,\
+	com.nokia.as.thirdparty.com.google.guava_guava;version=latest,\
+	com.google.guava:failureaccess;version='[1.0.1,2)',\
+	com.google.protobuf;version='[3.9.0,4.0.0)',\
+	com.nokia.as.autoconfig;version=snapshot,\
+	com.nokia.as.k8s.controller-api;version=latest,\
+	com.nokia.as.k8s.controller-mock;version=latest,\
+	com.nokia.as.k8s.yaml.ext;version=snapshot,\
+	com.nokia.as.osgi.jre18;version=snapshot,\
+	com.nokia.as.service.discovery.k8s.client;version=snapshot,\
+	com.nokia.as.service.discovery.k8s.itest;version=snapshot,\
+	org.objenesis;version='2.5',\
+	com.nokia.as.thirdparty.commons.modeler_commons.modeler;version=snapshot,\
+	com.nokia.as.thirdparty.gson;version=snapshot,\
+	com.nokia.as.thirdparty.json;version=snapshot,\
+	com.nokia.as.thirdparty.log4j;version=snapshot,\
+	com.nokia.as.thirdparty.servlet.api;version=snapshot,\
+	com.nokia.as.thirdparty.slf4j.log4j12;version=snapshot,\
+	com.nokia.as.thirdparty.slf4j.log4j12.ext;version=snapshot,\
+	com.nokia.as.util.test;version=snapshot,\
+	com.sun.jna;version='[4.5.2,4.5.3)',\
+	com.sun.mail.javax.mail;version='[1.6.1,1.6.2)',\
+	io.kubernetes:client-java;version='[12,13)',\
+	io.kubernetes:client-java-api;version='[12,13)',\
+	io.kubernetes:client-java-proto;version='[12,13)',\
+	io.swagger.annotations;version='[1.5.22,2.0.0)',\
+	joda-time;version='[2.10.0,3.0.0)',\
+	org.apache.aries.util;version='[1.1.3,1.1.4)',\
+	org.apache.commons.commons-beanutils;version='[1.9.4,2.0.0)',\
+	org.apache.commons.commons-codec;version='[1.13.0,2.0.0)',\
+	org.apache.commons.collections;version='[3.2.1,4.0.0)',\
+	org.apache.commons:commons-collections4;version='[4.4.0, 5)',\
+	org.apache.commons.commons-compress;version='[1.18.0,2.0.0)',\
+	org.apache.commons.configuration;version='[1.9.0,1.9.1)',\
+	org.apache.commons.digester;version='[1.8.1,1.8.2)',\
+	org.apache.commons.lang;version='[2.6.0,2.6.1)',\
+	org.apache.commons.lang3;version='[3.8.1,4)',\
+	org.apache.felix.log;version=latest,\
+	org.apache.felix.configadmin;version=latest,\
+	org.apache.felix.dependencymanager;version=latest,\
+	org.apache.felix.dependencymanager.lambda;version=latest,\
+	org.apache.felix.dependencymanager.runtime;version=latest,\
+	org.apache.felix.dependencymanager.shell;version=latest,\
+	org.apache.felix.eventadmin;version='[1.5.0,1.5.1)',\
+	org.apache.felix.gogo.command;version='[1.0.2,2)',\
+	org.apache.felix.gogo.runtime;version='[1.1.0,2)',\
+	org.apache.felix.gogo.shell;version='[1.1.4,2)',\
+	org.apache.felix.metatype;version=latest,\
+	org.apache.felix.scr;version=latest,\
+	org.apache.felix.scr.compat;version='[1.0.4,1.0.5)',\
+	org.apache.servicemix.bundles.ant;version='[1.10.3,2)',\
+	org.apache.servicemix.bundles.junit;version='[4.12.0,5)',\
+	org.apache.servicemix.bundles.okio;version='[2.9, 3)',\
+	org.lucee.commons.logging;version='[1.2.0,1.2.1)',\
+	org.mockito.mockito-core;version='[1.10.19,1.10.20)',\
+	org.osgi.util.function;version='[1.1.0,1.1.1)',\
+	org.osgi.util.promise;version='[1.1.1,1.1.2)',\
+	org.yaml.snakeyaml;version='[1.25.0,2.0.0)',\
+	slf4j.api;version='[1.7.25,2.0.0)',\
+	org.apache.felix.http.servlet-api;version='[1.1.2,1.1.3)',\
+	org.conscrypt;version='[2.5,3)',\
+	io.gsonfire;version='[1.8.4,2)',\
+	javax.annotation-api;version='[1.3.2,2)',\
+	org.bitbucket.b_c.jose4j;version='[0.7.0, 1)',\
+	org.jetbrains.kotlin.osgi-bundle;version='[1.4,2)'
+
+#	com.nokia.as.thirdparty.com.squareup.okhttp3_okhttp;version='[4.9, 5)',\
+

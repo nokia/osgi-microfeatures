@@ -1,0 +1,7 @@
+obsoletes:
+CalloutServer-test
+
+summary: CalloutAgent tests
+
+std_files:
+source

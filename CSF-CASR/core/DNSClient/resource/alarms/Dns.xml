@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!--
+  Alarm dictionary entry for Distributed Sessions alarms 
+-->
+<alarm-dictionary type="System" source="Dns">
+
+  <!--
+    Dns Server is not joinable
+  -->
+  <alarm code="54" severity="Alarm" name="DnsServerConnectionTimeout">
+    <message>Remote DNS Server does not respond</message>
+    <description>
+      This alarm is generated when a DNS server does not reply timely.
+    </description>
+    <corrective-action>
+      Check and Restart the DNS server.
+    </corrective-action>
+  </alarm>
+</alarm-dictionary>

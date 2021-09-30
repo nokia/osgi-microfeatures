@@ -1,0 +1,57 @@
+{
+	"id":"resource",
+	"type":"object",
+	"properties":{
+		"_links":{
+			"type":"object",
+			"title":"Hyperlink",
+			"description":"Represents a hyperlink from the containing resource to a URI.",
+			"additionalProperties":{
+				"type":[
+					{
+						"$ref":"link.json"
+					},
+					{
+						"type":"array",
+						"items":[
+							{
+								"$ref":"link"
+							}
+							
+						],
+						"uniqueItems":true,
+						"additionalProperties":false
+					}
+					
+				]
+				
+			},
+			"optional":true
+		},
+		"_embedded":{
+			"type":"object",
+			"additionalProperties":{
+				"type":[
+					{
+						"$ref":"resource"
+					},
+					{
+						"type":"array",
+						"items":[
+							{
+								"$ref":"resource"
+							}
+							
+						],
+						"uniqueItems":true,
+						"additionalProperties":false
+					}
+					
+				]
+				
+			},
+			"optional":true
+		}
+		
+	}
+}

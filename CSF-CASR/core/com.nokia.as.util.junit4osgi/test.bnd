@@ -1,0 +1,3 @@
+Bundle-Version: 1.0.4
+Export-Package: com.nokia.as.util.junit4osgi.test
+Junit-Tests: 1

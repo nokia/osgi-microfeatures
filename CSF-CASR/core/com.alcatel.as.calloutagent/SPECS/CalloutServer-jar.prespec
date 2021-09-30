@@ -1,0 +1,9 @@
+obsoletes: BundleRepository-jar CorePlatform-jar
+
+std_files:
+bundles/repository/core/calloutagent.jar
+bundles/repository/core/com.alcatel.as.proxylet.admin.jar
+bundles/repository/assemblies/com.alcatel.as.callout.asmb.jar
+bundles/repository/assemblies/com.alcatel.as.callout.legacy.asmb.jar
+bundles/repository/assemblies/com.alcatel.as.callout.standalone.asmb.jar
+lib/calloutagent.jar

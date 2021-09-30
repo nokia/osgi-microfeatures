@@ -1,0 +1,354 @@
+// NOW=time					<- must be defined
+// 
+// [capacity | on_off] {	<- all positions are optional
+//	f: capacity										<- feature (default capacity = 100, only for capacity reservation)
+//	l: serial, total, used, [pool | floating]		<- license
+//	r: serial, capacity, time						<- current reservation
+//	n: serial, (capacity), time						<- new reservation
+//	e: [capacity | on_off | release], (capacity)	<- exception
+// }
+
+NOW=2015-02-12T13:30
+BEFORE=2015-01-12T13:30
+
+// two mixed licenses, two reservations
+capacity {
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 30, pool
+	r: abc1, 20, BEFORE
+	r: abc2, 30, BEFORE
+	n: abc2, 30, BEFORE
+	n: abc1, 70, NOW
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 30, pool
+	r: abc1, 20, BEFORE
+	r: abc2, 30, BEFORE
+	n: abc2, 60, NOW
+	n: abc1, 40, NOW
+}
+
+capacity {
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 180, pool
+	r: abc1, 20, BEFORE
+	r: abc2, 30, BEFORE
+	n: abc2, 30, BEFORE
+	n: abc1, 70, NOW
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 30, pool
+	r: abc1, 20, BEFORE
+	r: abc2, 30, BEFORE
+	n: abc2, 80, NOW
+	n: abc1, 20, NOW
+}
+
+capacity {
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 200, pool
+	r: abc1, 20, BEFORE
+	r: abc2, 30, BEFORE
+	n: abc2, 30, BEFORE
+	n: abc1, 70, NOW
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 180, pool
+	r: abc1, 20, BEFORE
+	r: abc2, 30, BEFORE
+	e: capacity, 90
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 180, pool
+	r: abc1, 20, BEFORE
+	r: abc2, 30, BEFORE
+	e: capacity, 70
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 200, pool
+	r: abc1, 20, BEFORE
+	r: abc2, 30, BEFORE
+	e: capacity, 70
+}
+
+capacity {
+	l: abc1, 200, 40, floating
+	l: abc2, 200, 60, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 60, BEFORE
+	n: abc2, 60, BEFORE
+	n: abc1, 40, NOW
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 200, pool
+	r: abc1, 40, BEFORE
+	r: abc2, 60, BEFORE
+	n: abc2, 60, BEFORE
+	n: abc1, 40, NOW
+}
+
+capacity {
+	l: abc1, 200, 50, floating
+	l: abc2, 200, 60, pool
+	r: abc1, 50, BEFORE
+	r: abc2, 60, BEFORE
+	n: abc2, 60, BEFORE
+	n: abc1, 40, NOW
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 80, pool
+	r: abc1, 50, BEFORE
+	r: abc2, 60, BEFORE
+	n: abc2, 60, BEFORE
+	n: abc1, 40, NOW
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 200, pool
+	r: abc1, 50, BEFORE
+	r: abc2, 60, BEFORE
+	n: abc2, 60, BEFORE
+	n: abc1, 40, NOW
+}
+
+capacity {
+	l: abc1, 200, 120, floating
+	l: abc2, 200, 20, pool
+	r: abc1, 110, BEFORE
+	r: abc2, 10, BEFORE
+	n: abc2, 10, BEFORE
+	n: abc1, 90, NOW
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 20, pool
+	r: abc1, 110, BEFORE
+	r: abc2, 10, BEFORE
+	n: abc2, 10, BEFORE
+	n: abc1, 90, NOW
+}
+
+capacity {
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 120, pool
+	r: abc1, 10, BEFORE
+	r: abc2, 110, BEFORE
+	e: release, 110
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 120, pool
+	r: abc1, 10, BEFORE
+	r: abc2, 110, BEFORE
+	e: release, 110
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 120, pool
+	r: abc1, 10, BEFORE
+	r: abc2, 110, BEFORE
+	e: release, 110
+}
+
+capacity {
+	f: 0
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 30, pool
+	r: abc1, 20, BEFORE
+	r: abc2, 30, BEFORE
+	e: release, 30
+}
+
+// two mixed licenses, one reservation
+capacity {
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 30, pool
+	r: abc1, 20, BEFORE
+	n: abc1, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 30, pool
+	r: abc2, 30, BEFORE
+	n: abc2, 30, BEFORE
+	n: abc1, 70, NOW
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 30, pool
+	r: abc1, 20, BEFORE
+	n: abc1, 40, NOW
+	n: abc2, 60, NOW
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 30, pool
+	r: abc2, 30, BEFORE
+	n: abc2, 80, NOW
+	n: abc1, 20, NOW
+}
+
+capacity {
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 180, pool
+	r: abc1, 20, BEFORE
+	n: abc1, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 180, pool
+	r: abc2, 30, BEFORE
+	n: abc2, 30, BEFORE
+	n: abc1, 70, NOW
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 30, pool
+	r: abc1, 20, BEFORE
+	n: abc1, 20, NOW
+	n: abc2, 80, NOW
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 30, pool
+	r: abc2, 30, BEFORE
+	n: abc2, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 200, pool
+	r: abc1, 20, BEFORE
+	n: abc1, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 200, pool
+	r: abc2, 30, BEFORE
+	n: abc2, 30, BEFORE
+	n: abc1, 70, NOW
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 180, pool
+	r: abc1, 20, BEFORE
+	e: capacity, 60
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 180, pool
+	r: abc2, 30, BEFORE
+	e: capacity, 70
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 180, pool
+	r: abc1, 20, BEFORE
+	e: capacity, 40
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 180, pool
+	r: abc2, 30, BEFORE
+	e: capacity, 50
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 200, pool
+	r: abc1, 20, BEFORE
+	e: capacity, 40
+}
+
+capacity {
+	l: abc1, 200, 180, floating
+	l: abc2, 200, 200, pool
+	r: abc2, 30, BEFORE
+	e: capacity, 50
+}
+
+capacity {
+	l: abc1, 200, 100, floating
+	l: abc2, 200, 10, pool
+	r: abc1, 100, BEFORE
+	n: abc1, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 10, floating
+	l: abc2, 200, 100, pool
+	r: abc2, 100, BEFORE
+	n: abc2, 100, BEFORE
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 200, pool
+	r: abc1, 100, BEFORE
+	n: abc1, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 200, pool
+	r: abc2, 100, BEFORE
+	n: abc2, 100, BEFORE
+}
+
+capacity {
+	l: abc1, 200, 110, floating
+	l: abc2, 200, 60, pool
+	r: abc1, 110, BEFORE
+	n: abc1, 100, NOW
+}
+
+capacity {
+	l: abc1, 200, 50, floating
+	l: abc2, 200, 110, pool
+	r: abc2, 110, BEFORE
+	e: release, 110
+}
+
+capacity {
+	f: 0
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 30, pool
+	r: abc1, 20, BEFORE
+}
+
+capacity {
+	f: 0
+	l: abc1, 200, 20, floating
+	l: abc2, 200, 30, pool
+	r: abc2, 30, BEFORE
+	e: release, 30
+}

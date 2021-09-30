@@ -1,0 +1,84 @@
+-buildpath: \
+	${osgi},\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.nextenso.mux;version=3.1,\
+	org.apache.geronimo.specs:geronimo-jta_1.1_spec;version=1.1.1,\
+	org.eclipse.jetty.http2:http2-common;version=9.4.11.v20180605,\
+	org.eclipse.jetty.http2:http2-hpack;version=9.4.11.v20180605,\
+	org.eclipse.jetty.http2:http2-server;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-annotations;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-client;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-continuation;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-deploy;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-http;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-io;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-jaas;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-jmx;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-jndi;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-plus;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-proxy;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-rewrite;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-security;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-server;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-servlet;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-servlets;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-util;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-webapp;version=9.4.11.v20180605,\
+	org.eclipse.jetty:jetty-xml;version=9.4.11.v20180605,\
+	org.eclipse.jetty.toolchain:jetty-schemas;version=3.1,\
+	org.eclipse.jetty.websocket:javax-websocket-client-impl;version=9.4.11.v20180605,\
+	org.eclipse.jetty.websocket:javax-websocket-server-impl;version=9.4.11.v20180605,\
+	org.eclipse.jetty.websocket:websocket-api;version=9.4.11.v20180605,\
+	org.eclipse.jetty.websocket:websocket-client;version=9.4.11.v20180605,\
+	org.eclipse.jetty.websocket:websocket-common;version=9.4.11.v20180605,\
+	org.eclipse.jetty.websocket:websocket-server;version=9.4.11.v20180605,\
+	org.eclipse.jetty.websocket:websocket-servlet;version=9.4.11.v20180605,\
+	com.nokia.as.thirdparty.servlet.api;version=3.1.1,\
+	com.alcatel.as.service.api;version=2.1,\
+	com.alcatel.as.utils;version=2.5,\
+	org.osgi.service.http;version=1.2.1,\
+	com.nokia.as.thirdparty.sipservlet11;version=1.1.0,\
+	com.alcatel_lucent.sip.sipservlet.commonapi;version=1.0.1,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	org.apache.felix.dependencymanager,\
+	org.apache.felix.dependencymanager.annotation,\
+	javax.ws.rs:javax.ws.rs-api; version=2.0,\
+	org.apache.felix.http.base;version=2.2.0,\
+	com.alcatel_lucent.as.service.jetty.common;version=3.1,\
+	com.alcatel.as.sessionapi;version=1.0,\
+	com.alcatel_lucent.as.service.dns;version=1.0,\
+	com.alcatel.as.service.metering2;version=1.1
+
+-testpath: \
+	org.apache.servicemix.bundles.junit;version="[4.11,5)",\
+	org.mockito.mockito-core;version=1.10,\
+	org.objenesis;version=2.2,\
+	org.assertj.core;version="[3.10,4)"
+
+Bundle-Version: 1.0.24
+Bundle-Name: WebAgent (internal)
+Bundle-SymbolicName: com.alcatel_lucent.as.agent.web
+Bundle-StartLevel: 100
+Bundle-Category: http, internal
+DependencyManager-Component: *
+Private-Package: com.alcatel_lucent.as.agent.web.muxhandler, \
+ com.alcatel_lucent.as.agent.web.container,\
+  com.alcatel_lucent.as.agent.web.container.metrics,\
+  com.alcatel_lucent.as.agent.web.container.deployer,\
+  com.alcatel_lucent.as.agent.web.container.session,\
+  com.alcatel_lucent.as.agent.web.container.webapp,\
+  com.alcatel_lucent.as.agent.web.http.client
+
+# we need to explicitly import org.eclipse.jetty.annotations in case a webapp needs it (the web agent does not import such package)
+Import-Package: org.eclipse.jetty.annotations; version="[9.4, 10)", org.eclipse.jetty.*;version="[9.4, 10)",\
+ javax.annotation;version="[1.1,2)",\
+ javax.annotation.security;version="[1.1,2)",\
+ *
+# DynamicImport-Package needed to unmarshall HttpSession attributes
+DynamicImport-Package: *
+Include-Resource: META-INF=META-INF, META-INF/web.desc=resource/calloutAgent/web.desc
+ASR-MuxHandlerDesc: META-INF/web.desc
+Require-Capability: osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"
+Provide-Capability: osgi.serviceloader; osgi.serviceloader=javax.servlet.ServletContainerInitializer
+
+groupId: com.nokia.casr.http

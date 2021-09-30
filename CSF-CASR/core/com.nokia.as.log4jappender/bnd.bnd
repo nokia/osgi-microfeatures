@@ -1,0 +1,7 @@
+-buildpath: \
+	org.darkphoenixs.log4j;version=1.2,\
+
+-testpath: \
+	${junit}
+
+-sub: *.bnd

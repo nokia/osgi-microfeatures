@@ -1,0 +1,14 @@
+-buildpath: \
+	${osgi},\
+	com.alcatel.as.utils;version=2.5,\
+	com.nextenso.proxylet.http;version=1.0,\
+	com.nextenso.proxylet.api;version=1.0,\
+	com.alcatel.as.service.api;version=2.1,\
+	com.nokia.as.thirdparty.log4j;version=1.2
+	
+Bundle-Version: 1.0.4
+Bundle-Name: HttpParser (internal)
+Bundle-Category: http, internal
+Export-Package: com.nextenso.http.agent.parser
+
+groupId: com.nokia.casr.http

@@ -1,0 +1,6 @@
+std_files:
+lib/com.alcatel.as.service.metering2.impl.jar
+bundles/repository/core/com.alcatel.as.service.metering2.impl.jar
+bundles/repository/apps/com.alcatel.as.util.metering2.reporter.ganglia.par
+bundles/repository/apps/com.alcatel.as.util.metering2.reporter.log4j.par
+bundles/repository/apps/com.alcatel.as.util.metering2.reporter.jmx.par

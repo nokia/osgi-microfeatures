@@ -1,0 +1,13 @@
+<servers>
+
+  <!-- Uncomment the following server to activate the OSGi remote shell server -->
+  <!--server ip="127.0.0.1" port="17000" processor="gogo.shell" name="gogo">
+      <property name="read.timeout">1000000</property>
+  </server-->
+
+  <!-- Uncomment the following server to activate the OSGi remote bash-like shell server -->
+  <!--server ip="127.0.0.1" port="17001" processor="gogo.client" name="gogo-bash">
+      <property name="read.timeout">1000000</property>
+  </server-->
+
+</servers>

@@ -1,0 +1,9 @@
+# This fragment attaches to org.bitbucket.b_c.jose4j bundle in order to add export package
+# for org.jose4j.json.internal.json_simple.parser and org.jose4j.json.internal.json_simple
+# Indeed, the k8s client-java bundle violates the jose4j API and refers to the two above
+# packages.
+
+Bundle-Version: 1.0.0
+Bundle-Name: CASR patch for org.bitbucket.b_c.jose4j bundle
+Fragment-Host: org.bitbucket.b_c.jose4j;bundle-version="[0.7.0, 2)"
+Export-Package: org.jose4j.json.internal.json_simple.parser; org.jose4j.json.internal.json_simple; version=0.7.0

@@ -1,0 +1,41 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1598350731145
+Bundle-ManifestVersion: 2
+Bundle-Name: CASR - org.dom4j:dom4j:2.1.3
+Bundle-SymbolicName: com.nokia.as.thirdparty.dom4j
+Bundle-Version: 2.1.3
+Created-By: 1.8.0_252 (AdoptOpenJDK)
+CSF-Embedded: org.dom4j:dom4j:2.1.3
+Export-Package: org.dom4j;version="2.1.3";uses:="org.dom4j.dtd,org.dom
+ 4j.rule,org.dom4j.tree,org.jaxen,org.xml.sax",org.dom4j.bean;version=
+ "2.1.3";uses:="org.dom4j,org.dom4j.tree,org.xml.sax",org.dom4j.dataty
+ pe;version="2.1.3";uses:="org.dom4j,org.dom4j.tree",org.dom4j.dom;ver
+ sion="2.1.3";uses:="org.dom4j,org.dom4j.tree,org.w3c.dom",org.dom4j.d
+ td;version="2.1.3",org.dom4j.io;version="2.1.3";uses:="javax.xml.name
+ space,javax.xml.stream,javax.xml.stream.events,javax.xml.stream.util,
+ javax.xml.transform.sax,org.dom4j,org.dom4j.dom,org.dom4j.dtd,org.dom
+ 4j.tree,org.w3c.dom,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers",
+ org.dom4j.jaxb;version="2.1.3";uses:="javax.xml.bind,org.dom4j,org.do
+ m4j.io,org.xml.sax",org.dom4j.rule;version="2.1.3";uses:="org.dom4j",
+ org.dom4j.rule.pattern;version="2.1.3";uses:="org.dom4j,org.dom4j.rul
+ e",org.dom4j.swing;version="2.1.3";uses:="javax.swing.table,javax.swi
+ ng.tree,org.dom4j,org.jaxen",org.dom4j.tree;version="2.1.3";uses:="or
+ g.dom4j,org.dom4j.dtd,org.dom4j.rule,org.xml.sax",org.dom4j.util;vers
+ ion="2.1.3";uses:="org.dom4j,org.dom4j.rule,org.dom4j.tree,org.jaxen,
+ org.xml.sax",org.dom4j.xpath;version="2.1.3";uses:="org.dom4j,org.dom
+ 4j.rule,org.jaxen,org.jaxen.pattern",org.dom4j.xpp;version="2.1.3";us
+ es:="org.dom4j"
+Import-Package: javax.swing.table,javax.swing.tree,javax.xml.bind,java
+ x.xml.namespace,javax.xml.parsers,javax.xml.stream,javax.xml.stream.e
+ vents,javax.xml.stream.util,javax.xml.transform,javax.xml.transform.s
+ ax,javax.xml.transform.stream,org.dom4j;version="[2.1,3)",org.dom4j.d
+ om;version="[2.1,3)",org.dom4j.dtd;version="[2.1,3)",org.dom4j.io;ver
+ sion="[2.1,3)",org.dom4j.rule;version="[2.1,3)",org.dom4j.rule.patter
+ n;version="[2.1,3)",org.dom4j.tree;version="[2.1,3)",org.dom4j.util;v
+ ersion="[2.1,3)",org.dom4j.xpath;version="[2.1,3)",org.dom4j.xpp;vers
+ ion="[2.1,3)",org.jaxen;version="[1.2,2)",org.jaxen.dom4j;version="[1
+ .2,2)",org.jaxen.pattern;version="[1.2,2)",org.jaxen.saxpath;version=
+ "[1.2,2)",org.w3c.dom,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-5.1.2.202007211702
+

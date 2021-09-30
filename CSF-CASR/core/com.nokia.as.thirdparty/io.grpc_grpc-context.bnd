@@ -1,0 +1,9 @@
+CSF-Embedded:                  io.grpc:grpc-context:1.36.0
+Bundle-Version:                1.36.0
+Bundle-Name:                   CASR - io.grpc:grpc-context:1.36.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.grpc_grpc-context
+-includeresource:              @grpc-context-1.36.0.jar;lib:=true
+-exportcontents:               *; version=1.36.0
+Import-Package: \
+  io.grpc.override;resolution:=optional
+Fragment-Host:		       com.nokia.as.thirdparty.io.grpc_grpc-api

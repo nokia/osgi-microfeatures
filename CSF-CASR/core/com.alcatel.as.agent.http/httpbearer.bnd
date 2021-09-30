@@ -1,0 +1,8 @@
+Bundle-Name: Http Bearer
+Bundle-SymbolicName: com.alcatel.as.webadmin.httpagent
+Bundle-Category: http, webadmin, internal 
+Export-Package: com.nextenso.proxylet.admin.http.*
+Bundle-Activator: com.nextenso.proxylet.admin.http.Activator
+Bundle-Category: webadmin
+Include-Resource: httpAgent=resource/httpAgent
+Bundle-Version: 1.0.5

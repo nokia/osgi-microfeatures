@@ -1,0 +1,38 @@
+# The following allows to export the validation api with both 1.1.0 and 2.0.1 versions.
+Include-Resource: @validation-api-2.0.1.Final.jar
+Export-Package: \
+  javax.validation;\
+  javax.validation.bootstrap;\
+  javax.validation.constraints;\
+  javax.validation.constraintvalidation;\
+  javax.validation.executable;\
+  javax.validation.groups;\
+  javax.validation.metadata;\
+  javax.validation.spi;\
+  javax.validation.valueextraction; version="1.1.0.Final",\
+  javax.validation;\
+  javax.validation.bootstrap;\
+  javax.validation.constraints;\
+  javax.validation.constraintvalidation;\
+  javax.validation.executable;\
+  javax.validation.groups;\
+  javax.validation.metadata;\
+  javax.validation.spi;\
+  javax.validation.valueextraction; version="2.0.1.Final"
+CSF-Embedded: javax.validation:validation-api:2.0.1.Final
+# The following headers are extracted from original validation-api-2.0.1 jar
+Manifest-Version: 1.0
+Bundle-Description: Bean Validation API
+Automatic-Module-Name: java.validation
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: javax.validation.api
+Built-By: jenkins
+Bnd-LastModified: 1513700607841
+Bundle-ManifestVersion: 2
+Import-Package: javax.validation.*;version="[1.1.0,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Bundle-Name: Bean Validation API
+Bundle-Version: 2.0.1.Final
+Created-By: CASR team
+
+

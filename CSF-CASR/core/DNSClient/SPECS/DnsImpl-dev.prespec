@@ -1,0 +1,5 @@
+obsoletes:
+DnsImpl-test
+
+std_files:
+source

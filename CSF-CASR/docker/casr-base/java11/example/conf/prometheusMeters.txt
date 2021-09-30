@@ -1,0 +1,13 @@
+exportMeters -m as.ioh.lb.LB-UDP -mt channel.closed.udp -alias casr_udplb_channels_closed
+exportMeters -m as.ioh.lb.LB-UDP -mt channel.failed.udp -alias casr_udplb_channels_failed
+exportMeters -m as.ioh.lb.LB-UDP -mt channel.open.udp -alias casr_udplb_channels_open
+exportMeters -m as.ioh.lb.LB-UDP -mt client.overload -alias casr_udplb_events_overload -lb source=client
+exportMeters -m as.ioh.lb.LB-UDP -mt dest.overload -alias casr_udplb_events_overload -lb source=server
+exportMeters -m as.ioh.lb.LB-UDP -mt dest.read.udp -alias casr_udplb_bytesin -lb from=server
+exportMeters -m as.ioh.lb.LB-UDP -mt dest.write.udp -alias casr_udplb_bytesout -lb to=server
+exportMeters -m as.ioh.lb.LB-UDP -mt read.udp -alias casr_udplb_bytesin -lb from=client
+exportMeters -m as.ioh.lb.LB-UDP -mt write.udp -alias casr_udplb_bytesout -lb to=client
+exportMeters -m as.ioh.lb.LB-UDP -mt read.udp.message -alias casr_udplb_messagesin -lb from=client
+exportMeters -m as.ioh.lb.LB-UDP -mt read.udp.message.rate -alias casr_udplb_messagesin_rate -lb from=client
+exportMeters -m as.ioh.lb.LB-UDP -mt session.active -alias casr_udplb_sessions_active
+exportMeters -m as.ioh.lb.LB-UDP -mt session.pool -alias casr_udplb_sessions_pool

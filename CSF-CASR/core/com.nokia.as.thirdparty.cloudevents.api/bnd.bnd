@@ -1,0 +1,18 @@
+CSF-Artifact: false
+
+-buildpath: \
+	io.cloudevents:cloudevents-api;version=0.2.1,\
+	com.fasterxml.jackson.core:jackson-databind;version=2.9.8,\
+	com.fasterxml.jackson.core:jackson-annotations;version=2.9.5,\
+	com.fasterxml.jackson.core:jackson-core;version=2.9.6,\
+	com.fasterxml.jackson.datatype:jackson-datatype-jdk8;version=2.9.6
+
+Bundle-Name: CASR Cloud Events Api
+Bundle-Version: 0.2.1
+
+-includeresource:\
+  cloudevents-api-0.2.1.jar;lib:=true,\
+  jackson-core-2.9.6.jar;lib:=true,\
+  jackson-datatype-jdk8-2.9.6.jar;lib:=true
+
+Export-Package: io.cloudevents.*

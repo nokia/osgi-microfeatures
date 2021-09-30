@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2014 Nokia Solutions and Networks. All rights reserved.
+ */
+package com.nsn.ood.cls.rest;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import javax.ws.rs.NameBinding;
+
+
+/**
+ * @author marynows
+ * 
+ */
+@NameBinding
+@Target({
+		ElementType.TYPE, ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
+public @interface ValidateETag {
+}

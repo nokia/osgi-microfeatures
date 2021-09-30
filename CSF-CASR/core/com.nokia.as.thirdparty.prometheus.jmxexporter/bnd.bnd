@@ -1,0 +1,19 @@
+-sub: *.bnd
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	com.alcatel_lucent.as.management.annotation;version=1.0.3,\
+	org.apache.felix.gogo.runtime;version=0.16,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.alcatel.as.service.api;version=1.2,\
+	org.apache.felix.dependencymanager.annotation;version=4.5,\
+	io.prometheus.jmx:jmx_prometheus_javaagent;version=0.10,\
+	com.nokia.as.thirdparty.jmxexporter;version=0.11,\
+	com.nokia.as.thirdparty.servlet.api;version=3.1,\
+	javax.ws.rs-api;version=2.0
+
+-testpath: \
+	${junit}
+
+javac.source: 1.8
+javac.target: 1.8

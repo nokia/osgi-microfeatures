@@ -1,0 +1,16 @@
+# root bnd file
+
+-buildpath: \
+    ${osgi},\
+    ${bndlib},\
+    com.nokia.as.thirdparty.log4j;version=1.2,\
+    com.alcatel.as.utils;version=2.0,\
+    com.alcatel.as.service.api;version=1.0,\
+    com.alcatel.as.sessionapi;version=1.0
+    
+Bundle-Version: 1.0.4
+Bundle-Name: DistributedSessionMock
+Bundle-SymbolicName: com.alcatel.as.session.distributed.mock
+Private-Package:  com.alcatel.as.service.smartkey.impl, \
+ com.alcatel.as.session.distributed.mock
+-dsannotations: *

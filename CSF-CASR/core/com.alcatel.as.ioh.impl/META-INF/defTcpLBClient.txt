@@ -1,0 +1,14 @@
+<clients>
+
+  <!--client id="LB">
+    
+    <property name="connect.retry">10000</property>
+    <property name="connect.timeout">3000</property>
+    
+    <servers>
+      <server ip="127.0.0.1" port="9999"/>
+    </servers>
+    
+  </client-->
+  
+</clients>

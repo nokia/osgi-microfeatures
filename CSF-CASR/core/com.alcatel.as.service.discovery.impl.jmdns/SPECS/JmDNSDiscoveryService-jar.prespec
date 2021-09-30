@@ -1,0 +1,12 @@
+std_files:
+bundles/repository/blueprint/jmdns-discovery-service.jar
+lib/jmdns-discovery-service.jar
+
+post:
+if [ -z "${INSTALL_DIR:-}" ]
+then
+	echo "INSTALL_DIR not set" 1>&2
+	exit 1
+fi
+rm -f $INSTALL_DIR/bundles/repository/core/jmdns-discovery-service.jar
+

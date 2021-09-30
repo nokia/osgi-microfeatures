@@ -1,0 +1,10 @@
+apiVersion: "nokia.com/v1beta1"
+kind: CasrFunction
+metadata:
+  name: kafka-write
+spec:
+  function:
+      locations:
+        - file:///tmp/com.nokia.casr.samples.sless.kafka.write.jar
+  exec:
+      ttl: 20000

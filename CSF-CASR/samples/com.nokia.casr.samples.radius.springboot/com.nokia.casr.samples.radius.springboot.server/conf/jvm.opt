@@ -1,0 +1,6 @@
+# Add the following property when running the test server
+#-Das.diameter.lb.test=true
+
+# The agent.launcherMode indicates that old code which was based on old ASR platform should not be executed (like license checking, etc ...)
+
+-server -Xms1g -Xmx1g -Dagent.launcherMode=true

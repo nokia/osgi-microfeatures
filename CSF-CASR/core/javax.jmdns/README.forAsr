@@ -1,0 +1,92 @@
+Version: 3.4.2
+Source: https://github.com/rickyclarkson/jmdns/blob/master/CHANGELOG.txt
+License: http://jmdns.sourceforge.net/license.html
+Foss: JmDNS, http://foss.app.alcatel-lucent.com/foss/products/display/3250
+
+
+*************************************************
+****************** WARNING **********************
+*************************************************
+
+
+Hacked by hand: s/setNetworkInterface/setInterface : issue in multihomed environments
+
+Index: JmDNS/src/javax/jmdns/impl/JmDNSImpl.java
+===================================================================
+453c453
+<         if ((hostInfo != null) && (hostInfo.getInterface() != null)) {
+---
+>         if ((hostInfo != null) && (hostInfo.getInetAddress() != null)) {
+455c455
+<                 _socket.setNetworkInterface(hostInfo.getInterface());
+---
+>                 _socket.setInterface(hostInfo.getInetAddress());
+458c458
+<                     logger.fine("openMulticastSocket() Set network interface exception: " + e.getMessage());
+---
+>                     logger.fine("openMulticastSocket() Set interface exception: " + e.getMessage());
+
+
+*************************************************
+****************** WARNING **********************
+*************************************************
+
+
+Hacked by hand, remove debug
+JmDNS/src/javax/jmdns/impl/DNSIncoming.java
+
+search for Level.SEVERE and remove call to this.print(true) which output huge information
+
+$ svn diff JmDNS
+
+Index: JmDNS/src/javax/jmdns/impl/DNSIncoming.java
+===================================================================
+--- JmDNS/src/javax/jmdns/impl/DNSIncoming.java	(revision 14)
++++ JmDNS/src/javax/jmdns/impl/DNSIncoming.java	(working copy)
+@@ -246,7 +246,8 @@
+         String domain = _messageInputStream.readName();
+         DNSRecordType type = DNSRecordType.typeForIndex(_messageInputStream.readUnsignedShort());
+         if (type == DNSRecordType.TYPE_IGNORE) {
+-            logger.log(Level.SEVERE, "Could not find record type: " + this.print(true));
++            // logger.log(Level.SEVERE, "Could not find record type: " + this.print(true));
++            logger.log(Level.SEVERE, "Could not find record type");
+         }
+         int recordClassIndex = _messageInputStream.readUnsignedShort();
+         DNSRecordClass recordClass = DNSRecordClass.classForIndex(recordClassIndex);
+@@ -258,12 +259,14 @@
+         String domain = _messageInputStream.readName();
+         DNSRecordType type = DNSRecordType.typeForIndex(_messageInputStream.readUnsignedShort());
+         if (type == DNSRecordType.TYPE_IGNORE) {
+-            logger.log(Level.SEVERE, "Could not find record type. domain: " + domain + "\n" + this.print(true));
++            // logger.log(Level.SEVERE, "Could not find record type. domain: " + domain + "\n" + this.print(true));
++            logger.log(Level.SEVERE, "Could not find record type. domain: " + domain);
+         }
+         int recordClassIndex = _messageInputStream.readUnsignedShort();
+         DNSRecordClass recordClass = (type == DNSRecordType.TYPE_OPT ? DNSRecordClass.CLASS_UNKNOWN : DNSRecordClass.classForIndex(recordClassIndex));
+         if ((recordClass == DNSRecordClass.CLASS_UNKNOWN) && (type != DNSRecordType.TYPE_OPT)) {
+-            logger.log(Level.SEVERE, "Could not find record class. domain: " + domain + " type: " + type + "\n" + this.print(true));
++            // logger.log(Level.SEVERE, "Could not find record class. domain: " + domain + " type: " + type + "\n" + this.print(true));
++            logger.log(Level.SEVERE, "Could not find record class. domain: " + domain + " type: " + type);
+         }
+         boolean unique = recordClass.isUnique(recordClassIndex);
+         int ttl = _messageInputStream.readInt();
+
+Hacked by hand: JmDNS/src/javax/jmdns/impl/DNSIncoming.java
+    Moved log "There was an OPT answer. Not currently handled." from WARN to FINE level
+
+svn diff JmDNS/src/javax/jmdns/impl/DNSIncoming.java
+Index: JmDNS/src/javax/jmdns/impl/DNSIncoming.java
+===================================================================
+--- JmDNS/src/javax/jmdns/impl/DNSIncoming.java (revision 46)
++++ JmDNS/src/javax/jmdns/impl/DNSIncoming.java (working copy)
+@@ -415,7 +415,9 @@
+                                 }
+                                 break;
+                             case Unknown:
+-                                logger.log(Level.WARNING, "There was an OPT answer. Not currently handled. Option code: " + optionCodeInt + " data: " + this._hexString(optiondata));
++                                if (logger.isLoggable(Level.FINE)) {
++                                  logger.log(Level.FINE, "There was an OPT answer. Not currently handled. Option code: " + optionCodeInt + " data: " + this._hexString(optiondata));
++                                }
+                                 break;
+                             default:
+                                 // This is to keep the compiler happy.

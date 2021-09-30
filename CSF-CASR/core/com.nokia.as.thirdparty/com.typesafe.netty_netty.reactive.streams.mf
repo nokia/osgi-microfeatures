@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1555665477033
+Bundle-ManifestVersion: 2
+Bundle-Name: com.typesafe.netty:netty-reactive-streams:2.0.0
+Bundle-SymbolicName: com.nokia.as.thirdparty.com.typesafe.netty_netty.reactive.streams
+Bundle-Version: 2.0.0
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: com.typesafe.netty:netty-reactive-streams:2.0.0
+Export-Package: com.typesafe.netty;version="2.0.0";uses:="io.netty.cha
+ nnel,io.netty.util.concurrent,org.reactivestreams"
+Import-Package: io.netty.channel;version="[4.1,5)",io.netty.util;versi
+ on="[4.1,5)",io.netty.util.concurrent;version="[4.1,5)",io.netty.util
+ .internal;version="[4.1,5)",org.reactivestreams;version="[1.0,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-4.2.0.201903051501
+

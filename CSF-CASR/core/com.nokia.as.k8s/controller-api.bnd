@@ -1,0 +1,6 @@
+Bundle-Version: 4.1.2
+Bundle-Name: Controller API
+Bundle-SymbolicName: com.nokia.as.k8s.controller-api
+Export-Package: \
+	com.nokia.as.k8s.controller,\
+	com.nokia.as.k8s.controller.registry

@@ -1,0 +1,42 @@
+Bundle-Version: 1.0.21
+Bundle-Name: Felix Common Bundles
+Bundle-SymbolicName: com.nokia.as.features.felix.common
+dir: bnd/feature/felix
+Include-Resource: META-INF/=${dir},\
+ scripts/stop.sh=${dir}/stop.sh,\
+ scripts/clone.sh=${dir}/clone.sh,\
+ scripts/jartool.sh=${dir}/jartool.sh,\
+ scripts/getVersion.sh=${dir}/getVersion.sh,\
+ scripts/getgav.sh=${dir}/getgav.sh,\
+ scripts/getArtifacts.sh=${dir}/getArtifacts.sh,\
+ scripts/start.sh=${dir}/start.sh,\
+ scripts/getUuid.sh=${dir}/getUuid.sh
+X-StartCommand: scripts/start.sh
+X-StopCommand: scripts/stop.sh
+X-Unpack: scripts
+
+Provide-Capability: com.nokia.as.feature;\
+ com.nokia.as.feature="Felix Common";category:List<String>="runtime"; version:Version="1.0.0"; internal=true
+
+Require-Capability: \
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.main)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.configadmin)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager.runtime)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager.shell)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager.lambda)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.eventadmin)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.runtime)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.metatype)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.scr)',\
+ osgi.identity;filter:='(osgi.identity=org.osgi.util.promise)',\
+ osgi.identity;filter:='(osgi.identity=org.osgi.util.function)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.scr.compat)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.felix.launcher)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.util.jartool)'
+
+
+
+
+

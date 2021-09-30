@@ -1,0 +1,14 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	org.apache.felix.dependencymanager.annotation;version=5.0.1,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.nokia.as.thirdparty.io.jaegertracing_jaeger.core;version=1.1,\
+	com.nokia.as.thirdparty.io.opentracing_opentracing.api;version=0.33
+	
+-testpath: \
+	${junit}
+	
+-sub: *.bnd
+
+CSF-Artifact: false

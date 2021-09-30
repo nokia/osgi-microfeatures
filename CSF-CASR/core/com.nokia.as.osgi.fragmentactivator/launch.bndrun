@@ -1,0 +1,13 @@
+-runfw: org.apache.felix.framework
+-runee: JavaSE-1.8
+
+-runsystemcapabilities: ${native_capability}
+
+-resolve.effective: active;skip:="osgi.service"
+
+-runrequires:\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.dependencymanager.shell)(version>=4.0.5))',\
+	osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.diagnostics)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.osgi.fragmentactivator)'

@@ -1,0 +1,23 @@
+Bundle-Version: 3.2.4
+-privatepackage: \
+	com.nokia.licensing.dao,\
+	com.nokia.licensing.impl,\
+	com.nokia.licensing.querycache,\
+	com.nokia.licensing.storages.file,\
+	com.nokia.licensing.storages.jdbc,\
+	com.nokia.licensing.storages.jpa,\
+	com.nokia.licensing.utils
+Export-Package: \
+	com.nokia.licensing.logging,\
+	com.nokia.licensing.factories
+	
+Import-Package: org.apache.jcp.xml.dsig.internal.dom,\
+				*
+
+Include-Resource: \
+	META-INF/orm.xml=resources/orm.xml,\
+    META-INF/persistence.xml=resources/persistence.xml,\
+    licence-schema_210.xsd=resources/licence-schema_210.xsd,\
+    LicenseSQL-Maria.xml=resources/LicenseSQL-Maria.xml,\
+    LicenseSQL.xml=resources/LicenseSQL.xml,\
+    Pref_system_LicenseInstall.xml=resources/Pref_system_LicenseInstall.xml

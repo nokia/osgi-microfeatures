@@ -1,0 +1,147 @@
+<FindBugsFilter>
+	<!--
+		There is no synchronization inconsistency in this class, because the
+		start method is called by dependency manager only one time.
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.appmbeans.impl.MBeanReporter" />
+		<Bug pattern="IS2_INCONSISTENT_SYNC" />
+	</Match>
+
+	<!--
+		No need to duplicate the watchedComponents parameter.
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.config.impl.fc.FastCacheConfig" />
+		<Bug pattern="EI_EXPOSE_REP2" />
+	</Match>
+
+	<!--
+		Streams are correctly close.
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.mbeanparser.impl.MBeanParserImpl" />
+		<Bug pattern="OS_OPEN_STREAM" />
+	</Match>
+
+	<!--
+		No need to handle an io exception when closing a stream.
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.mbeanparser.impl.MBeanParserImpl" />
+		<Bug pattern="DE_MIGHT_IGNORE" />
+	</Match>
+
+	<!--
+		The setCallback method is called by dependency manager
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.diagnostics.impl.Activator" />
+		<Bug pattern="UMAC_UNCALLABLE_METHOD_OF_ANONYMOUS_CLASS" />
+	</Match>
+
+	<!--
+		Comparison with == is intentional
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.concurrent.impl.EventDispatcherExecutor" />
+		<Bug pattern="ES_COMPARING_STRINGS_WITH_EQ" />
+	</Match>
+
+	<!--
+		Null array must be returned
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.appmbeans.impl.ApplicationMBeanFactoryImpl" />
+		<Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS" />
+	</Match>
+	<Match>
+		<Class name="com.alcatel.as.service.appmbeans.impl.MBeanReporter" />
+		<Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS" />
+	</Match>
+	<Match>
+		<Class name="com.alcatel.as.service.config.impl.fc.FastCacheConfig" />
+		<Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS" />
+	</Match>
+	<Match>
+		<Class name="com.alcatel.as.service.mgmt.impl.fc.ManagedServiceTracker" />
+		<Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS" />
+	</Match>
+	
+	<!--
+		Must not use static inner classes
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.mgmt.impl.fc.ManagedServiceTracker" />
+		<Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS" />
+	</Match>
+	<Match>
+		<Class name="com.alcatel.as.service.concurrent.impl" />
+		<Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+	</Match>
+	<Match>
+		<Class name="com.alcatel.as.service.concurrent.impl.ThreadPoolExecutor" />
+		<Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+	</Match>
+	<Match>
+		<Class name="com.alcatel.as.service.config.impl.file.StandaloneConfig" />
+		<Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+	</Match>
+	<Match>
+		<Package name="com.alcatel.as.service.diagnostics.impl" />
+		<Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+	</Match>
+	<Match>
+		<Package name="com.alcatel.as.service.log4j.impl" />
+		<Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+	</Match>
+	<Match>
+		<Package name="com.alcatel.as.service.mbeanparser.impl" />
+		<Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+	</Match>
+	<Match>
+		<Package name="com.alcatel.as.service.osgi" />
+		<Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+	</Match>
+
+	<!--
+		Field is initialized by DependencyManager (by reflection)
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.diagnostics.impl.Activator" />
+		<Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" />
+	</Match>
+
+	<!--
+		Exceptions intentionally ignored
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.mgmt.impl.fc.ManagedServiceTracker" />
+		<Bug pattern="DE_MIGHT_IGNORE" />
+	</Match>
+	<Match>
+		<Class name="com.alcatel.as.service.appmbeans.implstandalone.ApplicationMBeanFactoryImpl" />
+		<Bug pattern="DE_MIGHT_IGNORE" />
+	</Match>
+	<Match>
+		<Class name="com.alcatel.as.service.mgmt.impl.fc.ManagedServiceTracker" />
+		<Bug pattern="DE_MIGHT_IGNORE" />
+	</Match>
+
+	<!--
+		Private methods are called by DependencyManager
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.mgmt.impl.cm.ManagementServiceImpl" />
+		<Bug pattern="UPM_UNCALLED_PRIVATE_METHOD" />
+	</Match>
+	
+	<!--
+		No need to check cast, since all PropertyDescriptor elements are of type 
+	-->
+	<Match>
+		<Class name="com.alcatel.as.service.concurrent.impl.ReactorExecutor" />
+		<Bug pattern="SF_SWITCH_NO_DEFAULT" />
+	</Match>
+
+</FindBugsFilter>

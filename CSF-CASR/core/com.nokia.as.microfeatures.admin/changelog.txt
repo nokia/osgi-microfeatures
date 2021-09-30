@@ -1,0 +1,265 @@
+The versions correspond to the microfeatures ubber jar deployed to artifactory (see https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered-local/com/nokia/casr/microfeatures/com.nokia.casr.microfeatures.main/)
+
+version 1.0.49:
+==============
+
+CSFAR-3812: CASR configuration property files should be sorted
+CSFAR-4043: ReadOnly Access to all folders and files created by CASR
+CSFAR-4056: Microfeature checker should be improved
+
+version 1.0.48:
+==============
+
+CSFAR-3796: Add a shell command in microfeatures in order to detect split packages
+
+version 1.0.47:
+==============
+
+CSFAR-3744: remove http from scripts
+
+version 1.0.46:
+==============
+
+CSFAR-3746: Allow to resolve features using the microfeatures tool
+
+version 1.0.45:
+==============
+
+CSFAR-3635: Update felix dependencies
+
+version 1.0.44:
+==============
+
+CSFAR-3331: Simplify 3rd party bundle-ization
+CSFAR-3501: Microfeatures always tries to download OBR releases even if custom OBR is used
+
+version 1.0.43
+==============
+
+CSFAR-3245: Update Felix dependencies
+CSFAR-3290: Expose a gogo microfeatures command to make it easier converting jars to bundles
+CSFAR-3320: Microfeature create-all command does not include all bundles
+
+version 1.0.42
+==============
+
+CSFAR-939: Reverted patch which is actually not needed
+
+version 1.0.41
+==============
+
+CSFAR-939: Allow to download supplementary dependencies from csf-mvn-dependencies repository
+CSFAR-3184; Microfeatures tool should fail when artifacts can't be downloaded
+
+version 1.0.40
+==============
+
+CSFAR-3160: Add support for java 14
+
+version 1.0.39:
+==============
+
+CSFAR-2969: Microfeatures tool should not require to be run from /tmp dir
+
+version 1.0.38:
+==============
+
+CSFAR-2928: Allow to use CSF candidate/sandbox repositories
+
+version 1.0.37:
+==============
+
+CSFAR-2105: Allow to add more features in an existing CASR runtime
+
+version 1.0.36:
+==============
+
+CSFAR-2206: Support semicolon when specifying microfeatures
+
+version 1.0.35:
+==============
+
+CSFAR-1994: Add Pax Logging feature
+
+version 1.0.34:
+==============
+
+CSFAR-1985: Renamed bad names for logging features
+
+version 1.0.33:
+==============
+
+CSFAR-1985: allow to deploy both log4j1 and log4j2 features
+
+version 1.0.32:
+==============
+
+CSFAR-1904: Microfeature tool forces the latest version during resolve
+CSFAR-938: [VAMS] Update to Apache Compress 1.18
+CSFAR-1944: Allows by preferences to resolve bundles and find their dependencies on local obr
+
+version 1.0.31:
+==============
+
+CSFAR-1833: Add -version option to microfeatures tool
+CSFAR-1834: Allow to specify microfeature obr url from env
+
+version 1.0.30:
+==============
+
+CSFAR-1820: Microfeatures bundlerepository bundle must embed bndlib
+CSFAR-1822: Work around for agent.lb.level4
+
+version 1.0.29:
+==============
+
+CSFAR-1814: Add more metadata in microfeatures snapshot bundle
+
+version 1.0.28:
+==============
+
+CSFAR-1619: Add Support for Java 11 in Microfeatures
+
+version 1.0.27:
+==============
+
+CSFAR-1676: Microfeature deploy evolutions
+CSFAR-1687: Resolution errors using BundleRepository
+
+version 1.0.26:
+==============
+
+CSFAR-1625: AutoConfig does not trim keys and values
+
+version 1.0.25:
+==============
+
+CSFAR-1564: Update Felix DM r15
+CSFAR-1589: Race condition when creating local OBR
+
+version 1.0.24:
+==============
+
+CSFAR-1547: Non standard jdk packages must be exported using a fragment bundle
+
+version 1.0.23:
+==============
+
+CSFAR-1546: Microfeature tool reexports wrong system packages
+
+version 1.0.22:
+==============
+
+CSFAR-1516: Microfeatures tool must ignore felix framework found from obr
+
+version 1.0.21:
+==============
+
+CSFAR-1489: stop.sh does not work anymore
+
+version 1.0.20:
+==============
+
+CSFAR-1487: make casr start.sh script more portable
+CSFAR-1424: Random resolution errors when running microfeatures tool from jenkins/docker
+
+version 1.0.19:
+==============
+
+CSFAR-1308: Use official CSF GUI for microfeatures tool
+
+version 1.0.18:
+==============
+
+This version has been skipped for technical reasons.
+
+version 1.0.17:
+==============
+
+CSFAR-1186: commit microfeature source code in git
+CSFAR-1259: Microfeature tool should not include snapshot url in snapshot X-CSF-OBR header
+CSFAR-1260: Microfeature tool should generate auto documented properties
+CSFAR-1261: Microfeatures sometimes can't be resolved when felix resolved is used concurrently
+
+version 1.0.16:
+=============
+
+CSFAR-1042: Microfeature stop.sh script does not work when using legacy structure
+
+version 1.0.15:
+=============
+
+CSFAR-1034: microfeature does not allow to generate legacy apps with P/G/C/I
+
+version 1.0.14:
+=============
+
+CSFAR-986: Performance issue in microfeature tool
+
+version 1.0.13:
+=============
+
+CSFAR-870: Make sure the oldest version of a feature is installed in case you don't specify versions
+
+version 1.0.12:
+=============
+
+CSFAR-870: Allow microfeature tool to auto detect latest OBR version
+CSFAR-878: Allow to restart and/or tail the runtime
+
+version 1.0.11:
+=============
+
+CSFAR-855: Allow to select all features
+CSFAR-856: microfeature generates a start.sh script that is not compatible with older releases
+
+version 1.0.10:
+=============
+
+CSFAR-853: microfeature tool must use 18.4.1 obr by default
+
+version 1.0.9:
+=============
+
+CSFAR-847: Microfeature tool should not resolve optional dependencies
+CSFAR-841: Allow to redirect asr logs to standard output
+CSFAR-848: Update microfeature jar to use by default OBR 18.3.3
+
+version 1.0.8:
+=============
+
+CSFAR-818: Update microfeature jar to use by default OBR 18.3.2
+
+version 1.0.7:
+=============
+
+CSFAR-773: Improve microfeature tool (support for -Dcreate-legacy, fix log42 issue, ...) 
+
+version 1.0.6:
+=============
+
+CSFAR-711: Cleanup feature naming; added alias support for features.
+CSFAR-769: Add microfeature param to dump available features
+
+version 1.0.5:
+=============
+
+CSFAR-414: Update felix framework 5.6.10
+
+version 1.0.4:
+=============
+
+CSFAR-572: support windows
+CSFAR-574: Improve admin commands to concurrently download resources from OBR
+
+version 1.0.3:
+=============
+
+CSFAR-519: felix.properties contains hard coded storage variable when legacy structure is used
+
+version 1.0.2:
+==============
+
+CSFAR-486: MicroFeatures should store features in target runtime.
+CSFAR-498: Microfeatture tool should ignore old bugged felix-asmb.
+CSFAR-500: Create a runtime with microfeatures command line.

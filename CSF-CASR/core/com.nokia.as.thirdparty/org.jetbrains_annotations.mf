@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1561644126832
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.org.jetbrains_annotations
+Bundle-SymbolicName: com.nokia.as.thirdparty.org.jetbrains_annotations
+Bundle-Version: 16.0.3
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: org.jetbrains:annotations:16.0.3
+Export-Package: org.intellij.lang.annotations;version="16.0.3",org.jet
+ brains.annotations;version="16.0.3"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.2.0.201903051501
+

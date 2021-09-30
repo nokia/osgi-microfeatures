@@ -1,0 +1,14 @@
+Bundle-Name: agent.sless.kafka CASR Feature
+Bundle-Version: 1.0.1
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="agent.sless.kafka";\
+                    version:Version="1.0.0";\
+                    desc="feature description";\
+                    doc="https://confluence.app.alcatel-lucent.com/"
+
+Require-Capability: \
+    	osgi.identity;filter:='(osgi.identity=com.nokia.as.k8s.sless-rt.feature)',\
+       	osgi.identity;filter:='(osgi.identity=com.nokia.as.sless.runtime.kafka)',\
+       	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.kafka)',\

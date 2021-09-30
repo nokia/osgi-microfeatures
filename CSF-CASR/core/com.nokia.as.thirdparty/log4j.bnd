@@ -1,0 +1,22 @@
+Include-Resource: @log4j-1.2.17.jar!/**
+Bundle-Name: Log4j 1.2.17
+Import-Package: !javax.swing.*,\
+  !com.ibm.uvm.tools.*,\
+  !com.sun.jdmk.comm.*,\
+  javax.jmdns.*;resolution:=optional,\
+  javax.jms.*;resolution:=optional,\
+  javax.mail.*;resolution:=optional,\
+  *
+DynamicImport-Package: *
+-exportcontents: *;version="1.2.17"
+Bundle-Version: 1.2.20
+Implementation-Version: 1.2.17
+Implementation-Vendor: "Apache Software Foundation"
+-noee: true
+CSF-Embedded: org.darkphoenixs:log4j:1.2.17
+
+
+ 
+
+ 
+ 

@@ -1,0 +1,17 @@
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	com.alcatel_lucent.as.management.annotation;version=1.0.3,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	javax.ws.rs-api;version=2.0,\
+	org.apache.logging.log4j.core;version=2.8,\
+	org.apache.logging.log4j.api;version=2.8,\
+	com.nokia.as.service.logadmin.api;version=1.0,\
+	org.apache.felix.gogo.runtime;version=0.16
+
+-testpath: \
+	${junit}
+    
+-sub: \
+    *.bnd

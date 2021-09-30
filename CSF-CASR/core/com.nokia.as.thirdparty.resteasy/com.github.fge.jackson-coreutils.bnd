@@ -1,0 +1,19 @@
+CSF-Embedded:                  com.github.fge:jackson-coreutils:1.6
+Bundle-Version:                1.6
+Bundle-Name:                   CASR - com.github.fge:jackson-coreutils:1.6
+Bundle-SymbolicName:           com.github.fge.jackson-coreutils
+-includeresource:              @jackson-coreutils-1.6.jar;lib:=true
+-exportcontents:               *; version=1.6
+Import-Package: \
+  com.fasterxml.jackson.core;\
+  com.fasterxml.jackson.databind;\
+  com.fasterxml.jackson.databind.annotation;\
+  com.fasterxml.jackson.databind.node;\
+  com.fasterxml.jackson.databind.ser.std;version="[2.2,3)",\
+  com.github.fge;version="[1.2,2)",\
+  com.github.fge.msgsimple.bundle;version="[1.1,2)",\
+  com.github.fge.msgsimple.load;version="[1.1,2)",\
+  com.google.common.base;version="[28.1,29)",\
+  com.google.common.collect;version="[28.1, 29)",\
+  com.google.common.io;version="[28.1,29)",\
+  javax.annotation

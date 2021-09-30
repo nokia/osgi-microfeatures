@@ -1,0 +1,14 @@
+Bundle-Version: 1.0.0
+Bundle-Name: ReactorProvider mux impl
+
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.features.common.standalone)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.features.callout.standalone)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.mux.reactor)'
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.csf.casr.muxreactor";\
+  alias:List<String>="ReactorMuxProvider Mux Impl";\
+  version:Version="1.0.0";\
+  internal=true;\
+  desc="ReactorProvider mux impl";\
+  doc=""

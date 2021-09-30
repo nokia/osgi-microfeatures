@@ -1,0 +1,23 @@
+<servers>
+  
+    <server ip="0.0.0.0" port="10000" processor="ioh.lb.direct.round-robin" name="LB-UDP">  <!-- if many servers are defined, use a different name for each -->
+         
+            <!-- this is the property indicating the cluster of backend servers load-balanced by this endpoint -->
+        <property name="lb.dest.id">main</property> 
+ 
+            <!-- this is a set of properties to control the behavior of UDP sessions.
+                A UDP session gathers the requests from a given remote UDP client into the same logical context.
+                Each UDP session is associated to a file descriptor, hence the need to configure appropriately. -->
+            <!-- the session timeout in ms, set to 0 for statelessness (each request is independent) -->
+        <property name="session.timeout">5000</property>
+            <!-- the max number of simultaneous sessions : must not exceed the number of file descriptors that can be opened by the LB process -->
+        <property name="session.max">1500</property>
+            <!-- the size of the sessions pool : sessions are stored into a pool for re-use. The associated resources are not freed. -->
+        <property name="session.pool">500</property>
+ 
+            <!-- this is an optional property used by the parser : it indicates a stickiness duration in ms. Designed for IOT/DTLS -->
+        <!--property name="parser.init.delay">3500</property--> 
+ 
+    </server>
+ 
+ </servers>

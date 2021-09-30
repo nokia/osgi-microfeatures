@@ -1,0 +1,41 @@
+{
+  "name": "cardeploycomposer",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": ".",
+  "proxy": {
+    "/": {
+      "target": "http://localhost:9090/"
+    }
+  },
+  "dependencies": {
+    "@nokia-csf-uxr/csfWidgets": "^17.43.5",
+    "axios": "^0.17.1",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.4",
+    "normalizr": "^3.2.4",
+    "prop-types": "^15.6.0",
+    "querystring": "^0.2.0",
+    "react": "16.1.1",
+    "react-dom": "16.1.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
+    "universal-cookie": "^2.1.2",
+    "yamljs": "^0.3.0"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer --only-mapped build/static/js/main.*",
+    "start": "react-scripts start",
+    "build": "sh prebuild.sh;react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-remove-console": "^6.9.0",
+    "source-map-explorer": "^1.5.0"
+  }
+}

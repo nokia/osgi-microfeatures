@@ -1,0 +1,6 @@
+Bundle-Version: 1.0.2
+Bundle-Name: JAX-RS Sless System Tests Feature 
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.sless.jaxrs";category:List<String>="test"; internal=true
+Include-Resource: stest=stest
+X-Unpack: stest
+

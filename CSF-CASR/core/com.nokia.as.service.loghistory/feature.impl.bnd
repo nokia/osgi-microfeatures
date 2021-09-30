@@ -1,0 +1,13 @@
+Bundle-Version: 1.0.0
+Bundle-Name: Log4j1 Service History Feature
+
+Require-Capability: \
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.service.loghistory.impl)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="tools.log.history";\
+  version:Version="1.0.0";\
+  desc="Log History Service to retrieve latest log entries";\
+  doc="https://confluence.app.alcatel-lucent.com/pages/viewpage.action?spaceKey=plateng&title=MicroFeature+-+Log+History"
+
+Private-Package:

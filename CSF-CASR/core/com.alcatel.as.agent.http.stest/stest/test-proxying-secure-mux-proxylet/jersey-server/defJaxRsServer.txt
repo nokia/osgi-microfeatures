@@ -1,0 +1,13 @@
+<servers>
+
+  <!--<server ip="0.0.0.0" port="8080" processor="jaxrs.jersey" name="jaxrs.jersey">
+  <property name="http2.connection.prior-knowledge">true</property>
+  </server>-->
+  
+  <server ip="0.0.0.0" port="8443" processor="jaxrs.jersey" name="jaxrs.jersey.secure" secure="true">
+      <property name="tcp.secure.keystore.file">/tmp/server-keystore.ks</property>
+      <property name="tcp.secure.keystore.pwd">password</property>
+      <property name="tcp.secure.client.authenticate">false</property>
+  </server>
+
+</servers>

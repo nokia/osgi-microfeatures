@@ -1,0 +1,8 @@
+# root bnd file
+
+-classpath ${workspace}/com.alcatel.as.sipservlet10/jars/10/sipservlet.jar
+
+-sub: \
+    *.bnd
+
+-buildpath: com.nokia.as.thirdparty.servlet.api;version=3.1

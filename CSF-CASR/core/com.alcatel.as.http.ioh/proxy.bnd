@@ -1,0 +1,11 @@
+Bundle-Version: 1.0.28
+# Bundle-Name is used by proxyapp deployment (legacy)
+Bundle-Name: IOH HTTP Proxy
+Private-Package: com.alcatel.as.http.proxy
+
+-dsannotations: *
+
+Include-Resource:  \
+ META-INF/defHttpPxServer.txt=META-INF/defHttpPxServer.txt
+
+

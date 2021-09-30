@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.alcatel.as.http.ioh
+Bundle-Version: 7.2.3
+# Bundle-Name is used by proxyapp deployment (legacy)
+Bundle-Name: HttpIOH
+Export-Package: com.alcatel.as.http.ioh
+
+Private-Package: com.alcatel.as.http.ioh.impl
+
+ASR-CoordinatorParticipants : 1
+
+Include-Resource:  \
+ META-INF/defHttpServer.txt=META-INF/defHttpServer.txt
+ META-INF/http-ioh.log4j=META-INF/http-ioh.log4j
+ 
+
+
+
+

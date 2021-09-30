@@ -1,0 +1,14 @@
+Bundle-Name: Ganglia Metric For Java
+Bundle-Category: core, api
+Implementation-Version: 1.0.3
+Implementation-Vendor: "Apache Software Foundation"
+Can-Redefine-Classes: false
+Bundle-Version: 1.0.4
+Include-Resource: @gmetric4j-1.0.3.jar!/info**,@oncrpc-1.0.7.jar!/org**
+-exportcontents: info.ganglia.gmetric4j.*;version="1.0.3",org.acplt.oncrpc.*;version="1.0.7"
+Import-Package: org.acplt.oncrpc.web;resolution:=optional, *
+CSF-Embedded: \
+ info.ganglia.gmetric4j:gmetric4j:1.0.3, \
+ org.acplt:oncrpc:1.0.7
+-manifest gmetric4j.mf
+

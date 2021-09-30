@@ -1,0 +1,38 @@
+CSF-Embedded:                  com.squareup.okhttp3:okhttp:3.14.9,com.squareup.okhttp3:logging-interceptor:3.14.9,com.squareup.okhttp3:okhttp-urlconnection:3.14.9
+Bundle-Version:                3.14.9
+Bundle-Name:                   CASR - com.squareup.okhttp3:okhttp:3.14.9
+Bundle-SymbolicName:           com.nokia.as.thirdparty.com.squareup.okhttp3_okhttp
+-includeresource:              @okhttp-3.14.9.jar;lib:=true,\
+			       @okhttp-urlconnection-3.14.9.jar;lib:=true,\
+			       @logging-interceptor-3.14.9.jar;lib:=true
+-exportcontents:               *; version=3.14.9
+
+Import-Package                          android.net.http;resolution:=optional,\
+                                        android.net.ssl;resolution:=optional,\
+                                        android.os;resolution:=optional,\
+                                        android.security;resolution:=optional,\
+                                        android.util;resolution:=optional,\
+                                        com.android.org.conscrypt;resolution:=optional,\
+                                        dalvik.system;resolution:=optional,\
+                                        javax.annotation,\
+                                        javax.annotation.meta;resolution:=optional,\
+                                        javax.net,\
+                                        javax.net.ssl,\
+                                        javax.security.auth.x500,\
+                                        okhttp3.internal.annotations;version="[3.14,4)",\
+                                        okhttp3.internal.cache;version="[3.14,4)",\
+                                        okhttp3.internal.connection;version="[3.14,4)",\
+                                        okhttp3.internal.http1;version="[3.14,4)",\
+                                        okhttp3.internal.http2;version="[3.14,4)",\
+                                        okhttp3.internal.http;version="[3.14,4)",\
+                                        okhttp3.internal.io;version="[3.14,4)",\
+                                        okhttp3.internal.platform;version="[3.14,4)",\
+                                        okhttp3.internal.proxy;version="[3.14,4)",\
+                                        okhttp3.internal.publicsuffix;version="[3.14,4)",\
+                                        okhttp3.internal.tls;version="[3.14,4)",\
+                                        okhttp3.internal.ws;version="[3.14,4)",\
+                                        okhttp3.internal;version="[3.14,4)",\
+                                        okhttp3;version="[3.14,4)",\
+                                        okio;version="[1.17,2)",\
+                                        org.conscrypt;resolution:=optional,\
+                                        sun.security.ssl

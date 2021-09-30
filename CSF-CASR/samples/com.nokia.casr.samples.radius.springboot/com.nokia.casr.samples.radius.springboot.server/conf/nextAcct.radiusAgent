@@ -1,0 +1,13 @@
+# This property contains the list of all Accounting Servers along with the matching clients and shared secrets.
+# The format is :
+# client_ip server_ip[:server_port] secret
+#
+# The client_ip can be a mask or a specific host (then it is prefixed with "H:")
+#
+# Examples:
+#   H:192.32.31.45     127.0.0.1:1813   customSecret
+#   255.255.255.255    127.0.0.1        secretForWorld
+#
+# The list is ordered: the first matching client_ip is used.
+
+255.255.255.255		127.0.0.1	secretForWorld

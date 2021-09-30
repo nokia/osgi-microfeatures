@@ -1,0 +1,144 @@
+### Http Access Logging configuration (default values)
+
+http.access.format.date="[dd/MMM/YYYY:kk:mm:ss Z]"
+http.access.logger=http.access
+http.access.logger.level=INFO
+
+
+### Jersey configuration (see official docs for more details)
+
+##
+## List of common configuration properties
+##
+
+
+# Disables configuration of Json Processing (JSR-353) feature. Default value is false.
+#jersey.config.disableJsonProcessing=false
+
+# Disables configuration of MOXy Json feature. Default value is false.
+#jersey.config.disableMoxyJson=false
+
+# An integer value that defines the buffer size used to buffer the outbound message entity in order to determine its size and set the value of HTTP Content-Length header. Default value is 8192.
+#jersey.config.contentLength.buffer=8192
+
+# Logger name of the logging filter. See logging chapter for more information. The default value is org.glfish.jersey.logging.LoggingFeature
+#jersey.config.logging.logger.name=org.glfish.jersey.logging.LoggingFeature
+
+# Level of logging filter's logger at which the messages will be logged. See logging chapter for more information.
+#jersey.config.logging.logger.level 	
+
+# Verbosity of logging filter describes how verbose the logging filter will be. 
+#jersey.config.logging.verbosity 	
+
+# The maximum number of bytes of the entity which will be logged. See logging chapter for more information. 
+#jersey.config.logging.entity.maxSize 	
+
+
+##
+## List of server configuration properties
+##
+
+# Defines the application name. The name is an arbitrary user defined name which is used to distinguish between Jersey applications in the c that more applications are deployed on the same runtime (container). The name can be used for example for purposes of monitoring by JMX when name identifies to which application deployed MBeans belong to. The name should be unique in the runtime. The property does not have a default value.
+#jersey.config.server.application.name	
+
+# Disables Bean Validation support. Default value is false.
+#jersey.config.beanValidation.disable.server=false
+
+# Disables @ValidateOnExecution check. Default value is false.
+#jersey.config.beanValidation.disable.validateOnExecutableCheck.server=false
+
+# Enables sending validation error information to the client. Default value is false.
+#jersey.config.beanValidation.enableOutputValidationErrorEntity.server	
+
+# Defines configuration of HTTP method overriding. This property is used by HttpMethodOverrideFilter to determine where it should look for method override information (e.g. request header or query parameters).
+#jersey.config.server.httpMethodOverride	
+
+# Disables configuration of Json Processing (JSR-353) feature. Default value is false.
+#jersey.config.server.disableJsonProcessing=false
+
+# Defines mapping of URI extensions to languages. The property is used by UriConnegFilter.
+#jersey.config.server.languageMappings	
+
+# Defines mapping of URI extensions to media types. The property is used by UriConnegFilter.
+#jersey.config.server.mediaTypeMappings	
+
+# Disables configuration of MOXy Json feature. Default value is false.
+#jersey.config.server.disableMoxyJson	
+
+# If true, then application monitoring will be enabled. This will enable the possibility of injecting ApplicationInfo into resource and providers. Default value is false.
+#jersey.config.server.monitoring.statistics.enabled	
+
+# If true, the calculation of monitoring statistics will be enabled. This will enable the possibility of injecting MonitoringStatistics into resource and providers and also the registered listeners implementing MonitoringStatisticsListener will be called when statistics are available for processing. Monitoring statistics extends bc monitoring feature. Therefore when enabled, the monitoring gets automatically enabled too (the same result setting the property ServerProperties.MONITORING_ENABLED to true). Note that enabling statistics may have a negative performance impact and therefore should be enabled only when needed. Default value is false.
+#jersey.config.server.monitoring.enabled=false
+
+# If true then Jersey will expose MBeans for the collected monitoring statistics. Exposed JMX MBeans are bd on MonitoringStatistics data and therefore when enabled, the calculation of monitoring statistics gets automatically enabled too (the same result setting the property ServerProperties.MONITORING_STATISTICS_ENABLED to true). Note that enabling MBeans for monitoring statistics may have a negative performance impact and therefore should be enabled only when needed. Default value is false.
+#jersey.config.server.monitoring.statistics.mbeans.enabled=false
+
+# Interval (in ms}) indicating how often will be monitoring statistics refreshed (onStatistics method called). Default value is 500.
+#jersey.config.server .monitoring.statistics.refresh.interval=500
+
+# An integer value that defines the buffer size used to buffer the outbound message entity in order to determine its size and set the value of HTTP Content-Length header. Default value is 8192.
+#jersey.config.contentLength.server.buffer=8192
+
+# Defines one or more cl names that implement application-specific resources and providers. If the property is set, the specified cles will be instantiated and registered either application JAX-RS root resources or providers.
+#jersey.config.server.provider.clnames	
+
+## Defines cl-path that contains application-specific resources and providers. If the property is set, the specified packages will be scanned for JAX-RS root resources and providers.
+#jersey.config.server.provider.clpath	
+
+# Defines one or more packages that contain application-specific resources and providers. If the property is set, the specified packages will be scanned for JAX-RS root resources and providers.
+#jersey.config.server.provider.packages	
+
+# Sets the recursion strategy for package scanning. Default value is true.
+#jersey.config.server.provider.scanning.recursive	
+
+# Ignores multiple sles between a port and a context path and will resolve it URI with only one sl. Default value is false.
+#jersey.config.server.reduceContextPathSles.enabled	
+
+# Disables Resource validation. Default value is false.
+#jersey.config.server.resource.validation.disable=false
+
+# Determines whether validation of application resource models should fail even in c of a fatal validation errors. Default value is false.
+#jersey.config.server.resource.validation.ignoreErrors	
+
+# Disables WADL generation. Default value is false.
+#jersey.config.server.wadl.disableWadl	
+
+# Defines the wadl generator configuration that provides a WadlGenerator.
+#jersey.config.server.wadl.generatorConfig	
+
+# Whenever response status is 4xx or 5xx it is possible to choose between sendError or setStatus on container specific Response implementation.
+#jersey.config.server.response.setStatusOverSendError	
+
+# Enables/disables tracing support.
+#jersey.config.server.tracing.type	
+
+# Sets the amount of detail provided by tracing. Possible values are SUMMARY, TRACE and VERBOSE.
+#jersey.config.server.tracing.threshold	
+
+# If property value is true then the errors raised during response processing are tried to be handled using available response error mappers.
+#jersey.config.server.exception.processResponseErrors	
+
+# An integer value that defines the size of cache for sub-resource locator models. The cache is used to provide better performance for application that uses JAX-RS sub-resource locators.
+#jersey.config.server.subresource.cache.size	
+
+# An integer value that defines the maximum age (in seconds) for cached for sub-resource locator models. The age of an cache entry is defined the time since the l access (read) to the entry in the cache. Entry aging is not enabled by default.
+#jersey.config.server.subresource.cache.size	
+
+# If true then Jersey will cache Jersey resources in addition to caching sub-resource locator cles and instances (which are cached by default). To make sure the caching is effective in this case you need to return same Jersey Resource instances for same input parameters from resource method. This means that generating new Jersey Resource instances for same input parameters would not have any performance effect and it would only fill-up the cache.
+#jersey.config.server.subresource.cache.jersey.resource.enabled	
+
+# If true, Jersey will not resolve relative URIs in the Location http header.
+#jersey.config.server.headers.location.relative.resolution.disabled	
+
+# Logger name of the logging filter. See logging chapter for more information. The default value is org.glfish.jersey.logging.LoggingFeature
+#jersey.config.server.logging.logger.name 	
+
+# Level of logging filter's logger at which the messages will be logged. See logging chapter for more information.
+#jersey.config.server.logging.logger.level 	
+
+# Verbosity of logging filter describes how verbose the logging filter will be.
+#jersey.config.server.logging.verbosity 	
+
+# The maximum number of bytes of the entity which will be logged. See logging chapter for more information. 
+#jersey.config.server.logging.entity.maxSize 	

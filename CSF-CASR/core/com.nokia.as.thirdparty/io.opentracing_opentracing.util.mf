@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1579874404931
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.io.opentracing_opentracing.util
+Bundle-SymbolicName: com.nokia.as.thirdparty.io.opentracing_opentracin
+ g.util
+Bundle-Version: 0.33.0
+Created-By: 1.8.0_221 (Oracle Corporation)
+CSF-Embedded: io.opentracing:opentracing-util:0.33.0
+Export-Package: io.opentracing.util;version="0.33.0";uses:="io.opentra
+ cing,io.opentracing.propagation"
+Import-Package: io.opentracing;version="[0.33,1)",io.opentracing.noop;
+ version="[0.33,1)",io.opentracing.propagation;version="[0.33,1)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-4.3.1.201911131708
+

@@ -1,0 +1,17 @@
+Bundle-Version: 1.0.3
+Bundle-Name: Standalone Diameter Agent Bundles
+dir: bnd/feature/agent.diameter.standalone
+Include-Resource: META-INF/=${dir}
+
+Require-Bundle: \
+ com.nokia.as.features.common.standalone,\
+ com.nokia.as.features.callout.standalone,\
+ com.nokia.as.features.lib.diameter.agent
+
+Provide-Capability: com.nokia.as.feature;\
+ com.nokia.as.feature="agent.proxylet.diameter";\
+ alias:List<String>="Diameter Agent";\
+ version:Version="1.0.0";\
+ desc="CJDI diameter proxylet agent";\
+ doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Diameter+Agent?src=contextnavpagetreemode"
+

@@ -1,0 +1,23 @@
+Bundle-Version: 1.0.8
+Bundle-Name: Common Test Assembly 
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="Common Tests"; internal=true
+
+Require-Capability: \
+  	osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.concurrent)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.log4j)',\
+	osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.diagnostics)',\
+   	osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.metering2.impl)',\
+  	osgi.identity;filter:='(osgi.identity=com.nokia.as.autoconfig)',\
+	osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.mbeanparser)',\
+        osgi.identity;filter:='(&(osgi.identity=org.apache.felix.gogo.command)(version>=1.0.2))',\
+	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.gogo.runtime)(version>=1.1.0))',\
+	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.gogo.shell)(version>=1.1.4))',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.eventadmin)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.servlet.api)',\
+	osgi.identity;filter:='(&(osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12)(version>=1.7.0))',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12.ext)',\
+	osgi.identity;filter:='(&(osgi.identity=org.apache.commons.configuration)(version>=1.9.0))',\
+	osgi.identity;filter:='(&(osgi.identity=org.lucee.commons.logging)(version>=1.2.0))',\
+	osgi.identity;filter:='(&(osgi.identity=com.sun.mail.javax.mail)(version>=1.4.7))',\
+	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.dependencymanager.shell)(version>=4.0.5))'
+

@@ -1,0 +1,14 @@
+Bundle-Version: 1.0.2
+Bundle-Name: Bundles used in embedded CASR environment
+
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="internal.commom.extra.embedded"; internal=true
+
+Require-Capability: \
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.bundleinstaller.mock)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.autoconfig)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.mbeanparser)'
+
+
+
+
+

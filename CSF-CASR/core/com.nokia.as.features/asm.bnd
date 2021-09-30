@@ -1,0 +1,13 @@
+# Feature used to install asm-7 dependencies
+
+Bundle-Version: 1.0.1
+Bundle-Name: ASM Dependencies Feature
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="lib.asm";category:List<String>="libs"; version:Version="1.0.0"; internal=true
+Require-Capability: \
+ 	osgi.identity;filter:='(osgi.identity=org.objectweb.asm)',\
+ 	osgi.identity;filter:='(osgi.identity=org.objectweb.asm.commons)',\
+ 	osgi.identity;filter:='(osgi.identity=org.objectweb.asm.tree)',\
+ 	osgi.identity;filter:='(osgi.identity=org.objectweb.asm.util)',\
+ 	osgi.identity;filter:='(osgi.identity=org.objectweb.asm.tree.analysis)',\
+	
+

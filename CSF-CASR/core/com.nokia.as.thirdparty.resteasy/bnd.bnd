@@ -1,0 +1,20 @@
+CSF-Artifact: false
+-sub: *.bnd
+-fixupmessages: \
+   "Can't find super class"; is:=ignore,\
+   "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jaxrs: Baseline mismatch for package org.jboss.resteasy.resteasy_jaxrs.i18n, MAJOR change. Current is 3.14.0.Final, repo is 3.13.1.Final, suggest 4.0.0"; is:=ignore,\
+   "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jaxrs: The bundle version \\(3.13.1/3.14.0\\) is too low, must be at least 4.0.0"; is:=ignore,\
+   "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jaxb-provider: Baseline mismatch for package org.jboss.resteasy.plugins.providers.jaxb.i18n, MAJOR change. Current is 3.14.0.Final, repo is 3.13.1.Final, suggest 4.0.0 or -"; is:=ignore,\
+   "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jaxb-provider: The bundle version \\(3.13.1/3.14.0\\) is too low, must be at least 4.0.0"; is:=ignore,\
+   "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-client: Baseline mismatch for package org.jboss.resteasy.client.jaxrs.i18n, MAJOR change. Current is 3.14.0.Final, repo is 3.13.1.Final, suggest 4.0.0 or -"; is:=ignore,\
+   "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-client: The bundle version \\(3.13.1/3.14.0\\) is too low, must be at least 4.0.0"; is:=ignore
+
+
+-buildpath:\
+    com.github.fge:jackson-coreutils;version=1.6,\
+    com.github.fge:json-patch;version=1.9,\
+    org.jboss.resteasy:resteasy-client;version=3.14.0.Final,\
+    org.jboss.resteasy:resteasy-jackson2-provider;version=3.14.0.Final,\
+    org.jboss.resteasy:resteasy-jaxb-provider;version=3.14.0.Final,\
+    org.jboss.resteasy:resteasy-jaxrs;version=3.14.0.Final,\
+    org.jboss.resteasy:resteasy-multipart-provider;version=3.14.0.Final

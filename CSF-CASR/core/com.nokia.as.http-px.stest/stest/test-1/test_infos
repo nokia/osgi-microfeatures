@@ -1,0 +1,4 @@
+#These values are used to generate the jUnit test report for Jenkins.
+
+TEST_PACKAGE_NAME=com.nokia.as.http-px.stest
+TEST_SUITE_NAME=ProxyAgentTests

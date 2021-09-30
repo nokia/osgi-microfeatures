@@ -1,0 +1,15 @@
+Bundle-Version: 1.0.4
+Bundle-Name: File Discovery
+dir: bnd/feature/discovery.file
+Include-Resource: META-INF/=${dir}
+Require-Bundle: \
+ com.alcatel.as.service.impl.advert-file-reader
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="discovery.static.file";\
+  alias:List<String>="File Discovery";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+File+Discovery?src=contextnavpagetreemode";\
+  desc="CASR configuration file used to connect agent to io handlers"
+ 
+

@@ -1,0 +1,15 @@
+Bundle-Version: 1.0.1
+Bundle-Name: CASR Http Loader Server
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.util.httploader.server)'
+
+Provide-Capability: com.nokia.as.feature;\
+	com.nokia.as.feature="loader.http.casr.server";\
+	version:Version="1.0.0";\
+	alias:List<String>="Http Loader Server,test.http.loader.server";\
+	doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+HttpLoader";\
+	desc="jaxrs server used to be tested with the casr http loader";\
+	internal=true
+
+	

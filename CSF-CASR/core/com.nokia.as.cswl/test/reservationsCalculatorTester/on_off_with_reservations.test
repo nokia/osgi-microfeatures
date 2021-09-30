@@ -1,0 +1,179 @@
+// NOW=time					<- must be defined
+// 
+// [capacity | on_off] {	<- all positions are optional
+//	f: capacity										<- feature (default capacity = 100, only for capacity reservation)
+//	l: serial, total, used, [pool | floating]		<- license
+//	r: serial, capacity, time						<- current reservation
+//	n: serial, (capacity), time						<- new reservation
+//	e: [capacity | on_off | release], (capacity)	<- exception
+// }
+
+NOW=2015-02-12T13:30
+BEFORE=2015-01-12T13:30
+
+// one pool license
+on_off {
+	l: abc1, 200, 1, pool
+	r: abc1, 1, BEFORE
+	n: abc1, BEFORE
+}
+
+on_off {
+	l: abc1, 200, 20, pool
+	r: abc1, 1, BEFORE
+	n: abc1, BEFORE
+}
+
+on_off {
+	l: abc1, 200, 200, pool
+	r: abc1, 1, BEFORE
+	n: abc1, BEFORE
+}
+
+// one floating pool license
+on_off {
+	l: abc1, 200, 1, floating
+	r: abc1, 1, BEFORE
+	n: abc1, NOW
+}
+
+on_off {
+	l: abc1, 200, 20, floating
+	r: abc1, 1, BEFORE
+	n: abc1, NOW
+}
+
+on_off {
+	l: abc1, 200, 200, floating
+	r: abc1, 1, BEFORE
+	n: abc1, NOW
+}
+
+// more pool licenses
+on_off {
+	l: abc1, 200, 1, pool
+	l: abc2, 200, 0, pool
+	r: abc1, 1, BEFORE
+	n: abc1, BEFORE
+}
+
+on_off {
+	l: abc1, 200, 200, pool
+	l: abc2, 200, 0, pool
+	r: abc1, 1, BEFORE
+	n: abc1, BEFORE
+}
+
+on_off {
+	l: abc1, 200, 200, pool
+	l: abc2, 200, 200, pool
+	r: abc1, 1, BEFORE
+	n: abc1, BEFORE
+}
+
+on_off {
+	l: abc1, 200, 0, pool
+	l: abc2, 200, 1, pool
+	r: abc2, 1, BEFORE
+	n: abc2, BEFORE
+}
+
+on_off {
+	l: abc1, 200, 0, pool
+	l: abc2, 200, 200, pool
+	r: abc2, 1, BEFORE
+	n: abc2, BEFORE
+}
+
+on_off {
+	l: abc1, 200, 200, pool
+	l: abc2, 200, 200, pool
+	r: abc2, 1, BEFORE
+	n: abc2, BEFORE
+}
+
+// more floating pool licenses
+on_off {
+	l: abc1, 200, 1, floating
+	l: abc2, 200, 0, floating
+	r: abc1, 1, BEFORE
+	n: abc1, NOW
+}
+
+on_off {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 0, floating
+	r: abc1, 1, BEFORE
+	n: abc1, NOW
+}
+
+on_off {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 200, floating
+	r: abc1, 1, BEFORE
+	n: abc1, NOW
+}
+
+on_off {
+	l: abc1, 200, 0, floating
+	l: abc2, 200, 1, floating
+	r: abc2, 1, BEFORE
+	n: abc1, NOW
+}
+
+on_off {
+	l: abc1, 200, 0, floating
+	l: abc2, 200, 200, floating
+	r: abc2, 1, BEFORE
+	n: abc1, NOW
+}
+
+on_off {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 200, floating
+	r: abc2, 1, BEFORE
+	n: abc2, NOW
+}
+
+// more mixed licenses
+on_off {
+	l: abc1, 200, 1, floating
+	l: abc2, 200, 0, pool
+	r: abc1, 1, BEFORE
+	n: abc1, NOW
+}
+
+on_off {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 0, pool
+	r: abc1, 1, BEFORE
+	n: abc1, NOW
+}
+
+on_off {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 200, pool
+	r: abc1, 1, BEFORE
+	n: abc1, NOW
+}
+
+on_off {
+	l: abc1, 200, 0, floating
+	l: abc2, 200, 1, pool
+	r: abc2, 1, BEFORE
+	n: abc2, BEFORE
+}
+
+on_off {
+	l: abc1, 200, 0, floating
+	l: abc2, 200, 200, pool
+	r: abc2, 1, BEFORE
+	n: abc2, BEFORE
+}
+
+on_off {
+	l: abc1, 200, 200, floating
+	l: abc2, 200, 200, pool
+	r: abc2, 1, BEFORE
+	n: abc2, BEFORE
+}

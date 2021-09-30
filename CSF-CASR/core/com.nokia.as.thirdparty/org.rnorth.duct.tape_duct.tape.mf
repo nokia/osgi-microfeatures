@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1561644127185
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.org.rnorth.duct.tape_duct.tape
+Bundle-SymbolicName: com.nokia.as.thirdparty.org.rnorth.duct.tape_duct
+ .tape
+Bundle-Version: 1.0.7
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: org.rnorth.duct-tape:duct-tape:1.0.7
+Export-Package: org.rnorth.ducttape;version="1.0.7",org.rnorth.ducttap
+ e.circuitbreakers;version="1.0.7",org.rnorth.ducttape.inconsistents;v
+ ersion="1.0.7",org.rnorth.ducttape.ratelimits;version="1.0.7",org.rno
+ rth.ducttape.timeouts;version="1.0.7",org.rnorth.ducttape.unreliables
+ ;version="1.0.7"
+Import-Package: org.rnorth.ducttape;version="[1.0,2)",org.rnorth.ductt
+ ape.timeouts;version="[1.0,2)",org.rnorth.ducttape.unreliables;versio
+ n="[1.0,2)",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.2.0.201903051501
+

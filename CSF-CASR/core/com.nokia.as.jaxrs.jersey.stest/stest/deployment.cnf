@@ -1,0 +1,3 @@
+agent=runtime.felix.log4j1,agent.jaxrs.jersey:1.1.0,ioh.mux.http:1.0.0,stest.jaxrs.test
+server=runtime.felix.log4j1,ioh.server.jersey:1.1.0,stest.jaxrs.test
+server-http2=runtime.felix.log4j1,ioh.server.jersey:1.1.0,stest.jaxrs.test.http2

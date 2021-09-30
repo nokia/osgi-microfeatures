@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FindBugsFilter>
+	<LastVersion value="-1" relOp="NEQ" />
+
+	<Match>
+		<Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS" />
+	</Match>
+	
+	<Match>
+		<Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+	</Match>
+	
+	<Match>
+		<Class name="com.nextenso.mux.util.MuxUtils" />
+		<Bug pattern="MS_SHOULD_BE_FINAL" />
+	</Match>
+
+	<Match>
+		<Class name="com.nextenso.mux.MuxHandler" />
+		<Bug pattern="EI_EXPOSE_REP" />
+	</Match>
+
+</FindBugsFilter>

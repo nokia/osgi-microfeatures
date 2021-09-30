@@ -1,0 +1,23 @@
+NAME        CalloutAgent
+ID          267
+ROOTOID     alcatel 637 srd 71 a5350 6 CalloutAgent 110
+COMMAND     scripts/start/startFelix.sh true %%APP_INSTANCE%% %%PROP=CalloutAgent/CalloutinJVMVerboseGC%% %%PROP=CalloutAgent/CalloutinJVMMemorySize%% %%PROP=CalloutAgent/CalloutinJVMEdenMemorySize%% %%PROP=CalloutAgent/CalloutinJVMWarmingUP%% %%PROP=/CalloutAgent/CalloutinJVMExtendedParameters%% %%PROPFILE=CalloutAgent/agent.jvmargs%% %%PROPFILE=CalloutAgent/agent.osgi%% %%PROPFILE=CalloutAgent/agent.user.specific.param%% %%PROPFILE=CalloutAgent/agent.user.specific.classpath%% -cpuAffinity=%%PROP=CalloutAgent/system.tpool.affinity%%
+GAUGE        JVM Total Memory Size (Kb)  { JvmMemSize 100 }
+GAUGE        Connected Stacks  { NumStacks 101 }
+GAUGE        JVM Free Memory Available (Kb)  { JvmFreeMem 102 }
+GAUGE        Flow Control	 { FlowCtrl 103 }
+COUNTER      JVM normalMemory state (sec)	 { JvmNormalMemStateSec 104 }
+COUNTER      JVM highMemory state (sec)  { JvmHighMemStateSec 105 }
+COUNTER      JVM emergencyMemory state (sec)  { JvmEmergencyMemStateSec 106 }
+GAUGE        JVM Actual Memory Level State (int) 0:Normal 1:High 2:Emergency  { JvmActualMemoryLevelState 107 }
+GAUGE        Percentage Of Used Memory Since Last GC
+OPTION    1   FullGC  execute a full garbage collection.    { FullGC 50 }
+OPTION    2   DumpState	dump a complete dump stack of all agent threads.    { DumpState 51 }
+CONTROL     True
+UNIQUE	    False
+CHECK
+STOP
+SUDO        False
+PRIORITY    3
+EXTERNAL    False
+KILLDELAY   40

@@ -1,0 +1,57 @@
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	com.nextenso.proxylet.api;version=1.0,\
+	com.alcatel.as.service.api;version=2.1,\
+	com.alcatel.as.service.metering2;version=1.0,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.alcatel.as.utils;version=2.16,\
+	com.nextenso.proxylet.http;version=1.4,\
+	com.alcatel.as.calloutagent.callout;version=3.1.0,\
+	com.alcatel.as.calloutagent.callout-admin;version=1.0,\
+	com.nextenso.mux;version=3.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.alcatel_lucent.sip.sipservlet.commonapi;version=1.0,\
+	com.alcatel_lucent.as.service.dns;version=1.0,\
+	com.alcatel.as.agent.http.parser;version=1.0,\
+	org.apache.felix.dependencymanager,\
+	com.nokia.as.thirdparty.servlet.api;version=3.1,\
+	com.alcatel.as.http.ioh.h2client;version=1.5
+
+groupId: com.nokia.casr.http
+
+Bundle-Name: CASR Http Proxylet Container
+Bundle-SymbolicName: com.nokia.as.agent.http
+
+Private-Package: \
+ com.nextenso.http.agent,\
+ com.nextenso.http.agent.client,\
+ com.nextenso.http.agent.client.impl,\
+ com.nextenso.http.agent.config,\
+ com.nextenso.http.agent.demux,\
+ com.nextenso.http.agent.demux.client,\
+ com.nextenso.http.agent.engine,\
+ com.nextenso.http.agent.engine.criterion,\
+ com.nextenso.http.agent.engine.xml,\
+ com.nextenso.http.agent.ext,\
+ com.nextenso.http.agent.ha,\
+ com.nextenso.http.agent.impl,\
+ com.nextenso.proxylet.admin.http
+ 
+Import-Package: sun.net.www.protocol.http;resolution:=optional, *
+
+Include-Resource: META-INF/http.flags=resource/calloutAgent/http.flags,\
+ META-INF/http.desc=resource/calloutAgent/http.desc,\
+ META-INF/http.log4j=resource/calloutAgent/http.log4j,\
+ META-INF/httpagent.proxylets.xml=monconf/httpagent.proxylets.xml,\
+ META-INF/next-proxy.txt=monconf/next-proxy.txt,\
+ META-INF/connect-tunneling.txt=monconf/connect-tunneling.txt,\
+ META-INF/next-server.txt=monconf/next-server.txt,\
+ httpAgent=resource/httpAgent
+
+ASR-MuxHandlerDesc: META-INF/http.desc
+
+Bundle-Version: 1.0.4
+
+
+

@@ -1,0 +1,8 @@
+-buildpath: \
+	${osgi},\
+
+Bundle-Version: 1.0.5
+Private-Package: com.sun.crypto.provider, sun.security.ssl, sun.security.internal.spec
+
+
+

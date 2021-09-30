@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="fatal" name="MyApp" packages="" monitorInterval="2">
+  <Appenders>
+    <File name="MyFile" fileName="${sys:INSTALL_DIR}/var/log/${sys:platform.name}.${sys:group.name}__${sys:component.name}.${sys:instance.name}/msg.log">
+      <PatternLayout>
+        <Pattern>%d %p %c %x %t - %m%n</Pattern>
+      </PatternLayout>
+    </File>
+  </Appenders>
+  <Loggers>
+    <Root level="warn">
+      <AppenderRef ref="MyFile"/>
+    </Root>
+  </Loggers>
+</Configuration>

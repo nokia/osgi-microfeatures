@@ -1,0 +1,22 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	org.apache.felix.dependencymanager;version=4.4,\
+	com.alcatel.as.service.api;version=2.1.0,\
+	com.alcatel.as.service.metering2;version=1.0.0,\
+	com.alcatel.as.utils;version=2.0,\
+	com.alcatel_lucent.as.management.annotation;version=1.0.3,\
+	org.apache.felix.gogo.runtime;version=0.16,\
+	io.dropwizard.metrics.ganglia;version=3.1.2,\
+	io.dropwizard.metrics.core;version=3.1.2,\
+	slf4j.api;version=1.7,\
+	com.nokia.as.thirdparty.servlet.api;version=3.1,\
+	com.nokia.as.thirdparty.jsr166e;version=1.7,\
+	com.nokia.as.thirdparty.json;version=1.0,\
+	com.nokia.as.thirdparty.gmetric4j;version=1.0
+    
+-sub: \
+    *.bnd

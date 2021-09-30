@@ -1,0 +1,12 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	org.apache.felix.dependencymanager;version=4.4,\
+	org.apache.felix.gogo.runtime;version=0.16,\
+	org.apache.felix.main
+
+-sub: \
+    *.bnd
+

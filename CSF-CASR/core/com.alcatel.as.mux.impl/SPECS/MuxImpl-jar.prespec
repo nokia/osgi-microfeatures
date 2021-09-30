@@ -1,0 +1,4 @@
+std_files:
+bundles/repository/core/mux-impl.jar
+bundles/repository/blueprint/mux-impl-local.jar
+lib/mux-impl.jar

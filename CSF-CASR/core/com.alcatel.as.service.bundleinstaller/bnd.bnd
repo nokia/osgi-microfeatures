@@ -1,0 +1,7 @@
+# root bnd file
+
+-buildpath: \
+	${osgi}
+
+-sub: \
+    *.bnd

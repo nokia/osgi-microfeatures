@@ -1,0 +1,13 @@
+Bundle-Version: 1.0.3
+Bundle-Name: CASR Http Loader
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.util.httploader.loader)'
+
+Provide-Capability: com.nokia.as.feature;\
+	com.nokia.as.feature="loader.http.casr";\
+	version:Version="1.0.0";\
+	alias:List<String>="Http Loader, test.http.loader";\
+	doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+HttpLoader";\
+	desc="CASR Lightweight http(s) loader"
+

@@ -1,0 +1,17 @@
+# Build dependencies 
+-buildpath: \
+	${osgi},\
+	${junit},\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	org.apache.felix.dependencymanager,\
+	com.alcatel.as.utils;version=2.2.1,\
+	com.nokia.as.util.junit4osgi.tester;version=1.0,\
+	com.nokia.as.util.test;version=1.1,\
+	com.alcatel.as.service.api;version=latest,\
+        com.nokia.as.thirdparty.log4j;version=1.2,\
+	io.netty.common;version=4.1,\
+	org.mousio-etcd4j;version=2.15,\
+	io.netty.handler;version=4.1
+
+Bundle-Version: 1.0.0
+-sub: *.bnd

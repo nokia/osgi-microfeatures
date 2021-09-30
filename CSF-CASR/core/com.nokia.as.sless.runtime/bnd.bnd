@@ -1,0 +1,17 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	osgi.cmpn;version=6.0,\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	com.nokia.as.thirdparty.org.apache.kafka_kafka-clients;version=2.4,\
+	com.nokia.as.k8s.sless-api;version=latest,\
+	com.nokia.as.k8s.sless.fwk-api;version=latest,\
+	com.nokia.as.thirdparty.log4j;version=latest,\
+	com.nokia.as.thirdparty.cloudevents.api;version=0.2,\
+	com.nokia.as.k8s.controller-api;version=latest
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.0.${tstamp}
+-sub: *.bnd

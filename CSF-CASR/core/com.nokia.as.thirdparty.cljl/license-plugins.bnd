@@ -1,0 +1,9 @@
+-privatepackage: \
+	com.nokia.licensing.agnosticImpl,\
+	com.nokia.licensing.agnosticImpl.cljlPrefs
+Export-Package: com.nokia.licensing.plugins
+Bundle-Version: 3.2.4
+
+DynamicImport-Package: com.nsn.ood.cls.cljl.plugin,\
+					   com.nokia.licensing.impl,\
+					   com.nokia.licensing.logging

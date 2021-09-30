@@ -1,0 +1,22 @@
+Bundle-Version: 1.0.0
+Bundle-Name: CSWL
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.cswl.ood.cls.cljl.connector)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.cswl.ood.cls.core)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.cswl.ood.cls.model.internal)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.cswl.ood.cls.model)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.cswl.ood.cls.rest.util)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.cswl.ood.cls.util)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.cswl.ood.cls.util.osgi)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.cswl.mariadb.config)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.cljl.license-plugins)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.cljl.license)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.cljl.licenseIF)',\
+	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.jdbc.mariadb)',\
+	osgi.identity;filter:='(osgi.identity=org.mariadb.jdbc)'
+	
+Provide-Capability: com.nokia.as.feature;\
+	com.nokia.as.feature="app.csf.cswl";\
+	version:Version="1.0.0";\
+	desc="CSWL"

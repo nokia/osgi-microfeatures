@@ -1,0 +1,4 @@
+Bundle-Version: 1.0.1
+Private-Package: alcatel.tess.hometop.gateways.utils
+Fragment-Host: com.alcatel.as.utils
+

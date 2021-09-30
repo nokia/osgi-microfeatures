@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE contexts PUBLIC "-//NEXTENSO//DTD CONTEXT 1.1//EN" "http://www.nextenso.com/">
+
+<contexts>
+  <context id="1">
+    <context-name>DefaultContext</context-name>
+    <description>Default Http Agent Context</description>
+    
+    <request-chain>
+      <proxylet>
+	<proxylet-name>WebUser</proxylet-name>
+	<protocol>HTTP</protocol>
+	<proxylet-class>alcatel.tess.hometop.gateways.proxylets.utils.WebUserProxylet</proxylet-class>
+	<criterion>
+	  <criterion-name>All</criterion-name>
+	  <criterion-value>
+	    <all/>
+	  </criterion-value>
+	</criterion>
+      </proxylet>
+    </request-chain>
+    
+    <response-chain>
+      <!-- 
+      Declare this proxylet as the first response pxlet if you need to log http access.
+      Only required if some pxlets may modify the http responses
+      -->
+      <proxylet>
+	<proxylet-name>First AccessProxylet</proxylet-name>
+	<protocol>HTTP</protocol>
+	<proxylet-class>alcatel.tess.hometop.gateways.proxylets.utils.AccessProxylet$First</proxylet-class>
+	<criterion>
+	  <criterion-name>All</criterion-name>
+	  <criterion-value>
+	    <all/>
+	  </criterion-value>
+	</criterion>
+      </proxylet>
+      
+      <!-- 
+      Declare this proxylet as the last response pxlet if you need to log http access.
+      -->
+      <proxylet>
+	<proxylet-name>AccessProxylet</proxylet-name>
+	<protocol>HTTP</protocol>
+	<proxylet-class>alcatel.tess.hometop.gateways.proxylets.utils.AccessProxylet$Last</proxylet-class>
+	<criterion>
+	  <criterion-name>All</criterion-name>
+	  <criterion-value>
+	    <all/>
+	  </criterion-value>
+	</criterion>
+      </proxylet>
+    </response-chain>
+    
+    <session-listener>
+      <listener-class>alcatel.tess.hometop.gateways.proxylets.utils.WebUserProxylet</listener-class>
+    </session-listener>
+    
+    <!-- Declare this listener if you need to log http access -->
+    <response-listener>
+      <listener-class>alcatel.tess.hometop.gateways.proxylets.utils.AccessProxylet$Last</listener-class>
+    </response-listener>
+  </context>
+</contexts>

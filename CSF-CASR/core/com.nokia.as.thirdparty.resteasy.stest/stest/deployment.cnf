@@ -1,0 +1,1 @@
+server=runtime.felix.log4j1,ioh.server.jersey:1.1.0,lib.jboss.resteasy,stest.resteasy.unit

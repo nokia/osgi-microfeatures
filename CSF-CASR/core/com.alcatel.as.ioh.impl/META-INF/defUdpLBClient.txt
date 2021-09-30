@@ -1,0 +1,18 @@
+<clients>
+ 
+        <!-- the active healthcheck properties : each property can also be set per <client> or per <server> to be overridden -->
+    <!--property name="healthcheck.delay">1000</property-->   <!-- this property indicates the healthcheck frequency in ms. Set to 0 to disable healthcheck -->
+    <!--property name="healthcheck.timeout">2500</property-->   <!-- this property indicates the healthcheck failure timer in ms -->
+    <!--property name="healthcheck.data">0x10 0xAA 0x2B</property-->  <!-- this property indicates the healthcheck data, if not set then heathcheck is disabled-->
+ 
+   <client id="main">  <!-- this is the identifier of the cluster : the listening endpoint(s) must reference a valid client id -->
+ 
+        <servers>  <!-- a list of destination servers -->
+            <!--server ip="10.160.67.176" port="30684" name="edge1"/>
+            <server ip="10.160.67.177" port="30684" name="edge2"/>
+            <server ip="10.160.67.178" port="30684" name="edge3"/-->
+        </servers>
+ 
+    </client>
+ 
+</clients>

@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1555665477271
+Bundle-ManifestVersion: 2
+Bundle-Name: software.amazon.awssdk:regions:2.5.25
+Bundle-SymbolicName: com.nokia.as.thirdparty.software.amazon.awssdk_regions
+Bundle-Version: 2.5.25
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: software.amazon.awssdk:regions:2.5.25
+Export-Package: software.amazon.awssdk.regions;version="2.5.25",softwa
+ re.amazon.awssdk.regions.internal.region;version="2.5.25",software.am
+ azon.awssdk.regions.internal.util;version="2.5.25";uses:="com.fasterx
+ ml.jackson.annotation",software.amazon.awssdk.regions.partitionmetada
+ ta;version="2.5.25";uses:="software.amazon.awssdk.regions",software.a
+ mazon.awssdk.regions.providers;version="2.5.25";uses:="software.amazo
+ n.awssdk.core.exception,software.amazon.awssdk.regions",software.amaz
+ on.awssdk.regions.regionmetadata;version="2.5.25";uses:="software.ama
+ zon.awssdk.regions",software.amazon.awssdk.regions.servicemetadata;ve
+ rsion="2.5.25";uses:="software.amazon.awssdk.regions",software.amazon
+ .awssdk.regions.util;version="2.5.25"
+Import-Package: com.fasterxml.jackson.annotation,com.fasterxml.jackson
+ .databind,org.slf4j,software.amazon.awssdk.core;version="[2.5,3)",sof
+ tware.amazon.awssdk.core.exception;version="[2.5,3)",software.amazon.
+ awssdk.core.internal.util;version="[2.5,3)",software.amazon.awssdk.co
+ re.util.json;version="[2.5,3)",software.amazon.awssdk.profiles;versio
+ n="[2.5,3)",software.amazon.awssdk.regions;version="[2.5,3)",software
+ .amazon.awssdk.regions.internal.util;version="[2.5,3)",software.amazo
+ n.awssdk.regions.partitionmetadata;version="[2.5,3)",software.amazon.
+ awssdk.regions.regionmetadata;version="[2.5,3)",software.amazon.awssd
+ k.regions.servicemetadata;version="[2.5,3)",software.amazon.awssdk.re
+ gions.util;version="[2.5,3)",software.amazon.awssdk.utils;version="[2
+ .5,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.2.0.201903051501
+

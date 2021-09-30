@@ -1,0 +1,14 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	osgi.cmpn;version=6.0,\
+	org.apache.felix.dependencymanager.annotation;version=4.5,\
+	com.alcatel.as.service.api;version=2.5,\
+	com.alcatel.as.service.metering2;version=1.1
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 2.0.1
+Private-Package: com.nokia.as.gpto.common.msg.api
+Export-Package: com.nokia.as.gpto.common.msg.api

@@ -1,0 +1,5 @@
+# this file contains all the runtimes needed to execute the tests
+# Here, we deploy two runtimes ("client" and "server")
+# NOTE: the runtimes must be started in the order they are declared in this file
+
+test=runtime.felix.log4j1,lib.csf.casr,lib.etcd.etcd4j,stest.etcd4j.test

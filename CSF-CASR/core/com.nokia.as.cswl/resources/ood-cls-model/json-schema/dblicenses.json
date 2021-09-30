@@ -1,0 +1,86 @@
+{
+	"$schema":"http://json-schema.org/draft-03/schema",
+	"type":"object",
+	"javaType":"com.nsn.ood.cls.model.gen.licenses.DBLicenses",
+	"description":"License Keys description schema",
+	"properties":{
+		"dblicenses": {
+			"type": "array",
+			"required": true,
+			"description": "List of license keys",
+			"items": {
+				"type": "object",
+				"javaType": "com.nsn.ood.cls.model.gen.licenses.DBLicense",
+				"extends": {
+					"$ref": "resource.json"
+				},
+				"required": false,
+				"properties": {
+					"serialNumber": {
+						"type": "string",
+						"required": true,
+						"description": "Unique License Key serialnumber"
+					},
+					"licenseFileName": {
+						"type": "string",
+						"required": true,
+						"description": "Unique License Key filenamenumber in 8.3 or 13.3 format"
+					},
+					"licenseCode": {
+						"type": "string",
+						"required": true,
+						"description": "LK Sales Item code"
+					},
+					"licenseName": {
+						"type": "string",
+						"required": true,
+						"description": "LK Name"
+					},
+					"licenseMode": {
+						"type": "string",
+						"enum": [
+							"on_off",
+							"capacity"
+						]
+					},
+					"capacityUnit": {
+						"type": "string",
+						"required": true,
+						"description": "Capacity unit, i.e. Number of Simultaneous Users"
+					},
+					"licenseType": {
+						"type": "string",
+						"enum": [
+							"pool",
+							"floating_pool"
+						]
+					},
+					"startTime": {
+						"type": "string",
+						"format": "date-time",
+						"required": false,
+						"description": "License Key validity start date"
+					},
+					"endTime": {
+						"type": "string",
+						"format": "date-time",
+						"required": false,
+						"description": "Term License Key expiration date"
+					},
+					"targetNeType": {
+						"type": "string",
+						"required": false,
+						"description": "License Target Type, i.e. WBTS"
+					},
+					"additionalInfo": {
+						"type": "string",
+						"required": false,
+						"description": "License Additional Info, i.e. encrypted xPath expression for ASLM licenses"
+					}
+				},
+				"additionalProperties":false
+			}
+		}
+	},
+	"additionalProperties":false
+}

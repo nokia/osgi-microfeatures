@@ -1,0 +1,4 @@
+appId=999
+appName=JerseyAgent
+protocol=Jax-rs
+hidden=false

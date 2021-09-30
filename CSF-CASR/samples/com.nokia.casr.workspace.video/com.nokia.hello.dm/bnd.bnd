@@ -1,0 +1,12 @@
+-buildpath: \
+	osgi.annotation,\
+	osgi.core,\
+	osgi.cmpn,\
+	org.apache.felix.dependencymanager.annotation,\
+	com.nokia.database.dm;version=latest
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.0.${tstamp}
+Private-Package: com.nokia.hello.dm

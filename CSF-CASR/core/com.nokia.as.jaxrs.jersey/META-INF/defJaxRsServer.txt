@@ -1,0 +1,12 @@
+<servers>
+
+  <server ip="0.0.0.0" port="8080" processor="jaxrs.jersey" name="jaxrs.jersey">
+  </server>
+  
+  <!-- server ip="0.0.0.0" port="8080" processor="jaxrs.jersey" name="jaxrs.jersey.secure" secure="true">
+      <property name="jaxrs.server.alias">/rest</property>
+      <property name="tcp.secure.keystore.file">server.ks</property>
+      <property name="tcp.secure.keystore.pwd">password</property>
+  </server -->
+
+</servers>

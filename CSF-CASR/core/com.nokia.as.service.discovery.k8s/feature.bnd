@@ -1,0 +1,10 @@
+Bundle-Version: 1.1.2
+Private-Package:
+Bundle-Name: tools.k8s.controller
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.service.discovery.k8s.controller)'
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="tools.k8s.controller";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Kubernetes+Controller";\
+  desc="Kubernetes controller for CASR (without GUI)"

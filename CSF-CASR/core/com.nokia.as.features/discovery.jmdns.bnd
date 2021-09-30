@@ -1,0 +1,12 @@
+Bundle-Version: 1.0.3
+Bundle-Name: JmDns Discovery
+Require-Bundle: \
+ com.alcatel.as.service.discovery.impl.jmdns
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="discovery.multicast.jmdns";\
+  alias:List<String>="JmDns Discovery";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Mutlicast+JmDns+Discovery?src=contextnavpagetreemode";\
+  desc="Library used to connect agents to io handlers using JmDns multicast discovery"
+

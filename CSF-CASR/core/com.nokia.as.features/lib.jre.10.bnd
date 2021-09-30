@@ -1,0 +1,24 @@
+Bundle-Version: 1.0.4
+Bundle-Name: JRE 10 feature
+
+Require-Capability: \
+ osgi.identity;filter:='(osgi.identity=com.sun.activation.javax.activation)',\
+ osgi.identity;filter:='(osgi.identity=jaxb-api)',\
+ osgi.identity;filter:='(osgi.identity=com.sun.xml.bind.jaxb-osgi)',\
+ osgi.identity;filter:='(osgi.identity=org.glassfish.hk2.osgi-resource-locator)'
+
+Provide-Capability: com.nokia.as.feature;\
+	com.nokia.as.feature="lib.jre";\
+	internal=true;\
+	version:Version="1.10.0";\
+	desc="JRE 10";\
+	blacklist.identity="(|(osgi.identity=com.nokia.as.osgi.jre18)\
+                          (osgi.identity=com.nokia.as.osgi.jre.9)\
+                          (osgi.identity=com.nokia.as.osgi.jre.11)\
+                          (osgi.identity=com.nokia.as.osgi.jre.14)\
+                          (osgi.identity=com.nokia.as.osgi.jre.15)\
+                          (osgi.identity=com.nokia.as.osgi.jre.17)\
+                          (osgi.identity=com.nokia.as.jaxbapi.jre18)\
+                          (osgi.identity=com.nokia.as.dtls.provider))"
+                          
+

@@ -1,0 +1,8 @@
+CSF-Embedded:                  org.jetbrains:annotations:16.0.3
+Bundle-Version:                16.0.3
+Bundle-Name:                   com.nokia.as.thirdparty.org.jetbrains_annotations
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.jetbrains_annotations
+-includeresource:              @annotations-16.0.3.jar;lib:=true
+-exportcontents:               *; version=16.0.3
+
+-manifest org.jetbrains_annotations.mf

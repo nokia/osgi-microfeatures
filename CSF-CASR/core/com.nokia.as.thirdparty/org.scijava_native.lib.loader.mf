@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1561644127775
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.org.scijava_native.lib.loader
+Bundle-SymbolicName: com.nokia.as.thirdparty.org.scijava_native.lib.lo
+ ader
+Bundle-Version: 2.0.2
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: org.scijava:native-lib-loader:2.0.2
+Export-Package: org.scijava.nativelib;version="2.0.2"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+Tool: Bnd-4.2.0.201903051501
+

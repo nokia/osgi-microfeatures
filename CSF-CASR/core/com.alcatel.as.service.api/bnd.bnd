@@ -1,0 +1,42 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	${junit},\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	org.apache.felix.gogo.runtime;version=0.16,\
+	org.apache.felix.dependencymanager;version=4.4,\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.nokia.as.thirdparty.json;version=1.0
+	
+Bundle-Name: PlatformServicesAPI
+Bundle-Category: core, api
+Export-Package: \
+	com.alcatel.as.service.appmbeans,\
+	com.alcatel.as.service.concurrent,\
+	com.alcatel.as.service.diagnostics,\
+	com.alcatel.as.service.discovery,\
+	com.alcatel.as.service.log,\
+	com.alcatel.as.service.management,\
+	com.alcatel.as.service.metatype,\
+	com.alcatel.as.service.metering,\
+	com.alcatel.as.service.reporter.api,\
+	com.alcatel.as.service.uid,\
+	com.alcatel.as.service.shutdown,\
+	com.alcatel.as.service.coordinator,\
+	com.alcatel.as.management.blueprint,\
+	com.alcatel.as.management.platform,\
+	com.alcatel.as.util.apptracker,\
+	com.alcatel.as.util.cl,\
+	com.alcatel.as.util.config,\
+	com.alcatel.as.util.http,\
+	com.alcatel.as.util.osgi,\
+	com.alcatel.as.util.serviceloader,\
+	com.alcatel.as.util.state,\
+	com.alcatel.as.util.sctp,\
+	com.alcatel.as.util.helper,\
+	com.alcatel.as.service.ioh,\
+	com.alcatel.as.service.recorder
+		
+Bundle-Version: 2.5.1

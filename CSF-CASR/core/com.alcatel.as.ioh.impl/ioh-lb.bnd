@@ -1,0 +1,16 @@
+Bundle-Name: IOHandler LoadBalancer
+Bundle-SymbolicName: com.alcatel.as.ioh.lb
+Bundle-Category: ioh
+Private-Package: com.alcatel.as.ioh.lb,\
+		 com.alcatel.as.ioh.lb.mux,\
+		 com.alcatel.as.ioh.lb.plugins
+		
+-dsannotations: *
+
+Include-Resource:  \
+ META-INF/defTcpLBServer.txt=META-INF/defTcpLBServer.txt,\
+ META-INF/defUdpLBServer.txt=META-INF/defUdpLBServer.txt,\
+ META-INF/defTcpLBClient.txt=META-INF/defTcpLBClient.txt,\
+ META-INF/defUdpLBClient.txt=META-INF/defUdpLBClient.txt
+
+Bundle-Version: 1.0.35

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Review id="DEVASR404">
+  <ReviewIssue id="GKPI2G4I">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 15:44:33:954 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:19:38:304 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="20">com/alcatel/as/session/distributed/transaction/CreateGetTransaction.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>attributes should be List and not ArrayList</Summary>
+    <Description>In an API,it is better to use abstract classes or interfaces.
+If a user want to use a Vector to be synchronized in his code, he cannot. He needs to make an ArrayList object with his Vector.
+This class really needs a List, not an ArrayList.
+Of course, all the methods with ArrayList need to use List.</Description>
+    <Annotation>use a List</Annotation>
+    <Revision>use a List</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPIBTOP">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 15:51:51:433 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 15:54:12:506 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="41">com/alcatel/as/session/distributed/transaction/CreateGetTransaction.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>the list is not copied</Summary>
+    <Description>The list is directly copied from the parameter. I do not think it is a good idea with asynchronous APIs. The list could be modified by application before the execute method call.
+attributes could be final with an ArrayList created. Then the list could be copied into the attribute list. It prevents  the "if (attributes != null).</Description>
+    <Annotation>fix when the helpers will be public</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPIO593">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:01:26:295 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 15:53:40:996 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="17">com/alcatel/as/session/distributed/transaction/CreateTransaction.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>near classes</Summary>
+    <Description>This class is very near the CreateGetTransaction.
+It seems that it could be possible to share the attributes management.
+Else, same remarks as this other class.</Description>
+    <Annotation>fix when the helpers will be public</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPIUULD">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:06:39:073 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 15:52:32:619 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="37">com/alcatel/as/session/distributed/transaction/RegexBroadcasterTransaction.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>regex is public, it should be private</Summary>
+    <Description>and make a public getRegex() method.</Description>
+    <Annotation>Broadcast needs to be re-work</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPIWX3K">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:08:15:632 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:26:26:688 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="20">com/alcatel/as/session/distributed/transaction/CreateGetTransaction.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>attributes are not private</Summary>
+    <Description></Description>
+    <Annotation>backward compatibility</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.invalidWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPIXWQC">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:09:01:812 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 15:51:39:548 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="46">com/alcatel/as/session/distributed/transaction/ScriptBroadcasterTransaction.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>attributes are not private</Summary>
+    <Description>they should be and access method should made to access them.</Description>
+    <Annotation>Broadcast needs to be re-work</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPJ0ITT">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:11:03:761 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 15:47:49:523 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="20">com/alcatel/as/session/distributed/transaction/UpdateTransaction.java</File>
+    <Type>item.label.unset</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>near classes</Summary>
+    <Description>This class is very near the CreateGetTransaction and CreateTransaction.
+It seems that it could be possible to share the attributes management.
+Else, same remarks as this other class.</Description>
+    <Annotation>fix when the helpers will be public</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPJ2KVD">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:12:39:721 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:17:57:284 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="55">com/alcatel/as/session/distributed/transaction/UpdateTransaction.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>not protected from null value</Summary>
+    <Description>attributes can be null with this implementation</Description>
+    <Annotation>test null session</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPJ3XT2">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:13:43:142 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:14:17:873 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="11">com/alcatel/as/session/distributed/event/SessionEvent.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>The attributes are not private</Summary>
+    <Description></Description>
+    <Annotation>make private</Annotation>
+    <Revision>private</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPJ5T2S">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:15:10:324 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:10:10:194 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="30">com/alcatel/as/session/distributed/event/AttributeEvent.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>the name of some parameters should be readable by human </Summary>
+    <Description>This is a generic comment for all classes.
+
+In a public API all the parameters should be human readable and then evt should become event, sid -&gt; sessionId,...</Description>
+    <Annotation>rename parameters</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPJ82XG">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:16:56:404 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:02:30:714 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="12">com/alcatel/as/session/distributed/event/AttributeEvent.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>attribute is not private</Summary>
+    <Description></Description>
+    <Annotation>make private</Annotation>
+    <Revision>private</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPJ9T67">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:18:17:071 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:20:39:460 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="25">com/alcatel/as/session/distributed/event/SessionEventFilter.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>remove the constant</Summary>
+    <Description>if it is deprecated AND internal, why do not you remove it ?
+Same remark for internal and deprecated methods.</Description>
+    <Annotation>backward compatibility</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPJF1LL">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:22:21:273 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:00:40:679 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="124">com/alcatel/as/session/distributed/event/SessionListener.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>method is not documented</Summary>
+    <Description>javadoc is missing.</Description>
+    <Annotation>javadoc</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPJM5BQ">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:27:52:694 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 11:45:32:620 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="30">com/alcatel/as/session/distributed/util/TrueValue.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>some methods should be in BooleanValue class</Summary>
+    <Description>writeExternal and readExternal.</Description>
+    <Annotation>inherit from BooleanValue</Annotation>
+    <Revision>move writeExternal and readExternal to BooleanValue</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPJN54G">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:28:39:088 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 11:45:55:897 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="30">com/alcatel/as/session/distributed/util/TrueValue.java</File>
+    <Type>item.label.unset</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>some methods should be in BooleanValue class</Summary>
+    <Description>writeExternal and readExternal.</Description>
+    <Annotation>inherit from BooleanValue</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKPJOEEE">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 16:29:37:766 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 11:39:44:364 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="17">com/alcatel/as/session/distributed/util/AttributeValue.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>What is its role ?</Summary>
+    <Description>this interface in never used in this API, except in implementation classes.
+Are you sure they are not internal classes ?</Description>
+    <Annotation>@deprecated + @internal</Annotation>
+    <Revision>@deprecated + @internal</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKQVEODP">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-01 :: 14:45:45:709 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 11:38:44:617 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="88">com/alcatel/as/session/distributed/SessionManager.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>make a constante</Summary>
+    <Description>if the version is the concatenation of constante, it could be a constante</Description>
+    <Annotation>@deprecated + @internal</Annotation>
+    <Revision>@deprecated + @internal</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKQVK7WA">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-01 :: 14:50:04:282 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:53:54:062 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="278">com/alcatel/as/session/distributed/SessionManager.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>what is the usage?</Summary>
+    <Description>manager is not used in this class! cannot be removed ?</Description>
+    <Annotation>to be removed</Annotation>
+    <Revision>removed</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKQVY9C2">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-01 :: 15:00:59:330 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 11:22:18:789 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="63">com/alcatel/as/session/distributed/SessionTask.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>what does the list contain ?</Summary>
+    <Description></Description>
+    <Annotation>unused =&gt; @deprecated + @internal</Annotation>
+    <Revision>@deprecated + @internal]</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKQW0OSG">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-01 :: 15:02:52:672 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 11:06:54:553 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="143">com/alcatel/as/session/distributed/SessionData.java</File>
+    <Type>item.type.label.missing</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>not documented</Summary>
+    <Description></Description>
+    <Annotation>javadoc needed</Annotation>
+    <Revision>javadoc</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKQWGAU9">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-01 :: 15:15:01:089 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 11:06:28:706 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>colaviti</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="45">com/alcatel/as/session/distributed/util/StringArrayValue.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>StringBuilder should be used</Summary>
+    <Description></Description>
+    <Annotation>use StringBuilder</Annotation>
+    <Revision>toString with StringBuilder</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+</Review>

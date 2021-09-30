@@ -1,0 +1,140 @@
+{
+	"$schema":"http://json-schema.org/draft-03/schema",
+	"type":"object",
+	"javaType":"com.nsn.ood.cls.model.gen.licenses.Licenses",
+	"description":"License Keys description schema",
+	"properties":{
+		"licenses":{
+			"type":"array",
+			"required":true,
+			"description":"List of license keys",
+			"items":{
+				"type":"object",
+				"javaType":"com.nsn.ood.cls.model.gen.licenses.License",
+				"extends":{
+					"$ref":"resource.json"
+				},
+				"required":false,
+				"properties":{
+					"serialNumber":{
+						"type":"string",
+						"required":true,
+						"description":"Unique License Key serialnumber"
+					},
+					"fileName":{
+						"type":"string",
+						"required":true,
+						"description":"Unique License Key filenamenumber in 8.3 or 13.3 format"
+					},
+					"code":{
+						"type":"string",
+						"required":true,
+						"description":"LK Sales Item code"
+					},
+					"name":{
+						"type":"string",
+						"required":true,
+						"description":"LK Name"
+					},
+					"mode":{
+						"type":"string",
+						"enum":[
+							"on_off",
+							"capacity"
+						]
+						
+					},
+					"totalCapacity":{
+						"type":"integer",
+						"required":true,
+						"description":"Pool License capacity"
+					},
+					"usedCapacity":{
+						"type":"integer",
+						"required":true,
+						"description":"Already allocated Pool License capacity"
+					},
+					"capacityUnit":{
+						"type":"string",
+						"required":true,
+						"description":"Capacity unit, i.e. Number of Simultaneous Users"
+					},
+					"type":{
+						"type":"string",
+						"enum":[
+							"pool",
+							"floating_pool"
+						]
+						
+					},
+					"startDate":{
+						"type":"string",
+						"format":"date-time",
+						"required":false,
+						"description":"License Key validity start date"
+					},
+					"endDate":{
+						"type":"string",
+						"format":"date-time",
+						"required":false,
+						"description":"Term License Key expiration date"
+					},
+					"targetType":{
+						"type":"string",
+						"required":false,
+						"description":"License Target Type, i.e. WBTS"
+					},
+					"targets":{
+						"type":"array",
+						"required":true,
+						"items":{
+							"type":"object",
+							"javaType":"com.nsn.ood.cls.model.gen.licenses.Target",
+							"required":false,
+							"properties":{
+								"targetId":{
+									"type":"string",
+									"required":true,
+									"description":"Target system identifier of License Key, i.e. CLS instance ID"
+								}
+								
+							},
+							"additionalProperties":false
+						}
+						
+					},
+					"features":{
+						"type":"array",
+						"required":true,
+						"description":"List of licensed features provided by License Key. Pool type License may have only one feature.",
+						"items":{
+							"type":"object",
+							"javaType":"com.nsn.ood.cls.model.gen.licenses.Feature",
+							"required":false,
+							"properties":{
+								"featureCode":{
+									"type":"integer",
+									"required":true,
+									"description":"Licensed Feature Code"
+								},
+								"featureName":{
+									"type":"string",
+									"required":true,
+									"description":"Licensed Feature Name"
+								}
+								
+							},
+							"additionalProperties":false
+						}
+						
+					}
+					
+				},
+				"additionalProperties":false
+			}
+			
+		}
+		
+	},
+	"additionalProperties":false
+}

@@ -1,0 +1,5 @@
+std_files:
+resource
+resource/calloutAgent
+resource/properties
+scripts/start/startJVM.sh

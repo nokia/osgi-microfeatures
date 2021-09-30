@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<advertisements>
+
+<!--advertisement ip="127.0.0.1" port="15000">
+ <property name="module.id">291</property>
+ <property name="module.name">Sip</property>
+ <property name="application.name">sip</property>
+ <property name="group.target">stack_2</property>
+</advertisement-->
+
+
+</advertisements>

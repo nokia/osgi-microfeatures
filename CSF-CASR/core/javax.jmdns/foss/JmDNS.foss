@@ -1,0 +1,6 @@
+NAME     : JmDNS
+VERSION  : 3.4.2
+LICENSE  : Apache-2.0
+FOSS_ID  : 26065
+COMMENT  : Java implementation of multi-cast DNS
+ORIGIN   : http://jmdns.sourceforge.net/

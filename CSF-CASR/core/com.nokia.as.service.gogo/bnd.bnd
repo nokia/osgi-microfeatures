@@ -1,0 +1,16 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	osgi.cmpn;version=6.0,\
+	org.darkphoenixs.log4j;version=1.2,\
+	org.apache.felix.dependencymanager.annotation;version=5.0,\
+	org.apache.felix.gogo.runtime;version=1.1
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.2
+Export-Package: \
+	com.nokia.as.service.gogo,\
+	com.nokia.as.log.gogo
+-privatepackage: com.nokia.as.log.gogo.impl

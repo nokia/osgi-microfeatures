@@ -1,0 +1,15 @@
+Bundle-Version: 1.0.0
+Bundle-Name: CASR Advanced Auto Configurator
+
+# we require felix.common and log4j1 internal feature
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.autoconfig)',\
+	osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.mbeanparser)',\
+
+Provide-Capability: com.nokia.as.feature;\
+	com.nokia.as.feature="config.advanced";\
+	version:Version="1.0.0";\
+	desc="CASR Advanced Configurator";\
+	doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Advanced+Configurator?src=contextnavpagetreemode"
+

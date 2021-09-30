@@ -1,0 +1,8 @@
+<servers>
+
+  <!-- Activate Radius IOH mux : do not modify -->
+  <server ip="0.0.0.0" port="13100" processor="radius.ioh.mux.def" name="radMux">
+      <property name="radius.ioh.agent.group">*</property>
+  </server>
+
+</servers>

@@ -1,0 +1,12 @@
+-classpath: libs/sipservlet-1.1.jar
+Bundle-Version: 1.1.0
+Bundle-Name: SipServlet11
+Bundle-Category: sip, api
+Include-Resource: @sipservlet-1.1.jar
+-exportcontents: *;version="1.1"
+Import-Package: *
+-manifest sipservlet11.mf
+
+
+
+

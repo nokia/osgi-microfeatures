@@ -1,0 +1,9 @@
+## Bnd file that can be included by all integration tests.
+
+-include ${workspace}/cnf/itest-common.bnd
+
+-runproperties: \
+	felix.log.level=1,\
+	ds.loglevel=warn,\
+	gosh.args=--noshutdown --nointeractive
+	

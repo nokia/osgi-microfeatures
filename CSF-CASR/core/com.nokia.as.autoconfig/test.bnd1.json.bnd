@@ -1,0 +1,6 @@
+-baseline: 
+-releaserepo:
+Bundle-Version: 1.0.0
+Private-Package: com.nokia.as.autoconfig.test.bundle.def
+Include-Resource: testBundles-json/com.nokia.as.autoconfig.test.bundle.def.HelloServiceImpl.json
+Provide-Capability: com.nokia.as.conf;v=1.0

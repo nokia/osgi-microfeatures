@@ -1,0 +1,7 @@
+Bundle-Name: com.alcatel.as.service.config.impl.file
+Bundle-Category: core, internal
+Bundle-Activator: com.alcatel.as.service.config.impl.file.Activator
+Private-Package: com.alcatel.as.service.config.impl,\
+ com.alcatel.as.service.config.impl.file
+Import-Package: *
+Bundle-Version: 1.0.9

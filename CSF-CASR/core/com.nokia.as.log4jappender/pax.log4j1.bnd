@@ -1,0 +1,7 @@
+Bundle-Version: 1.0.1
+Private-Package: alcatel.tess.hometop.gateways.utils
+Fragment-Host: org.ops4j.pax.logging.pax-logging-service
+Import-Package: !org.apache.log4j,!org.apache.log4j.helpers,!org.apache.log4j.spi,*
+
+
+

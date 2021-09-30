@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-Category: core, api
+Bundle-ManifestVersion: 2
+Bundle-Name: Ganglia Metric For Java
+Bundle-SymbolicName: com.nokia.as.thirdparty.gmetric4j
+Bundle-Version: 1.0.4
+Can-Redefine-Classes: false
+CSF-Artifact: false
+CSF-Embedded: info.ganglia.gmetric4j:gmetric4j:1.0.3, org.acplt:oncrpc
+ :1.0.7
+Export-Package: info.ganglia.gmetric4j;version="1.0.3";uses:="info.gan
+ glia.gmetric4j.gmetric",info.ganglia.gmetric4j.gmetric;version="1.0.3
+ ";uses:="info.ganglia.gmetric4j",info.ganglia.gmetric4j.xdr.v30x;vers
+ ion="1.0.3";uses:="org.acplt.oncrpc",info.ganglia.gmetric4j.xdr.v31x;
+ version="1.0.3";uses:="org.acplt.oncrpc",org.acplt.oncrpc;version="1.
+ 0.7";uses:="org.acplt.oncrpc.web",org.acplt.oncrpc.server;version="1.
+ 0.7";uses:="org.acplt.oncrpc"
+Implementation-Vendor: "Apache Software Foundation"
+Implementation-Version: 1.0.3
+Import-Package: org.acplt.oncrpc.web;resolution:=optional,info.ganglia
+ .gmetric4j;version="[1.0,2)",info.ganglia.gmetric4j.gmetric;version="
+ [1.0,2)",info.ganglia.gmetric4j.xdr.v30x;version="[1.0,2)",info.gangl
+ ia.gmetric4j.xdr.v31x;version="[1.0,2)",org.acplt.oncrpc;version="[1.
+ 0,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+

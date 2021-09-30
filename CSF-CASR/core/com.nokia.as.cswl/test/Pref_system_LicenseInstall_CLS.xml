@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE preferences SYSTEM 'http://java.sun.com/dtd/preferences.dtd'>
+
+<preferences EXTERNAL_XML_VERSION="1.0">
+	<root type="system">
+		<map />
+
+		<node name="cls">
+			<map />
+
+			<node name="licenseInstall">
+				<map>
+					<entry key="postgres" value="com.nokia.licensing.impl.LicenseInstallImpl" />
+				</map>
+			</node>
+
+			<node name="directory">
+				<map>
+					<entry key="licfileRepoPath" value="/opt/nokia/global/cls-backend/CLS-File_Repo/" />
+				</map>
+			</node>
+
+			<!-- The possible entries for value is JPA, SQL -->
+			<node name="ImplPlugin">
+				<map>
+					<entry key="impl" value="SQL" />
+				</map>
+			</node>
+
+			<node name="SQLPlugin">
+				<map>
+					<entry key="schema" value="cls" />
+					<entry key="SQLQueryList" value="LicenseSQL-Maria.xml" />
+				</map>
+			</node>
+
+			<node name="dataStorage">
+				<map>
+					<entry key="dataStorageImpl" value="com.nsn.ood.cls.cljl.plugin.DataBasePluginImpl" />
+				</map>
+			</node>
+
+			<node name="loggingConfig">
+				<map>
+					<entry key="errorlog" value="/var/log/standardpack/be/CLS/CLJL/as_error.log" />
+					<entry key="errorlog_size" value="10485760" />
+					<entry key="errorlog_count" value="10" />
+					<entry key="tracelog" value="/var/log/standardpack/be/CLS/CLJL/as_trace.log" />
+					<entry key="tracelog_size" value="10485760" />
+					<entry key="tracelog_count" value="10" />
+					<entry key="activitylog" value="/var/log/standardpack/be/CLS/CLJL/as_activity.log" />
+					<entry key="activitylog_size" value="10485760" />
+					<entry key="activitylog_count" value="10" />
+					<entry key="auditlog" value="/var/log/standardpack/be/CLS/CLJL/as_audit.log" />
+					<entry key="auditlog_size" value="10485760" />
+					<entry key="auditlog_count" value="10" />
+				</map>
+			</node>
+
+			<!-- <node name="licenseCheck"> <map> <entry key="licenseCheckImpl" value="com.nokiasiemensnetworks.licensing.impl.LicenseCheckImpl" 
+				/> </map> </node> -->
+
+			<!-- <node name="credentials"> <map> <entry key="credAccImpl" value="com.nokiasiemensnetworks.licensing.agnosticImpl.CredentialAccessImpl" 
+				/> </map> </node> -->
+		</node>
+	</root>
+</preferences>

@@ -1,0 +1,6 @@
+Bundle-Name: BundleInstaller Mock
+Bundle-Version: 1.0.11
+Export-Package: com.alcatel.as.service.bundleinstaller
+Import-Package: com.alcatel.as.service.bundleinstaller, *
+Private-Package: com.alcatel.as.service.bundleinstaller.impl
+Bundle-Activator: com.alcatel.as.service.bundleinstaller.impl.MockBundleInstallerImpl

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mbeans-descriptors PUBLIC "-//Apache Software Foundation//DTD Model MBeans Configuration File" "http://jakarta.apache.org/commons/dtds/mbeans-descriptors.dtd">
+
+<mbeans-descriptors>
+	<mbean name="ProxyAppPropMBean">
+
+		<attribute name="dns.cache.enabled">
+			<descriptor>
+				<field name="section" value="Cache Configuration" />
+				<field name="title" value="Use Cache" />
+				<field name="level" value="BASIC" />
+				<field name="dynamic" value="no" />
+				<field name="help"
+					value="True if the DNS response records must be cached. Cache duration is based on the response TTL. If no TTL is found in a record, the record is not cached." />
+				<field name="type" value="Boolean" />
+				<field name="defaultValue" value="true" />
+			</descriptor>
+		</attribute>
+
+		<attribute name="dns.cache.noresponse.ttl">
+			<descriptor>
+				<field name="section" value="Cache Configuration" />
+				<field name="title" value="No response TTL" />
+				<field name="level" value="BASIC" />
+				<field name="dynamic" value="no" />
+				<field name="help"
+					value="The TTL in seconds when a request is in timeout or has an empty reponse. 0 means that such responses are not cached." />
+				<field name="type" value="Integer" />
+				<field name="min" value="0" />
+				<field name="max" value="86400" />
+				<field name="defaultValue" value="0" />
+			</descriptor>
+		</attribute>
+
+		<attribute name="dns.timeout">
+			<descriptor>
+				<field name="section" value="General Parameters" />
+				<field name="title" value="Timeout" />
+				<field name="level" value="BASIC" />
+				<field name="dynamic" value="no" />
+				<field name="help"
+					value="Number of seconds before giving up on a query (per DNS Server)" />
+				<field name="type" value="integer" />
+				<field name="min" value="1" />
+				<field name="max" value="300" />
+				<field name="defaultValue" value="2" />
+			</descriptor>
+		</attribute>
+
+		<attribute name="dns.alarmWaterMark">
+			<descriptor>
+				<field name="section" value="General Parameters" />
+				<field name="title" value="Alarm Water Mark" />
+				<field name="level" value="BASIC" />
+				<field name="dynamic" value="no" />
+				<field name="help"
+					value="An alarm is sent only after the dns server is not reachable for at minimum the period specified by this property (in seconds). Notice that when you configure the Cache Configuration property to true and the No response TTL property with a positive value, then the Alarm Water Mark property is forced to 0. The alarm is cleared after the first successful request" />
+				<field name="type" value="Integer" />
+				<field name="min" value="0" />
+				<field name="max" value="86400" />
+				<field name="defaultValue" value="5" />
+			</descriptor>
+		</attribute> 
+		<attribute name="dns.ipvmode">
+                        <descriptor>
+                                <field name="section" value="General Parameters" />
+                                <field name="title" value="Type of DNS queries " />
+                                <field name="level" value="BASIC" />
+                                <field name="dynamic" value="yes" />
+                                <field name="help" value="(expert only). Type of queries A (4), AAAA(6) or both (10,standard)" />
+				<field name="type" value="Select" />
+                                <field name="range" value="4 6 10"/>
+                                <field name="defaultValue" value="10" />
+                        </descriptor>
+                </attribute>
+
+		<attribute name="dns.ipvmode">
+                        <descriptor>
+                                <field name="section" value="General Parameters" />
+                                <field name="title" value="Type of DNS queries " />
+                                <field name="level" value="BASIC" />
+                                <field name="dynamic" value="yes" />
+                                <field name="help" value="(expert only). Type of queries A (4), AAAA(6) or both (10,standard)" />
+				<field name="type" value="Select" />
+                                <field name="range" value="4 6 10"/>
+                                <field name="defaultValue" value="10" />
+                        </descriptor>
+                </attribute>
+	</mbean>
+</mbeans-descriptors>

@@ -1,0 +1,14 @@
+-buildpath: \
+	osgi.annotation,\
+	osgi.core,\
+	osgi.cmpn,\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	com.nokia.as.thirdparty.jersey.all;version=2.22,\
+	org.keycloak.keycloak-core;version=4.0
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.0.${tstamp}
+Private-Package: com.nokia.casr.samples.keycloak.jaxrs
+Include-Resource: WEB-INF=WEB-INF

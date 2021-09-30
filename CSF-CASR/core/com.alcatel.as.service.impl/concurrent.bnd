@@ -1,0 +1,8 @@
+Bundle-Name: com.alcatel.as.service.concurrent.impl
+Bundle-Category: core, internal
+Private-Package: com.alcatel.as.service.concurrent.impl
+Import-Package: *
+Include-Resource: META-INF/services/com.alcatel.as.service.concurrent.PlatformExecutors=META-INF/services/com.alcatel.as.service.concurrent.PlatformExecutors,\
+ META-INF/services/com.alcatel.as.service.concurrent.TimerService=META-INF/services/com.alcatel.as.service.concurrent.TimerService
+-dsannotations: *
+Bundle-Version: 1.0.11

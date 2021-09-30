@@ -1,0 +1,5 @@
+protocol=Http
+appId=276
+appName=HttpAgent
+startOrder=50
+elastic=true

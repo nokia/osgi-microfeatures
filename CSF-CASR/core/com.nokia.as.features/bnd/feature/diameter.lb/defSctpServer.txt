@@ -1,0 +1,10 @@
+<servers>
+
+  <!-- This is the sctp external diameter listening endpoint.
+       Change the client id to use a real farm.
+       You can add others : clone this section and change the ip/port/name -->
+  <!--server ip="127.0.0.1" port="3868" processor="diameter.lb.def" name="lb-sctp">
+     <property name="diameter.lb.client.id">hss-test</property>
+  </server-->
+
+</servers>

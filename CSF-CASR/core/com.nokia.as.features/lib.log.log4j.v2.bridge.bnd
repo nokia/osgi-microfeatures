@@ -1,0 +1,23 @@
+# log4j2 briges allowing to redirect other logging API to log4j2 (like slf4j, log4j1).
+# This feature is auto installed when log4j2 is only used.
+# We blacklist log4j1 and specific log4j1 bundles.
+
+Bundle-Version: 1.0.1
+Bundle-Name: Log4j2 Bridges Feature
+
+Provide-Capability: com.nokia.as.feature;\
+    com.nokia.as.feature="lib.log.log4j.v2.bridge";\
+    category:List<String>="libs";\
+    version:Version="1.0.0";\
+    internal=true;\
+    blacklist.identity="(|(osgi.identity=com.nokia.as.thirdparty.log4j)\
+			  (osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12)\
+			  (osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12.ext.log4j2)\
+                          (osgi.identity=com.alcatel.as.service.impl.log4j1))"
+
+Require-Capability: \
+    osgi.identity;filter:='(osgi.identity=slf4j.api)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.log4j2.log4j12.api)',\
+    osgi.identity;filter:='(osgi.identity=org.apache.logging.log4j.slf4j-impl)'
+    
+ 

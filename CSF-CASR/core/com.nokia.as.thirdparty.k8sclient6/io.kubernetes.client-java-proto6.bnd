@@ -1,0 +1,9 @@
+CSF-Embedded:                  io.kubernetes:client-java-proto:6.0.1
+Bundle-Version:                6.0.1.1
+Bundle-Name:                   CASR - io.kubernetes:client-java-proto:6.0.1
+Bundle-SymbolicName:           io.kubernetes.client-java-proto6
+Fragment-Host:		       io.kubernetes.client-java-api6;bundle-version="[6.0.0,7.0.0)"
+-includeresource:              @client-java-proto-6.0.1.jar;lib:=true
+-exportcontents:               *; version=6.0.1
+Import-Package: \
+  com.google.protobuf;version="[3.4,4)"

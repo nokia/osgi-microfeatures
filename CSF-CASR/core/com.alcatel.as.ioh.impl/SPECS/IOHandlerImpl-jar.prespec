@@ -1,0 +1,4 @@
+std_files:
+bundles/repository/apps/iohandler.jar
+bundles/repository/apps/rmeters.jar
+bundles/repository/apps/iohandler-lb.jar

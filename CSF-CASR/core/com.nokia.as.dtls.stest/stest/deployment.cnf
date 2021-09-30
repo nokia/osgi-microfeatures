@@ -1,0 +1,11 @@
+# this file contains all the runtimes needed to execute the tests
+# Here, we deploy two runtimes ("client" and "server")
+# NOTE: the runtimes must be started in the order they are declared in this file
+
+__java11_runtimes=serverj11,clientj11
+serverj11=runtime.felix.log4j1,lib.csf.casr,stest.dtls.server,lib.security.ccm
+clientj11=runtime.felix.log4j1,lib.csf.casr,stest.dtls.client,lib.security.ccm
+server=runtime.felix.log4j1,lib.csf.casr,stest.dtls.server
+client=runtime.felix.log4j1,lib.csf.casr,stest.dtls.client
+udpserver=runtime.felix.log4j1,lib.csf.casr,stest.dtls.udp.server
+udpclient=runtime.felix.log4j1,lib.csf.casr,stest.dtls.udp.client

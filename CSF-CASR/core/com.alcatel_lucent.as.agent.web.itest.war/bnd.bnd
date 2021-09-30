@@ -1,0 +1,27 @@
+# we do not release this project in binary distribution.
+-releaserepo: 
+-baseline: 
+
+# Build dependencies 
+-buildpath: \
+	${osgi},\
+	org.apache.felix.dependencymanager.lambda,\
+	org.apache.felix.dependencymanager,\
+	com.nokia.as.util.test;version=latest,\
+	com.nokia.as.thirdparty.servlet.api;version=3.1,\
+	org.eclipse.jetty.websocket.servlet;version=9.4,\
+	org.eclipse.jetty.websocket.api;version=9.4,\
+	org.eclipse.jetty.websocket.common;version=9.4,\
+	org.eclipse.jetty.websocket.client;version=9.4,\
+	org.eclipse.jetty.io;version=9.4,\
+	org.eclipse.jetty.util;version=9.4,\
+	org.darkphoenixs.log4j;version=1.2
+
+Bundle-Version: 1.0.0
+Private-Package: \
+	com.alcatel_lucent.as.agent.web.itest.websocket
+
+Web-ContextPath: /test
+Include-Resource: WEB-INF/web.xml=web.xml, \
+	test.jsp=jsp/test.jsp
+groupId: com.nokia.casr.http

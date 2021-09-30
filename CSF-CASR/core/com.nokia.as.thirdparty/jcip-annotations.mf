@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1598357043292
+Bundle-ManifestVersion: 2
+Bundle-Name: CASR - net.jcip:jcip-annotations:1.0
+Bundle-SymbolicName: com.nokia.as.thirdparty.jcip-annotations
+Bundle-Version: 1.0
+Created-By: 1.8.0_252 (AdoptOpenJDK)
+CSF-Embedded: net.jcip:jcip-annotations:1.0
+Export-Package: net.jcip.annotations;version="1.0"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+Tool: Bnd-5.1.2.202007211702
+

@@ -1,0 +1,59 @@
+-runfw: org.apache.felix.framework
+-runee: JavaSE-1.8
+
+-runsystemcapabilities: ${native_capability}
+
+-resolve.effective: active;skip:="osgi.service"
+
+-runproperties: \
+	felix.log.level=1,\
+	ds.loglevel=warn,\
+	gosh.args=--noshutdown,\
+#	org.apache.felix.dependencymanager.parallel='!com.alcatel.as.service.metering2,*',\
+	conf=conf,\
+	as.config.file.confdir=conf,\
+	log4j.configuration=file:conf/log4j.properties,\
+	INSTALL_DIR=.
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager.shell)',\
+	osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.diagnostics)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.service.features.packager)',\
+	osgi.identity;filter:='(&(osgi.identity=com.alcatel.as.service.impl.mbeanparser)(version>=1.0.1))',\
+	osgi.identity;filter:='(&(osgi.identity=com.nokia.as.autoconfig)(version>=2.0.1.RELEASE))',\
+	osgi.identity;filter:='(&(osgi.identity=org.lucee.commons.logging)(version>=1.2.0))'
+
+-runbundles: \
+	com.nokia.as.autoconfig;version=snapshot,\
+	com.alcatel.as.service.api;version=snapshot,\
+	com.alcatel.as.service.impl.diagnostics;version=snapshot,\
+	com.alcatel_lucent.as.management.annotation;version=snapshot,\
+	com.nokia.as.service.features.packager;version=snapshot,\
+	org.apache.felix.dependencymanager;version=latest,\
+	com.nokia.as.thirdparty.json;version=snapshot,\
+	org.apache.felix.configadmin;version='[1.8.16,1.8.17)',\
+	org.apache.felix.dependencymanager.runtime;version=latest,\
+	org.apache.felix.dependencymanager.shell;version=latest,\
+	org.apache.felix.gogo.command;version='[0.16.0,0.16.1)',\
+	org.apache.felix.gogo.runtime;version='[0.16.2,0.16.3)',\
+	org.apache.felix.gogo.shell;version='[0.12.0,0.12.1)',\
+	org.apache.felix.metatype;version='[1.1.2,1.1.3)',\
+	org.apache.felix.scr;version='[2.0.12,3.0.0)',\
+	org.osgi.util.promise;version='[1.1.1,2.0.0)',\
+	org.osgi.util.function;version='[1.1.0,2.0.0)',\
+	org.apache.felix.scr.compat;version='[1.0.4,1.0.5)',\
+	org.darkphoenixs.log4j;version='[1.2.17,1.2.18)',\
+	com.alcatel.as.service.impl.mbeanparser;version=snapshot,\
+	com.nokia.as.thirdparty.commons.modeler;version=snapshot,\
+	org.apache.commons.compress;version='[1.13.0,1.13.1)',\
+	com.alcatel.as.utils;version=snapshot,\
+	com.nokia.as.osgi.jre18;version=snapshot,\
+	org.apache.felix.eventadmin;version='[1.4.8,1.4.9)',\
+	org.apache.felix.http.servlet-api;version='[1.1.2,1.1.3)',\
+	org.lucee.commons.logging;version='[1.2.0,1.2.1)',\
+	com.alcatel.as.service.metering2;version=latest,\
+	org.apache.commons.configuration;version=1.9.0,\
+	org.apache.commons.lang;version=2.6.0,\
+	org.apache.aries.util;version=1.1.3

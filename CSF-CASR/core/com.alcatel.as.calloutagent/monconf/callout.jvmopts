@@ -1,0 +1,48 @@
+##
+# Enter here main jvm parameters.
+# (Each line must ends with a backslash, and the last list must hold the main java class name)
+# By default, the Knopflerfish OSGI framework is launched. However, you can activate other 
+# frameworks, by modifying the classpath and main jvm class name:
+# 
+#
+# ---- For Felix ----
+#
+# -cp resource:\
+#    bundles/felix/felix.jar:\
+#    bundles/felix/felix-launcher.jar \
+# com.alcatel.as.felix.FelixLauncher
+#
+# ---- For Knopflerfish: ----
+#
+# -cp resource:\
+#    bundles/kf/framework.jar:\
+#    bundles/kf/kf-launcher.jar \
+# com.alcatel.as.knopflerfish.KFLauncher
+#
+#
+#
+#             =============
+#             W A R N I N G
+#             =============
+#
+# Place holders __JVM_MEMSIZE__, __JVM_EDENSIZE_ will be replace by value provided in configuration
+# - 
+# Specific placeholder for application integration
+#
+# __USER_SPECIFIC_PARAM__ and __USER_SPECIFIC_CLASSPATH__ are for application specific integration. Do not remove them !!!!!
+#
+##
+
+-XX:+UnlockDiagnosticVMOptions -XX:+UnsyncloadClass \
+-Xmx__JVM_MEMSIZE__ -Xms__JVM_MEMSIZE__ \
+-server \
+-DjvmConfiguration.JVMedenMemorySize=__JVM_EDENSIZE__ \
+-Djava.ext.dirs=JAVA_HOME/jre/lib/ext:resource \
+-DflowControl.gc.cms=true \
+-DFastCacheImpl.retryConnect=true \
+__USER_SPECIFIC_PARAM__ \
+-cp resource:\
+   bundles/felix/felix.jar:\
+   bundles/felix/felix-launcher.jar:\
+   __USER_SPECIFIC_CLASSPATH__ \
+com.alcatel.as.felix.FelixLauncher

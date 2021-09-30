@@ -1,0 +1,20 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	org.apache.felix.dependencymanager;version=4.6,\
+	com.nextenso.proxylet.api;version=1.0,\
+	com.alcatel.as.utils;version=2.0,\
+	com.alcatel.as.service.api;version=1.0,\
+	com.alcatel.as.calloutagent.callout;version=3.0,\
+	com.alcatel.as.calloutagent.callout-admin;version=1.0,\
+	com.alcatel.as.service.bundleinstaller.impl;version=1.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2
+    
+Bundle-Name: Blueprint ProxyletDeployer
+Bundle-Category: proxylet, internal
+Bundle-Activator: com.alcatel.as.proxylet.deployer.impl.Activator
+Private-Package: com.alcatel.as.proxylet.deployer.impl
+Include-Resource: META-INF=META-INF
+Bundle-Version: 1.0.8

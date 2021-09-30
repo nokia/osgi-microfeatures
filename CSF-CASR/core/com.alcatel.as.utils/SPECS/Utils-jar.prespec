@@ -1,0 +1,6 @@
+obsoletes: 
+Sctp-jar
+
+std_files:
+lib/utils.jar
+bundles/repository/core/utils.jar

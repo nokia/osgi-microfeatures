@@ -1,0 +1,17 @@
+Bundle-Version: 1.0.2
+Bundle-Name: Prometheus Push
+
+Require-Capability: \
+        osgi.identity;filter:='(osgi.identity=com.nokia.as.metering.prometheus.push)',\
+        osgi.identity;filter:='(osgi.identity=io.prometheus.simpleclient)',\
+        osgi.identity;filter:='(osgi.identity=io.prometheus.simpleclient_common)',\
+        osgi.identity;filter:='(osgi.identity=io.prometheus.simpleclient_hotspot)',\
+        osgi.identity;filter:='(osgi.identity=io.prometheus.simpleclient_pushgateway)',\
+        osgi.identity;filter:='(&(osgi.identity=com.alcatel.as.service.metering2.impl)(version>=1.1.0))'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="metering.exporter.prometheus.push";\
+  alias:List<String>="Prometheus Push";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Prometheus+Push?src=contextnavpagetreemode";\
+  desc="Prometheus Push library used to export CASR meters to Prometheus"

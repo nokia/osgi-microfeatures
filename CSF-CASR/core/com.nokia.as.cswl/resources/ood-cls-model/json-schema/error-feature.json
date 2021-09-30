@@ -1,0 +1,26 @@
+{
+	"$schema":"http://json-schema.org/draft-03/schema",
+	"type":"object",
+	"javaType":"com.nsn.ood.cls.model.gen.errors.FeatureError",
+	"required":false,
+	"properties":{
+		"featureCode":{
+			"type":"integer",
+			"required":true
+		},
+		"requestedCapacity":{
+			"type":"integer",
+			"required":false
+		},
+		"remainingCapacity":{
+			"type":"integer",
+			"required":false
+		},
+		"capacity":{
+			"type":"integer",
+			"required":false
+		}
+
+	},
+	"additionalProperties":false
+}

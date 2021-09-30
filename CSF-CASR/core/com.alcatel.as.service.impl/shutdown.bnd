@@ -1,0 +1,5 @@
+Bundle-Name: New Shutdown Service
+Bundle-Category: core, internal
+Private-Package: com.alcatel.as.service.shutdown.impl
+-dsannotations: *
+Bundle-Version: 1.0.8

@@ -1,0 +1,14 @@
+CSF-Embedded:                  io.grpc:grpc-auth:1.36.0
+Bundle-Version:                1.36.0
+Bundle-Name:                   CASR - io.grpc:grpc-auth:1.36.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.grpc_grpc-auth
+-includeresource:              @grpc-auth-1.36.0.jar;lib:=true
+-exportcontents:               *; version=1.36.0
+Import-Package: \
+  com.google.auth;version="[0.22,1)",\
+  com.google.auth.oauth2;version="[0.22,1)",\
+  com.google.common.base;version="[30.0,31)",\
+  com.google.common.io;version="[30.0,31)",\
+  io.grpc;version="[1.36,2)",\
+  javax.annotation
+Fragment-Host:		       com.nokia.as.thirdparty.io.grpc_grpc-api

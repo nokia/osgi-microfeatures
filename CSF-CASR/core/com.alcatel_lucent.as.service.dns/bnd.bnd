@@ -1,0 +1,14 @@
+-verbose:     true
+
+# root bnd file
+
+-buildpath: \
+    ${osgi},\
+    com.alcatel.as.service.api;version=1.0,\
+    com.alcatel.as.sipservlet10;version=1.0,\
+    com.nokia.as.thirdparty.log4j;version=1.2
+
+-sub: \
+    *.bnd
+
+Bundle-Version: 1.0.1

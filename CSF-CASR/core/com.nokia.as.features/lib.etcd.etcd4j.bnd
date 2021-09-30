@@ -1,0 +1,27 @@
+Bundle-Name: lib.etcd.etcd4j CASR Feature
+Bundle-Version: 1.0.0
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="lib.etcd.etcd4j";\
+                    version:Version="1.0.0";\
+		    internal=true;\
+                    desc="etcd4j library";\
+                    doc="https://github.com/jurmous/etcd4j"
+
+Require-Capability: \
+    osgi.identity;filter:='(osgi.identity=org.apache.commons.lang3)',\
+    osgi.identity;filter:='(osgi.identity=org.mousio-etcd4j)',\
+    osgi.identity;filter:='(osgi.identity=com.fasterxml.jackson.module.jackson-module-afterburner)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.com.github.wnameless_json.flattener)',\
+    osgi.identity;filter:='(osgi.identity=minimal-json)',\
+    osgi.identity;filter:='(osgi.identity=io.netty.buffer)',\
+    osgi.identity;filter:='(osgi.identity=io.netty.codec)',\
+    osgi.identity;filter:='(osgi.identity=io.netty.codec-dns)',\
+    osgi.identity;filter:='(osgi.identity=io.netty.codec-http)',\
+    osgi.identity;filter:='(osgi.identity=io.netty.common)',\
+    osgi.identity;filter:='(osgi.identity=io.netty.handler)',\
+    osgi.identity;filter:='(osgi.identity=io.netty.resolver)',\
+    osgi.identity;filter:='(osgi.identity=io.netty.resolver-dns)',\
+    osgi.identity;filter:='(osgi.identity=io.netty.transport)'
+

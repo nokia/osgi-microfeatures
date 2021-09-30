@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE context PUBLIC "-//NEXTENSO//DTD CONTEXT 1.1//EN" "http://www.nextenso.com/">
+
+<context>
+	<name>HTTP deployed context</name>
+	<description>This is the deployed context for HTTP proxylets</description>
+
+	<request-chain>
+		<proxylet>
+			<name>ServerProxylet</name>
+			<protocol>HTTP</protocol>
+			<class>com.alcatel.as.agent.http.stest.ServerProxylet</class>
+			<criterion>
+				<name>all</name>
+				<criterion-value>
+					<all />
+				</criterion-value>
+				<description>A Request Proxylet</description>
+			</criterion>
+		</proxylet>
+	</request-chain>
+
+	<response-chain>
+	</response-chain>
+
+</context>

@@ -1,0 +1,14 @@
+Bundle-Version: 1.0.4
+Bundle-Name: Http Agent Bundles
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="agent.proxylet.http.impl"; internal=true
+Require-Capability: \
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.agent.http)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.agent.http.httpagent-config)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.proxylet.deployer)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.features.lib.csf.muxreactor)',\
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.http.ioh.h2client.feature)'
+
+
+ 
+
+

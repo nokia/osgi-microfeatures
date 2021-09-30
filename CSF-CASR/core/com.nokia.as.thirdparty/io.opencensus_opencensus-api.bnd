@@ -1,0 +1,23 @@
+CSF-Embedded:                  io.opencensus:opencensus-api:0.28.0
+Bundle-Version:                0.28.0
+Bundle-Name:                   CASR - io.opencensus:opencensus-api:0.28.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.opencensus_opencensus-api
+-includeresource:              @opencensus-api-0.28.0.jar;lib:=true
+-exportcontents:               *; version=0.28.0
+Import-Package: \
+  io.grpc;version="[1.36,2)",\
+  io.opencensus.common;version="[0.28,1)",\
+  io.opencensus.internal;version="[0.28,1)",\
+  io.opencensus.metrics;version="[0.28,1)",\
+  io.opencensus.metrics.data;version="[0.28,1)",\
+  io.opencensus.metrics.export;version="[0.28,1)",\
+  io.opencensus.tags;version="[0.28,1)",\
+  io.opencensus.tags.propagation;version="[0.28,1)",\
+  io.opencensus.trace;version="[0.28,1)",\
+  io.opencensus.trace.config;version="[0.28,1)",\
+  io.opencensus.trace.export;version="[0.28,1)",\
+  io.opencensus.trace.internal;version="[0.28,1)",\
+  io.opencensus.trace.propagation;version="[0.28,1)",\
+  io.opencensus.trace.samplers;version="[0.28,1)",\
+  io.opencensus.trace.unsafe;version="[0.28,1)",\
+  javax.annotation

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE context PUBLIC "-//NEXTENSO//DTD CONTEXT 1.1//EN" "http://www.nextenso.com/">
+
+<context>
+  <name>Radius Proxylets</name>
+
+  <acct-request-chain>
+    <!--proxylet setid="MyBundleName">
+      <name>Accounting Request Test Pxlet</name>
+      <protocol>RADIUS</protocol>
+      <class>test.RadiusServer</class>
+      <criterion>
+        <name>all</name>
+        <criterion-value>
+          <all/>
+        </criterion-value>
+      </criterion>
+    </proxylet-->
+  </acct-request-chain>
+
+  <auth-request-chain>
+    <!--proxylet setid="MyBundleName">
+      <name>Auth Request Pxlet</name>
+      <protocol>RADIUS</protocol>
+      <class>test.RadiusServer</class>
+      <criterion>
+        <name>all</name>
+        <criterion-value>
+          <all/>
+        </criterion-value>
+      </criterion>
+    </proxylet-->
+  </auth-request-chain>
+
+</context>

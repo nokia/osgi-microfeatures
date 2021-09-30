@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1555668743662
+Bundle-ManifestVersion: 2
+Bundle-Name: software.amazon.awssdk:netty-nio-client:2.5.25
+Bundle-StartLevel: 20
+Bundle-SymbolicName: com.nokia.as.thirdparty.software.amazon.awssdk_netty.nio.client
+Bundle-Version: 2.5.25
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: software.amazon.awssdk:netty-nio-client:2.5.25
+Export-Package: software.amazon.awssdk.http.nio.netty;version="2.5.25"
+ ;uses:="io.netty.channel,io.netty.handler.ssl,software.amazon.awssdk.
+ http,software.amazon.awssdk.http.async"
+Import-Package: com.typesafe.netty.http;version="[2.0,3)",io.netty.boo
+ tstrap;version="[4.1,5)",io.netty.buffer;version="[4.1,5)",io.netty.c
+ hannel;version="[4.1,5)",io.netty.channel.epoll;version="[4.1,5)",io.
+ netty.channel.nio;version="[4.1,5)",io.netty.channel.pool;version="[4
+ .1,5)",io.netty.channel.socket.nio;version="[4.1,5)",io.netty.handler
+ .codec;version="[4.1,5)",io.netty.handler.codec.http;version="[4.1,5)
+ ",io.netty.handler.logging;version="[4.1,5)",io.netty.handler.ssl;ver
+ sion="[4.1,5)",io.netty.handler.ssl.util;version="[4.1,5)",io.netty.h
+ andler.timeout;version="[4.1,5)",io.netty.util;version="[4.1,5)",io.n
+ etty.util.concurrent;version="[4.1,5)",io.netty.util.internal;version
+ ="[4.1,5)",io.netty.util.internal.logging;version="[4.1,5)",javax.net
+ .ssl,org.reactivestreams;version="[1.0,2)",org.slf4j,software.amazon.
+ awssdk.http;version="[2.5,3)",software.amazon.awssdk.http.async;versi
+ on="[2.5,3)",software.amazon.awssdk.utils;version="[2.5,3)",software.
+ amazon.awssdk.utils.async;version="[2.5,3)"
+Private-Package: io.netty.handler.codec.http2,software.amazon.awssdk.h
+ ttp.nio.netty.internal,software.amazon.awssdk.http.nio.netty.internal
+ .http2,software.amazon.awssdk.http.nio.netty.internal.utils
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+SPI-Provider: *
+Tool: Bnd-4.2.0.201903051501
+

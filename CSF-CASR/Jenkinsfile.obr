@@ -1,0 +1,173 @@
+#!groovy
+
+/* Script used to generate an obr into local M2 and and deploy it to artifactory. */
+
+def deploy_bundles_and_obr() {
+      container('java-c-mvn') {
+          sh """
+          echo "Deploying CASR ..."	
+          cd core
+          ./gradlew -Dreleaserepo=Artifactory release -i
+	  cd ..
+
+          echo "Creating temporary OBR for CASR ..."	
+          ./runtime/create-obr-m2.sh
+
+          echo "Building CJDIA ..."
+          cd CSF-CJDIA/casr/
+          ./gradlew -Dreleaserepo=Artifactory release -i
+          cd ../..
+
+          echo "Creating temporary OBR for CASR + CJDIA ..."	
+          ./runtime/create-obr-m2.sh
+	          
+          echo "Building CDLB ..."
+          cd CSF-CDLB/casr/
+          ./gradlew -Dreleaserepo=Artifactory release -i
+          cd ../..
+	          
+          echo "Creating final OBR ..."
+          ./runtime/create-obr-m2.sh ${OBR} ${params.OBR_RELEASE} ${CSF_REPO_DELIVERED}
+	          
+          echo "Uploading OBR ..."
+          ./runtime/artifactory-upload.sh \${HOME}/.m2/repository/${OBR} ${CSF_REPO_CANDIDATES}-local ${ARTIFACTORY_BUILD_LOGIN_USR} ${ARTIFACTORY_BUILD_LOGIN_PSW} com.nokia.casr com.nokia.casr.obr ${params.OBR_RELEASE}
+          ./runtime/artifactory-upload.sh \${HOME}/.m2/repository/${OBR}.gz ${CSF_REPO_CANDIDATES}-local ${ARTIFACTORY_BUILD_LOGIN_USR} ${ARTIFACTORY_BUILD_LOGIN_PSW} com.nokia.casr com.nokia.casr.obr ${params.OBR_RELEASE}
+          """
+      }
+}
+
+pipeline {
+
+  agent {
+     kubernetes {
+       label 'build-centos-c-jdk8-jdk11-mvn3-casr'
+       inheritFrom 'k8s-build'
+       containerTemplate {
+         name 'java-c-mvn'
+         image "csf-docker-delivered.${ARTIFACTORY_URL}/build_centos_c_jdk8_mvn3:1.0.9"
+         alwaysPullImage true
+         workingDir '/home/jenkins'
+         ttyEnabled true
+         command 'cat'
+         args ''
+       }
+     }  
+  }
+  options { disableConcurrentBuilds() }
+
+  parameters {
+    string(name: 'GERRIT_REFSPEC',
+           defaultValue: 'refs/heads/1.0',
+    	   description: 'Build branch 1.0 by default, can be overridden on Gerrit builds')
+	    
+    choice(name: 'OBR_REPO',
+           choices: 'http://10.75.47.133:8081/repository/libs-release\nhttps://repo.lab.pl.alcatel-lucent.com/csf-mvn-snapshots\nhttps://repo.lab.pl.alcatel-lucent.com/csf-mvn-inprogress\nhttps://repo.lab.pl.alcatel-lucent.com/csf-mvn-candidates\nhttps://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered\n',
+    	   description: 'Configures the repository where artifacts will be deployed. WARNING: if you select the csf-mvn-delivered repository, you will not be able to revert.')
+
+    string(name: 'OBR_RELEASE',
+           defaultValue: '20.8.2',
+    	   description: 'Configures the OBR release number (format = Year.Month.Number[.Qualifier])')
+
+    booleanParam(name: 'DELETE_REPO',
+           defaultValue: false,
+	   description: 'Delete artifactory repository before deploying')
+   }
+
+  environment {
+  	CSF_BUNDLE_SOURCES = false
+	CASR_BRANCH = params.GERRIT_REFSPEC.substring(params.GERRIT_REFSPEC.lastIndexOf("/")+1)
+        CSF_REPO = params.OBR_REPO.substring(0, params.OBR_REPO.lastIndexOf("/"))
+        CSF_REPO_DELIVERED = "https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered"
+        CSF_REPO_CANDIDATES = "${params.OBR_REPO}"
+        CSF_REPO_SNAPSHOTS = "${params.OBR_REPO}"
+	OBR = "com/nokia/casr/com.nokia.casr.obr/${params.OBR_RELEASE}/com.nokia.casr.obr-${params.OBR_RELEASE}.xml"
+  }
+
+  stages {
+
+    stage('Checkout CJDIA/CDLB') {
+      when {
+        expression { env.GERRIT_EVENT_TYPE != 'patchset-created' && env.GERRIT_EVENT_TYPE != 'change-merged' }
+      }
+      steps {
+	     echo "Checkouting CJDIA from branch ${CASR_BRANCH}"
+
+             checkout scm: [$class: 'GitSCM', 
+                            branches: [[name: "${CASR_BRANCH}"]], 
+                            doGenerateSubmoduleConfigurations: false, 
+                            extensions: [[
+                                  $class: 'CloneOption', 
+                                  noTags: false, 
+                                  reference: '', 
+                                  shallow: true, 
+                                  timeout: 20],
+   	                          [$class: 'RelativeTargetDirectory',
+                                  relativeTargetDir: 'CSF-CJDIA']],
+                            submoduleCfg: [], 
+                            userRemoteConfigs: [[
+                               credentialsId: 'csf-gerrit-ssh', 
+                               url: 'ssh://gerrit.ext.net.nokia.com:29418/CSF-CJDIA']]
+             ]
+
+	     echo "Checkouting CDLB from branch ${CASR_BRANCH}"
+	     
+             checkout scm: [$class: 'GitSCM', 
+                            branches: [[name: "${CASR_BRANCH}"]], 
+                            doGenerateSubmoduleConfigurations: false, 
+                            extensions: [[
+                               $class: 'CloneOption', 
+                               noTags: false, 
+                               reference: '', 
+                               shallow: true, 
+                               timeout: 20],
+   	                       [$class: 'RelativeTargetDirectory',
+                               relativeTargetDir: 'CSF-CDLB']],
+                            submoduleCfg: [], 
+                            userRemoteConfigs: [[
+                               credentialsId: 'csf-gerrit-ssh', 
+                               url: 'ssh://gerrit.ext.net.nokia.com:29418/CSF-CDLB']]
+             ]
+      }
+    }
+
+    stage('Create OBR') {
+      when {
+        expression { env.GERRIT_EVENT_TYPE != 'patchset-created' && env.GERRIT_EVENT_TYPE != 'change-merged' }
+      }
+      steps {
+      	script {
+          if (params.OBR_REPO.startsWith("https://repo.lab.pl.alcatel-lucent.com")) {
+	     if (params.OBR_REPO.endsWith("csf-mvn-snapshots")) {
+                env.CSF_REPO_TYPE = "SNAPSHOT"
+	     }
+
+	     /* deploy bundles and obr to the csf repo, using proper user/password */
+             withCredentials([usernamePassword(credentialsId: 'csf-jenkins-for-artifactory', usernameVariable: 'ARTIFACTORY_BUILD_LOGIN_USR', passwordVariable: 'ARTIFACTORY_BUILD_LOGIN_PSW')]) {
+	        deploy_bundles_and_obr()
+	     }
+          } else {
+	     /* deploy the bundles to the casr repo */
+	     env.ARTIFACTORY_BUILD_LOGIN_USR = "admin"
+	     env.ARTIFACTORY_BUILD_LOGIN_PSW = "admin123"
+	     if (params.DELETE_REPO) {
+	        sh """
+	            curl  -u admin:admin123 -i -X DELETE ${params.OBR_REPO}-local/com/nokia/casr
+	     	    curl  -u admin:admin123 -i -X DELETE ${params.OBR_REPO}-local/com/nokia/cjdi
+	     	    curl  -u admin:admin123 -i -X DELETE ${params.OBR_REPO}-local/com/nokia/cdlb
+	        """
+	     }
+	     deploy_bundles_and_obr()
+	  }
+	}
+      }
+    }
+
+  }
+
+  post {
+    always {
+      deleteDir()
+    }
+  }
+}
+

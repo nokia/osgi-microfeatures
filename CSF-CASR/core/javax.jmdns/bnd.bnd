@@ -1,0 +1,7 @@
+Bundle-Name: JmDNS
+Export-Package: javax.jmdns.*;version="3.4.1"
+Import-Package: *;resolution:=optional
+Bundle-Version: 3.4.4
+-buildpath: \
+	org.apache.servicemix.bundles.junit;version=4.12,\
+	org.easymock;version=3.0

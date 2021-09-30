@@ -1,0 +1,14 @@
+-buildpath: \
+	osgi.annotation;version='6.0.1',\
+	osgi.core;version='6.0',\
+	osgi.cmpn;version='6.0',\
+	org.apache.felix.dependencymanager.annotation;version='4.2',\
+	com.alcatel.as.utils;version=latest,\
+	org.darkphoenixs.log4j;version='1.2',\
+	com.alcatel.as.service.api;version=latest
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.2
+Private-Package: com.nokia.as.reactor.socks

@@ -1,0 +1,20 @@
+Bundle-Name: lib.jboss.resteasy CASR Feature
+Bundle-Version: 1.0.2
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="lib.jboss.resteasy";\
+                    version:Version="1.0.0";\
+                    desc="JBoss resteasy library for developping client RESTful applications";\
+                    doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+JBOSS+RestEasy"
+
+Require-Capability: \
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-client)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jackson2-provider)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jaxb-provider)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jaxrs)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-multipart-provider)'
+
+
+
+

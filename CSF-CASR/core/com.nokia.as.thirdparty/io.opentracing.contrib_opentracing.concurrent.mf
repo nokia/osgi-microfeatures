@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1558605133912
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.io.opentracing.contrib_opentracin
+ g.concurrent
+Bundle-SymbolicName: com.nokia.as.thirdparty.io.opentracing.contrib_op
+ entracing.concurrent
+Bundle-Version: 0.3.0
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: io.opentracing.contrib:opentracing-concurrent:0.3.0
+Export-Package: io.opentracing.contrib.concurrent;version="0.3.0";uses
+ :="io.opentracing"
+Import-Package: io.opentracing;version="[0.32,1)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-4.2.0.201903051501
+

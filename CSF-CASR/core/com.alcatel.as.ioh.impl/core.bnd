@@ -1,0 +1,29 @@
+Bundle-AutoStart: true
+Bundle-Name: IOHandler
+Bundle-Category: ioh
+Export-Package: com.alcatel.as.ioh.engine,\
+		com.alcatel.as.ioh.engine.tools,\
+		com.alcatel.as.ioh.engine.generic,\
+		com.alcatel.as.ioh.impl.conf
+Import-Package: \
+ !net.sf.cglib.proxy,!nu.xom,!org.codehaus.*,!org.jdom.*,!org.joda.*,!org.xmlpull.*, *
+
+DynamicImport-Package: com.thoughtworks.xstream.*
+Private-Package: \
+  com.alcatel.as.ioh.impl.server,\
+  com.alcatel.as.ioh.impl.client,\
+  com.alcatel.as.ioh.impl.tools,\
+  com.alcatel.as.ioh.impl.conf,\
+  com.alcatel.as.ioh.engine.mesh
+
+-dsannotations: *
+
+Include-Resource:  \
+ META-INF/defTcpServer.txt=META-INF/defTcpServer.txt,\
+ META-INF/defUdpServer.txt=META-INF/defUdpServer.txt,\
+ META-INF/defSctpServer.txt=META-INF/defSctpServer.txt,\
+ META-INF/defTcpClient.txt=META-INF/defTcpClient.txt,\
+ META-INF/defUdpClient.txt=META-INF/defUdpClient.txt,\
+ META-INF/iohandler.log4j=META-INF/iohandler.log4j
+
+Bundle-Version: 7.3.1

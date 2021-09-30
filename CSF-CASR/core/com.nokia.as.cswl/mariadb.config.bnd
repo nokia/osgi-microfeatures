@@ -1,0 +1,6 @@
+Bundle-Version: 1.0.0
+
+Include-Resource: org.apache.aries.tx.control.jdbc.local-mariadb.yaml=resources/org.apache.aries.tx.control.jdbc.local-mariadb.yaml
+Private-Package:
+Import-Package: 
+Provide-Capability: com.nokia.as.conf;v=1.0

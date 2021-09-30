@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-Category: core, api
+Bundle-ManifestVersion: 2
+Bundle-Name: Jsr166e
+Bundle-SymbolicName: com.nokia.as.thirdparty.jsr166e
+Bundle-Version: 1.7.0
+CSF-Artifact: false
+Export-Package: jsr166e;version="1.7.0",jsr166e.extra;version="1.7.0"
+Implementation-Vendor: "Doug Lea"
+Implementation-Version: 1.7.0
+Import-Package: jsr166e;version="[1.7,2)",sun.misc
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+

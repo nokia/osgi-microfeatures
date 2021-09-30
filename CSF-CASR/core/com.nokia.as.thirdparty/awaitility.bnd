@@ -1,0 +1,8 @@
+CSF-Embedded:                  org.awaitility:awaitility:2.0.0
+Bundle-Version:                2.0.0
+Bundle-Name:                   CASR - org.awaitility:awaitility:2.0.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.awaitility
+-includeresource:              @awaitility-2.0.0.jar;lib:=true
+-exportcontents:               *; version=2.0.0
+
+-manifest awaitility.mf

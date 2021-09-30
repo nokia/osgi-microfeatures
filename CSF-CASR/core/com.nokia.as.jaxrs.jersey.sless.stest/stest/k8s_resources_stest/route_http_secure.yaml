@@ -1,0 +1,14 @@
+apiVersion: "nokia.com/v1beta1"
+kind: CasrRoute
+metadata:
+    name: routeHTTPsecure
+spec:
+  function:
+    name: kafka-write
+  route:
+    path: /secure
+    type: http
+    params:
+        - name: http.role
+          value: user
+

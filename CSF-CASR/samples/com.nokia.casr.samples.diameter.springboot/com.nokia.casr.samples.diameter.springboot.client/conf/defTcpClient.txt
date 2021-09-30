@@ -1,0 +1,15 @@
+<clients>
+
+  <!--client id="i1">
+    
+    <property name="connect.retry">10000</property>
+    <property name="connect.timeout">1000</property>
+    <property name="read.timeout">6000</property>
+    
+    <servers>
+      <server ip="127.0.0.1" port="3868"/>
+    </servers>
+    
+  </client-->
+  
+</clients>

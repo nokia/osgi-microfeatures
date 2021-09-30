@@ -1,0 +1,44 @@
+-buildpath: \
+	osgi.annotation,\
+	osgi.core,\
+	osgi.cmpn,\
+	org.apache.felix.dependencymanager.annotation,\
+	com.nokia.as.thirdparty.servlet.api;version=3.1,\
+	io.swagger.core.v3.swagger-jaxrs2;version=2,\
+	io.swagger.core.v3.swagger-models;version=2,\
+	io.swagger.core.v3.swagger-annotations;version=2,\
+	io.swagger.core.v3:swagger-integration;version=2,\
+	io.swagger.core.v3.swagger-core;version=2,\
+	com.nokia.cswg.swagger-ui-jaxrs;version=3,\
+	ch.qos.logback.core;version=1.2.3,\
+	ch.qos.logback.classic;version=1.2.3,\
+	org.reflections;version=0.9.11,\
+	org.apache.commons.lang3;version=3.7.0,\
+	com.google.guava;version=20.0,\
+	com.fasterxml.jackson.core.jackson-databind;version=2.9,\
+	groovy:groovy-all-minimal;version=1.0,\
+	javassist;version=3.22.0,\
+	com.sun.mail.javax.mail;version=1.6,\
+	slf4j.api;version=1.7.25,\
+	javax.ws.rs-api;version=2.0,\
+	javax.validation:validation-api,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.alcatel_lucent.as.management.annotation;version=1.0.3,\
+	com.fasterxml.jackson.datatype.jackson-datatype-jsr310;version=2.9,\
+	javax.annotation:javax.annotation-api;version=1.2,\
+	io.github.classgraph.classgraph;version=4.8
+
+-testpath: \
+	org.yaml.snakeyaml;version=1.23,\
+	org.glassfish.jersey.core.jersey-common;version=2.22,\
+    com.fasterxml.jackson.core.jackson-annotations;version="[2.8,3)",\
+    com.fasterxml.jackson.core.jackson-core;version="[2.8,3)",\
+    com.fasterxml.jackson.dataformat.jackson-dataformat-yaml;version="[2.8,3)",\
+	org.apache.servicemix.bundles.junit;version="[4.11,5)",\
+	org.mockito.mockito-core;version=1.10,\
+	org.objenesis;version=2.5,\
+	org.assertj.core;version="[3.10,4)"
+	
+-sub: *.bnd
+
+groupId: com.nokia.casr.http

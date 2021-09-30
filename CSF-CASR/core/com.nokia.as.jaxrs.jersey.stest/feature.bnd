@@ -1,0 +1,7 @@
+Bundle-Version: 1.0.9
+Bundle-Name: JAX-RS System Tests Feature 
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.jaxrs";category:List<String>="test"; internal=true
+Include-Resource: stest=stest
+X-Unpack: stest
+Private-Package:
+

@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1557179302072
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.org.glassfish.jersey.security_oau
+ th1.signature
+Bundle-SymbolicName: com.nokia.as.thirdparty.org.glassfish.jersey.secu
+ rity_oauth1.signature
+Bundle-Version: 2.22.2
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: org.glassfish.jersey.security:oauth1-signature:2.22.2
+Export-Package: org.glassfish.jersey.oauth1.signature;version="2.22.2"
+ ;uses:="javax.inject,javax.ws.rs.core,org.glassfish.hk2.api,org.glass
+ fish.jersey.spi",org.glassfish.jersey.oauth1.signature.internal;versi
+ on="2.22.2";uses:="org.glassfish.jersey.internal.l10n"
+Import-Package: javax.crypto,javax.crypto.spec,javax.inject;version="[
+ 1.0,2)",javax.ws.rs.core;version="[2.0,3)",org.glassfish.hk2.api;vers
+ ion="[2.4,3)",org.glassfish.hk2.utilities.binding;version="[2.4,3)",o
+ rg.glassfish.jersey.internal.l10n;version="[2.22,3)",org.glassfish.je
+ rsey.oauth1.signature.internal;version="[2.22,3)",org.glassfish.jerse
+ y.spi;version="[2.22,3)",org.glassfish.jersey.uri;version="[2.22,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-4.2.0.201903051501
+

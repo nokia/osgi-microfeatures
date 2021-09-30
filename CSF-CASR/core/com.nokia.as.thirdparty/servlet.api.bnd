@@ -1,0 +1,39 @@
+Bundle-Version: 3.1.2
+Bundle-Name: Servlet Specification 3.1 API
+Bundle-Category: http, api
+Bundle-License: https://glassfish.dev.java.net/public/CDDLv1.0.html
+Specification-Version: 3.1
+Implementation-Version: 9.1.0
+Include-Resource: @javax.servlet-api-3.1.0.jar!/javax**
+Export-Package:\
+ javax.servlet;\
+ javax.servlet.annotation;\
+ javax.servlet.descriptor;\
+ javax.servlet.http;\
+ version=2.6,\
+ javax.servlet;\
+ javax.servlet.annotation;\
+ javax.servlet.descriptor;\
+ javax.servlet.http;\
+ version=2.7,\
+ javax.servlet;\
+ javax.servlet.annotation;\
+ javax.servlet.descriptor;\
+ javax.servlet.http;\
+ version=3.0,\
+ javax.servlet;\
+ javax.servlet.annotation;\
+ javax.servlet.descriptor;\
+ javax.servlet.http;\
+ version=3.1
+Ignore-Package: javax.servlet.http,\
+ javax.servlet,javax.servlet.resources,\
+ javax.servlet.jsp.resources
+Bundle-Description: Servlet Specification 3.1 API
+Bundle-ManifestVersion: 2
+Implementation-Vendor: JCP
+X-Obsoletes: org.mortbay.jetty.servlet-api
+Provide-Capability: osgi.contract;osgi.contract="JavaServlet";version:Version="3.1"
+CSF-Embedded: javax.servlet:javax.servlet-api:3.1.0
+-manifest servlet.api.mf
+

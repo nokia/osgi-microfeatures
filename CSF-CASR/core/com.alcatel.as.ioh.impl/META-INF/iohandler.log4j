@@ -1,0 +1,12 @@
+###############################################################################
+# IOHandler Loggers
+###############################################################################
+
+##
+# logger used by all servers
+#log4j.logger.as.ioh.server=DEBUG
+
+##
+# logger used by tcp client
+#log4j.logger.as.ioh.client.tcp=DEBUG
+

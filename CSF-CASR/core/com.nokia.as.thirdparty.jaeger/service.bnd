@@ -1,0 +1,9 @@
+Bundle-SymbolicName: com.nokia.as.thirdparty.jaeger.service
+Bundle-Name: Jaeger Service Provider
+
+Private-Package: com.nokia.as.thirdparty.jaeger.impl
+Export-Package: com.nokia.as.thirdparty.jaeger
+
+Bundle-Version: 1.0.8
+
+

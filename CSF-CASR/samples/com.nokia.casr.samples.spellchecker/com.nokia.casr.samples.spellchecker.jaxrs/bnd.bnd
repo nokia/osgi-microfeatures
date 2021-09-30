@@ -1,0 +1,10 @@
+-buildpath: \
+	${osgi},\
+	com.eclipsesource.jaxrs.jersey-all;version=2.22,\
+	org.apache.felix.gogo.runtime;version=0.16,\
+	com.nokia.casr.samples.service.dictionary;version=latest,\
+	com.nokia.as.thirdparty.log4j,\
+	org.apache.felix.dependencymanager.annotation;version=4.2
+
+Bundle-Version: 1.0.0
+Private-Package: com.nokia.casr.samples.spellchecker.jaxrs

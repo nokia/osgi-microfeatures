@@ -1,0 +1,8 @@
+Bundle-Name: com.alcatel.as.service.management.gs.impl
+Bundle-Category: core, internal
+Bundle-Activator: com.alcatel.as.service.management.gs.impl.Activator
+Private-Package: com.alcatel.as.service.management.gs.impl
+Import-Package: *
+Include-Resource: META-INF/services/com.alcatel.as.service.management.ShutdownService=META-INF/services/com.alcatel.as.service.management.ShutdownService
+
+Bundle-Version: 1.0.3

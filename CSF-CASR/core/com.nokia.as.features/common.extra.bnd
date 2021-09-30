@@ -1,0 +1,16 @@
+Bundle-Version: 1.0.4
+Bundle-Name: Additional common casr bundles
+
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="internal.common.extra"; internal=true
+
+Require-Capability: \
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.bundleinstaller.impl)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)'
+
+
+
+
+
+
+
+

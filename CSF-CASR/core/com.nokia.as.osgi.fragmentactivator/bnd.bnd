@@ -1,0 +1,13 @@
+-buildpath: \
+	osgi.annotation; version=6.0.1,\
+	osgi.core; version=6.0,\
+	osgi.cmpn; version=6.0,\
+	org.apache.felix.dependencymanager;version=4.4
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.2
+Private-Package: com.nokia.as.osgi.fragmentactivator
+Bundle-Activator: com.nokia.as.osgi.fragmentactivator.Activator
+Provide-Capability: osgi.extender;osgi.extender="com.nokia.as.service.fragmentactivator";version:Version="1.0.0"

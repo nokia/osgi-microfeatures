@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1598386025786
+Bundle-ManifestVersion: 2
+Bundle-Name: CASR - org.awaitility:awaitility:2.0.0
+Bundle-SymbolicName: com.nokia.as.thirdparty.awaitility
+Bundle-Version: 2.0.0
+Created-By: 1.8.0_252 (AdoptOpenJDK)
+CSF-Embedded: org.awaitility:awaitility:2.0.0
+Export-Package: org.awaitility;version="2.0.0";uses:="org.awaitility.c
+ ore,org.awaitility.pollinterval,org.hamcrest",org.awaitility.classpat
+ h;version="2.0.0",org.awaitility.constraint;version="2.0.0";uses:="or
+ g.awaitility",org.awaitility.core;version="2.0.0";uses:="org.awaitili
+ ty,org.awaitility.constraint,org.awaitility.pollinterval,org.hamcrest
+ ",org.awaitility.pollinterval;version="2.0.0";uses:="org.awaitility",
+ org.awaitility.proxy;version="2.0.0",org.awaitility.reflect;version="
+ 2.0.0";uses:="org.awaitility.reflect.exception",org.awaitility.reflec
+ t.exception;version="2.0.0",org.awaitility.spi;version="2.0.0"
+Import-Package: net.sf.cglib.proxy;version="[3.1,4)",org.awaitility;ve
+ rsion="[2.0,3)",org.awaitility.classpath;version="[2.0,3)",org.awaiti
+ lity.constraint;version="[2.0,3)",org.awaitility.core;version="[2.0,3
+ )",org.awaitility.pollinterval;version="[2.0,3)",org.awaitility.proxy
+ ;version="[2.0,3)",org.awaitility.reflect;version="[2.0,3)",org.await
+ ility.reflect.exception;version="[2.0,3)",org.awaitility.spi;version=
+ "[2.0,3)",org.hamcrest,org.hamcrest.core,org.objenesis;version="[2.5,
+ 3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-5.1.2.202007211702
+

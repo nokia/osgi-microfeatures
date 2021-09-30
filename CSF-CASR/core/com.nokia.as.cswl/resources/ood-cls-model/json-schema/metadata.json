@@ -1,0 +1,23 @@
+{
+	"$schema":"http://json-schema.org/draft-03/schema",
+	"type":"object",
+	"javaType":"com.nsn.ood.cls.model.gen.metadata.MetaData",
+	"extends":{
+		"$ref":"resource.json"
+	},
+	"required":true,
+	"properties":{
+		"total":{
+			"type":"integer",
+			"required":true,
+			"description":"Total number of records"
+		},
+		"filtered":{
+			"type":"integer",
+			"required":false,
+			"description":"Filtered number of records"
+		}
+
+	},
+	"additionalProperties":false
+}

@@ -1,0 +1,24 @@
+Bundle-Name: lib.test.testcontainers CASR Feature
+Bundle-Version: 1.0.0
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="lib.test.testcontainers";\
+                    version:Version="1.0.0";\
+                    desc="feature description";\
+                    doc="https://confluence.app.alcatel-lucent.com/";\
+		    internal=true
+
+Require-Capability: \
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.jetbrains_annotations)',\
+    osgi.identity;filter:='(osgi.identity=org.apache.commons.commons-compress)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.rnorth.duct.tape_duct.tape)',\
+    osgi.identity;filter:='(osgi.identity=javax.annotation-api)',\
+    osgi.identity;filter:='(osgi.identity=com.sun.jna.platform)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.com.kohlschutter.junixsocket_junixsocket.common)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.com.kohlschutter.junixsocket_junixsocket.native.common)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.scijava_native.lib.loader)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.rnorth_tcp.unix.socket.proxy)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.testcontainers_testcontainers)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.org.rnorth.visible.assertions_visible.assertions)'
+

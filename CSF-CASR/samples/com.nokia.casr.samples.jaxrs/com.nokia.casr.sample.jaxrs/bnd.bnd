@@ -1,0 +1,7 @@
+-buildpath: \
+	${osgi},\
+	com.eclipsesource.jaxrs.jersey-all;version=2.22,\
+	org.apache.felix.gogo.runtime;version=0.16
+
+Bundle-Version: 1.0.0
+Private-Package: com.nokia.casr.sample.jaxrs

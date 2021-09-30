@@ -1,0 +1,13 @@
+Bundle-Version: 1.0.2
+Bundle-Name: Jmx2Prometheus CDP Exporter
+
+Require-Capability: \
+	osgi.identity;filter:='(&(osgi.identity=com.nokia.as.thirdparty.prometheus.jmxexporter.cdp)(version>=0.11.0))'
+	
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="metering.exporter.jmx2prometheus.cdp";\
+  alias:List<String>="Jmx Exporter CDP";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Jmx2Prometheus+Exporter+CDP?src=contextnavpagetreemode";\
+  desc="Library used to export jmx to prometheus using CDP Prometheus JAX-RS bean";\
+  blacklist.identity="(osgi.identity=com.nokia.as.thirdparty.prometheus.jmxexporter.official)"

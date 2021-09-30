@@ -1,0 +1,3 @@
+# this empty bundle is used to deactivate old com.nokia.as.feature.gpto.agent feature, which was deployed to csf-mvn-delivered repo by mistake.
+Bundle-Version: 1.0.1
+

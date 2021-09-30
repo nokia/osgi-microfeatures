@@ -1,0 +1,10 @@
+Bundle-Version: 5.14.0
+Bundle-Name: IOH Http Parser
+Export-Package: com.alcatel.as.http.parser, \
+		com.alcatel.as.http2, \
+		com.alcatel.as.http2.client
+		
+Private-Package: com.alcatel.as.http2.hpack, \
+		 com.alcatel.as.http2.headers, \
+		 com.alcatel.as.http2.frames
+		 

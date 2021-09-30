@@ -1,0 +1,17 @@
+###############################################################################
+# HttpIOH Loggers
+###############################################################################
+
+# the HttpIOH engine logger
+#log4j.logger.as.ioh.engine.http=DEBUG
+#log4j.logger.as.ioh.engine.http.traffic=DEBUG
+#log4j.logger.as.ioh.engine.http.traffic.udp=DEBUG
+#log4j.logger.as.ioh.engine.http.traffic.tcp=DEBUG
+
+# optionally below to focus on an agent instance
+#log4j.logger.as.ioh.engine.http.agent.<intanceName>.<containerId>=DEBUG
+
+
+#log4j.logger.as.ioh.http.router=DEBUG
+#log4j.logger.as.ioh.http.proc=DEBUG
+

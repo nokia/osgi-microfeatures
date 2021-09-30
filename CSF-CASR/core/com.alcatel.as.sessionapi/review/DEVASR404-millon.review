@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Review id="DEVASR404">
+  <ReviewIssue id="GKPEA3GH">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-02-28 :: 13:58:32:321 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 17:45:22:156 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>millon</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="218">com/alcatel/as/session/distributed/event/SessionEventFilter.java</File>
+    <Type>item.label.unset</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>force "GROUP_EVENTS" when listenedGroup is set in the constructor</Summary>
+    <Description> use of "listenedGroup" without  "GROUP_EVENTS" has no sense.
+</Description>
+    <Annotation>only use "destinationGroup" - remove "GROUP_EVENTS"</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GL2ESDML">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-09 :: 16:33:45:597 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 17:08:12:568 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>millon</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="11">com/alcatel/as/session/distributed/util/AttributeValue.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>AttributeValue: how applications can use this interface</Summary>
+    <Description>- no method to register the implentation class,
+- attribute id is encoded in one byte and values 0 to 255 are reserved</Description>
+    <Annotation>to be removed: deprecated</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+</Review>

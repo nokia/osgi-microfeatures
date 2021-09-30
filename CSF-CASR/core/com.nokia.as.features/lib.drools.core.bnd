@@ -1,0 +1,25 @@
+Bundle-Version: 1.0.2
+Bundle-Name: Drools Core Feature
+
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=org.apache.commons.commons-codec)',\
+  osgi.identity;filter:='(osgi.identity=org.apache.geronimo.specs.geronimo-atinject_1.0_spec)',\
+  osgi.identity;filter:='(osgi.identity=org.drools.compiler)',\
+  osgi.identity;filter:='(osgi.identity=org.drools.core)',\
+  osgi.identity;filter:='(osgi.identity=org.drools.cdi)',\
+  osgi.identity;filter:='(osgi.identity=org.jboss.spec.javax.interceptor.jboss-interceptors-api_1.2_spec)',\
+  osgi.identity;filter:='(osgi.identity=org.kie.api)',\
+  osgi.identity;filter:='(osgi.identity=org.kie.internal.api)',\
+  osgi.identity;filter:='(osgi.identity=org.kie.osgi.integration)',\
+  osgi.identity;filter:='(osgi.identity=org.kie.soup.commons)',\
+  osgi.identity;filter:='(osgi.identity=org.kie.soup.kie-soup-maven-support)',\
+  osgi.identity;filter:='(osgi.identity=org.kie.soup.kie-soup-project-datamodel-api)',\
+  osgi.identity;filter:='(osgi.identity=org.kie.soup.kie-soup-project-datamodel-commons)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.janino)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jdt.core.compiler.batch)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.drools.core";\
+  version:Version="1.0.0";\
+  doc="https://www.google.com/url?q=https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature%2B-%2BCDI&sa=D&source=hangouts&ust=1533739701295000&usg=AFQjCNFbeaADlojVQ1gnyEgsAoiQTdLPDA";\
+  desc="Drools core modules"

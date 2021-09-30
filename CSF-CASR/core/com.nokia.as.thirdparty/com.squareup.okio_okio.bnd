@@ -1,0 +1,8 @@
+CSF-Embedded:                  com.squareup.okio:okio:1.17.2
+Bundle-Version:                1.17.2
+Bundle-Name:                   com.nokia.as.thirdparty.com.squareup.okio_okio
+Bundle-SymbolicName:           com.nokia.as.thirdparty.com.squareup.okio_okio
+-includeresource:              @okio-1.17.2.jar;lib:=true
+-exportcontents:               *; version=1.17.2
+
+-manifest com.squareup.okio_okio.mf

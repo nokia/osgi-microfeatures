@@ -1,0 +1,11 @@
+Bundle-Name: Felix GogoShell Assembly
+Bundle-SymbolicName: com.alcatel.as.felix.gogo.asmb
+Bundle-Category: assembly, tools
+Require-Bundle: com.alcatel.as.felix.asmb,\
+ org.apache.felix.gogo.command,\
+ org.apache.felix.gogo.runtime,\
+ org.apache.felix.gogo.shell,\
+ org.apache.felix.dependencymanager.shell
+Include-Resource: META-INF/assembly.cfg=gogoasmb/gogo-asmb.cfg
+Import-Package: !*
+

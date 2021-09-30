@@ -1,0 +1,5 @@
+Bundle-Version: 1.0.1
+Private-Package: com.nokia.as.log.admin.impl.log4j1
+Fragment-Host: com.nokia.as.thirdparty.log4j
+CASR-Fragment-Activator: com.nokia.as.log.admin.impl.log4j1.Activator
+

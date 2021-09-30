@@ -1,0 +1,7 @@
+Bundle-Version: 1.0.1
+Bundle-Name: Web Agent Servlet Test  
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.httpagent.proxying";category:List<String>="test"; internal=true
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=com.alcatel.as.agent.http.stest.proxy-components)'
+  
+Private-Package: 

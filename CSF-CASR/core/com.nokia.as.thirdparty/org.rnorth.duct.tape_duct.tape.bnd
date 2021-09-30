@@ -1,0 +1,8 @@
+CSF-Embedded:                  org.rnorth.duct-tape:duct-tape:1.0.7
+Bundle-Version:                1.0.7
+Bundle-Name:                   com.nokia.as.thirdparty.org.rnorth.duct.tape_duct.tape
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.rnorth.duct.tape_duct.tape
+-includeresource:              @duct-tape-1.0.7.jar;lib:=true
+-exportcontents:               *; version=1.0.7
+
+-manifest org.rnorth.duct.tape_duct.tape.mf

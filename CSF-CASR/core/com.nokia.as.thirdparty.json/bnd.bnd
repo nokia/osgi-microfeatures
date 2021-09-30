@@ -1,0 +1,6 @@
+javac.source: 1.8
+javac.target: 1.8
+Bundle-Name: Json
+
+Bundle-Version: 1.0.1
+Export-Package: org.json;version=1.0.20110405;vendor=a5350

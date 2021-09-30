@@ -1,0 +1,15 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.alcatel_lucent.as.api</groupId>
+  <artifactId>dns-client</artifactId>
+  <packaging>jar</packaging>
+  <version>4.0.0</version>
+  <dependencies>
+    <dependency>
+      <groupId>com.alcatel_lucent.as.api</groupId>
+      <artifactId>sip-servlet</artifactId>
+      <version>[1.0,2.0)</version>
+    </dependency>
+  </dependencies>
+</project>

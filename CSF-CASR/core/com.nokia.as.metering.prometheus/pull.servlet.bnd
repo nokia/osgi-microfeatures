@@ -1,0 +1,5 @@
+Bundle-Version: 1.0.18
+Private-Package: com.nokia.as.metering.prometheus.pull,\
+				com.nokia.as.metering.prometheus.pull.servlet, \
+				com.nokia.as.metering.prometheus.common
+Include-Resource: META-INF/prometheusMeters.txt=META-INF/prometheusMeters.txt

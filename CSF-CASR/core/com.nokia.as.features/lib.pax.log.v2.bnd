@@ -1,0 +1,29 @@
+Bundle-Name: lib.pax.log log4j2 CASR Feature
+Bundle-Version: 1.0.1
+Private-Package: 
+
+Include-Resource: instance/org.ops4j.pax.logging.cfg=bnd/feature/lib.pax.log.v2/org.ops4j.pax.logging.cfg
+X-Unpack: instance/org.ops4j.pax.logging.cfg
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="lib.pax.log";\
+                    version:Version="2.0.0";\
+                    desc="Pax Logging Log4j2 backend";\
+                    doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Pax+Logging";\
+    		    blacklist.identity="(|(osgi.identity=com.nokia.as.thirdparty.log4j)\
+                                          (osgi.identity=com.alcatel.as.service.impl.log4j1)\
+                                          (osgi.identity=com.nokia.as.log4jappender.log4j1)\
+                                          (osgi.identity=com.nokia.as.thirdparty.log4j2.log4j12.api)\
+                                          (osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12)\
+                                          (osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12.ext)\
+                                          (osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12.ext.log4j2)\
+                                          (osgi.identity=org.apache.logging.log4j.api)\
+                                          (osgi.identity=org.apache.logging.log4j.core)\
+                                          (osgi.identity=org.apache.felix.log)\
+                                          (osgi.identity=slf4j.api))"
+
+Require-Capability: \
+    	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.logging.pax-logging-api)',\
+    	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.logging.pax-logging-log4j2)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.service.logadmin.pax.log4j2)'
+

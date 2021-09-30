@@ -1,0 +1,23 @@
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.alcatel.as.service.api;version=1.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	org.mousio-etcd4j;version=2.15,\
+	org.apache.felix.gogo.runtime;version=0.16,\
+	com.nokia.as.thirdparty.json;version=1.0,\
+	io.netty.handler;version=4.1,\
+	io.netty.common;version=4.1,\
+	org.mousio-etcd4j;version=2.15
+	
+
+-testpath: \
+	${junit}
+
+javac.source: 1.8
+javac.target: 1.8
+
+Bundle-Version: 1.0.3
+Private-Package: com.nokia.as.service.discovery.k8s.etcd

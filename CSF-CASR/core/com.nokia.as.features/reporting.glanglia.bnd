@@ -1,0 +1,15 @@
+Bundle-Version: 1.0.1
+Bundle-Name: Ganglia Metering Service
+
+Require-Capability: \
+ osgi.identity;filter:='(osgi.identity=com.alcatel.as.util.metering2.reporter.ganglia)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="metering.exporter.ganglia";\
+  alias:List<String>="Ganglia";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Ganglia+Metrics+Exporter?src=contextnavpagetreemode";\
+  desc="Library used to export CASR meters to Ganglia"
+
+
+

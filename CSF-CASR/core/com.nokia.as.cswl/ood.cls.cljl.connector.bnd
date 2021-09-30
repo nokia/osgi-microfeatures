@@ -1,0 +1,11 @@
+Include-Resource: resources/ood-cls-cljl-connector
+Bundle-Version: 1.1.7
+Export-Package: \
+	com.nsn.ood.cls.cljl,\
+	com.nsn.ood.cls.cljl.plugin
+	
+Import-Package: org.aspectj.runtime,\
+				org.aspectj.runtime.reflect,\
+				org.aspectj.runtime.internal,\
+				org.aspectj.lang,\
+				*

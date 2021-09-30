@@ -1,0 +1,7 @@
+###############################################################################
+# Jetty loggers
+###############################################################################
+
+#log4j.logger.org.eclipse.jetty=WARN
+log4j.logger.org.eclipse.jetty.webapp.ClasspathPattern=ERROR
+log4j.logger.org.eclipse.jetty.util.resource.Resource=ERROR

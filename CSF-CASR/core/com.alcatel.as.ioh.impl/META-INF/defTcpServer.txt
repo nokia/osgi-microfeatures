@@ -1,0 +1,14 @@
+<servers>
+
+  <!--server ip="127.0.0.1" port="3868" processor="xxx" name="main">
+  </server-->
+
+  <!-- Uncomment the following processor for activating OSGi remote shell server.
+       (notice that you can also specify the listening addr with "if" option, like: if="eth0:asr/v4") -->
+  <!-- server ip="127.0.0.1" port="16000" processor="gogo.shell" name="main">
+    <property name="server.port.range">1000</property>
+    <property name="processor.advertize.id">323</property>
+    <property name="processor.advertize.name">gogo</property>
+  </server -->
+
+</servers>

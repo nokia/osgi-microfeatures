@@ -1,0 +1,267 @@
+###############################################################################
+# Log4j Root Logger.
+###############################################################################
+
+##
+# The root logger level, and corresponding appenders.
+# Syntax: rootLogger=<level>,<appender1>,<appender2>, ...
+# The <level> must have either one of these values:
+#	OFF	(turn off logging)
+#	FATAL	(designates very severe, non recoverable error events)
+#	ERROR	(designates recoverable error events)
+#	WARN	(designates harmful events)
+#	INFO	(designates informational events)
+#	DEBUG	(designates debug events)
+#	ALL	(designates fine-grained debug events and activate all logging)
+# 
+#	the DECO appender is a decorator appended used to provide the group/instance name in 
+#	all logs.
+#
+#log4j.rootLogger=WARN,DECO,FILE
+log4j.rootLogger=WARN,FILE
+
+##
+# This property enables you to globally limit the log level whatever the logger
+# configuration. It is useful when there are a lot of active loggers, and you want to
+# active a level for all loggers in one shot.
+# Leaving this property to OFF turn off all logging !
+##
+#log4j.threshold=OFF
+
+###############################################################################
+# Callout Agent Loggers
+###############################################################################
+
+## General callout logger
+#log4j.logger.callout=DEBUG
+
+## Mux Connection logging (INFO=only headers, DEBUG=headers + data)
+#log4j.logger.callout.mux=DEBUG
+
+## Mux Connection related logging
+#log4j.logger.callout.connection=INFO
+
+## Callout Osgi Activator logging
+#log4j.logger.callout.activator=DEBUG
+
+## Application jmx logging
+#log4j.logger.callout.mbeans=DEBUG
+
+## Mux flow control logging
+#log4j.logger.callout.flowcontrol=DEBUG
+
+## Flow control memory Statistics:
+#  The old generation memory pool contains long lived object, not reclaimed by the 
+#  latest GC loops. It is used by the control flow to keep the amount of memory
+#  bounded. 
+#
+#  Set this log to DEBUG for frequent view of the jvm gc memory usage.
+#  Set this log to INFO for a slower view. 
+#log4j.logger.callout.stat.memory=DEBUG
+
+## Counter used to check callout startup time.
+#log4j.logger.as.stat.callout.startup=DEBUG
+
+###############################################################################
+# Common Platform Services loggers
+###############################################################################
+
+## Reactor logging (INFO=only headers, DEBUG=headers + data)
+#log4j.logger.as.service.reactor=DEBUG
+
+## Redirect all System.out messages to this logger
+log4j.logger.stdout=DEBUG
+
+## Redirect all System.err messages to this logger
+log4j.logger.stderr=DEBUG
+
+## Management service logging 
+#log4j.logger.as.service.management=DEBUG
+
+## concurrent service logging
+#log4j.logger.as.service.concurrent=DEBUG
+
+## Application MBeans factory service logging
+#log4j.logger.as.service.appmbeans=DEBUG
+
+## log4j configurator logging
+#log4j.logger.as.service.log4j=DEBUG
+
+## Metering service logging
+#log4j.logger.as.service.metering=DEBUG
+
+## Platform Services OSGi activator logging
+#log4j.logger.as.service.activator=DEBUG
+
+## Configuration service logging
+#log4j.logger.as.service.configuration=DEBUG
+
+## FastCache service logging
+#log4j.logger.as.service.fc=DEBUG
+
+## Mux Connection service logging
+#log4j.logger.as.service.mux.MuxConnectionImpl=DEBUG
+#log4j.logger.as.service.mux.KeepAlive=DEBUG
+
+## License service logging
+#log4j.logger.com.alcatel.licensemgr=DEBUG
+
+## OSGi logging
+#log4j.logger.osgi=DEBUG
+#log4j.logger.osgi.event.bundle=DEBUG
+#log4j.logger.osgi.event.fwk=DEBUG
+#log4j.logger.osgi.event.service=DEBUG
+
+## Platform Helpers logging ...
+#log4j.logger.as.util=DEBUG
+#log4j.logger.as.util.FastCache=DEBUG
+#log4j.logger.as.util.ApplicationTracker=DEBUG
+#log4j.logger.as.util.ObjectPool=DEBUG
+#log4j.logger.as.util.SafeObjectPool=DEBUG
+#log4j.logger.as.util.Reporter=DEBUG
+#log4j.logger.as.util.ProxyConfig=DEBUG
+#log4j.logger.as.util.ProxyAppReporter=DEBUG
+#log4j.logger.as.util.jndi=DEBUG
+#log4j.logger.as.util.ThreadPool=DEBUG
+
+## Apache commons modeler logging
+#log4j.logger.org.apache.commons.modeler=DEBUG
+
+## Proxylet Deployer
+#log4j.logger.as.service.pxletdeployer=DEBUG
+
+## Statistics ..
+
+## ThreadPool stats ... the following loggers are supported:
+#
+# as.stat.tpool.elapsed -> elapsed time consumed by worker threads
+# as.stat.tpool.queue -> average of internal tpool queue size
+# as.stat.tpool.threads -> average number of working threads
+#
+#log4j.logger.as.stat.tpool=DEBUG
+
+## reactor stats ... the following loggers are supported:
+#
+# as.stat.reactor.ReactorName.task.elapsed -> average cpu consumed by scheduled tasks (ms)
+# as.stat.reactor.ReactorName.task.queueSize -> avg scheduled task queue size
+# as.stat.reactor.ReactorName.task.rate -> avg of scheduled tasks (per seconds)
+# as.stat.reactor.ReactorName.timer.elapsed: cpu consumed by reactor timers
+# as.stat.reactor.ReactorName.timer.active: active timers for the given reactor
+# as.stat.reactor.ReactorName.timer.gcElapsed: elapsed time consumed by GC timer
+# as.stat.reactor.ReactorName.timer.gcCount: avg num of cancelled timers removed from queue
+# as.stat.reactor.ReactorName.socket.bytesPerWrite -> avg number of bytes sent per writes
+# as.stat.reactor.ReactorName.socket.bytesPerRead -> avg numer of bytes received in a single read
+# as.stat.reactor.ReactorName.socket.outputRate -> output rate (in bytes) per secs
+# as.stat.reactor.ReactorName.socket.inputRate -> input rate (in bytes) per secs
+# as.stat.reactor.ReactorName.socket.elapsedPerRead -> avg cpu consumde while handling input
+# as.stat.reactor.ReactorName.socket.buffered -> pending bytes (not sent) on socket full
+#
+#log4j.logger.as.stat.reactor=DEBUG
+
+## Memory and CPU statistics 
+# (Caution: you must also activate the callout agent flow control)
+#
+# The following meters are supported:
+# as.stat.memory.usedkb -> used memory in kb
+# as.stat.memory.freekb -> free memory in kb
+# as.stat.cpu.system -> system cpu
+# as.stat.cpu.user -> user cpu
+# as.stat.cpu.idle -> idle cpu
+#
+#log4j.logger.as.stat.memory=DEBUG
+#log4j.logger.as.stat.cpu=DEBUG
+
+###############################################################################
+# DECORATION Appender used to display group/instance name for each logs
+###############################################################################
+
+log4j.appender.DECO=com.alcatel.as.service.log4j.impl.Decorator
+
+###############################################################################
+# Platform File Appender
+###############################################################################
+
+##
+# The FILE appender do the following: 
+#	- It sync logs with level ERR/WARN,
+#	- It captures stdout/stderr messages and uncaught/unlogged exceptions
+#	  and displays them to log4j.
+#	- It calls LogManager.shutdown when jvm exits.
+#	- It halts the jvm if an Out Of Memory exception is logged.
+#	- It zip files if max file size is exceeded.
+#	- if bufferSize is 0, all logs are autoflushed. Else we use the specified buffer size,
+#	  and we'll flush the buffered output stream each 5 seconds.
+##
+log4j.appender.FILE=alcatel.tess.hometop.gateways.utils.Log4jAppender
+log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
+# Displays the file name + line number of the logging thread (VERY time consuming)
+#log4j.appender.FILE.layout.ConversionPattern=%d{ISO8601} %t %-5p %c %x %F:%L - %m%n
+log4j.appender.FILE.layout.ConversionPattern=%d{ISO8601} %t %-5p %c %x - %m%n
+log4j.appender.FILE.file=msg.log
+log4j.appender.FILE.maxFileSize=50240000
+log4j.appender.FILE.maxZipFiles=10
+log4j.appender.FILE.checkOutOfMemory=true
+log4j.appender.FILE.bufferSize=0
+# Turn on these properties for daily log rotation
+#log4j.appender.FILE.rotationTime=23:00
+#log4j.appender.FILE.maxStorageDays=10
+
+###############################################################################
+# SOCKET appender used to send logs to Chainsaw
+###############################################################################
+
+log4j.appender.SOCKET=org.apache.log4j.net.SocketAppender
+log4j.appender.SOCKET.RemoteHost=localhost
+log4j.appender.SOCKET.port=4445
+
+###############################################################################
+# SyslogNG appender
+###############################################################################
+
+##
+# The SyslogNG appender do the following: 
+#	- It logs message to a SYSLOG-NG server, in tcp or udp.
+#	- It captures stdout/stderr messages and uncaught/unlogged exceptions
+#	  and displays them to syslog-ng..
+#	- It halts the jvm if an Out Of Memory exception is logged.
+#
+# If not provided, the default syslog facility is "LOCAL0".
+# The facility property may have either one of these values:
+#	kern, user, mail, daemon, auth, syslog, lpr, news, uucp, cron, authpriv, ftp,
+#	local0, local1, local2, local3, local4, local5, local6, local7
+##
+log4j.appender.SYSLOGNG=alcatel.tess.hometop.gateways.utils.SyslogNGAppender
+log4j.appender.SYSLOGNG.layout=org.apache.log4j.PatternLayout
+log4j.appender.SYSLOGNG.layout.ConversionPattern=MSGCLS=%c %t %-5p %x - %m
+log4j.appender.SYSLOGNG.host=localhost
+log4j.appender.SYSLOGNG.port=6100
+log4j.appender.SYSLOGNG.tcp=true
+log4j.appender.SYSLOGNG.facility=local0
+log4j.appender.SYSLOGNG.checkOutOfMemory=true
+log4j.appender.SYSLOGNG.fallback=com.alcatel_lucent.as.service.log4j.fallback
+log4j.logger.com.alcatel_lucent.as.service.log4j.fallback=DEBUG,FILE
+
+##
+# rfc5424 compatible appender, which can be used to send messages to rsyslog
+##
+# appender name
+log4j.appender.RSYSLOG=alcatel.tess.hometop.gateways.utils.SyslogAppender
+# rsyslog host name
+log4j.appender.RSYSLOG.host=localhost
+# rsyslog port number
+log4j.appender.RSYSLOG.port=6100
+# protocol used
+log4j.appender.RSYSLOG.tcp=true
+# syslog facility used when sending logs to rsyslog
+log4j.appender.RSYSLOG.facility=local0
+# compact log4j logger names, as well as java stacktraces
+log4j.appender.RSYSLOG.compact=true
+# send or ignore java stacktraces
+log4j.appender.RSYSLOG.stackTrace=true
+# filter enabled loggers (by default, all enabled log levels are handled by this appender).
+log4j.appender.RSYSLOG.level=DEBUG
+# RFC5424 application name field (if you change it, you will have to change rsyslog config file)
+log4j.appender.RSYSLOG.appName=ASR
+# async log queue: This appender is asynchronous and internally uses a send queue. When this sendqueue
+# becomes full, then a "message discarded" log is sent to rsyslog.
+log4j.appender.RSYSLOG.queueSize=1024

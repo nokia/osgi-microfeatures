@@ -1,0 +1,15 @@
+Bundle-Version: 1.0.2
+Bundle-Name: Aries JMX
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=org.apache.aries.jmx)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.aries.jmx.whiteboard)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.aries.jmx";\
+  alias:List<String>="Aries Jmx";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Aries+Jmx?src=contextnavpagetreemode";\
+  desc="Aries jmx library used to expose OSGi services to Jmx"
+
+

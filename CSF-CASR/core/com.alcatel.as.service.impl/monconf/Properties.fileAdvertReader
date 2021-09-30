@@ -1,0 +1,19 @@
+MODULE	CalloutAgent
+PUBLIC
+
+# ----------------------------------------------------------------------------
+# File Advertisement Loader
+# ----------------------------------------------------------------------------
+
+SECTION 1 Advertisement File Reader
+PID com.alcatel.as.service.discovery.impl.filereader.AdvertFileReader
+
+        NAME        fileAdvertReader.advertFile
+        LEVEL       Basic
+        TITLE       Advertisements File
+        VALID       None
+        TYPE        FileData
+        REQUIRED    Yes
+        DYNAMIC     Yes
+        DEFAULT	    fileAdvertReader.xml
+<p> This property contains the list of addresses to be advertised to remote components

@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1587977936362
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.net.sf.json.lib_json.lib
+Bundle-SymbolicName: com.nokia.as.thirdparty.net.sf.json.lib_json.lib
+Bundle-Version: 2.4.0.1
+Created-By: 1.8.0_251 (Oracle Corporation)
+CSF-Embedded: net.sf.json-lib:json-lib:2.4
+Export-Package: net.sf.json;version="2.4";uses:="net.sf.json.processor
+ s,net.sf.json.util,org.apache.commons.lang.exception",net.sf.json.fil
+ ters;version="2.4";uses:="net.sf.json.util",net.sf.json.groovy;versio
+ n="2.4";uses:="groovy.lang,net.sf.json",net.sf.json.processors;versio
+ n="2.4";uses:="net.sf.json",net.sf.json.regexp;version="2.4",net.sf.j
+ son.test;version="2.4";uses:="junit.framework,net.sf.json",net.sf.jso
+ n.util;version="2.4";uses:="net.sf.ezmorph,net.sf.json,org.apache.com
+ mons.beanutils",net.sf.json.xml;version="2.4";uses:="net.sf.json"
+Import-Package: org.codehaus.groovy.runtime;resolution:=optional,net.s
+ f.ezmorph.array;resolution:=optional,org.codehaus.groovy.runtime.wrap
+ pers;resolution:=optional,net.sf.ezmorph.bean;resolution:=optional,or
+ g.apache.oro.text.regex;resolution:=optional,org.codehaus.groovy.refl
+ ection;resolution:=optional,net.sf.ezmorph;resolution:=optional,org.c
+ odehaus.groovy.runtime.typehandling;resolution:=optional,org.codehaus
+ .groovy.runtime.callsite;resolution:=optional,net.sf.ezmorph.object;r
+ esolution:=optional,nu.xom;resolution:=optional,groovy.lang;resolutio
+ n:=optional,junit.framework;resolution:=optional,net.sf.json;version=
+ "[2.4,3)",net.sf.json.processors;version="[2.4,3)",net.sf.json.regexp
+ ;version="[2.4,3)",net.sf.json.util;version="[2.4,3)",org.apache.comm
+ ons.beanutils;version="[1.8,2)",org.apache.commons.collections.map;ve
+ rsion="[3.2,4)",org.apache.commons.lang;version="[2.5,3)",org.apache.
+ commons.lang.builder;version="[2.5,3)",org.apache.commons.lang.except
+ ion;version="[2.5,3)",org.apache.commons.lang.math;version="[2.5,3)",
+ org.apache.commons.logging;version="[1.1,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+Tool: Bnd-4.3.1.201911131708
+

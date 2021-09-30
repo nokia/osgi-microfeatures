@@ -1,0 +1,23 @@
+{
+    "resourcePackages": [
+        "com.nsn.ood.cls.rest.resource"
+    ],
+    "prettyPrint" : true,
+    "cacheTTL": 0,
+    "openAPI": {
+        "info": {
+            "version": "1.0",
+            "title": "CSWL rest API",
+            "description": "This is the License Server API.  You can find out more about CSWL on [confluence documentation](https://confluence.app.alcatel-lucent.com/display/plateng/CSWL+-+Software+Licensing+Management). Media type description is in JSON schema format (IETF draft v3)",
+            "termsOfService": "http://swagger.io/terms/",
+            "contact": {
+                "email": "cedric.dos_santos@nokia.com"
+            },
+            "license": {
+                "name": "Apache 2.0",
+                "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+            }
+        },
+        "schemes": ["http", "https"]
+    }
+}

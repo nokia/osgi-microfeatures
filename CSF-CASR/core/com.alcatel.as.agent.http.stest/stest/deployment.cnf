@@ -1,0 +1,18 @@
+#Add runtime here in this format
+#runtime-name=feature1,feature2,feature3,etc
+#Be sure to terminate the last line with a carriage return
+__java11_runtimes=test-proxyhopping
+test-runtime=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http:1.0.0,agent.proxylet.http:1.0.0,stest.httpagent
+test-runtime-v2=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http:1.0.0,agent.proxylet.http:2.0.0,stest.httpagent
+test-proxy=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http:1.0.0,agent.proxylet.http:1.0.0,stest.httpagent.proxying
+test-proxy-v2=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http:1.0.0,agent.proxylet.http:2.0.0,stest.httpagent.proxying
+test-proxyhopping=runtime.felix.log4j1,lib.csf.casr,ioh.proxy.http,ioh.mux.http:1.0.0,agent.proxylet.http:1.0.0,stest.httpagent.proxying
+test-proxyhopping-v2=runtime.felix.log4j1,lib.csf.casr,ioh.proxy.http,ioh.mux.http:1.0.0,agent.proxylet.http:2.0.0,stest.httpagent.proxying
+jersey-server=runtime.felix.log4j1,lib.csf.casr,ioh.server.jersey:1.1.0,stest.httpagent.jaxrs
+jetty-server=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http,agent.servlet.jetty:1.1.0,stest.http2.bean
+test-proxy-agent=runtime.felix.log4j1,lib.csf.casr,agent.proxylet.http:1.0.0,stest.httpagent.proxying,discovery.static.file
+test-proxy-agent-v2=runtime.felix.log4j1,lib.csf.casr,agent.proxylet.http:2.0.0,stest.httpagent.proxying,discovery.static.file
+test-proxy-ioh1=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http:1.0.0
+test-proxy-ioh2=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http:1.0.0
+
+

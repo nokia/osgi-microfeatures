@@ -1,0 +1,31 @@
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	org.apache.felix.dependencymanager.annotation;version=4.5,\
+	com.alcatel.as.service.api;version=2.2.0,\
+	org.apache.felix.gogo.runtime;version=0.16,\
+	com.alcatel_lucent.as.management.annotation;version=1.0.4,\
+	com.nokia.as.thirdparty.gson;version=2.8.1,\
+	org.yaml.snakeyaml;version=1.25,\
+	com.nextenso.mux;version=3.1,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.nokia.as.thirdparty.cloudevents.api;version=0.2.1,\
+	com.alcatel.as.service.metering2;version=1.0.0,\
+	com.alcatel.as.ioh;version=1.0,\
+	com.alcatel.as.ioh.impl.core;version=7.0,\
+	com.alcatel.as.utils;version=2.0,\
+	com.alcatel.as.mux.impl;version=3.0,\
+	org.apache.felix.dependencymanager;version=4.6,\
+	io.kubernetes.client-java-api;version=12.0,\
+	io.kubernetes.client-java-extended;version=12.0,\
+	io.kubernetes.client-java;version=12.0,\
+	org.apache.servicemix.bundles:org.apache.servicemix.bundles.okhttp;version=4.9
+
+-testpath: \
+	${junit},\
+	io.kubernetes:client-java;version=12.0.0,\
+	io.kubernetes:client-java-api;version=12.0.0,\
+	joda-time;version=2.10.0,\
+        io.gsonfire:gson-fire;version=1.8.4
+
+-sub: *.bnd

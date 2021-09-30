@@ -1,0 +1,4 @@
+Bundle-Version: 1.0.4
+Private-Package: \
+	com.nokia.as.service.loghistory.jaxrs,\
+	com.nokia.as.service.loghistory.common

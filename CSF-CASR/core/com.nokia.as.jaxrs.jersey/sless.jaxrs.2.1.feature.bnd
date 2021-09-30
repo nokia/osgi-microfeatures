@@ -1,0 +1,16 @@
+Bundle-Name: agent.sless.http CASR Feature
+Bundle-Version: 1.0.1
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="agent.sless.http";\
+                    version:Version="1.1.0";\
+                    desc="Serverless HTTP runtime";\
+                    doc="https://confluence.app.alcatel-lucent.com/";\
+                    blacklist.identity="(|(osgi.identity=com.nokia.as.thirdparty.jaxrs)\
+                        (osgi.identity=com.nokia.as.thirdparty.jersey.all))"
+
+Require-Capability: \
+    	osgi.identity;filter:='(osgi.identity=com.nokia.as.k8s.sless-rt.feature)',\
+    	osgi.identity;filter:='(osgi.identity=com.nokia.as.jaxrs.jersey.sless)',\
+    	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.jaxrs-2.1)'
+Private-Package:

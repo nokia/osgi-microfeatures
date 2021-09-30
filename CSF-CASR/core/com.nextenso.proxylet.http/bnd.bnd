@@ -1,0 +1,16 @@
+-buildpath: \
+	${osgi},\
+	com.nextenso.proxylet.api;version=1.0,\
+	com.alcatel.as.service.api;version=2.1
+
+Bundle-Name: HttpAPI
+Bundle-Category: proxylet, http, api
+Export-Package: com.nextenso.proxylet.http;\
+ com.nextenso.proxylet.http.event
+Import-Package: *
+# DNSClientFactory still uses Class.forName.. to be removed
+DynamicImport-Package: *
+
+Bundle-Version: 1.4.1
+
+groupId: com.nokia.casr.http

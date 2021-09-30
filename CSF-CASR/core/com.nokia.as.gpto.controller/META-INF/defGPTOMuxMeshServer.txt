@@ -1,0 +1,3 @@
+<servers>
+  <server ip="0.0.0.0" port="25001" processor="mux.mesh.gpto-mesh" name="gpto-mesh"></server>
+</servers>

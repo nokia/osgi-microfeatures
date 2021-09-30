@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1587982171283
+Bundle-ManifestVersion: 2
+Bundle-Name: io.etcd.jetcd-resolver
+Bundle-SymbolicName: io.etcd.jetcd-resolver
+Bundle-Version: 0.4.1
+Created-By: 1.8.0_251 (Oracle Corporation)
+CSF-Embedded: io.etcd:jetcd-resolver:0.4.1
+Export-Package: io.etcd.jetcd.resolver;version="0.4.1";uses:="io.grpc,
+ javax.annotation"
+Import-Package: javax.annotation;version="[3.0,4.0)";resolution:=optio
+ nal,com.google.common.base;version="[26.0,27)",io.etcd.jetcd.common.e
+ xception;version="[0.4,1)",io.grpc;version="[1.24,2)",io.grpc.interna
+ l;version="[1.24,2)",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+SPI-Consumer: *
+Tool: Bnd-4.3.1.201911131708
+

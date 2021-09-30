@@ -1,0 +1,13 @@
+Bundle-Version: 1.0.3
+Bundle-Name: Diameter LB Bundles
+Require-Bundle: \
+ com.nokia.as.features.common.standalone,\
+ com.nokia.as.features.diameter.lb
+
+Provide-Capability: com.nokia.as.feature;\
+ com.nokia.as.feature="ioh.lb.diameter";\
+ alias:List<String>="Diameter LB";\
+ version:Version="1.0.0";\
+ desc="CDLB diameter load balancer";\
+ doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Diameter+LB?src=contextnavpagetreemode"
+

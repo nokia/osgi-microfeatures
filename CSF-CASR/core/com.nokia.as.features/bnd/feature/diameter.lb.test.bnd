@@ -1,0 +1,16 @@
+Bundle-Version: 1.0.1.-SNAPSHOT
+Bundle-Name: Diameter LB Test
+dir: bnd/feature/diameter.lb.test
+Include-Resource: \
+ scripts/start.sh=${dir}/start.sh,\
+ log4j.properties=${dir}/log4j.properties, \
+ system.properties=${dir}/system.properties
+X-StartCommand: scripts/start.sh
+X-Unpack: scripts/start.sh, log4j.properties, system.properties
+Require-Bundle: \
+ com.alcatel_lucent.as.diameter.lb.test,\
+ com.nokia.as.features.common.standalone,\
+ com.nokia.as.features.diameter.lb
+
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="Diameter LB Test";category:List<String>="test"; internal=true
+

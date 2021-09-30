@@ -1,0 +1,11 @@
+-classpath: libs/jsr166e.jar
+Bundle-Name: Jsr166e
+Bundle-Category: core, api
+Bundle-Version: 1.7.0
+Implementation-Version: 1.7.0
+Implementation-Vendor: "Doug Lea"
+Include-Resource: @jsr166e.jar
+-exportcontents: *;version="1.7.0"
+-manifest jsr166e.mf
+
+

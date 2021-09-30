@@ -1,0 +1,9 @@
+<servers>
+
+  <!--server ip="0.0.0.0" port="8888" processor="ioh.lb.token.round-robin" name="LB">
+    <property name="lb.dest.id">LB</property>
+    <property name="lb.dest.write.buffer.max">1000000</property>
+    <property name="lb.client.write.buffer.max">5000000</property>
+  </server-->
+
+</servers>

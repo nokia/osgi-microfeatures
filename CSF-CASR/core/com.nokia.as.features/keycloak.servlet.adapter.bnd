@@ -1,0 +1,12 @@
+Bundle-Version: 1.0.0
+Bundle-Name: Keycloak Servlet Adapter feature
+
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=org.keycloak.keycloak-servlet-adapter-spi)',\
+  osgi.identity;filter:='(osgi.identity=org.keycloak.keycloak-servlet-filter-adapter)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.security.keycloak.servlet";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Keycloak+Servlet+Adapter?src=contextnavpagetreemode";\
+  desc="Keycloak integration for Servlets"

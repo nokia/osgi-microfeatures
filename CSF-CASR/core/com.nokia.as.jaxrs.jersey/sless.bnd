@@ -1,0 +1,4 @@
+Bundle-Version: 1.0.7
+Private-Package: com.nokia.as.jaxrs.jersey.sless
+#Include-Resource:  \
+# META-INF/defJaxRsServer.txt=META-INF/defJaxRsServer.txt

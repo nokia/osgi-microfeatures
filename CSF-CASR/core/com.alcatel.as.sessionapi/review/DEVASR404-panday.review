@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Review id="DEVASR404">
+  <ReviewIssue id="GKZHYIOM">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 15:39:12:406 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 10:53:10:511 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="16">com/alcatel/as/session/distributed/EtagException.java</File>
+    <Type>item.type.label.usability</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>add root cause exception</Summary>
+    <Description>pbs are hard to track when the root cause is dropped.. </Description>
+    <Annotation>add a ctor with root cause</Annotation>
+    <Revision>add constructors with root cause</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZI3MOS">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 15:43:10:876 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:25:49:669 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="79">com/alcatel/as/session/distributed/Session.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>too many deprecated!</Summary>
+    <Description>Maybe we should "hide" all the deprecated stuff in a "SessionCompatibility" interface which Session would extend (like SessionManagerCompat) .. the javadoc would gain in clarity.
+Moving the compatibility classes to a dedicated package would also help. </Description>
+    <Annotation>backward compatibility</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.invalidWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZIC1MG">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 15:49:43:480 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:27:43:430 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="79">com/alcatel/as/session/distributed/Session.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>TX_CREATE_GET only</Summary>
+    <Description>maybe explain this is only relevant in a create_get transaction and the session then cannot be null</Description>
+    <Annotation>related to ... ???</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.unsureValidity</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZIEPQ1">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 15:51:48:025 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:25:09:245 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="79">com/alcatel/as/session/distributed/Session.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>use public final</Summary>
+    <Description>probably not worth changing the API, but for this type of wrapper class, getters are overkill : 
+name and value could be declared public final and directly accessible.. makes the code lighter</Description>
+    <Annotation>backward compatibility</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.invalidWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZIK0JN">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 15:55:55:331 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 16:38:37:257 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="1">com/alcatel/as/session/distributed/SessionData.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>javadoc references deprecated API</Summary>
+    <Description>update javadoc and move deprecated stuff to compatibility class</Description>
+    <Annotation>new in SP4, to be removed later</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZIROWB">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:01:53:483 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 10:30:38:301 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="1">com/alcatel/as/session/distributed/SessionData.java</File>
+    <Type>item.type.label.irrelevant</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>duplicate method created()</Summary>
+    <Description>already exists in Session</Description>
+    <Annotation>ok</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZISQQ1">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:02:42:505 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 10:28:38:314 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="1">com/alcatel/as/session/distributed/SessionData.java</File>
+    <Type>item.type.label.missing</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>missing javadoc</Summary>
+    <Description></Description>
+    <Annotation>sendAttribute</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZIVHAY">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:04:50:266 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:24:04:428 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="1">com/alcatel/as/session/distributed/SessionData.java</File>
+    <Type>item.type.label.usability</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>why a list rather than a map?</Summary>
+    <Description>getAttributesMap is deprecated and getAttributes returning a list is still valid.. but a map would be much more convenient.. no?</Description>
+    <Annotation>backward compatibility</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.invalidWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZIZ9IF">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:07:46:791 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 18:19:04:918 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="1">com/alcatel/as/session/distributed/SessionData.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>confusing typo</Summary>
+    <Description>Add a per-session listener to a session.. not to a sessionListener!</Description>
+    <Annotation>ok</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZJ5GFV">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:12:35:707 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:49:38:183 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="1">com/alcatel/as/session/distributed/SessionManager.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>encourage service oriented style</Summary>
+    <Description>should we udpate the javadoc to encourage dependency injection over static factories?</Description>
+    <Annotation>describe OSGi usecase</Annotation>
+    <Revision>javadoc</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZJD1DD">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:18:29:425 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 16:34:02:601 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="147">com/alcatel/as/session/distributed/SessionManager.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>respect object boundaries</Summary>
+    <Description>methods applying to SessionType should belong to SessionType:
+ex: manager.addSessionTypeListener(type, listener) =&gt; type.addListener(listener)
+
+we should move all these methods to the compatibility class and add them to SessionType instead</Description>
+    <Annotation>in a new API</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZJKZ8Z">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:24:39:923 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:23:52:700 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="1">com/alcatel/as/session/distributed/AsyncSessionTask.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>move deprecated code in a dedicated package</Summary>
+    <Description></Description>
+    <Annotation>alaready deprecated</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.invalidWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZJPEK6">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:28:06:390 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 18:18:23:599 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="106">com/alcatel/as/session/distributed/SessionManager.java</File>
+    <Type>item.type.label.irrelevant</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>still used/required?</Summary>
+    <Description>since ServiceLoader is used to load the implementation, these constants should probably not be exposed in the API</Description>
+    <Annotation>private</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZJUBH5">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:31:55:673 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:23:45:137 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="81">com/alcatel/as/session/distributed/SessionType.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>move away deprecated code</Summary>
+    <Description></Description>
+    <Annotation>backward compatibility</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.invalidWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZJVUNC">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:33:07:176 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 16:31:52:893 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="67">com/alcatel/as/session/distributed/SessionType.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>getName()</Summary>
+    <Description>getType() returns name!</Description>
+    <Annotation>in a new API</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZJYO1U">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:35:18:594 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 18:16:52:628 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="156">com/alcatel/as/session/distributed/Transaction.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>use public finals</Summary>
+    <Description>when there are no setters.. </Description>
+    <Annotation>OK</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZK4KME">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:39:54:086 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 10:22:28:268 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="242">com/alcatel/as/session/distributed/Transaction.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>explain flags combination</Summary>
+    <Description>combining flags with | is not so common for java programmers.. a line of javadoc would be useful</Description>
+    <Annotation>javadoc: explain unauthorized combinations</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZKGVSN">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:49:28:439 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 09:57:17:380 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="132">com/alcatel/as/session/distributed/Session.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>encourage use of utility classes</Summary>
+    <Description>javadoc may point to attribute classes in util, to encourage their use</Description>
+    <Annotation>javadoc Session.getAttributes</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.invalidWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZKIR73">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:50:55:791 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 18:16:02:236 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="18">com/alcatel/as/session/distributed/event/AttributeEvent.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>use public final</Summary>
+    <Description>attribute, type, sid, evt... </Description>
+    <Annotation>OK</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZKLICI">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:53:04:290 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:23:33:610 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="18">com/alcatel/as/session/distributed/event/SessionActivationListener.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>when is it called?</Summary>
+    <Description>maybe specify that it won't be called when the agent crashes!</Description>
+    <Annotation>can be used later (Graceful shutdown)</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.invalidWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZKPG73">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 16:56:08:127 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 16:10:46:410 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="38">com/alcatel/as/session/distributed/event/SessionEventFilter.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>quite verbose.. </Summary>
+    <Description>EVENT_SESSION_ prefix is redundant with the class name.. 
+SessionEventFilter.CREATED would be enough</Description>
+    <Annotation>fix in a new API</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZKYNGQ">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 17:03:17:450 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 16:09:11:703 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="285">com/alcatel/as/session/distributed/SessionData.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>verbose.. </Summary>
+    <Description>could we pass the filter flags directly instead of a filter object?
+maybe SessionEventFilter should be an implementation class rather than an API? (except for the constant flags)
+
+session.addSessionListener(listener, new SessionEventFilter(SESSION_EVENT_CREATED))
+could be
+session.addListener(listener, SessionEvent.CREATED)
+
+also.. maybe this method belongs to Session rather than SessionData</Description>
+    <Annotation>fix in a new API</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZLRUFW">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 17:25:59:516 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 16:07:34:451 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="31">com/alcatel/as/session/distributed/transaction/BroadcastTransaction.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>use final</Summary>
+    <Description>use final to prevent the method to be overriden by mistake</Description>
+    <Annotation>to be re-worked</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZLUWMZ">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 17:28:22:331 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 09:54:46:428 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="320">com/alcatel/as/session/distributed/Transaction.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>session == null ??</Summary>
+    <Description>explain in what circumstances the session argument maybe null.. 
+CREATE =&gt; never null
+GET if session does not exist =&gt; null (or exception?)
+
+i find it a bit confusing.. maybe it's just me :)</Description>
+    <Annotation>improve javadoc of Transaction </Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZM3EZG">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 17:34:59:356 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:23:14:548 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="43">com/alcatel/as/session/distributed/transaction/FetchTransaction.java</File>
+    <Type>item.type.label.usability</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>use Map instead of list</Summary>
+    <Description>see comment in session.getAttributes</Description>
+    <Annotation>Backward compatibility</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.invalidWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZM4F1L">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 17:35:46:089 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 16:06:05:454 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="36">com/alcatel/as/session/distributed/transaction/RegexBroadcasterTransaction.java</File>
+    <Type>item.type.label.other</Type>
+    <Severity>item.severity.label.trivial</Severity>
+    <Summary>amazing class!</Summary>
+    <Description>i wonder who wrote this one!</Description>
+    <Annotation>Sorry, but this amazing class needs to be re-worked.</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZM6IZV">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 17:37:24:523 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 18:13:33:310 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="29">com/alcatel/as/session/distributed/transaction/UpdateTransaction.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>don't constrain implementation</Summary>
+    <Description>why ArrayList and not just List?</Description>
+    <Annotation>List</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZM8VI2">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 17:39:14:042 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:20:17:230 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="21">com/alcatel/as/session/distributed/util/AttributeValue.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>verbose</Summary>
+    <Description>getId() would be enough.. </Description>
+    <Annotation>backward compatibility</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZMBUOM">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 17:41:32:950 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 17:50:20:083 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="38">com/alcatel/as/session/distributed/util/FalseValue.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>keep it simple</Summary>
+    <Description>return "false"</Description>
+    <Annotation>OK</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZMETCM">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 17:43:51:190 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 17:50:06:375 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="27">com/alcatel/as/session/distributed/util/IntArrayValue.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>public final int[] value</Summary>
+    <Description></Description>
+    <Annotation>make it final</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GKZMGU1T">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-07 :: 17:45:25:409 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 17:47:14:100 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>panday</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="27">com/alcatel/as/session/distributed/util/IntValue.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>public final int value</Summary>
+    <Description></Description>
+    <Annotation>make it final</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+</Review>

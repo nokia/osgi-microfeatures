@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE context PUBLIC "-//NEXTENSO//DTD CONTEXT 1.1//EN" "http://www.nextenso.com/">
+
+<context>
+	<name>HTTP deployed context</name>
+	<description>This is the deployed context for HTTP proxylets</description>
+
+	<request-chain>
+		<proxylet>
+			<name>StreamedRedirectRespondFirst_Proxylet1</name>
+			<protocol>HTTP</protocol>
+			<class>com.alcatel.as.agent.http.stest.StreamedRedirectRespondFirst$Proxylet1</class>
+			<criterion>
+				<name>all</name>
+				<criterion-value>
+					<all />
+				</criterion-value>
+				<description>A Request Proxylet</description>
+			</criterion>
+		</proxylet>
+		<proxylet>
+			<name>StreamedRedirectRespondFirst_Proxylet2</name>
+			<protocol>HTTP</protocol>
+			<class>com.alcatel.as.agent.http.stest.StreamedRedirectRespondFirst$Proxylet2</class>
+			<criterion>
+				<name>all</name>
+				<criterion-value>
+					<all />
+				</criterion-value>
+				<description>A Request Proxylet</description>
+			</criterion>
+		</proxylet>
+	</request-chain>
+
+	<response-chain>
+		<proxylet>
+			<name>StreamedRedirectRespondFirst_Proxylet3</name>
+			<protocol>HTTP</protocol>
+			<class>com.alcatel.as.agent.http.stest.StreamedRedirectRespondFirst$Proxylet3</class>
+			<criterion>
+				<name>all</name>
+				<criterion-value>
+					<all />
+				</criterion-value>
+				<description>A Request Proxylet</description>
+			</criterion>
+		</proxylet>
+	</response-chain>
+
+</context>

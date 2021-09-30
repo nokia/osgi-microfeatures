@@ -1,0 +1,57 @@
+this bundle provides a light http loader.
+
+usage:
+
+1) create a casr runtime with the following features: "Felix", "CASR Services", "httploader"
+2) add the following bundles in the "bundles" dir:
+
+ com.alcatel.as.http.ioh.parser.jar
+ com.nokia.as.util.httploader.jar
+
+3) and edit the following config file:
+
+instance/com.nokia.as.util.httploader.Config.cfg
+
+configuration example:
+
+vi instance/com.nokia.as.util.httploader.Config.cfg
+->
+
+# url path
+url=/hello?size\=1024
+
+# dest port
+port=8080
+
+# if HTTPS path of your Client KS
+client.ks.path=/tmp/client.ks
+
+# number of requests sent on each client socket. When the max num of requests has been sent, the socket is closed and reopened.
+max.client.requests=100
+
+# path to your http body file, default, body.txt is created during the runtime's generation)
+file-html.body=body.txt
+
+# use GET POST PUT DELETE
+methode.type=GET
+
+# proxy mode
+proxy=false
+
+# list of local addresses that will be used when binding the http loader
+to=127.0.0.1
+
+# dest addr
+from=127.0.0.1
+
+# specify your request's content type
+content.type=application/x-www-form-urlencoded
+
+#
+use.connection.close=false
+
+# use https
+https=false
+
+# number of clients (sockets)
+clients=1000

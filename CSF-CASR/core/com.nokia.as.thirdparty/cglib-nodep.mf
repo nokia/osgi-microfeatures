@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1598386026048
+Bundle-ManifestVersion: 2
+Bundle-Name: CASR - cglib:cglib-nodep:3.1
+Bundle-SymbolicName: com.nokia.as.thirdparty.cglib-nodep
+Bundle-Version: 3.1
+Created-By: 1.8.0_252 (AdoptOpenJDK)
+CSF-Embedded: cglib:cglib-nodep:3.1
+Export-Package: net.sf.cglib.asm;version="3.1",net.sf.cglib.asm.signat
+ ure;version="3.1",net.sf.cglib.beans;version="3.1";uses:="net.sf.cgli
+ b.asm,net.sf.cglib.core",net.sf.cglib.core;version="3.1";uses:="net.s
+ f.cglib.asm,net.sf.cglib.transform",net.sf.cglib.proxy;version="3.1";
+ uses:="net.sf.cglib.asm,net.sf.cglib.core",net.sf.cglib.reflect;versi
+ on="3.1";uses:="net.sf.cglib.asm,net.sf.cglib.core",net.sf.cglib.tran
+ sform;version="3.1";uses:="net.sf.cglib.asm,net.sf.cglib.core,org.apa
+ che.tools.ant,org.apache.tools.ant.types",net.sf.cglib.transform.impl
+ ;version="3.1";uses:="net.sf.cglib.asm,net.sf.cglib.core,net.sf.cglib
+ .transform",net.sf.cglib.util;version="3.1";uses:="net.sf.cglib.asm,n
+ et.sf.cglib.core"
+Import-Package: net.sf.cglib.asm.util;resolution:=optional,net.sf.cgli
+ b.asm;version="[3.1,4)",net.sf.cglib.core;version="[3.1,4)",net.sf.cg
+ lib.reflect;version="[3.1,4)",net.sf.cglib.transform;version="[3.1,4)
+ ",org.apache.tools.ant,org.apache.tools.ant.types
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.2))"
+Tool: Bnd-5.1.2.202007211702
+

@@ -1,0 +1,8 @@
+CSF-Embedded:                  net.jcip:jcip-annotations:1.0
+Bundle-Version:                1.0
+Bundle-Name:                   CASR - net.jcip:jcip-annotations:1.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.jcip-annotations
+-includeresource:              @jcip-annotations-1.0.jar;lib:=true
+-exportcontents:               *; version=1.0
+
+-manifest jcip-annotations.mf

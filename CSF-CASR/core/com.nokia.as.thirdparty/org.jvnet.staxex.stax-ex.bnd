@@ -1,0 +1,8 @@
+CSF-Embedded:                  org.jvnet.staxex:stax-ex:1.8.0
+Bundle-Version:                1.8.0
+Bundle-Name:                   org.jvnet.staxex:stax-ex:1.8.0
+Bundle-SymbolicName:           org.jvnet.staxex.stax-ex
+-includeresource:              @stax-ex-1.8.jar;lib:=true
+-exportcontents:               *; version=1.8.0
+
+-manifest org.jvnet.staxex.stax-ex.mf

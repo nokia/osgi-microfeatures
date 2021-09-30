@@ -1,0 +1,6 @@
+Bundle-Version: 1.0.5
+Bundle-Name: Web Agent Servlet Test  
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.http2.bean";category:List<String>="test"; internal=true
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.http2.stest.bean)'
+  

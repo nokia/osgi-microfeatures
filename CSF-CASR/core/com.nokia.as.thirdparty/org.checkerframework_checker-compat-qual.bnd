@@ -1,0 +1,6 @@
+CSF-Embedded:                  org.checkerframework:checker-compat-qual:2.5.5
+Bundle-Version:                2.5.5
+Bundle-Name:                   CASR - org.checkerframework:checker-compat-qual:2.5.5
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.checkerframework_checker-compat-qual
+-includeresource:              @checker-compat-qual-2.5.5.jar;lib:=true
+-exportcontents:               *; version=2.5.5

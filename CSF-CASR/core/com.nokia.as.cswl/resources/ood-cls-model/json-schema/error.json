@@ -1,0 +1,29 @@
+{
+	"$schema":"http://json-schema.org/draft-03/schema",
+	"type":"object",
+	"javaType":"com.nsn.ood.cls.model.gen.errors.Error",
+	"extends":{
+		"$ref":"resource.json"
+	},
+	"required":true,
+	"properties":{
+		"developerMessage":{
+			"type":"string",
+			"required":true
+		},
+		"userMessage":{
+			"type":"string",
+			"required":true
+		},
+		"errorCode":{
+			"type":"integer",
+			"required":true
+		},
+		"moreInfo":{
+			"type":"string",
+			"required":false
+		}
+
+	},
+	"additionalProperties":false
+}

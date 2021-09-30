@@ -1,0 +1,27 @@
+CSF-Embedded:                  org.keycloak:keycloak-admin-client:11.0.2
+-classpath:                    ${lsa;.;*.jar}
+-output:                       tmp/keycloak-admin-client-11.0.2.jar
+Bundle-Version:                11.0.2
+Bundle-Name:                   CASR - org.keycloak:keycloak-admin-client:11.0.2
+Bundle-SymbolicName:           com.nokia.thirdparty.org.keycloak_keycloak-admin-client
+-includeresource:              @keycloak-admin-client-11.0.2.jar;lib:=true
+-exportcontents:               *; version=11.0.2
+Import-Package: \
+  javax.net.ssl,\
+  javax.ws.rs;version="[2.1,3)",\
+  javax.ws.rs.client;version="[2.1,3)",\
+  javax.ws.rs.core;version="[2.1,3)",\
+  org.jboss.resteasy.annotations.cache;version="[3.9,4)",\
+  org.jboss.resteasy.client.jaxrs;version="[3.9,4)",\
+  org.jboss.resteasy.client.jaxrs.internal;version="[3.9,4)",\
+  org.jboss.resteasy.plugins.providers.jackson;version="[3.9,4)",\
+  org.jboss.resteasy.plugins.providers.multipart;version="[3.9,4)",\
+  org.keycloak.admin.client;version="[11.0,12)",\
+  org.keycloak.admin.client.resource;version="[11.0,12)",\
+  org.keycloak.admin.client.token;version="[11.0,12)",\
+  org.keycloak.common.util;version="[11.0,12)",\
+  org.keycloak.representations;version="[11.0,12)",\
+  org.keycloak.representations.adapters.action;version="[11.0,12)",\
+  org.keycloak.representations.idm;version="[11.0,12)",\
+  org.keycloak.representations.idm.authorization;version="[11.0,12)",\
+  org.keycloak.representations.info;version="[11.0,12)"

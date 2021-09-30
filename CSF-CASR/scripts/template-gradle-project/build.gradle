@@ -1,0 +1,20 @@
+buildscript {
+  repositories {
+     maven {
+        url "http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered/"
+     }
+  }
+  dependencies {
+    classpath 'biz.aQute.bnd:biz.aQute.bnd.gradle:5.1.2'
+  }
+}
+
+subprojects {
+    apply plugin: 'biz.aQute.bnd.builder'
+
+    repositories {
+       maven {
+          url "http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered/"
+       }
+    }
+}

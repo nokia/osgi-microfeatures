@@ -1,0 +1,21 @@
+Bundle-Version: 1.0.5
+Comment: This feature provides a minimal runtime.
+Bundle-Name: Csf Minimal Runtime
+Require-Capability: \
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.features.common)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.csf.casr";\
+  alias:List<String>="CASR Services";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+CASR+Services?src=contextnavpagetreemode";\
+  desc="CASR common services (MeteringService, Gogo Shell, OSGi Service Diagnostics, PlatformExecutors, ...)"
+
+  
+  
+  
+  
+  
+  
+  
+

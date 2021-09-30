@@ -1,0 +1,21 @@
+Bundle-Version: 1.0.0
+Bundle-Name: Pax URL Handlers and Installers
+dir: bnd/feature/lib.pax.urlhandlers
+Include-Resource: META-INF/=${dir},\
+ jars/readme.txt=${dir}/readme.txt
+
+X-Unpack: jars
+
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.service.jarinstaller)',\
+  osgi.identity;filter:='(osgi.identity=org.ops4j.pax.url.link)',\
+  osgi.identity;filter:='(osgi.identity=org.ops4j.pax.url.assembly)',\
+  osgi.identity;filter:='(osgi.identity=org.ops4j.pax.url.war)',\
+  osgi.identity;filter:='(osgi.identity=org.ops4j.pax.url.mvn)',\
+  osgi.identity;filter:='(osgi.identity=org.ops4j.pax.url.wrap)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.pax.url";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/x/kiLeDw";\
+  desc="Pax URL Handlers and JAR/WAR/URL Installer. Automatic JAR to OSGi bundle tranformation"

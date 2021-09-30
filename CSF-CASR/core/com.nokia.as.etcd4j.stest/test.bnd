@@ -1,0 +1,3 @@
+Bundle-Version: 1.0.1
+Private-Package: com.nokia.as.etcd4j.stest.test
+Junit-Tests: 1

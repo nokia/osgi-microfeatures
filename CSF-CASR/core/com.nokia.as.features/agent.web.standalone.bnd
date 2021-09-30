@@ -1,0 +1,27 @@
+# Web Agent + Jersey 2.22 (JAX-RS 2.0)
+
+Bundle-Version: 1.0.6
+Bundle-Name: Standalone Web Agent Bundles With JAX-RS 2.0
+dir: bnd/feature/agent.web.standalone
+Include-Resource: META-INF/=${dir}
+
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.features.common.standalone)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.features.callout.standalone)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.features.agent.web)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.features.lib.jaxrs.jersey-min)'  
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="agent.servlet.jetty";\
+  alias:List<String>="Web Agent";\
+  version:Version="1.0.0";\
+  desc="CASR jetty servlet agent (JAX-RS 2.0)";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Http+Servlet+Agent?src=contextnavpagetreemode";\
+  blacklist.identity="(|(osgi.identity=com.nokia.as.thirdparty.jaxrs)\
+                        (&(osgi.identity=org.hibernate.validator.hibernate-validator))\
+                        (&(osgi.identity=com.fasterxml.classmate))\
+                        (&(osgi.identity=javax.ws.rs-api)(version=2.1)))"
+
+
+
+

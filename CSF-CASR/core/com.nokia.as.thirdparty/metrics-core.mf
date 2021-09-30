@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1598353424309
+Bundle-ManifestVersion: 2
+Bundle-Name: CASR - com.yammer.metrics:metrics-core:2.2.0
+Bundle-SymbolicName: com.nokia.as.thirdparty.metrics-core
+Bundle-Version: 2.2.0
+Created-By: 1.8.0_252 (AdoptOpenJDK)
+CSF-Embedded: com.yammer.metrics:metrics-core:2.2.0
+Export-Package: com.yammer.metrics;version="2.2.0";uses:="com.yammer.m
+ etrics.core",com.yammer.metrics.core;version="2.2.0";uses:="com.yamme
+ r.metrics.stats",com.yammer.metrics.reporting;version="2.2.0";uses:="
+ com.yammer.metrics.core,javax.management",com.yammer.metrics.stats;ve
+ rsion="2.2.0";uses:="com.yammer.metrics.core",com.yammer.metrics.util
+ ;version="2.2.0";uses:="com.yammer.metrics.core,javax.management"
+Import-Package: com.yammer.metrics;version="[2.2,3)",com.yammer.metric
+ s.core;version="[2.2,3)",com.yammer.metrics.reporting;version="[2.2,3
+ )",com.yammer.metrics.stats;version="[2.2,3)",javax.management,org.sl
+ f4j
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-5.1.2.202007211702
+

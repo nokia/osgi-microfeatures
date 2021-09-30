@@ -1,0 +1,14 @@
+Bundle-Name: lib.servicemix.xmlrpc CASR Feature
+Bundle-Version: 1.0.0
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="lib.servicemix.xmlrpc";\
+                    version:Version="1.0.0";\
+                    desc="Apache ServiceMix XML-RPC";\
+                    doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+XML+RPC"
+
+Require-Capability: \
+    	osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.xmlrpc-server)',\
+    	osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.xmlrpc-client)',\
+    	osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.ws-commons-util)'

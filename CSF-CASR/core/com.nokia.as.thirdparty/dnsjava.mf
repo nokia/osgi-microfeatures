@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-Category: api
+Bundle-ManifestVersion: 2
+Bundle-Name: DNSJava
+Bundle-SymbolicName: com.nokia.as.thirdparty.dnsjava
+Bundle-Version: 2.0.3
+CSF-Artifact: false
+CSF-Embedded: dnsjava:dnsjava:2.0.1
+Export-Package: org.xbill.DNS;version="2.0.1",org.xbill.DNS.security;v
+ ersion="2.0.1";uses:="org.xbill.DNS",org.xbill.DNS.spi;version="2.0.1
+ ";uses:="sun.net.spi.nameservice",org.xbill.DNS.utils;version="2.0.1"
+ ,org.xbill.DNS.windows;version="2.0.1"
+Import-Package: sun.net.spi.nameservice;resolution:=optional,javax.cry
+ pto.interfaces,javax.crypto.spec,org.xbill.DNS;version="[2.0,3)",org.
+ xbill.DNS.utils;version="[2.0,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.2))"
+X-Obsoletes: DNSJava
+

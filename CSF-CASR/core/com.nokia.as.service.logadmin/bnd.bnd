@@ -1,0 +1,13 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	osgi.cmpn;version=6.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	org.apache.logging.log4j.api;version=2.11,\
+	org.apache.logging.log4j.core;version=2.11,\
+	org.ops4j.pax.logging.pax-logging-api;version=1.10
+
+-testpath: \
+	${junit}
+
+-sub: *.bnd

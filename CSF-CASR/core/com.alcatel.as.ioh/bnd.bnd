@@ -1,0 +1,15 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	com.alcatel.as.utils;version='2.0',\
+	org.darkphoenixs.log4j;version='1.2'
+
+Bundle-Version: 1.21.0
+Bundle-Name: IOHandlerAPI
+Bundle-Category: ioh, api
+Export-Package: com.alcatel.as.ioh;\
+ com.alcatel.as.ioh.client;\
+ com.alcatel.as.ioh.server;\
+ com.alcatel.as.ioh.tools
+Import-Package: *

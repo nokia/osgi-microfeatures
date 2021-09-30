@@ -1,0 +1,10 @@
+Bundle-Version: 1.0.0
+Bundle-Name: com.nokia.as.keycloak.stest System Test Unit Feature
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.com.nokia.as.keycloak.unit";category:List<String>="test"; internal=true
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.junit)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.junit4osgi.tester)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.test)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.keycloak.stest.unit)', \
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.features.lib.http.okhttp3)'
+Private-Package: 

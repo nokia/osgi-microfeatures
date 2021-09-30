@@ -1,0 +1,14 @@
+Bundle-Version: 1.0.1
+Bundle-Name: Diameter Agent Lib Feature
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="Diameter Agent Lib"; internal=true
+Bundle-Category: assembly, internal
+X-Component-Category: agent
+Require-Bundle: \
+ com.nokia.as.features.callout,\
+ com.alcatel.as.agent.diameter,\
+ com.alcatel_lucent.as.ims,\
+ com.alcatel_lucent.as.ims.diameter.common,\
+ com.alcatel_lucent.as.ims.impl.cx,\
+ com.alcatel_lucent.as.ims.impl.charging.rf,\
+ com.alcatel_lucent.as.ims.impl.charging.ro,\
+ com.alcatel_lucent.as.ims.impl.sh

@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1557665778952
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.com.github.wnameless_json.flatten
+ er
+Bundle-SymbolicName: com.nokia.as.thirdparty.com.github.wnameless_json
+ .flattener
+Bundle-Version: 0.4.1
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: com.github.wnameless:json-flattener:0.4.1
+Export-Package: com.github.wnameless.json.flattener;version="0.4.1";us
+ es:="org.apache.commons.lang3.text.translate",com.github.wnameless.js
+ on.unflattener;version="0.4.1";uses:="com.github.wnameless.json.flatt
+ ener"
+Import-Package: com.eclipsesource.json;version="[0.9,1)",com.github.wn
+ ameless.json.flattener;version="[0.4,1)",org.apache.commons.lang3;ver
+ sion="[3.5,4)",org.apache.commons.lang3.text.translate;version="[3.5,
+ 4)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-4.2.0.201903051501
+

@@ -1,0 +1,8 @@
+Bundle-Version: 0.11.5
+Private-Package: \
+	com.nokia.as.thirdparty.prometheus.jmxexporter,\
+	com.nokia.as.thirdparty.prometheus.jmxexporter.servlet,\
+	io.prometheus.*
+Include-Resource: META-INF=META-INF
+Premain-Class: io.prometheus.jmx.shaded.io.prometheus.jmx.JavaAgent
+CSF-Embedded: com.nokia.casr:jmx_prometheus_javaagent:0.11

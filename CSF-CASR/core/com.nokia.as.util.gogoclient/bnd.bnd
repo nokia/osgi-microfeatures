@@ -1,0 +1,17 @@
+-buildpath: \
+	org.fusesource.jansi;version=1.17,\
+	jline;version=2.14
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.2
+Private-Package: com.nokia.as.util.gogoclient
+Include-Resource: @jline-2.14.6.jar,  @jansi-1.17.1.jar
+Main-Class: com.nokia.as.util.gogoclient.GogoClient 
+Import-Package: !sun.misc, !com.cloudius.util, *
+
+# Do not start this bundle
+Bundle-StartLevel: -1
+
+

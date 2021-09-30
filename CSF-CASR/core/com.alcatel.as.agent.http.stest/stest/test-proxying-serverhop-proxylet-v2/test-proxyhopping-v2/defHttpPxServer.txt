@@ -1,0 +1,14 @@
+<servers>
+
+  <!-- This is the external http port -->
+  <server ip="0.0.0.0" port="3128" processor="ioh.http.px.def" name="HTTP-PX">
+    	<property name="read.timeout">60000</property>
+	<!-- NEXT PROXY CONFIG
+        <property name="px.next.host">135.245.192.7</property>
+        <property name="px.next.port">8000</property>
+	-->
+    	<property name="connect.timeout">3000</property>
+  </server>
+
+
+</servers>

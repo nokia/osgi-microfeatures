@@ -1,0 +1,8 @@
+CSF-Embedded:                  org.glassfish.jersey.security:oauth1-signature:2.22.2
+Bundle-Version:                2.22.2
+Bundle-Name:                   com.nokia.as.thirdparty.org.glassfish.jersey.security_oauth1.signature
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.glassfish.jersey.security_oauth1.signature
+-includeresource:              @oauth1-signature-2.22.2.jar;lib:=true
+-exportcontents:               *; version=2.22.2
+
+-manifest                      org.glassfish.jersey.security_oauth1.signature.mf

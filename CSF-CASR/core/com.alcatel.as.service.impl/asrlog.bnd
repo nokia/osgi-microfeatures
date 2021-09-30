@@ -1,0 +1,3 @@
+Private-Package: com.alcatel.as.service.log.impl.asrlog
+Bundle-Version: 1.0.8
+Bundle-StartLevel: 1

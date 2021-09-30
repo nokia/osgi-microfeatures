@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1598386029074
+Bundle-ManifestVersion: 2
+Bundle-Name: CASR - com.opencsv:opencsv:3.5
+Bundle-SymbolicName: com.nokia.as.thirdparty.opencsv
+Bundle-Version: 3.5
+Created-By: 1.8.0_252 (AdoptOpenJDK)
+CSF-Embedded: com.opencsv:opencsv:3.5
+Export-Package: com.opencsv;version="3.5";uses:="com.opencsv.enums",co
+ m.opencsv.bean;version="3.5";uses:="com.opencsv",com.opencsv.enums;ve
+ rsion="3.5",com.opencsv.stream.reader;version="3.5"
+Import-Package: com.opencsv;version="[3.5,4)",com.opencsv.enums;versio
+ n="[3.5,4)",com.opencsv.stream.reader;version="[3.5,4)",org.apache.co
+ mmons.lang3
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-5.1.2.202007211702
+

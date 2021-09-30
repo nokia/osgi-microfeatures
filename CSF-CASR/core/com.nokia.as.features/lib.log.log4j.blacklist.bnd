@@ -1,0 +1,19 @@
+Bundle-Version: 1.0.0
+Bundle-Name: Log4j 1.2 Feature Blacklist
+
+# Feature auto selected when log4j1 is only used. It allows to blacklist log4j2 bridges
+
+Provide-Capability: com.nokia.as.feature; \
+    com.nokia.as.feature="lib.log.log4j.blacklist";\
+    category:List<String>="libs";\
+    version:Version="1.0.0";\
+    internal=true;\
+    blacklist.identity="(|(osgi.identity=org.apache.logging.log4j.api)\
+			  (osgi.identity=org.apache.logging.log4j.core)\
+			  (osgi.identity=com.nokia.as.thirdparty.log4j2.log4j12.api)\
+                          (osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12.ext.log4j2))
+
+	
+
+ 
+ 

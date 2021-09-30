@@ -1,0 +1,7 @@
+Bundle-Version: 1.0.2
+ 
+Private-Package: com.nokia.as.microfeatures.features.tools.syspkg
+
+# We don't want to deploy this bundle to artifactory
+releaserepo:
+

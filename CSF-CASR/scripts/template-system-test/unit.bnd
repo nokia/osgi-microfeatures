@@ -1,0 +1,5 @@
+#bnd declaring the bundle containing the junit tests
+
+Bundle-Version: 1.0.0
+Private-Package: %MODULE_NAME%
+Junit-Tests: 1

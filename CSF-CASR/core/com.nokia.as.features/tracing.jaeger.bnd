@@ -1,0 +1,27 @@
+Bundle-Version: 1.0.4
+Bundle-Name: Jaeger feature
+
+Require-Capability: \
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.jaeger.service)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.io.jaegertracing_jaeger.client)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.io.jaegertracing_jaeger.core)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.io.jaegertracing_jaeger.thrift)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.io.jaegertracing_jaeger.tracerresolver)',\
+    osgi.identity;filter:='(osgi.identity=org.apache.thrift)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.io.opentracing_opentracing.api)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.io.opentracing.contrib_opentracing.concurrent)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.io.opentracing_opentracing.noop)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.io.opentracing.contrib_opentracing.tracerresolver)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.io.opentracing_opentracing.util)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.features.aries.spifly)'
+    
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.tracing.jaeger";\
+  alias:List<String>="Jaeger Tracing";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Jaeger+Tracing?src=contextnavpagetreemode";\
+  desc="Distributed jaeger tracing system"
+
+  
+  

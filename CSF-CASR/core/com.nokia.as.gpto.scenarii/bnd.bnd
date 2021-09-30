@@ -1,0 +1,24 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	osgi.cmpn;version=6.0,\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.alcatel.as.utils;version=2.10,\
+	com.alcatel.as.http.ioh.parser;version=5.11,\
+	com.alcatel.as.service.metering2.impl;version=1.1,\
+	com.alcatel.as.service.api;version=2.5,\
+	com.alcatel.as.service.metering2;version=1.1,\
+	com.alcatel.as.diameter.ioh;version=2.0,\
+	com.nokia.as.gpto.agent;version=2.1.1,\
+	com.nokia.as.gpto.common;version=2.0.0,\
+	com.alcatel.as.ioh;version=1.8.0,\
+	com.nokia.as.thirdparty.json;version=1.0
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.5
+Private-Package: com.nokia.as.gpto.scenarii.impl
+-runfw: org.apache.felix.framework
+-runee: JavaSE-1.8

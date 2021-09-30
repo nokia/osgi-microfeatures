@@ -1,0 +1,13 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.alcatel.as.service.api;version=1.0,\
+	com.alcatel.as.utils;version=2.0,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.alcatel.as.service.bundleinstaller.impl;version=1.0
+
+-sub: \
+    *.bnd

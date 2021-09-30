@@ -1,0 +1,6 @@
+################################
+# Proxylets deployer loggers
+################################
+
+#log4j.logger.as.service.pxletdeployer=DEBUG
+#log4j.logger.as.service.pxletdeployer.<protocol>=DEBUG

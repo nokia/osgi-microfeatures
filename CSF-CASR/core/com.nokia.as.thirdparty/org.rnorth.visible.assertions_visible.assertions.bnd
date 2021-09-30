@@ -1,0 +1,9 @@
+CSF-Embedded:                  org.rnorth.visible-assertions:visible-assertions:2.1.1
+Bundle-Version:                2.1.1
+Bundle-Name:                   com.nokia.as.thirdparty.org.rnorth.visible.assertions_visible.assertions
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.rnorth.visible.assertions_visible.assertions
+-includeresource:              @visible-assertions-2.1.1.jar;lib:=true
+-exportcontents:               *; version=2.1.1
+-fixupmessages: 	       "*The default package*";is:=warning
+
+-manifest org.rnorth.visible.assertions_visible.assertions.mf

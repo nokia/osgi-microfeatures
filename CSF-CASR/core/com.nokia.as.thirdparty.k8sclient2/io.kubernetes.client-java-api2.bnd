@@ -1,0 +1,8 @@
+CSF-Embedded:                  io.kubernetes:client-java-api:2.0.0
+Bundle-Version:                2.0.0.1
+Bundle-Name:                   io.kubernetes.client-java-api2
+Bundle-SymbolicName:           io.kubernetes.client-java-api2
+-includeresource:              @client-java-api-2.0.0.jar;lib:=true
+-exportcontents:               *; version=2.0.0
+
+-manifest io.kubernetes.client-java-api2.mf

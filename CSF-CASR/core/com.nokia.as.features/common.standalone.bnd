@@ -1,0 +1,11 @@
+Bundle-Version: 1.0.3
+Bundle-Name: Standalone Common Bundles
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="internal.common.standalone"; internal=true
+Require-Bundle: \
+ com.nokia.as.features.common,\
+ com.alcatel.as.session.distributed.mock,\
+ com.alcatel.as.service.impl.standalone-reporter
+
+
+
+

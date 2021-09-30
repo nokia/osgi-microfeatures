@@ -1,0 +1,7 @@
+Bundle-Name: BundleInstaller
+Bundle-Version: 1.0.18
+Bundle-Activator: com.alcatel.as.service.bundleinstaller.impl.BundleInstallerImpl
+Export-Package: com.alcatel.as.service.bundleinstaller
+Private-Package: com.alcatel.as.service.bundleinstaller.impl
+Import-Package: com.alcatel.as.service.bundleinstaller, *
+Include-Resource: META-INF/startlevel.txt=${workspace}/com.alcatel.as.felix.launcher/META-INF/startlevel.txt

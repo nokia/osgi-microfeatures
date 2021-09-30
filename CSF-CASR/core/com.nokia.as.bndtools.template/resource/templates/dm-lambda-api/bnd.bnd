@@ -1,0 +1,13 @@
+-buildpath: \
+	osgi.annotation; version=6.0.1,\
+	osgi.core; version=6.0,\
+	osgi.cmpn; version=6.0,\
+	org.apache.felix.dependencymanager;version=4.4,\
+	org.apache.felix.dependencymanager.lambda;version=1.1
+
+-testpath: \
+	\${junit}
+
+Bundle-Version: 1.0.0
+Private-Package: $basePackageName$
+Bundle-Activator: $basePackageName$.Activator

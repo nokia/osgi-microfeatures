@@ -1,0 +1,8 @@
+CSF-Embedded:                  com.yammer.metrics:metrics-core:2.2.0
+Bundle-Version:                2.2.0
+Bundle-Name:                   CASR - com.yammer.metrics:metrics-core:2.2.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.metrics-core
+-includeresource:              @metrics-core-2.2.0.jar;lib:=true
+-exportcontents:               *; version=2.2.0
+
+-manifest metrics-core.mf

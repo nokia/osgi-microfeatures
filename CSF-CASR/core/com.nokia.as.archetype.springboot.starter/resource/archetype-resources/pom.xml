@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${version}</version>
+    <packaging>jar</packaging>
+    
+    <name>CASR Spring starter</name>
+    <repositories>
+        <repository>
+            <id>artifactory</id>
+            <name>Nokia artifactory repository</name>
+            <url>http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered/</url>
+        </repository>
+    </repositories>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>2.0.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nokia.casr</groupId>
+            <artifactId>com.nokia.as.osgi.launcher</artifactId>
+            <version>2.1.15</version>
+        </dependency>
+        $BUNDLE-DEPENDENCIES$
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${project.basedir}/src/main/resources/CASR-INF/bundles</directory>
+                            <includes>
+                                <include>**/*.jar</include>e>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <artifactItems>
+                    $BUNDLE-ARTIFACTS$
+                    </artifactItems>
+                    <outputDirectory>${project.basedir}/src/main/resources/CASR-INF/bundles</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

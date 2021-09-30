@@ -1,0 +1,3 @@
+Bundle-Version: 1.0.3
+Private-Package: com.nokia.as.kafka.stest.producer, JavaSessionize.avro
+Bundle-Activator: com.nokia.as.kafka.stest.producer.Activator

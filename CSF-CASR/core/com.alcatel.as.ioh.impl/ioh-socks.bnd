@@ -1,0 +1,11 @@
+Bundle-Name: IOHandler SocksProxy
+Bundle-SymbolicName: com.alcatel.as.ioh.socks
+Bundle-Category: ioh
+Private-Package: com.alcatel.as.ioh.socks
+		
+-dsannotations: *
+
+Include-Resource:  \
+ META-INF/defTcpSocksPxServer.txt=META-INF/defTcpSocksPxServer.txt
+
+Bundle-Version: 1.0.1

@@ -1,0 +1,18 @@
+Bundle-SymbolicName: com.nokia.as.microfeatures.k8sadmin
+javac.source: 1.8
+javac.target: 1.8
+
+Bundle-Version: 1.1.14
+
+Export-Package: \
+	com.nokia.as.features.admin.k8s
+	
+Private-Package: \
+	com.nokia.as.features.admin,\
+	com.nokia.as.features.admin.k8s.impl
+	
+-includeresource: resources=cardeploycomposer/build,\
+  META-INF/changelog.txt=changelog.txt
+
+# This bundle is part of the microfeature group id
+groupId: com.nokia.casr.microfeatures

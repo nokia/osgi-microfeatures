@@ -1,0 +1,25 @@
+#Put your bundle URLs in this file, one per line.
+#The bundles will be fetched and installed in the order they are listed.
+#In addition to http/https and file URLs, Pax URLs custom protocols 
+#are supported.
+#See this page for more information: 
+#https://ops4j1.jira.com/wiki/spaces/paxurl/pages/12058761/User+Guide
+
+#Some examples:
+
+#Simple HTTP URLs:
+#http://internal.domain/my-bundle.jar
+
+#File URLs
+#file:///tmp/my-bundle.jar
+
+#mvn URLs let you fetch a bundle from a Maven repository.  
+#See Pax mvn URL doc for info on how the the Maven settings 
+#are determined.
+#mvn:bundle-groupId/bundle-artifactId/1.0.0
+
+#wrap URLs are combined with other URLs to automatically
+#transform plain JARs into OSGi bundles. Defaults are usually good 
+#enough, but the transformation can be fully customized if needed.
+#See the doc on the Pax URL website for more info
+#wrap:mvn:jar-groupId/jar-artifactId/1.0.0

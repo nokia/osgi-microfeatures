@@ -1,0 +1,10 @@
+# root bnd file
+
+-buildpath: \
+    ${osgi},\
+    com.alcatel_lucent.as.management.annotation;version=1.0
+    
+Bundle-Version: 1.0.2
+
+Bundle-Name: GatewaysUtilsEnvironmentConfig
+Export-Package: alcatel.tess.hometop.gateways.configs.environment

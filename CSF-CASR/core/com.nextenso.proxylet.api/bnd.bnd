@@ -1,0 +1,15 @@
+# root bnd file
+
+-buildpath: \
+    ${osgi}
+
+Bundle-Name: ProxyletAPI
+
+Export-Package: com.nextenso.proxylet;\
+ com.nextenso.proxylet.dns;\
+ com.nextenso.proxylet.event;\
+ com.nextenso.proxylet.mgmt
+
+Bundle-Version: 1.1.0
+CASR-API: true
+

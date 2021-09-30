@@ -1,0 +1,10 @@
+<settings>
+	<!--proxies>
+		<proxy>
+			<active>true</active>
+			<protocol>http</protocol>
+			<host>135.245.192.7</host>
+			<port>8000</port>
+		</proxy>
+	</proxies-->
+</settings>

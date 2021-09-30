@@ -1,0 +1,30 @@
+Bundle-Version: 1.0.2
+Bundle-Name: JRE 14 feature
+
+Require-Capability: \
+ osgi.identity;filter:='(osgi.identity=com.sun.activation.javax.activation)',\
+ osgi.identity;filter:='(osgi.identity=com.sun.xml.bind.jaxb-osgi)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.geronimo.specs.geronimo-ws-metadata_2.0_spec)',\
+ osgi.identity;filter:='(osgi.identity=javax.annotation-api)',\
+ osgi.identity;filter:='(osgi.identity=jaxb-api)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.geronimo.specs.geronimo-jta_1.1_spec)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.servicemix.specs.jaxws-api-2.2)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.servicemix.specs.saaj-api-1.4)',\
+ osgi.identity;filter:='(osgi.identity=org.glassfish.hk2.osgi-resource-locator)',\
+ osgi.identity;filter:='(osgi.identity=org.apache.servicemix.specs.stax-api-1.0)'
+ 
+
+Provide-Capability: com.nokia.as.feature;\
+	com.nokia.as.feature="lib.jre";\
+	internal=true;\
+	version:Version="1.14.0";\
+	desc="JRE 14";\
+	blacklist.identity="(|(osgi.identity=com.nokia.as.osgi.jre18)\
+                              (osgi.identity=com.nokia.as.osgi.jre.9)\
+                              (osgi.identity=com.nokia.as.osgi.jre.10)\
+                              (osgi.identity=com.nokia.as.osgi.jre.11)\
+                              (osgi.identity=com.nokia.as.osgi.jre.15)\
+                              (osgi.identity=com.nokia.as.osgi.jre.17)\
+                              (osgi.identity=com.nokia.as.jaxbapi.jre18)\
+                              (osgi.identity=com.nokia.as.dtls.provider))"
+

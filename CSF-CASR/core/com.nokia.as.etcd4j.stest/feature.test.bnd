@@ -1,0 +1,9 @@
+Bundle-Version: 1.0.1
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.etcd4j.test";category:List<String>="test"; internal=true
+Include-Resource: stest=stest
+X-Unpack: stest
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.junit)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.junit4osgi.tester)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.test)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.etcd4j.stest.test)'

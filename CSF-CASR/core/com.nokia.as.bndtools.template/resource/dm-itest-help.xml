@@ -1,0 +1,8 @@
+<form>
+	<p>Creates a project for developing OSGI integration tests using Felix Dependency Manager Lambda API. The following dependencies are added to the build path:</p>
+	<li>OSGi Annotation 6.0.1</li>
+	<li>OSGi Core 6.0</li>
+	<li>Felix Dependency Manager</li>
+	<li>Felix Dependency Manager Lambda</li>
+	<li>ASR com.nokia.as.util.test utilities</li>
+</form>

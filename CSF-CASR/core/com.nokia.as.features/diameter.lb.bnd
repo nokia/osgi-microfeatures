@@ -1,0 +1,11 @@
+Bundle-Version: 1.0.1
+Bundle-Name: Diameter LB Bundles
+dir: bnd/feature/diameter.lb
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="Diameter LB Bundles"; internal=true
+Require-Bundle: \
+ com.nokia.as.features.common,\
+ com.alcatel.as.diameter.lb,\
+ com.alcatel.as.diameter.lb.impl.router,\
+ com.alcatel.as.diameter.lb.impl.router.ext
+
+

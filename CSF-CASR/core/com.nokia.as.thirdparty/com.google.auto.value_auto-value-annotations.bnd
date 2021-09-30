@@ -1,0 +1,6 @@
+CSF-Embedded:                  com.google.auto.value:auto-value-annotations:1.7.4
+Bundle-Version:                1.7.4
+Bundle-Name:                   CASR - com.google.auto.value:auto-value-annotations:1.7.4
+Bundle-SymbolicName:           com.nokia.as.thirdparty.com.google.auto.value_auto-value-annotations
+-includeresource:              @auto-value-annotations-1.7.4.jar;lib:=true
+-exportcontents:               *; version=1.7.4

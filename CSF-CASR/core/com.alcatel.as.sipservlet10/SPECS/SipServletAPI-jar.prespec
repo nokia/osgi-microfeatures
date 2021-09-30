@@ -1,0 +1,6 @@
+summary: SIP Servlet API Specifications
+
+license: Sun Microsystems, Inc.
+
+std_files:
+lib/sipservlet.jar

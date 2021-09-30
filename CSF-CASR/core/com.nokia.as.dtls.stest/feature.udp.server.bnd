@@ -1,0 +1,10 @@
+Bundle-Version: 1.0.1
+Bundle-Name: DTLS Udp Server System Test
+Private-Package:
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.dtls.udp.server";category:List<String>="test"; internal=true
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.junit)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.junit4osgi.tester)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.test)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.dtls.stest.udp.server)'
+  

@@ -1,0 +1,21 @@
+# we just need to repackage the geronimo-jta_1.1_spec bundle to make it a fragment of the framework system bundle.
+# (because jdk 1.8 exports javax.sql, which is also using javax.transaction.xa
+
+CSF-Embedded:                  org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1
+Bundle-Name:                   geronimo-jta_1.1_spec repackaged by CASR
+Fragment-Host: 		       system.bundle;extension:=framework
+-includeresource:              @geronimo-jta_1.1_spec-1.1.1.jar;lib:=true
+
+Archiver-Version: Plexus Archiver
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Import-Package: javax.transaction;version="1.1",javax.transaction.xa;version="1.1"
+Export-Package: javax.transaction.xa;version="1.1",javax.transaction;uses:="javax.transaction.xa";version="1.1"
+Bundle-Version: 1.1.1
+Bundle-Description: Provides open-source implementations of Sun specifications.
+Bundle-DocURL: http://www.apache.org
+Bundle-ManifestVersion: 2
+Bundle-Vendor: Apache Software Foundation
+Implementation-Title: Apache Geronimo
+Bundle-SymbolicName: org.apache.geronimo.specs.geronimo-jta_1.1_spec
+
+

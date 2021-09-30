@@ -1,0 +1,28 @@
+<servers>
+
+  <!-- This is the external http port -->
+  <server ip="0.0.0.0" port="8088" processor="http.ioh.ext" name="http">
+    <property name="http.ioh.server">true</property>
+    <property name="http.ioh.proxy">false</property>
+    <property name="read.timeout">60000</property>
+    <property name="ioh.tcp.write.buffer">2048000</property>
+    <property name="ioh.tcp.read.buffer">2048000</property>
+  </server>
+
+  <!-- Activate Http IOH Mux : do not modify -->
+  <server ip="0.0.0.0" port="25000" processor="http.ioh.mux.smart" name="http-mux">
+    <property name="http.ioh.agent.group">*</property>
+    <property name="server.port.range">100</property>
+    <property name="ioh.tcp.write.buffer">2048000</property>
+    <property name="ioh.tcp.read.buffer">2048000</property>
+  </server>
+
+  <server ip="0.0.0.0" port="26000" processor="generic.ioh.mux" name="generic-mux">
+    <property name="generic.ioh.agent.group">*</property>
+    <property name="ioh.ext.server.min">0</property>
+    <property name="generic.ioh.immediate">true</property>
+    <property name="ioh.tcp.write.buffer">2048000</property>
+    <property name="ioh.tcp.read.buffer">2048000</property>
+    <property name="tcp.secure.client.authenticate">false</property> 
+  </server>
+</servers>

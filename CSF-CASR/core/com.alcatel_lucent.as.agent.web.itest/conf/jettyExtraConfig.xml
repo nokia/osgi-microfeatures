@@ -1,0 +1,19 @@
+<!-- =========================================================== -->
+<!-- Configure Authentication Login Service                      -->
+<!-- =========================================================== -->
+
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+    <!-- REMOVE THIS LINE TO CONFIGURE THE SERVER ===
+    <Call name="addBean">
+      <Arg>
+        <New class="org.eclipse.jetty.security.HashLoginService">
+          <Set name="name">Test Realm</Set>
+          <Set name="config"><Property name="conf.dir" default="."/>/etc/realm.properties</Set>
+          <Set name="refreshInterval">0</Set>
+        </New>
+      </Arg>
+    </Call>
+    === REMOVE THIS LINE TO CONFIGURE THE SERVER -->
+</Configure>
+

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1587982282710
+Bundle-ManifestVersion: 2
+Bundle-Name: io.etcd.jetcd-common
+Bundle-SymbolicName: io.etcd.jetcd-common
+Bundle-Version: 0.4.1
+Created-By: 1.8.0_251 (Oracle Corporation)
+CSF-Embedded: io.etcd:jetcd-common:0.4.1
+Export-Package: io.etcd.jetcd.common.exception;version="0.4.1";uses:="
+ io.grpc"
+Import-Package: com.google.common.base;version="[26.0,27)",io.grpc;ver
+ sion="[1.24,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.3.1.201911131708
+

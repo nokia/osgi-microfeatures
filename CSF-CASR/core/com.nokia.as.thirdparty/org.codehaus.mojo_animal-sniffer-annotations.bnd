@@ -1,0 +1,6 @@
+CSF-Embedded:                  org.codehaus.mojo:animal-sniffer-annotations:1.19
+Bundle-Version:                1.19
+Bundle-Name:                   CASR - org.codehaus.mojo:animal-sniffer-annotations:1.19
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.codehaus.mojo_animal-sniffer-annotations
+-includeresource:              @animal-sniffer-annotations-1.19.jar;lib:=true
+-exportcontents:               *; version=1.19

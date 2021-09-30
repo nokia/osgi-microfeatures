@@ -1,0 +1,5 @@
+#Add runtime here in this format
+#runtime-name=feature1,feature2,feature3,etc
+#Be sure to terminate the last line with a carriage return
+proxy=runtime.felix.log4j1,lib.csf.casr,ioh.proxy.http,ioh.mux.http:1.0.0
+server=runtime.felix.log4j1,lib.csf.casr,ioh.server.jersey:1.1.0,stest.httpagent.jaxrs

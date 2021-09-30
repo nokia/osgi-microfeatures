@@ -1,0 +1,6 @@
+Bundle-Version: 1.0.5
+Export-Package: com.nokia.as.util.junit4osgi
+Private-Package: com.nokia.as.util.junit4osgi.impl
+Include-Resource: @dom4j-1.6.jar
+Import-Package: !EDU.oswego.cs.dl.util.concurrent,com.sun.msv.*;org.gjt.xpp;org.jaxen.*;org.relaxng.*;org.xmlpull.*;resolution:=optional,*
+

@@ -1,0 +1,31 @@
+-buildpath: \
+	osgi.annotation,\
+	osgi.core,\
+	osgi.cmpn,\
+	org.apache.felix.dependencymanager.annotation,\
+	com.eclipsesource.jaxrs.jersey-all;version=2.22,\
+	org.apache.felix.gogo.runtime;version=1.1,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	org.webjars:jquery;version=3.4.1
+
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.6
+Private-Package: com.nokia.as.gogo.rest
+Include-Resource:  \
+ META-INF/gogo-browser.htm=resources/gogo-browser.htm, \
+ META-INF/materialize.min.js=resources/materialize.min.js, \
+ META-INF/materialize.min.css=resources/materialize.min.css, \
+ META-INF/jquery-ui.min.js=resources/jquery-ui.min.js, \
+ META-INF/jquery-ui.min.css=resources/jquery-ui.min.css, \
+ META-INF/jquery-ui.theme.min.css=resources/jquery-ui.theme.min.css,\
+ @jquery-3.4.1.jar!/**/jquery.min.js;flatten:=true
+ 
+Import-Package: *
+
+CSF-Embedded: \
+ org.webjars:jquery:3.4.1
+
+groupId: com.nokia.casr.http

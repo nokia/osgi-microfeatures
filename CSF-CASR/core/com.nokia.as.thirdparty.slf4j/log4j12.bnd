@@ -1,0 +1,21 @@
+# Define the buildpath, we need to set this buildpath in order to allow bnd to generate the imported packages with the proper version ranges.
+
+# Defines the human readable bundle description
+Bundle-Name: CASR Slf4j-Log4j12 bundle
+
+# This bundle will be attached to slf4j api bundle
+Fragment-Host: slf4j.api
+
+# Our bundle version, as well as our exported package version
+version: 1.7.30
+
+# Defines the bundle version
+Bundle-Version: ${version}
+
+# defines the exported packages
+Export-Package: org.slf4j.impl;version=${version}
+
+# defines the G.A.V which we embed inside our bundle. This G.A.V list will be used when calculated list of external 3rd party libraries using getgav runtime script.
+CSF-Embedded: org.slf4j:slf4j-log4j12:${version}
+
+-baseline:

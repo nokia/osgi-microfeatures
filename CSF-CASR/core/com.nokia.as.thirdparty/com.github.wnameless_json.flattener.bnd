@@ -1,0 +1,8 @@
+CSF-Embedded:                  com.github.wnameless:json-flattener:0.4.1
+Bundle-Version:                0.4.1
+Bundle-Name:                   com.nokia.as.thirdparty.com.github.wnameless_json.flattener
+Bundle-SymbolicName:           com.nokia.as.thirdparty.com.github.wnameless_json.flattener
+-includeresource:              @json-flattener-0.4.1.jar;lib:=true
+-exportcontents:               *; version=0.4.1
+
+-manifest com.github.wnameless_json.flattener.mf

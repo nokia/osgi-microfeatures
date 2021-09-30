@@ -1,0 +1,6 @@
+Bundle-Version: 1.0.0
+Private-Package: com.nokia.as.h2client.test.tlsexport
+Junit-Tests: 1
+
+Include-Resource: test-resources=test-resources 
+	

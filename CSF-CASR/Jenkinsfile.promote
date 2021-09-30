@@ -1,0 +1,83 @@
+#!groovy
+
+pipeline {
+/*
+   Jenkins job used to copy candidate artifacts to delivered repository.
+*/
+   agent {
+     kubernetes {
+       label 'build-rhel7-c-jdk8-mvn3-casr'
+       inheritFrom 'k8s-build'
+       containerTemplate {
+         name 'java-c-mvn'
+         image "csf-docker-delivered.${ARTIFACTORY_URL}/build_rhel7_c_jdk8_mvn3:1.0.9"
+         alwaysPullImage true
+         workingDir '/home/jenkins'
+         ttyEnabled true
+         command 'cat'
+         args ''
+       }
+     }  
+   }
+  options { disableConcurrentBuilds() }
+
+  parameters {
+    choice(name: 'GROUP_ID',
+           choices: 'all\ncom.nokia.casr\ncom.nokia.casr.http\ncom.nokia.cjdi\ncom.nokia.cdlb\ncom.nokia.casr.microfeatures\n',
+    	   description: 'Configures the maven group id that will be copied from candidate repo to delivered repo. Select all to promote all group ids.')
+
+    choice(name: 'CANDIDATES',
+           choices: 'csf-mvn-candidates-local\n',
+    	   description: 'Configures the candidate repo to be promoted to the release repo.')
+
+    choice(name: 'RELEASE',
+           choices: 'csf-mvn-delivered-local\ncsf-mvn-inprogress-local\n',
+    	   description: 'Configures the release repo where artifacts will be promoted.')
+  }
+
+  environment {
+  	ARTIFACTORY = "https://repo.lab.pl.alcatel-lucent.com"
+	CASR = "com.nokia.casr"
+	HTTP = "com.nokia.casr.http"
+	CJDI = "com.nokia.cjdi"
+	CDLB = "com.nokia.cdlb"
+	MF = "com.nokia.casr.microfeatures"
+  }
+
+  stages {
+    stage('Promote Maven Group Id') {
+      when {
+        expression { env.GERRIT_EVENT_TYPE != 'patchset-created' && env.GERRIT_EVENT_TYPE != 'change-merged' }
+      }
+      steps {
+          withCredentials([usernamePassword(credentialsId: 'csf-jenkins-for-artifactory', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
+	    script {
+                 if (params["GROUP_ID"] == "all") {
+                     sh """		 
+	             cd runtime
+		     ./promote-artifacts.sh -u ${USER} -p ${PASSWORD} -a ${ARTIFACTORY} -g ${CASR} -c ${params.CANDIDATES} -r ${params.RELEASE}
+		     ./promote-artifacts.sh -u ${USER} -p ${PASSWORD} -a ${ARTIFACTORY} -g ${HTTP} -c ${params.CANDIDATES} -r ${params.RELEASE}
+		     ./promote-artifacts.sh -u ${USER} -p ${PASSWORD} -a ${ARTIFACTORY} -g ${CJDI} -c ${params.CANDIDATES} -r ${params.RELEASE}
+		     ./promote-artifacts.sh -u ${USER} -p ${PASSWORD} -a ${ARTIFACTORY} -g ${CDLB} -c ${params.CANDIDATES} -r ${params.RELEASE}
+		     ./promote-artifacts.sh -u ${USER} -p ${PASSWORD} -a ${ARTIFACTORY} -g ${MF} -c ${params.CANDIDATES} -r ${params.RELEASE}
+                     sh """
+		 } else {
+                     sh """
+	             cd runtime
+		     ./promote-artifacts.sh -u ${USER} -p ${PASSWORD} -a ${ARTIFACTORY} -g ${params.GROUP_ID} -c ${params.CANDIDATES} -r ${params.RELEASE}
+		     """
+		 }
+	    }
+          }
+      }
+    }
+
+  }
+
+  post {
+    always {
+      deleteDir()
+    }
+  }
+}
+

@@ -1,0 +1,13 @@
+apiVersion: "nokia.com/v1beta1"
+kind: CasrFunction
+metadata:
+  name: print
+spec:
+  function:
+      locations: 
+        - file:///tmp/com.nokia.casr.samples.sless.print.event.jar
+  exec:
+      ttl: 20000
+  foo:
+      baz: bar
+

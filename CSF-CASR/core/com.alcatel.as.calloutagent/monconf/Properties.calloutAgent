@@ -1,0 +1,880 @@
+MODULE	CalloutAgent
+PUBLIC
+
+# ----------------------------------------------------------------------------
+# Callout Agent parameters
+# (Last OID used is 144)
+# ----------------------------------------------------------------------------
+
+SECTION 1 General Parameters
+
+PID log4j
+
+        NAME       agent.tracer.log4j
+        OID         LoggingParameters 100
+        LEVEL      Basic
+        TITLE      Logging parameters.
+        VALID      none
+        TYPE       External com.nextenso.agent.propdesc.MuxHandlerLoggerPropDesc
+        DISPLAYPAGE  /jsp/groups/config/properties/groups/fileLogger.jsp 
+        REQUIRED   No
+        DYNAMIC    Yes
+        DEFAULT
+<p> Agent LOG4J configuration
+
+PID agent
+
+        NAME        agent.ha
+        LEVEL       Hidden
+        TITLE       High Availability Support
+        VALID       None
+        TYPE        Boolean
+        REQUIRED    No
+		DYNAMIC     No
+        DEFAULT     true
+<p> HA support. If this property is enabled, then the callout agent will use the distributed session manager, 
+in order to provide the ring id in the IO handler mux identifacation header.
+
+        NAME        agent.muxhandlers
+        OID         Protocols 101
+        LEVEL       Basic
+        TITLE       Protocols
+        VALID       None
+        TYPE        External com.nextenso.agent.propdesc.MuxHandlerManager
+        REQUIRED    No
+	DYNAMIC     No
+        DEFAULT     
+<p> Choose the list of protocols that Agents will handle.
+
+        NAME        agent.asyncHandlers
+        OID         ProtocolsRunningInTheAgentSMainThread 102
+        LEVEL       Basic
+        TITLE       Protocols running in the agent's main thread
+        VALID       None
+        TYPE        External com.nextenso.agent.propdesc.MuxProtocolPropDesc
+        REQUIRED    No
+	DYNAMIC     No
+        DEFAULT
+<p> Choose the list of protocols running in the agent main thread.
+By default, all protocols are handled by a separate thread.
+
+        NAME        agent.elasticity
+        OID         AgentElasticity 139
+        LEVEL       Basic
+        TITLE       Max number of elastic container instances
+        VALID       None
+        TYPE        Integer 0 2147483647
+        REQUIRED    No
+		DYNAMIC     No
+        DEFAULT	    1
+<p> When the load increase, some containers which support elasticity may be dynamically instantiated at runtime. This parameter
+defines the max number of elastic containers the JVM will be able to create. 0 means that the current number of processors is used
+as the max number of elastic containers.
+
+        NAME        agent.osgi
+        OID         OsgiFrameworkConfiguration 103
+        LEVEL       Basic
+        TITLE       Osgi Framework Configuration
+        VALID       None
+        TYPE        FileData
+        REQUIRED    Yes
+	DYNAMIC     No
+        DEFAULT	    callout.osgi.felix
+<p> These properties defines the configuration used by the callout agent, when initializing the Osgi framework.
+
+PID mbeanReporter
+
+         NAME        agent.legacyJMXNotificatonToAlarmMapping
+        OID         LegacyJMXNotificationAlarmMapping 104
+         LEVEL       Basic
+         TITLE       Legacy JMX Notification Alarm Mapping
+         VALID       None
+         TYPE        Boolean
+         REQUIRED    Yes
+         DYNAMIC     Yes
+         DEFAULT     false
+<p> When set to TRUE, this property reverts to the incorrect notification level mapping mode where
+it was not possible to generate an alarm with NOTIFICATION/INFO level.  It should only be set to
+TRUE for legacy applications if they want the old (incorrect) behaviour.  In case of doubt, leave it
+to FALSE.
+
+         NAME        agent.appendJmxSourceNotif
+        OID         AppendJMXSourceNotificationToAlarmInstanceName 105
+         LEVEL       Basic
+         TITLE       Append JMX source Notification to Alarm instance name
+         VALID       None
+         TYPE        Boolean
+         REQUIRED    Yes
+         DYNAMIC     Yes
+         DEFAULT     false
+<p> When set to TRUE, any Jmx source notification (if not null) is appended to the generated alarm instance name.
+
+         NAME        agent.alarmSendWindow
+         OID         AlarmSendWindow 133
+         LEVEL       Basic
+         TITLE       Alarm send window
+         VALID       None
+         TYPE        String
+         REQUIRED    No
+         DYNAMIC     No
+         DEFAULT     0
+<p> You can reduce the number of alarm sent within a range of milliseconds. This can be used to avoid flooding the
+jmx gateway with alarm repetitions. If you leave this property to "0", it means that all alarms will be fired, including
+alarm repetitions. A positive value represents a range (in millis) in which alarms of the same code can't be repeted.
+
+PID metering
+
+         NAME        metering.delay
+        OID         MeteringSamplerPeriod 106
+         LEVEL       Basic
+         TITLE       Metering sampler period
+         VALID       None
+         TYPE        Integer 0 2147483647
+         REQUIRED    No
+         DYNAMIC     Yes
+         DEFAULT     10
+<p> Defines the interval in seconds used by the metering sampler thread. The sampler thread will wakeup every N
+seconds and will calculate and log meter statistics
+
+         NAME        metering.threshold
+        OID         MeteringSamplerThreshold 107
+         LEVEL       Basic
+         TITLE       Metering sampler threshold
+         VALID       None
+         TYPE        Integer -1 2147483647
+         REQUIRED    No
+         DYNAMIC     Yes
+         DEFAULT     0
+<p> You can define here a threshold used to avoid logging unrelevant metering statistics value.
+Only statistics metering values which are greater or equals to the specified treshold will be
+displayed.
+
+         NAME        metering.calculateAccum
+         OID         MeteringCalculateAccum 134
+         LEVEL       Basic
+         TITLE       Metering accumulated statistics calculation
+         VALID       None
+         TYPE        Boolean
+         REQUIRED    No
+         DYNAMIC     No
+         DEFAULT     false
+<p>You can set this property to true if you want to let the metering service calculate accumulated statistics (statistics calculated from the jvm start).
+
+PID com.alcatel.as.service.shutdown.impl.ShutdownServiceImpl
+
+	 	 NAME        agent.gsTimeout
+         OID         GracefulShutdownTimeout 135
+         LEVEL       Basic
+         TITLE       Graceful Shutdown Timeout
+         VALID       None
+         TYPE        String
+         REQUIRED    No
+         DYNAMIC     Yes
+         DEFAULT     5000
+<p> Defines the maximum delay in milliseconds to run graceful shutdown services when the agent is stopped. Setting it to 0 will deactivate the graceful shutdown
+mechanism. Recommended value >= 3000. A minimum value can also be set : for ex : "1000-5000" enforces a minimum delay of 1 second and a maximum delay of 5 seconds.
+
+PID agent
+
+
+# --------------------------------------------------------------------------------
+# Callout Mux Flow Control
+# --------------------------------------------------------------------------------
+
+SECTION  2  Callout MUX Flow Control
+
+PID flowControl
+
+         NAME        agent.flowControl.flag
+         OID         FlowControlActivationFlag 108
+         LEVEL       Basic
+         TITLE       Flow control activation flag
+         VALID       None
+         TYPE        Boolean
+         REQUIRED    Yes
+         DYNAMIC     Yes
+         DEFAULT     false
+<p> MUX Flow control activation service.
+<p>If true the MUX Flow Control between the Stack and Agent is activated. In this case the Agent surveys its JVM Memory level and its System Load and send them to the connected stacks.
+
+
+         NAME        agent.flowControl.timer
+         OID         FlowControlIntervalTimerInMilliseconds 109
+         LEVEL       Hidden
+         TITLE       FlowControl interval timer in milliseconds.
+         VALID       None
+         TYPE        Integer 0 1000000
+         REQUIRED    Yes
+         DYNAMIC     Yes
+         DEFAULT     500
+<p> Defines the interval at which flow control informations are sent to the IO handlers. The unit is milliseconds.
+
+         NAME        agent.flowControl.memorylevel.high
+        OID         MemoryLevelHighWaterMark 110
+         LEVEL       Basic
+         TITLE       Memory Level High Water Mark
+         VALID       None
+         TYPE        Integer 40 100
+         REQUIRED    Yes
+         DYNAMIC     Yes
+         DEFAULT     85
+<p> Sets the old gen memory occupancy level from which the agent will start refusing new traffic. 
+This water mark is expressed in percentage of the memory available in the old generational memory part.
+
+         NAME        agent.flowControl.memorylevel.low
+         OID         MemoryLevelLowWaterMark 111
+         LEVEL       Basic
+         TITLE       Memory Level Low Water Mark (%)
+         VALID       None
+         TYPE        Integer 40 100
+         REQUIRED    Yes
+         DYNAMIC     Yes
+         DEFAULT     75
+<p> Sets the old gen memory occupancy level from which the agent will restart accepting new traffic. 
+This is used to ensure that enough memory is available so that new traffic can
+be accepted without taking the risk of a full GC being scheduled.
+This water mark is expressed in percentage of the memory available in the old generational memory part.
+
+         NAME        agent.flowControl.memorylevel.emergency
+         OID         EmergencyLevelMemoryOccupancy 112
+         LEVEL       Basic
+         TITLE       Emergency level Memory Occupancy (%)
+         VALID       None
+         TYPE        Integer 40 100
+         REQUIRED    Yes
+         DYNAMIC     Yes
+         DEFAULT     95
+<p> Sets the memory occupancy level from which the Agents can fall in a state where OutOfMemory exceptions can occurs.
+This value must be greater than than the previous "High level memory Occupancy"
+
+         NAME        agent.flowControl.tpool.responsetime
+         OID         ThreadPoolResponseTimeMeasurement 113
+         LEVEL       Hidden
+         TITLE       Thread Pool Response Time Measurement   
+         VALID       None
+         TYPE        Boolean
+         REQUIRED    Yes
+         DYNAMIC     No
+         DEFAULT     true
+<p> Deprecated (property not supported anymore). Make the thread pool average response time part of the IO handler perception of the overall agent response time. 
+This makes the overload control able to detect that your application is slower, and  not just the agent process.
+In turn, it will detect that remote components (databases, web servers, etc ..) used by your applications are slower. 
+
+         NAME        agent.flowControl.tx.responsetime
+         OID         DistributedTransactionResponseTimeMeasurement 114
+         LEVEL       Hidden
+         TITLE       Distributed Transaction Response Time Measurement   
+         VALID       None
+         TYPE        Boolean
+         REQUIRED    Yes
+         DYNAMIC     No
+         DEFAULT     true
+<p> Deprecated (property not supported anymore). Make the distributed session transaction average response time part of the IO handler perception of the overall agent response time. 
+This makes the overload control able to detect that your cluster of agent is slower, and  not just one agent process.
+
+         NAME        agent.flowControl.memorylevel.expliciteGCFlag
+         OID         GenerateExpliciteFullGCFlag 115
+         LEVEL       Hidden
+         TITLE       Generate Explicite Full GC flag
+         VALID       None
+         TYPE        Boolean
+         REQUIRED    Yes
+         DYNAMIC     No
+         DEFAULT     true
+<p> Deprecated (property not supported anymore). Activates the function where explicit Full GC are issued by the agent in case where the Agent stays in Emergency memory more than the indicated time.
+
+         NAME        agent.flowControl.memorylevel.expliciteGCTime
+         OID         GenerateExpliciteFullGCTimerLevelSeconds 116
+         LEVEL       Hidden
+         TITLE       Generate Explicite Full GC timer level (seconds)
+         VALID       None
+         TYPE        Integer 0 72000
+         REQUIRED    Yes
+         DYNAMIC     No
+         DEFAULT     120
+<p> Deprecated (property not supported anymore). Defines in seconds the level at which an Explicit Full GC is issued by the agent when its memory level stays permanently in Emergency level state. If 0 this value is not activated and its maximum value is 72000 seconds.
+<p>The level is reset when the memory level becomes high or normal.
+<p>The "Generate Explicit Full GC flag" must be set at the "true" state.
+
+         NAME        agent.flowControl.memorylevel.systemExitTimerNoReset
+         OID         NoResetTheSystemExitTimer 117
+         LEVEL       Hidden
+         TITLE       No reset the system Exit Timer
+         VALID       None
+         TYPE        Boolean
+         REQUIRED    Yes
+         DYNAMIC     No
+         DEFAULT     true
+<p> Deprecated (property not supported anymore). When true the systemExitTimer is never reset, and when its value reaches the systemExitTime the agent shutdowns. When false the systemExitTimer is resetted when the memory level passes to High or Normal memory level.
+
+         NAME        agent.flowControl.memorylevel.systemExitTime
+         OID         AgentSystemExitTimerSeconds 118
+         LEVEL       Hidden
+         TITLE       Agent System Exit Timer (seconds)
+         VALID       None
+         TYPE        Integer 0 72000
+         REQUIRED    Yes
+         DYNAMIC     Yes
+         DEFAULT     0
+<p> Defines in seconds the level at which a System Exit is issued by the agent (Agent shutdown) when its memory level stays permanently in Emergency level state. If '0' this function is not activated and its maximum value is 72000 seconds.
+<p>The level is reset when the memory level becomes high or normal.
+
+# --------------------------------------------------------------------------------
+# Callout JVM configuration
+# --------------------------------------------------------------------------------
+
+SECTION  2  Callout JVM configuration
+
+        NAME        agent.jvmargs
+        OID         MainJvmParameters 119
+        LEVEL       Basic
+        TITLE       Main jvm parameters
+        VALID       None
+        TYPE        FileData
+        REQUIRED    No
+        DYNAMIC     No
+        DEFAULT	    callout.jvmopts
+<p> 
+This property holds major jvm including classpath, ext/endorsed dirs, system and GC parameters. 
+<p>A short definition of the parameters that can be used follows, for a full documentation  check the online Sun documentation 
+<p>
+<b>JSDK 1.4.2</b>
+<ul>
+<li> -XX:+UseParNewGC - This flag turns on parallel garbage collection in the young generation. It can be enabled together with the 
+   CMS collector in the old generation. Available in J2SE1.4.1 on an experimental basis.
+<li> -XX:ParallelGCThreads=1 - This switch sets the number of parallel GC threads that the JVM must run for performing garbage collection 
+   in the young generation. The default value of n is equal to the number of CPUs on the system. However, it has been observed that 
+   tweaking this number may improve performance in some cases. An example might be that of multiple instances of JVM running on a 
+   single multi-CPU system. In this case, the number of parallel GC threads for each JVM may need to be set to less than the 
+   number of CPUs by using this switch. Available from J2SE1.4.1
+<li> -XX:MaxNewSize=12m -XX:NewSize=12m - The parameters NewSize and MaxNewSize bound the young generation size from below and above. 
+   Setting these equal to one another fixes the young generation, just as setting -Xms and -Xmx equal fixes the total heap size. 
+   This is useful for tuning the young generation at a finer granularity than the integral multiples allowed by NewRatio.
+<li> -XX:SurvivorRatio=128 - XX:SurvivorRatio to a very high value, say 128. This is because, in this case, the survivor spaces are not 
+   used, and objects are promoted directly from Eden to the old generation during every GC cycle. By setting a high survivor ratio, 
+   most of the the young generation heap is allocated to "Eden". Available from J2SE1.3.
+<li> -XX:MaxTenuringThreshold=y This switch determines how much the objects may age in the young generation before getting promoted to the 
+   older generation. The default value is 31. For a big enough young generation and "survivor space", the long-lived objects may be 
+   copied up to 31 times between the survivor spaces before they are finally promoted to the old generation. For most Telco applications, 
+   it has been found that 80-90% of the objects that are created per call or session die almost immediately after they are created, 
+   and the rest (10-20%) survive the entire duration of that call. Setting -XX:MaxTenuringThreshold=0 promotes all objects allocated 
+   by the application in the young generation, which survive a single GC cycle, directly to the old generation without copying them 
+   around between the survivor spaces in the young generation. This setting, when used with CMS collector in the old generation helps 
+   in two ways.
+   * The young generation GC does not have to waste its time copying the 10-20% long lived objects multiple times between the survivor 
+     spaces, only to finally promote them to the old generation.
+   * Additionally, most of the collection and cleaning work of these objects can be done "concurrently" in the old generation. 
+     This behavior leads to additional reduction in GC sequential overhead.
+<p>
+   When this switch is used, it is advisable to set the -XX:SurvivorRatio to a very high value, say 128. This is because, in this case, 
+   the survivor spaces are not used, and objects are promoted directly from Eden to the old generation during every GC cycle. 
+   By setting a high survivor ratio, most of the the young generation heap is allocated to "Eden". Available from J2SE1.3.
+<li> -XX:+UseConcMarkSweepGC - This flag turns on concurrent garbage collection in the old generation. Available from J2SE1.4.1.
+<li> -XX:CMSInitiatingOccupancyFraction=60 - -XX:CMSInitiatingOccupancyFraction=x
+   Sets the threshold percentage of the used heap in the old generation at which the CMS collection takes place. For example, if set 
+   to 60, the CMS collector will be initiated every time the old generation becomes 60% full. By default, this threshold is calculated 
+   at run time, and the CMS collector might be triggered only when the old generation heap is about 80-90% full. Tuning this value can 
+   improve performance in many cases. Since the CMS collector does not suspend the mutators as it sweeps and frees memory, setting this 
+   switch can ensure that enough free memory is available for object promotion from the young generation as more data is allocated by 
+   the application. Sometimes, if this switch is not tuned, CMS collection might not be able to keep up and may fail, eventually 
+   triggering the default stop-the-world mark-compact collector. Available from J2SE1.4.1.
+<li> -DCHECKRUNTIMEVERSION=x.yy placeholder that is checked at runtime, authorizes that the parameters are taken in account if the 
+ java runtime version (java -version) is at least equal or greater thab the indicated version. This placeholder was created to check
+ runtime version 1.5 and its new GC CMS Incremental.
+</ul>
+<p>
+<b>JSDK 1.5</b>
+<ul>
+<li> -XX:MaxGCMinorPauseMillis=xx A hint to the virtual machine that pause times of nnn milliseconds or less are desired. The vm will adjust 
+ the java heap size and other gc-related parameters in an attempt to keep gc-induced pauses shorter than nnn milliseconds. Note that 
+ this may cause the vm to reduce overall throughput, and in some cases the vm will not be able to meet the desired pause time goal.  
+ By default there is no pause time goal. There are definite limitations on how well a pause time goal can be met. The pause time for 
+ a GC depends on the amount of live data in the heap. The minor and major collections depend in different ways on the amount of live data. 
+ This parameter should be used with caution. A value that is too small will cause the system to spend an excessive amount of time doing 
+ garbage collection.
+<li> -XX:MaxGCPauseMillis=<value>  A hint to the virtual machine that it's desirable that not more than 1 / (1 + nnn) of the application 
+ execution time be spent in the collector.
+<p>
+ For example -XX:GCTimeRatio=19 sets a goal of 5% of the total time for GC and throughput goal of 95%. That is, the application should get 
+ 19 times as much time as the collector.
+<p> 
+ By default the value is 99, meaning the application should get at least 99 times as much time as the collector. That is, the collector 
+ should run for not more than 1% of the total time. This was selected as a good choice for server applications. A value that is too high 
+ will cause the size of the heap to grow to its maximum.
+<li> -XX:+UseParNewGC - This flag turns on parallel garbage collection in the young generation. It can be enabled together with the 
+   CMS collector in the old generation. Available in J2SE1.4.1 on an experimental basis.
+<li> -XX:MaxNewSize=12m -XX:NewSize=12m - The parameters NewSize and MaxNewSize bound the young generation size from below and above. 
+   Setting these equal to one another fixes the young generation, just as setting -Xms and -Xmx equal fixes the total heap size. 
+   This is useful for tuning the young generation at a finer granularity than the integral multiples allowed by NewRatio.
+<li> -XX:SurvivorRatio=128 - XX:SurvivorRatio to a very high value, say 128. This is because, in this case, the survivor spaces are not 
+   used, and objects are promoted directly from Eden to the old generation during every GC cycle. By setting a high survivor ratio, 
+   most of the the young generation heap is allocated to "Eden". Available from J2SE1.3.
+<li> -XX:+CMSParallelRemarkEnabled - reduce remark pauses
+<li> -XX:SurvivorRatio=128 - XX:SurvivorRatio to a very high value, say 128. This is because, in this case, the survivor spaces are not 
+   used, and objects are promoted directly from Eden to the old generation during every GC cycle. By setting a high survivor ratio, 
+   most of the the young generation heap is allocated to "Eden". Available from J2SE1.3.
+<li> -XX:MaxTenuringThreshold=y This switch determines how much the objects may age in the young generation before getting promoted to the 
+   older generation. The default value is 31. For a big enough young generation and "survivor space", the long-lived objects may be 
+   copied up to 31 times between the survivor spaces before they are finally promoted to the old generation. For most Telco applications, 
+   it has been found that 80-90% of the objects that are created per call or session die almost immediately after they are created, 
+   and the rest (10-20%) survive the entire duration of that call. Setting -XX:MaxTenuringThreshold=0 promotes all objects allocated 
+   by the application in the young generation, which survive a single GC cycle, directly to the old generation without copying them 
+   around between the survivor spaces in the young generation. This setting, when used with CMS collector in the old generation helps 
+   in two ways.
+   * The young generation GC does not have to waste its time copying the 10-20% long lived objects multiple times between the survivor 
+     spaces, only to finally promote them to the old generation.
+   * Additionally, most of the collection and cleaning work of these objects can be done "concurrently" in the old generation. 
+     This behavior leads to additional reduction in GC sequential overhead.
+<p>
+   When this switch is used, it is advisable to set the -XX:SurvivorRatio to a very high value, say 128. This is because, in this case, 
+   the survivor spaces are not used, and objects are promoted directly from Eden to the old generation during every GC cycle. 
+   By setting a high survivor ratio, most of the the young generation heap is allocated to "Eden". Available from J2SE1.3.
+<li> -XX:+UseConcMarkSweepGC - This flag turns on concurrent garbage collection in the old generation. Available from J2SE1.4.1.
+<li> -XX:+CMSIncrementalMode default: disabled This flag enables the incremental mode. Note that the concurrent collector must be enabled 
+ (with -XX:+UseConcMarkSweepGC) for this option to work.
+<li> -XX:+CMSIncrementalPacing default: disabled This flag enables automatic adjustment of the incremental mode duty cycle based on 
+ statistics collected while the JVM is running.
+<li> -XX:CMSIncrementalDutyCycleMin=0 he i-cms automatic pacing feature uses statistics gathered while the program is running to compute a 
+ duty cycle so that concurrent collections complete before the heap becomes full. However, past behavior is not a perfect predictor 
+ of future behavior and the estimates may not always be accurate enough to prevent the heap from becoming full. If too many full 
+ collections occur, try the following steps, one at a time:
+</ul>
+<p> 
+ Increase the safety factor:
+<ul>
+<li> -XX:CMSIncrementalSafetyFactor=<N>
+</ul> 
+<p>
+ Increase the minimum duty cycle:
+<ul>
+<li> -XX:CMSIncrementalDutyCycleMin=<N>
+</ul>	
+<p>
+ Disable automatic pacing and use a fixed duty cycle:
+<ul>
+<li> -XX:-CMSIncrementalPacing -XX:CMSIncrementalDutyCycle=<N>
+</ul>
+<p>
+The following "Parallel" GC options are set by default:
+<ul>
+<li> -DCHECKRUNTIMEVERSION=1.5 -DflowControl.gc.cms=true -XX:+UseParNewGC -XX:MaxNewSize=20m -XX:NewSize=20m 
+<li> -XX:+CMSParallelRemarkEnabled -XX:SurvivorRatio=128 -XX:MaxTenuringThreshold=0 -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode 
+<li> -XX:+CMSIncrementalPacing -XX:CMSIncrementalDutyCycleMin=0 -XX:CMSIncrementalDutyCycle=10 -XX:-TraceClassUnloading
+</ul>
+<p>
+The following "Custom1" options with 16MB in Young Generation 
+CUSTOM=" -DCHECKRUNTIMEVERSION=1.5 -DflowControl.gc.cms=true -XX:+UseParNewGC -XX:MaxNewSize=16m -XX:NewSize=16m 
+-XX:+CMSParallelRemarkEnabled -XX:SurvivorRatio=128 -XX:MaxTenuringThreshold=0 -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode 
+-XX:+CMSIncrementalPacing -XX:CMSIncrementalDutyCycleMin=0 -XX:CMSIncrementalDutyCycle=10 -XX:-TraceClassUnloading 
+<p>
+The following "Custom2" options with 32MB in Young Generation 
+CUSTOM=" -DCHECKRUNTIMEVERSION=1.5 -DflowControl.gc.cms=true -XX:+UseParNewGC -XX:MaxNewSize=32m -XX:NewSize=32m 
+-XX:+CMSParallelRemarkEnabled -XX:SurvivorRatio=128 -XX:MaxTenuringThreshold=0 -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode 
+-XX:+CMSIncrementalPacing -XX:CMSIncrementalDutyCycleMin=0 -XX:CMSIncrementalDutyCycle=10 -XX:-TraceClassUnloading 
+<p>
+The following "Custom3" options with 48MB in Young Generation 
+CUSTOM=" -DCHECKRUNTIMEVERSION=1.5 -DflowControl.gc.cms=true -XX:+UseParNewGC -XX:MaxNewSize=48m -XX:NewSize=48m 
+-XX:+CMSParallelRemarkEnabled -XX:SurvivorRatio=128 -XX:MaxTenuringThreshold=0 -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode 
+-XX:+CMSIncrementalPacing -XX:CMSIncrementalDutyCycleMin=0 -XX:CMSIncrementalDutyCycle=10 -XX:-TraceClassUnloading 
+<p>
+The parameter flowControl.gc.cms=true, activates the memory level sent to the stack, it must normally be set all in all Custom files
+
+        NAME        CalloutinJVMGCParameters
+        LEVEL       Hidden
+        TITLE       GC jvm parameters
+        VALID       None
+        TYPE        FileData
+        REQUIRED    No
+        DYNAMIC     No
+        DEFAULT	    callout.jvmopts
+<p> This property holds major jmv paramers, like the classpath, ext/endorsed dirs, system/GC parameters, and the java Main class.
+
+        NAME        CalloutinJVMExtendedParameters
+        LEVEL       Hidden
+        TITLE       Extended JVM parameters
+        VALID       None
+        TYPE        String
+        REQUIRED    No
+        DYNAMIC     No
+        DEFAULT
+<p> Allow advanced parameters to be passed to the agent JVM (for expert/debug use purpose)
+
+        NAME        CalloutinJVMMemorySize
+        OID         CalloutInstanceJVMMemorySize 120
+        LEVEL       Basic
+        TITLE       Callout Instance JVM Memory Size
+        VALID       None
+        TYPE        Integer     0  2147483647
+        REQUIRED    Yes
+        DYNAMIC     No
+        DEFAULT     0
+<p> Defines the default Memory and Heap size in MB. The "0" value is interpreted as 256 (256 MegaBytes).
+<p>
+
+        NAME        CalloutinJVMEdenMemorySize
+        OID         CalloutInstanceJVMEdenMemorySize 121
+        LEVEL       Basic
+        TITLE       Callout Instance JVM Eden Memory Size
+        VALID       None
+        TYPE        Integer     0  2147483647
+        REQUIRED    Yes
+        DYNAMIC     No
+        DEFAULT     0
+<p> Defines the Eden (young generation) Memory and Heap size in MB used by this instance of the callout agent.
+"0" value is interpreted as 10 (10 MegaBytes).
+
+        NAME        CalloutinJVMVerboseGC
+        OID         CalloutInstanceVerboseGC 122
+        LEVEL       Basic
+        TITLE       Callout Instance Verbose GC
+        VALID       None
+        TYPE        Select    NotDefined  None  Yes
+        REQUIRED    Yes
+        DYNAMIC     No
+        DEFAULT     None
+<p> Log the garbage collector information in file. This information can be used to tune and size the application and the JVM from a GC perspective.
+If defined this value supersedes all other values defined at protocol ou upper level.
+<p>- NotDefined: The VerboseGC is defined at protocol group upper level. 
+<p>- None: No verboseGC information displayed
+<p>- Yes: VerboseGC information is printed in gc.log output logs.
+5% overhead while using this option.
+
+        NAME        CalloutinJVMWarmingUP
+        OID         JVMWarmingUpAtStartup 123
+        LEVEL       Basic
+        TITLE       JVM Warming Up at startup
+        VALID       None
+        TYPE        Select    NotDefined  None  Yes
+        REQUIRED    Yes
+        DYNAMIC     No
+        DEFAULT	    None
+<p> If set to Yes the JVM is initialized with parameter -XX:CompileThreshold=5 to force
+the JIT compiler at start-up. This reduces the number of dynamic compilations after
+the start-up. When activated this initialization takes about 30~60 seconds more of the 
+start-up time.
+
+        NAME        CalloutinJVMStrategyGC
+        LEVEL       Hidden
+        TITLE       Callout Instance Strategy GC
+        VALID       None
+        TYPE        Select  NotDefined Default Parallel Custom1 Custom2 Custom3 Custom4 Custom5 Custom6
+        REQUIRED    Yes
+        DYNAMIC     No
+        DEFAULT     Parallel
+<p> Defines the GC strategy used by JVM.  If defined this value supersedes all other values defined at protocol ou upper level.
+<p>- NotDefined: The GC strategy is defined at protocol or group upper level.
+<p>- Default: The JVM is launched with its Sun default parameters. The PP FlowControl and MemoryLevel are not activated. 
+<p>- Parallel: The JVM is launched with parameters adapted to multi-processor system,
+It uses the parallel collector for young generation and the concurrent mark-sweep (CMS) incremental in automatic adjust mode collector for the old generation. The Young Generation is sized to 10Mb.
+The PP FlowControl and MemoryLevel are activated if the JDK 1.5 is used.
+<p>- Custom1: Special configuration value.
+Same values like Parallel but with 16m of young generation heap.
+The PP FlowControl and MemoryLevel are activated if the JDK 1.5 is used.
+The resource is defined in INSTALL_DIR/resource/StrategyGC/Custom1 file.
+<p>- Custom2: Special configuration value.
+Same values like Parallel but with 32m of young generation heap.
+The PP FlowControl and MemoryLevel are activated if the JDK 1.5 is used.
+The resource is defined in INSTALL_DIR/resource/StrategyGC/Custom2 file.
+<p>- Custom3: Special configuration value.
+Same values like Parallel but with 48m of young generation heap.
+The PP FlowControl and MemoryLevel are activated if the JDK 1.5 is used.
+The resource is defined in INSTALL_DIR/resource/StrategyGC/Custom3 file.
+<p>- Custom4: Special configuration value.
+The resource must be defined in INSTALL_DIR/resource/StrategyGC/Custom4 file.
+<p>- Custom5: Special configuration value.
+The resource must be defined in INSTALL_DIR/resource/StrategyGC/Custom5 file.
+<p>- Custom6: Special configuration value.
+The resource must be defined in INSTALL_DIR/resource/StrategyGC/Custom6 file.
+
+
+SECTION 2 Thread Pool
+
+PID agent
+
+        NAME        system.tpool.queueSize
+        OID         SizeOfQueueUsedWhenAllThreadsAreBusy 125
+        LEVEL       Hidden
+        TITLE       Size of queue used when all threads are busy
+        VALID       None
+        TYPE        Integer  1024  2147483647
+        REQUIRED    Yes
+	DYNAMIC     No
+        DEFAULT     1024
+<p>Enter here the size of the queue used to store messages when all threads
+are busy (this queue will be emptied when any threads becomes available).</p>
+
+        NAME        system.tpool.maxIdleThreads
+        OID         MaxNumberOfIdleThreads 126
+        LEVEL       Hidden
+        TITLE       Max number of idle threads
+        VALID       None
+        TYPE        Integer  0  100
+        REQUIRED    Yes
+	DYNAMIC     No
+        DEFAULT     0
+<p>When a thread from the pool is idle for a long 
+amount of time, then it dies. But you can adjust the
+minimum number of threads that always stay alive.
+Enter here the maximum number of idle threads that never die.
+</p>
+
+        NAME        system.tpool.queue
+        LEVEL       Hidden
+        TITLE       Thread Queue implementation
+        VALID       None
+        TYPE        Select buffer linked
+        REQUIRED    Yes
+	DYNAMIC     No
+        DEFAULT     buffer
+<p>
+The agent may uses some channels in order to allow communication
+between threads. The default implementation uses a "buffer" queue that
+performs flow control when too many messages are exchanged between threads.
+You can also choose a "linked" channel implementation that do not perform
+flow control, but reduces significantly thread contentions.
+For the sake of security, it is better to choose the "buffer" channel, in 
+order to activate flow control checking (this will avoid consuming too many
+memory).
+</p>
+
+SECTION 2  Asynchronous Events
+
+        NAME        pxlet.container.Qreaders
+        OID         NumberOfQueueReadersForTheAsynchronousEvents 127
+        LEVEL       Basic
+        TITLE       Number of Queue readers for the asynchronous events
+        VALID       None
+        TYPE        Integer 1 100
+        REQUIRED    Yes
+	DYNAMIC     No
+        DEFAULT     3
+<p>Specifies the number of readers that consume the queue of the asynchronous events.
+
+        NAME        pxlet.container.Qtype
+        OID         TypeOfTheQueueForTheAsynchronousEvents 128
+        LEVEL       Basic
+        TITLE       Type of the Queue for the asynchronous events
+        VALID       None
+        TYPE        String
+        REQUIRED    Yes
+	DYNAMIC     No
+        DEFAULT     buffer
+<p>Specifies the type of the queue used for the asynchronous events.
+
+        NAME        pxlet.container.Qsize
+        OID         SizeOfTheQueueForTheAsynchronousEvents 129
+        LEVEL       Basic
+        TITLE       Size of the Queue for the asynchronous events
+        VALID       None
+        TYPE        Integer 1 1024
+        REQUIRED    Yes
+	DYNAMIC     No
+        DEFAULT     1024
+<p>Specifies the size of the queue used for the asynchronous events.
+
+SECTION 1 Application Specific Parameters
+
+        NAME        agent.user.specific.param
+        OID         UserSpecificJvmParameters 137
+        LEVEL       Basic
+        TITLE       Application specific JVM parameters
+        VALID       None
+        TYPE        FileData
+        REQUIRED    No
+        DYNAMIC     No
+	DEFAULT     callout.user.specific.param 
+<p>Put here your specific jvm parameters. They will be appended to the jvm start command
+
+        NAME        agent.user.specific.classpath
+        OID         UserSpecificClassPath 138
+        LEVEL       Basic
+        TITLE       Application specific classpath
+        VALID       None
+        TYPE        FileData
+        REQUIRED    No
+        DYNAMIC     No
+	DEFAULT     callout.user.specific.classpath
+<p>Put here your specific classpath. It will be appended
+
+PRIVATE
+
+SECTION  1  General Parameters
+
+        NAME        agent.muxhandlers
+        OID         Protocols 130
+        LEVEL       Advanced
+        TITLE       Protocols
+        VALID       None
+        TYPE        External com.nextenso.agent.propdesc.MuxHandlerManager
+        REQUIRED    No
+	DYNAMIC     No
+        DEFAULT     
+<p> Choose the list of protocols that this Agent will handle. 
+
+        NAME        agent.osgi
+        OID         OsgiFrameworkConfiguration 132
+        LEVEL       Basic
+        TITLE       Osgi Framework Configuration
+        VALID       None
+        TYPE        FileData
+        REQUIRED    Yes
+	DYNAMIC     No
+        DEFAULT	    callout.osgi.felix
+<p> These properties defines the configuration used by the callout agent, when initializing the Osgi framework.
+
+SECTION  2  Callout JVM configuration
+
+        NAME        agent.jvmargs
+        OID         MainJvmParameters 131
+        LEVEL       Basic
+        TITLE       Main jvm parameters
+        VALID       None
+        TYPE        FileData
+        REQUIRED    No
+        DYNAMIC     No
+        DEFAULT	    callout.jvmopts
+<p> 
+This property holds major jvm including classpath, ext/endorsed dirs, system and GC parameters.
+
+        NAME        CalloutinJVMMemorySize
+        OID         CalloutInstanceJVMMemorySize 141
+        LEVEL       Basic
+        TITLE       Callout Instance JVM Memory Size
+        VALID       None
+        TYPE        Integer     0  2147483647
+        REQUIRED    Yes
+        DYNAMIC     No
+        DEFAULT     0
+<p> Defines the default Memory and Heap size in MB. The "0" value is interpreted as 256 (256 MegaBytes).
+<p>
+
+        NAME        CalloutinJVMEdenMemorySize
+        OID         CalloutInstanceJVMEdenMemorySize 142
+        LEVEL       Basic
+        TITLE       Callout Instance JVM Eden Memory Size
+        VALID       None
+        TYPE        Integer     0  2147483647
+        REQUIRED    Yes
+        DYNAMIC     No
+        DEFAULT     0
+<p> Defines the Eden (young generation) Memory and Heap size in MB used by this instance of the callout agent.
+"0" value is interpreted as 10 (10 MegaBytes).
+
+        NAME        CalloutinJVMVerboseGC
+        OID         CalloutInstanceVerboseGC 143
+        LEVEL       Basic
+        TITLE       Callout Instance Verbose GC
+        VALID       None
+        TYPE        Select    NotDefined  None  Yes
+        REQUIRED    Yes
+        DYNAMIC     No
+        DEFAULT     None
+<p> Log the garbage collector information in file. This information can be used to tune and size the application and the JVM from a GC perspective.
+If defined this value supersedes all other values defined at protocol ou upper level.
+<p>- NotDefined: The VerboseGC is defined at protocol group upper level. 
+<p>- None: No verboseGC information displayed
+<p>- Yes: VerboseGC information is printed in gc.log output logs.
+5% overhead while using this option.
+
+        NAME        CalloutinJVMWarmingUP
+        OID         JVMWarmingUpAtStartup 144
+        LEVEL       Basic
+        TITLE       JVM Warming Up at startup
+        VALID       None
+        TYPE        Select    NotDefined  None  Yes
+        REQUIRED    Yes
+        DYNAMIC     No
+        DEFAULT	    None
+<p> If set to Yes the JVM is initialized with parameter -XX:CompileThreshold=5 to force
+the JIT compiler at start-up. This reduces the number of dynamic compilations after
+the start-up. When activated this initialization takes about 30~60 seconds more of the 
+start-up time.
+
+SECTION 1 Application Specific Parameters
+
+PID agent
+
+
+        NAME        agent.user.specific.param
+        OID         UserSpecificJvmParameters 137
+        LEVEL       Basic
+        TITLE       Application specific JVM parameters
+        VALID       None
+        TYPE        FileData
+        REQUIRED    No
+        DYNAMIC     No
+	DEFAULT     callout.user.specific.param 
+<p>Put here your specific jvm parameters. They will be appended to the jvm start command
+
+        NAME        agent.user.specific.classpath
+        OID         UserSpecificClassPath 138
+        LEVEL       Basic
+        TITLE       Application specific classpath
+        VALID       None
+        TYPE        FileData
+        REQUIRED    No
+        DYNAMIC     No
+	DEFAULT     callout.user.specific.classpath
+<p>Put here your specific classpath. It will be appended
+        
+# These properties are no more used.
+
+	NAME	   agent.tracer.policy
+	LEVEL	   Hidden
+	TITLE	   Logging policy
+	VALID	   None
+	TYPE	   Select File Syslog File|Syslog Syslog|File File&Syslog
+	REQUIRED   Yes
+	DYNAMIC    Yes
+	DEFAULT	   Syslog|File
+<p> Choose the logging policy.
+
+	NAME	   agent.tracer.syslog
+	LEVEL	   Hidden
+	TITLE	   Syslog facility
+	VALID	   None
+	TYPE	   Select KERN USER MAIL DAEMON AUTH SYSLOG LPR NEWS UUCP CRON LOCAL0 LOCAL1 LOCAL2 LOCAL3 LOCAL4 LOCAL5 LOCAL6 LOCAL7
+	REQUIRED   Yes
+	DYNAMIC    Yes
+	DEFAULT	   LOCAL1
+<p> Choose the syslog facility that will be used when sending logs towards syslog server
+
+	NAME	    agent.tracer.level.msg
+	LEVEL	    Hidden
+	TITLE	    Agent log level
+	VALID	    None
+	TYPE	    Select WARN NOTICE INFO DEBUG
+	REQUIRED    Yes
+	DYNAMIC     Yes
+	DEFAULT	    NOTICE
+<p> Select the level concerning the agent logger.
+
+	NAME	    agent.tracer.level.mux
+	LEVEL	    Hidden
+	TITLE	    Mux traffic log level
+	VALID	    None
+	TYPE	    Select WARN NOTICE INFO DEBUG
+	REQUIRED    Yes
+	DYNAMIC     Yes
+	DEFAULT	    NOTICE
+<p> Select the level concerning the mux traffic logger. INFO will dump all mux traffic.
+
+	NAME	    agent.tracer.level.pxlet
+	LEVEL	    Hidden
+	TITLE	    Proxylet log level
+	VALID	    None
+	TYPE	    Select WARN NOTICE INFO DEBUG
+	REQUIRED    Yes
+	DYNAMIC     Yes
+	DEFAULT	    NOTICE
+<p> Select the level concerning the proxylet logger.
+
+	NAME	   agent.tracer.merge.mux
+	LEVEL	   Hidden
+	TITLE	   Mux traffic - File policy
+	VALID	   None
+	TYPE	   Boolean
+	REQUIRED   Yes
+	DYNAMIC    Yes
+	DEFAULT	   false
+<p> Specifies if the Mux traffic logs should be written in a single file (<i>true</i>) or in separate files (<i>false</i>).

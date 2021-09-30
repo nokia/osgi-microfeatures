@@ -1,0 +1,6 @@
+CLASSDIR=../bin
+APIDIR=$PWD
+cp jars/10/sipservlet.jar jars/11/sipservlet-1.1.jar
+cd $CLASSDIR
+jar -uvf $APIDIR/jars/11/sipservlet-1.1.jar javax/servlet/sip/*class javax/servlet/sip/annotation/*class
+cd -;

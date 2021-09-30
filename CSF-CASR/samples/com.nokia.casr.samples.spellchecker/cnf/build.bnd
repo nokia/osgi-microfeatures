@@ -1,0 +1,58 @@
+# CSF repository urls
+csf-repo: ${env;CSF_REPO;http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered}
+csf-obr: http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered/com/nokia/casr/com.nokia.casr.obr/17.9.1/com.nokia.casr.obr-17.9.1.xml
+
+
+# In case you need to use Apache Felix DM Annotation
+-pluginpath: \
+    ${workspace}/cnf/cache/org.apache.felix.dependencymanager.annotation-4.2.1.jar;\
+        url=${csf-repo}/org/apache/felix/org.apache.felix.dependencymanager.annotation/4.2.1/org.apache.felix.dependencymanager.annotation-4.2.1.jar
+
+-plugin.1.CSF_REPO: aQute.bnd.repository.maven.provider.MavenBndRepository; \
+	releaseUrl = ${csf-repo}; \
+	snapshotUrl = ${csf-repo}; \
+	index = ${.}/csf.mvn; \
+	name = CSF_REPO
+
+-plugin.2.Release: aQute.bnd.deployer.repository.LocalIndexedRepo; \
+    name = Release; \
+    pretty = true; \
+    local = ${build}/release
+
+-plugin.3.Local: aQute.bnd.deployer.repository.LocalIndexedRepo; \
+    name = Local; \
+    pretty = true; \
+    local = ${build}/local
+
+-plugin.4.CSF_OBR: aQute.bnd.deployer.repository.FixedIndexedRepo; \
+    name=CSF_OBR; \
+	cache=${workspace}/cnf/cache; \
+	locations=${csf-obr}
+		
+-plugin.5.Templates: \
+     aQute.bnd.deployer.repository.LocalIndexedRepo; \
+     name = Templates; \
+     pretty = true; \
+     local = ${build}/templates
+
+# release repo where we will push our released artifacts (using "gradlew release" command)
+-releaserepo: Release
+
+# repository authentication, can be customized
+-connection-settings: ${.}/connection-settings.xml
+
+# Don't include sources in generated bundles
+-sources:               false
+
+# Java parameters
+javac.source: 1.8
+javac.target: 1.8
+
+# JUnit
+junit: org.apache.servicemix.bundles.junit; version=4.12
+
+# common osgi build dependencies
+osgi: osgi.annotation, osgi.core,osgi.cmpn
+
+# Dependency Manager Annotations support
+-plugin: org.apache.felix.dm.annotation.plugin.bnd.AnnotationPlugin

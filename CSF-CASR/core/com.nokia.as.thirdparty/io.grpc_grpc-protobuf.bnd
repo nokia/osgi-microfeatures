@@ -1,0 +1,14 @@
+CSF-Embedded:                  io.grpc:grpc-protobuf:1.36.0
+Bundle-Version:                1.36.0
+Bundle-Name:                   CASR - io.grpc:grpc-protobuf:1.36.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.grpc_grpc-protobuf
+-includeresource:              @grpc-protobuf-1.36.0.jar;lib:=true
+-exportcontents:               *; version=1.36.0
+Import-Package: \
+  com.google.common.base;version="[30.0,31)",\
+  com.google.protobuf;version="[3.12,4)",\
+  com.google.rpc;version="[2.0,3)",\
+  io.grpc;version="[1.36,2)",\
+  io.grpc.protobuf.lite;version="[1.36,2)",\
+  javax.annotation
+Fragment-Host:		       com.nokia.as.thirdparty.io.grpc_grpc-api

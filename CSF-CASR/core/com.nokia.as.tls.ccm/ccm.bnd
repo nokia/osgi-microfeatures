@@ -1,0 +1,13 @@
+Bundle-SymbolicName: com.nokia.as.tls.ccm
+Bundle-Version: 1.0.1
+
+Private-Package: \
+	com.sun.crypto.provider,\
+	javax.crypto.spec,\
+	sun.security.ssl
+
+Import-Package: !*
+
+# The following means the CASR bundle installer won't load this bundle at all.
+Bundle-StartLevel: -1
+

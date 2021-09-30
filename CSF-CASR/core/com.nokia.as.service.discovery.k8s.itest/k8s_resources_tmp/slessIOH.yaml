@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sless
+  labels:
+spec:
+  containers:
+  - name: slessioh
+    image: image
+    ports:
+    - name: mux-s-1234b
+      protocol: TCP
+      containerPort: 8080
+status:
+  containerStatuses:
+  - containerID: jahcl18739
+    name: slessioh
+    ready: false
+    restartCount: 0
+    image: image
+    imageID: jahcl18739
+  podIP: 172.2.4.6

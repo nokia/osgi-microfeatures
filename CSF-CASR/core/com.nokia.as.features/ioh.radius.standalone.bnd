@@ -1,0 +1,15 @@
+Bundle-Version: 1.0.3
+Bundle-Name: Standalone Radius IOH Bundles
+dir: bnd/feature/ioh.radius.standalone
+Include-Resource: META-INF/=${dir}
+Require-Bundle: \
+ com.nokia.as.features.common.standalone,\
+ com.nokia.as.features.lib.radius.ioh
+
+Provide-Capability: com.nokia.as.feature;\
+ com.nokia.as.feature="ioh.mux.radius";\
+ alias:List<String>="Radius IOH";\
+ version:Version="1.0.0";\
+ desc="CJDI radius io handler used to handle radius traffic with radius agents";\
+ doc="https://acos.alcatel-lucent.com/wiki/g/jdiameter/DiameterIOH"
+

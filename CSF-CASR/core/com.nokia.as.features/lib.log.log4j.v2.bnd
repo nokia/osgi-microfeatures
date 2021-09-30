@@ -1,0 +1,26 @@
+# Feature used to install log4j2 core bundles
+
+Bundle-Version: 1.0.6
+Bundle-Name: Log4j 2.0 Core API Feature
+Include-Resource: instance/log4j2.xml=bnd/feature/log4j2/log4j2.xml
+X-Unpack: instance/log4j2.xml
+
+# we blacklist pax logging api
+
+Provide-Capability: com.nokia.as.feature;\
+    com.nokia.as.feature="lib.log.log4j";\
+    version:Version="2.0.0";\
+    desc="Log4j 2.0 API";\
+    doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Log4j";\
+    blacklist.identity="(osgi.identity=org.ops4j.pax.logging.pax-logging-api)"
+
+Require-Capability: \
+    osgi.identity;filter:='(osgi.identity=org.apache.logging.log4j.api)',\
+    osgi.identity;filter:='(osgi.identity=org.apache.logging.log4j.core)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.service.logadmin.log4j2)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.osgi.osgilog2log4j)'
+
+
+ 
+
+ 

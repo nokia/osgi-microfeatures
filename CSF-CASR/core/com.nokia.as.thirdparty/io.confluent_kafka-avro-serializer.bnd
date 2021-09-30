@@ -1,0 +1,24 @@
+CSF-Embedded:                  io.confluent:kafka-avro-serializer:5.5.2
+Bundle-Version:                5.5.2
+Bundle-Name:                   CASR - io.confluent:kafka-avro-serializer:5.5.2
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.confluent_kafka-avro-serializer
+-includeresource:              @kafka-avro-serializer-5.5.2.jar;lib:=true
+-exportcontents:               *; version=5.5.2
+Import-Package: \
+  io.confluent.common.config;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry.avro;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry.client;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry.client.rest.exceptions;version="[5.5,6)",\
+  io.confluent.kafka.serializers;version="[5.5,6)",\
+  io.confluent.kafka.serializers.subject;version="[5.5,6)",\
+  kafka.serializer;version="[2.5,3)",\
+  kafka.utils;version="[2.5,3)",\
+  org.apache.avro;version="[1.9,2)",\
+  org.apache.avro.generic;version="[1.9,2)",\
+  org.apache.avro.io;version="[1.9,2)",\
+  org.apache.avro.reflect;version="[1.9,2)",\
+  org.apache.avro.specific;version="[1.9,2)",\
+  org.apache.avro.util;version="[1.9,2)",\
+  org.apache.kafka.common.errors;version="[2.5,3)",\
+  org.apache.kafka.common.serialization;version="[2.5,3)"

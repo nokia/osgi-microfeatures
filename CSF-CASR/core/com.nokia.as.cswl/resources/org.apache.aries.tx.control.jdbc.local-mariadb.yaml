@@ -1,0 +1,10 @@
+org.apache.aries.tx.control.jdbc.local:
+  - url: jdbc:mariadb://localhost:3306/ood
+    user: ood
+    password: ood
+    osgi.jdbc.driver.class: org.mariadb.jdbc.Driver
+    osgi.connection.min: 10
+    osgi.connection.max: 300
+    osgi.idle.timeout: 600000
+    osgi.connection.timeout: 1000
+    com.nokia.as.conf.id: 1

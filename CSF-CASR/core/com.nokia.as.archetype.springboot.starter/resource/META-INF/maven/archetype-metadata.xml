@@ -1,0 +1,43 @@
+<archetype-descriptor
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 
+  http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+  name="casr.spring.starter">
+    
+    <fileSets>
+        <fileSet filtered="true" packaged="true">
+        <directory>src/main/java</directory>
+        <includes>
+            <include>**/*.java</include>
+        </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="false">
+        <directory>src/main/resources</directory>
+        <includes>
+            <include>**/spring.factories</include>
+        </includes>
+        </fileSet>
+    </fileSets>
+
+    <requiredProperties>
+        <requiredProperty key="package">
+            <defaultValue>${artifactId}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="parentGroupId">
+            <defaultValue>${groupId}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="parentArtifactId">
+            <defaultValue>${artifactId}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="parentVersion">
+            <defaultValue>${version}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="features">
+            <defaultValue>${features}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="obr">
+            <defaultValue>latest</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+</archetype-descriptor>

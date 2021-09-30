@@ -1,0 +1,25 @@
+std_files:
+src/ReadMBDAnnotation.txt
+
+post:
+if [ -z "$INSTALL_DIR" ]; then
+        echo "INSTALL_DIR not set" 1>&2
+        exit 1
+fi
+
+mkdir -p $INSTALL_DIR/api/lib
+ln -sf ../../lib/mbd-annotation.jar $INSTALL_DIR/api/lib/mbd-annotation.jar
+
+preun:
+if [ ! "$1" = "0" ]; then
+        # Nothing to do it is an update
+        exit 0
+fi
+
+if [ -z "$INSTALL_DIR" ]; then
+        echo "INSTALL_DIR not set" 1>&2
+        exit 1
+fi
+
+rm -f $INSTALL_DIR/api/lib/mbd-annotation.jar
+

@@ -1,0 +1,9 @@
+CSF-Embedded:                  org.dom4j:dom4j:2.1.3
+Bundle-Version:                2.1.3
+Bundle-Name:                   CASR - org.dom4j:dom4j:2.1.3
+Bundle-SymbolicName:           com.nokia.as.thirdparty.dom4j
+-includeresource:              @dom4j-2.1.3.jar;lib:=true
+-exportcontents:               *; version=2.1.3
+Import-Package:		       !com.sun.msv.datatype; !org.relaxng.datatype; !org.gjt.xpp; !com.sun.msv.datatype.xsd; !org.xmlpull.v1, *
+
+-manifest dom4j.mf

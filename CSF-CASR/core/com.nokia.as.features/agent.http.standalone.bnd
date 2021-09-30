@@ -1,0 +1,18 @@
+Bundle-Version: 1.0.5
+Bundle-Name: Standalone Http Agent Bundles
+dir: bnd/feature/agent.http.standalone
+Include-Resource: META-INF/=${dir}
+Require-Capability: \
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.features.common.standalone)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.features.callout.standalone)',\
+ osgi.identity;filter:='(osgi.identity=com.nokia.as.features.agent.http)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="agent.proxylet.http";\
+  alias:List<String>="Http Agent";\
+  desc="CASR http proxylet agent";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Http+Proxylet+Agent?src=contextnavpagetreemode";\
+  version:Version="1.0.0";\
+  blacklist.identity="(osgi.identity=com.nokia.as.agent.http)"
+  
+

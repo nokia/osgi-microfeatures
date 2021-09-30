@@ -1,0 +1,15 @@
+## Juan's very own itest.bnd, becuase runproperties cannot be overidden apparently!
+
+-include ${workspace}/cnf/itest-common.bnd
+
+-runproperties: \
+  felix.log.level=1,\
+  ds.loglevel=warn,\
+  gosh.args=--noshutdown,\
+  org.apache.felix.dependencymanager.parallel='!com.alcatel.as.service.metering2,*',\
+  conf=conf,\
+  as.config.file.confdir=conf,\
+  log4j.configuration=file:conf/log4j.properties,\
+  INSTALL_DIR=.,\
+  felix.cm.pm=casr  
+	

@@ -1,0 +1,16 @@
+Bundle-Version: 1.0.4
+Bundle-Name: Embedded Felix Runtime With Log4j1 API
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.felix.common)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.common.extra.embedded)'
+
+Provide-Capability: com.nokia.as.feature;\
+	com.nokia.as.feature="runtime.felix.embedded.log4j1";\
+	version:Version="1.0.0";\
+	desc="Embedded Felix runtime using log4j1 api";\
+	doc="https://confluence.app.alcatel-lucent.com/pages/viewpage.action?pageId=172006055&src=contextnavpagetreemode";\
+	blacklist.identity="(osgi.identity=com.alcatel.as.service.bundleinstaller.impl)";\
+	internal=true
+                                
+

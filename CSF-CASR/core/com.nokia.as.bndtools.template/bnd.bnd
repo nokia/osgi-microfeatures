@@ -1,0 +1,53 @@
+Bundle-Version: 1.0.2
+
+Include-Resource: resource
+Provide-Capability: \
+ org.bndtools.template;org.bndtools.template=project;\
+ name="OSGi Service";\
+ category="CASR";\
+ ranking:Double=4;\
+ dir="templates/service";\
+ help="service-help.xml",\
+ org.bndtools.template;org.bndtools.template=project;\
+ name="Dependency Manager";\
+ category="CASR";\
+ ranking:Double=4;\
+ dir="templates/dm-api";\
+ help="dm-api-help.xml",\
+ org.bndtools.template;org.bndtools.template=project;\
+ name="Declarative Service Annotations";\
+ category="CASR";\
+ ranking:Double=2;\
+ dir="templates/ds-annotations";\
+ help="ds-annotations-help.xml",\
+ org.bndtools.template;org.bndtools.template=project;\
+ name="Dependency Manager Lambda";\
+ category="CASR";\
+ ranking:Double=3;\
+ dir="templates/dm-lambda-api";\
+ help="dm-lambda-api-help.xml",\
+ org.bndtools.template;org.bndtools.template=project;\
+ name="Dependency Manager Annotations";\
+ category="CASR";\
+ ranking:Double=2;\
+ dir="templates/dm-annotations";\
+ help="dm-annotations-help.xml",\
+ org.bndtools.template;org.bndtools.template=project;\
+ name="Dependency Manager Integration Test";\
+ category="CASR";\
+ ranking:Double=1;\
+ dir="templates/dm-itest";\
+ help="dm-itest-help.xml",\
+ org.bndtools.template;org.bndtools.template=project;\
+ name="System Test";\
+ category="CASR";\
+ ranking:Double=5;\
+ dir="templates/stest";\
+ help="stest.xml",\
+ org.bndtools.template;org.bndtools.template=project;\
+ name="System Test (No JUnit)";\
+ category="CASR";\
+ ranking:Double=5;\
+ dir="templates/stest-nojunit";\
+ help="stest-nojunit.xml"
+ 

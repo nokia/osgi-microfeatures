@@ -1,0 +1,10 @@
+CSF-Embedded:                  io.etcd:jetcd-core:0.4.1
+Bundle-Version:                0.4.1
+Bundle-Name:                   io.etcd.jetcd-core
+Bundle-SymbolicName:           io.etcd.jetcd-core
+-includeresource:              @jetcd-core-0.4.1.jar;lib:=true
+-exportcontents:               *; version=0.4.1
+SPI-Consumer:                  *
+Import-Package:		       javax.annotation;version="[3.0,4.0)";resolution:=optional, *
+
+-manifest io.etcd.jetcd-core.mf

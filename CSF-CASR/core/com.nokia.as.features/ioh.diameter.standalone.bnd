@@ -1,0 +1,16 @@
+Bundle-Version: 1.0.3
+Bundle-Name: Standalone Diameter IOH Bundles
+dir: bnd/feature/ioh.diameter.standalone
+Include-Resource: META-INF/=${dir}
+
+Require-Bundle: \
+ com.nokia.as.features.common.standalone,\
+ com.nokia.as.features.lib.diameter.ioh
+
+Provide-Capability: com.nokia.as.feature;\
+ com.nokia.as.feature="ioh.mux.diameter";\
+ alias:List<String>="Diameter IOH";\
+ version:Version="1.0.0";\
+ desc="CJDI diameter io handler used to handle diameter traffic with diameter agents";\
+ doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Diameter+IOH?src=contextnavpagetreemode"
+

@@ -1,0 +1,7 @@
+<servers>
+
+  <server ip="0.0.0.0" port="1080" processor="ioh.socks" name="socks">
+
+  </server>
+
+</servers>

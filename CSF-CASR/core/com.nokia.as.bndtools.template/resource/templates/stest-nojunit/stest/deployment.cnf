@@ -1,0 +1,4 @@
+#Add runtime here in this format
+#runtime-name=feature1,feature2,feature3,etc
+#Be sure to terminate the last line with a carriage return
+test-runtime=runtime.felix.log4j1,lib.csf.casr

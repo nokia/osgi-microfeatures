@@ -1,0 +1,3 @@
+ioh-jersey=runtime.felix.log4j1,lib.csf.casr,ioh.server.jersey:1.1.0,stest.http2.bean
+aio-jersey=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http,agent.jaxrs.jersey:1.1.0,stest.http2.bean
+aio-jetty=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http,agent.servlet.jetty:1.1.0,stest.http2.bean

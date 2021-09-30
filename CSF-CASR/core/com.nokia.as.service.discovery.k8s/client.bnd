@@ -1,0 +1,2 @@
+Bundle-Version: 2.0.14
+Export-Package: com.nokia.as.service.discovery.k8s.client

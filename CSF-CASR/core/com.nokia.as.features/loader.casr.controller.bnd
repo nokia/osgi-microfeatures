@@ -1,0 +1,14 @@
+Bundle-Version: 1.0.1
+Bundle-Name: GPTO Controller
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.gpto.common)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.gpto.controller)',\
+	com.nokia.as.feature;filter:='(com.nokia.as.feature=lib.csf.casr)'
+	
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="loader.casr.controller";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+GPTO+Controller";\
+  desc="Controller component for GPTO, the Generic Performance TOol"
+

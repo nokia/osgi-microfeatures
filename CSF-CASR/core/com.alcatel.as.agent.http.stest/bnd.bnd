@@ -1,0 +1,21 @@
+# Build dependencies 
+-buildpath: \
+	${osgi},\
+	${junit},\
+	org.apache.felix.dependencymanager.annotation,\
+	org.apache.felix.dependencymanager,\
+	com.alcatel.as.utils;version=2.5,\
+	com.nokia.as.util.junit4osgi.tester;version=1.0,\
+	com.nokia.as.util.test;version=1.2,\
+	com.alcatel.as.service.api;version=2.1.0,\
+	com.nextenso.proxylet.http;version=1.4,\
+	com.nextenso.proxylet.api;version=1.0,\
+	javax.ws.rs:javax.ws.rs-api;version=2.1,\
+	org.glassfish.jersey.media.jersey-media-multipart;version=2.29,\
+	javax.servlet-api;version=3.1,\
+	com.nokia.as.thirdparty.log4j;version=1.2
+	
+
+-sub: *.bnd
+
+groupId: com.nokia.casr.http

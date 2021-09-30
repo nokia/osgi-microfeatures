@@ -1,0 +1,13 @@
+Bundle-Version: 1.0.2
+Bundle-Name: Aries SpiFly
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=org.apache.aries.spifly.dynamic.bundle)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.aries.spifly";\
+  alias:List<String>="Aries SpiFly";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Aries+SpiFly?src=contextnavpagetreemode";\
+  desc="Aries spifly library for support of ServiceLoader in OSGi"
+

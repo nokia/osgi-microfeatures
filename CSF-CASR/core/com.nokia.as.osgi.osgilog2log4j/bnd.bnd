@@ -1,0 +1,12 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	org.darkphoenixs.log4j;version=1.2,\
+	org.apache.felix.log;version=1.2
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.2
+Private-Package: com.nokia.as.osgi.osgilog2log4j

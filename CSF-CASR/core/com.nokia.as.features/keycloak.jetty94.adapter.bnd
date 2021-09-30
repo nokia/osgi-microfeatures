@@ -1,0 +1,11 @@
+Bundle-Version: 1.0.2
+Bundle-Name: Keycloak Jetty94 / Webagent Adapter feature
+
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=org.keycloak.keycloak-jetty94-adapter)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.security.keycloak.jetty94";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+CASR+Keycloak+Adapter?src=contextnavpagetreemode";\
+  desc="Keycloak integration for the CASR webagent using jetty 9.4 version"

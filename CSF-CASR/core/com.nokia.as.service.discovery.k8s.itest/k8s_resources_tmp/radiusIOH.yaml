@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: radius
+  labels:
+spec:
+  containers:
+  - name: radiusioh
+    image: image
+    ports:
+    - name: mux-r-AAA
+      protocol: TCP
+      containerPort: 25000
+    - name: radius-tcp
+      protocol: TCP
+      containerPort: 8080
+status:
+  containerStatuses:
+  - containerID: fghij67890
+    name: radiusioh
+    ready: false
+    restartCount: 0
+    image: image
+    imageID: fghij67890
+  podIP: 172.7.8.9

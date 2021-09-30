@@ -1,0 +1,16 @@
+# root bnd file
+
+-buildpath: \
+    ${osgi},\
+    ${bndlib}
+
+Bundle-Name: Management Annotations
+Export-Package: com.alcatel_lucent.as.management.annotation.stat,\
+ com.alcatel_lucent.as.management.annotation.command,\
+ com.alcatel_lucent.as.management.annotation.alarm,\
+ com.alcatel_lucent.as.management.bnd
+Private-Package: com.alcatel_lucent.as.management.annotation.config,\
+ com.alcatel_lucent.as.management.bnd
+Import-Package: !aQute.*,*;resolution:=optional
+Bundle-Version: 1.0.8
+

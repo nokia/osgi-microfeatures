@@ -1,0 +1,7 @@
+com.nokia.as.autoconfig.test.bundle.factory.HelloConfiguration:
+  - greeting.message: Bom dia
+    type: Test-1
+    com.nokia.as.conf.id: 1
+  - greeting.message: Namaste
+    type: Test-2
+    com.nokia.as.conf.id: 2

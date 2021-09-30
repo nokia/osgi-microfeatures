@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<style type="text/css">
+body {
+	background: none repeat scroll 0 0 #FFFFFF;
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+	overflow: auto;
+	padding: 0;
+}
+
+table {
+	empty-cells: show;
+	white-space: nowrap;
+	margin-top: 10px;
+	width: 100%;
+	border: 1px solid #797997;
+	border-collapse: separate;
+	clear: both;
+	color: #333333;
+}
+
+tr {
+	color: #333333;
+}
+
+tr.odd {
+	background: none repeat scroll 0 0 #E6E6E6;
+}
+
+td {
+	border-top: 0 solid #EEEEEE;
+	border-right: 1px solid #C0C0C0;
+	color: #000000;
+	padding: 1px 3px;
+	height: 17px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+}
+
+th {
+	background-color: #EEEEEE;
+	border-bottom: 1px solid #797997;
+	border-right: 1px solid #C0C0C0;
+	color: #000066;
+	padding: 1px 3px;
+	text-align: left;
+	white-space: nowrap;
+	height: 18px;
+	vertical-align: bottom;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+}
+
+.noborder {
+	border-right: 0px;
+}
+</style>
+<head>
+<title>Notifications status: $date.toString("yyyy-MM-dd HH:mm:ssZZ")</title>
+</head>
+<body style="margin: 10px;">
+	<p>Dear User,</p>
+	<p>
+		Some of the features reach threshold limit. <b>This may even shutdown the network.</b> Immediate action is required for
+		the following cases:
+	</p>
+	<ul>
+#if(!$expiringLicences.empty)
+		<p />
+		<li>the following features reach threshold limit:</li>
+		<table cellspacing="0" cellpadding="0">
+			<colgroup span="5">
+				<col width="15%" />
+				<col width="40%" />
+				<col width="15%" />
+				<col width="15%" />
+				<col width="15%" />
+			</colgroup>
+			<tr>
+				<th>Feature code</th>
+				<th>Feature name</th>
+				<th>Current usage</th>
+				<th class="noborder">Capacity</th>
+			</tr>
+#foreach($featureInfo in $featureInfos)
+#if($foreach.index % 2 == 0)
+			<tr>
+#else
+			<tr class="odd">
+#end
+				<td>$featureInfo.featureCode</td>
+				<td>$featureInfo.featureName</td>
+				<td>$featureInfo.usedCapacity</td>
+				<td class="noborder">$featureInfo.totalCapacity</td>
+			</tr>
+#end
+		</table>
+#end
+	</ul>
+	<p />
+	<p>Kind regards,</p>
+	<p>Centralized License Server</p>
+</body>
+</html>

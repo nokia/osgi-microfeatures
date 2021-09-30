@@ -1,0 +1,6 @@
+CSF-Embedded:                  io.confluent:common-utils:5.5.2
+Bundle-Version:                5.5.2
+Bundle-Name:                   CASR - io.confluent:common-utils:5.5.2
+Bundle-SymbolicName:           com.nokia.as.thirdparty.common-utils
+-includeresource:              @common-utils-5.5.2.jar;lib:=true
+-exportcontents:               *; version=5.5.2

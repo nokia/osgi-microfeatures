@@ -1,0 +1,6 @@
+Bundle-Version: 1.0.12
+Bundle-Name: CASR Http2 Client Implementation
+		
+Private-Package: com.alcatel.as.http2.client.api.impl,\
+		 com.alcatel.as.http2.client.api.impl.common
+

@@ -1,0 +1,14 @@
+Bundle-Version: 1.0.10
+Private-Package: com.nokia.as.http.swagger
+
+CSF-Embedded:\
+  com.nokia.cswg:swagger-ui-jaxrs:3.0-313
+Include-Resource: \
+	@swagger-ui-jaxrs-3.0-313.jar,\
+	/META-INF/resources/webjars/swagger-ui/=keycloak-logout.js
+	
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+
+fixuptype: ${if;${is;${gestalt;batch};batch};error;warning}
+-fixupmessages: \
+         "Classes found in the wrong dir*";is:=${fixuptype}

@@ -1,0 +1,5 @@
+Bundle-Activator: com.nsn.ood.cls.util.osgi.weaving.Activator
+Bundle-Version: 1.0.0
+-privatepackage: com.nsn.ood.cls.util.osgi.weaving
+Export-Package: com.nsn.ood.cls.util.osgi.transaction
+Bundle-StartLevel: 0

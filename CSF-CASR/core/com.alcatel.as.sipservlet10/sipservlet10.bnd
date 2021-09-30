@@ -1,0 +1,8 @@
+Bundle-Name: SipServlet10
+Bundle-SymbolicName: com.alcatel.as.sipservlet10
+Bundle-Category: sip, api
+X-Obsoletes: SipServlet
+Include-Resource: @sipservlet.jar
+-exportcontents: *;version=1.0
+-classpath: jars/10/sipservlet.jar
+Bundle-Version: 1.0.0

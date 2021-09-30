@@ -1,0 +1,712 @@
+#!/bin/bash
+
+SCRIPTDIR=`which $0`
+SCRIPTDIR=`dirname $SCRIPTDIR`
+SCRIPTDIR=`(unset CDPATH ; cd $SCRIPTDIR ; pwd)`
+
+# display usage and exit
+_usage() {
+    echo "This scripts provides tools to convert jars into bundles."
+    echo "Usage: `basename $0` <commands>"
+    echo "available commands:"
+    echo
+    echo "bnd [-p prefix]"
+    echo "	generated bnd files for all jars found from current dir. You can optionally provide jar names or bundle names."
+    echo "	-p prefix: each bundle symbolic name will be prefixed by the specified prefix (com.nokia.as.thirdparty by default)"
+    echo
+    echo "build [bnd files...]"
+    echo "	convert jars into bundles. By default, all bnd files found from current dir are used. You can specify specific bnd files in parameters"
+    echo
+    echo "print [-b] jar"
+    echo "	print OSGI metadata from a given jar file. -b displays who is using each public package"
+    echo
+    echo "feature -f feature_name [-doc <url>] [-desc description]"
+    echo "	creates a microfeature for all bundles found from the current directory."
+    echo "	-f <feature name>: indicate the feature name (dot separated strings without spaces)"
+    echo "	-doc <feature doc url>: indicates feature doc url (optional)"
+    echo "	-desc <feature description>: indicate feature description (optional)"
+    echo
+    echo "gradle"
+    echo "	generate a gradle project that can be used to convert jars into bundles"
+    echo
+    echo "lb"
+    echo "	list all bundles from current dir"
+    echo
+    echo "lj"
+    echo "	list all jars from current dir"
+    echo
+    echo "find <regex>"
+    echo "	find a resource name from all jars found in the current dir."
+    exit 1
+}
+
+#
+# Invoke bnd jar
+#
+function _bnd() {
+    if [ ! -f $SCRIPTDIR/biz.aQute.bnd*.jar ]; then
+	echo "Missing biz.aQute.bnd jar from $SCRIPTDIR/. Downloading it (the http proxy is assumed to be correctly configured)"
+	wget https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered/biz/aQute/bnd/biz.aQute.bnd/\[RELEASE\]/biz.aQute.bnd-\[RELEASE\].jar -O $SCRIPTDIR/biz.aQute.bnd.jar
+    fi
+    java -jar $SCRIPTDIR/biz.aQute.bnd*.jar $@
+}
+
+#
+# Parse gav.txt file
+# argument1: gav.txt file
+# Parsed gavs are stored in PARSED_GAVS, which is a map of key/values:
+#	Key = artifactid-classifier-version
+#	Value=groupid:artitactid:type:classifier:version
+function _parse_gav() {
+    gavfile=$1
+    declare -g -A PARSED_GAVS
+    
+    if [ ! -f $gavfile ]; then
+	echo "Missing $gavfile file. You must create a gav.txt file using mvn "
+	_usage
+    fi
+    
+    for gav in `cat $gavfile | egrep '.*:.*:.*:.*:.*|.*:.*:.*'`; do
+	# detect if gavs are in the form of artifact:group:type:version:scope
+
+	TYPE=
+	CLASSIFIER=
+	colons=`echo $gav | tr -cd ':' | wc -c`
+	if [ $colons -eq 4 ]; then
+	    # gav is in like wsdl4j:wsdl4j:jar:1.6.2:compile
+	    GROUP=`echo $gav|cut -f1 -d":"`
+	    ARTIFACT=`echo $gav|cut -f2 -d":"`
+	    VERSION=`echo $gav|cut -f4 -d":"`
+	elif [ $colons -eq 2 ]; then
+	    # gav is in like wsdl4j:wsdl4j:1.6.2
+	    echo $gav
+	    GROUP=`echo $gav|cut -f1 -d":"`
+	    ARTIFACT=`echo $gav|cut -f2 -d":"`
+	    VERSION=`echo $gav|cut -f3 -d":"`
+	elif [ $colons -eq 5 ]; then
+	    # gav is in like groupid:artifactid:type:classifier:version:scope, like net.sf.json-lib:json-lib:jar:jdk15:2.4:compile
+	    GROUP=`echo $gav|cut -f1 -d":"`
+	    ARTIFACT=`echo $gav|cut -f2 -d":"`
+	    TYPE=`echo $gav|cut -f3 -d":"`
+	    CLASSIFIER=`echo $gav|cut -f4 -d":"`
+	    VERSION=`echo $gav|cut -f5 -d":"`
+	    VERSION=$VERSION
+	else
+	    echo "wrong gavs format found from $gavfile; Expecting format like groupid:artitactid:version or groupid:artifactid:packaging:version:scope"
+	    exit 1
+	fi
+
+	PARSED_GAVS[$ARTIFACT-$VERSION]="$GROUP:$ARTIFACT:$TYPE:$CLASSIFIER:$VERSION"
+	PARSED_GAVS[$ARTIFACT-$VERSION-$CLASSIFIER]="$GROUP:$ARTIFACT:$TYPE:$CLASSIFIER:$VERSION"
+    done
+}
+
+#
+# function called when the gav is not found from gav.txt; the gav is derived from the jar's pom.xml
+# input: jarfile
+# scope: private
+function _parse_gav_from_pom() {
+    local jarfile=$1
+    jarfile=`realpath $jarfile`
+
+    unzip -l $jarfile |grep "META-INF/maven/.*/pom.xml" > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+	# no pom found
+	return
+    fi
+
+    # obtain artifact name (that is: get "artifact" from "artifact-x.y.z.jar")
+    version="${jarfile##*-}"
+    version="${version%.*}"
+    artifact=`echo $jarfile|sed 's/-[0-9]\+.*//'`
+    artifact=`basename $artifact`
+    tmpdir=$(mktemp -d)
+    trap "rm -rf $tmpdir" EXIT
+    cd $tmpdir
+    jar xf $jarfile META-INF/maven
+    poms=`find . -name pom.properties`
+    pomsCount=`find . -name pom.properties|wc -l`
+    if [ "$poms" != "" ]; then
+        for pom in $poms; do
+            pomdir=`dirname $pom`
+            pomdir=`basename $pomdir`
+            if [[ $artifact == $pomdir ]] || [ $pomsCount == 1 ] ; then
+                g=`cat $pom| grep groupId | sed "s/groupId=\([.]*\)/\1/"`
+                g=`echo $g|tr -d '[:space:]'`
+                a=`cat $pom| grep artifactId | sed "s/artifactId=\([.]*\)/\1/"`
+                a=`echo $a|tr -d '[:space:]'`
+                v=`cat $pom| grep version | sed "s/version=\([.]*\)/\1/"`
+                v=`echo $v|tr -d '[:space:]'`
+		# for now, we don't parse classifier
+		classifier=
+		type=
+		classifier=
+		PARSED_GAVS[$a-$v]="$g:$a:$type:$classifier:$v"
+		PARSED_GAVS[$a-$v-$classifier]="$g:$a:$type:$classifier:$v"
+                cd - > /dev/null
+                return
+            fi
+        done
+    fi
+    cd - > /dev/null
+}
+
+#
+# Return the gav for a given jar file
+# argument1: a jar file, which can have the form of artifactid-version.jar or artifactid-version-classifier.jar
+# output the gav in the form of groupid:artitactid:type:classifier:version
+#
+function _get_gav() {
+    local jarfile=$(basename $1 .jar)    
+    gav=$(echo ${PARSED_GAVS[$jarfile]})
+    if [ "$gav" == "" ]; then
+	# gav not found from gav.txt for this jar, try to derive it from the jar's pom.xml (if any is found)
+	_parse_gav_from_pom $1
+	gav=$(echo ${PARSED_GAVS[$jarfile]})
+    fi
+    echo "$gav"
+}
+
+#
+# parse a jar's manifest header
+# Input: jarfile header
+# output: header value or empty string
+#
+function _parse_manifest_header() {
+    jarfile=$1
+    header=$2
+
+    # Following inspired from https://codereview.stackexchange.com/questions/74087/extracting-the-classpath-entries-from-a-jar-files-manifest
+    unzip -q -c "$jarfile" META-INF/MANIFEST.MF |
+		# remove carriage return
+		sed 's/\r$//g' |
+		# join multi-line headers in one single line
+		awk '/^[^ ]/ { print BUF; BUF=$0 } END     { print BUF } /^ /    { sub(" *", ""); BUF = BUF $0 }' |
+		# only display bsn
+		grep "^${header}: " |
+		# remove header name
+		sed 's/^.*: //' |
+		# remove trailing space
+		xargs
+}
+
+# return list of jars which are not bundles
+function _get_jars() {
+    for jarfile in *.jar
+    do
+	bsn=`unzip -c -q $jarfile META-INF/MANIFEST.MF 2>&1| grep Bundle-SymbolicName > /dev/null 2>&1`
+	if [ $? -ne 0 ]; then
+	    jars="$jars $jarfile"
+	fi
+    done
+    echo $jars
+}
+
+# return list of bundles
+function _get_bundles() {
+    for jarfile in *.jar
+    do
+	bsn=`unzip -c -q $jarfile META-INF/MANIFEST.MF 2>&1| grep Bundle-SymbolicName > /dev/null 2>&1`
+	if [ $? -eq 0 ]; then
+	    bundles="$bundles $jarfile"
+	fi
+    done
+    echo $bundles
+}
+
+# check if a jar contains a META-INF/services/ SPI file
+function _has_spi() {
+    unzip -l $jarfile | grep -i META-INF/services > /dev/null 2>&1
+    echo $?
+}
+
+# correct bsn: replace dash by dot and add CASR prefix
+function _adjust_bsn() {
+    bsn=$1
+    bsnprefix=$2
+    # replace possible dash by dot
+    #bsn=`echo $bsn|sed 's/-/\./g'`
+    # add Bundle-Symbolic Name prefix
+    if [ "$bsnprefix" != "" ]; then
+		bsn=${bsnprefix}.${bsn}
+    fi
+    echo $bsn
+}
+
+# Check if bundle provides a service interface. For reasteasy, we don't do that
+# because resteasy has some resources under META-INF/services which are NOT jdk SPI provider
+function check_spi() {
+    jarfile=$1
+    bndfile=$2
+    
+    echo $jarfile|grep resteasy > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+	hasSPI=`_has_spi`
+	if [ $hasSPI -eq 0 ]; then
+	    printf "%-30s %s\n" "Bundle-StartLevel:" "20" >> $bndfile
+	    printf "%-30s %s\n" "SPI-Provider:" "*" >> $bndfile
+	fi
+
+	# Check if bundle obtains a service using ServiceLoader API
+	unzip -c $jarfile | grep java.util.ServiceLoader > /dev/null 2>&1
+	if [ $? -eq 0 ]; then
+	    printf "%-30s %s\n" "SPI-Consumer:" "*" >> $bndfile
+	fi
+    fi
+}
+
+# function used to create a bnd file from a given jar
+function generate_bnd_from_jar() {
+    jarfile=$1
+    bsnprefix=$2
+    outdir=tmp
+
+    # Detect jar version (for ex: foo-bar.zoo-1.0.0.jar -> we want to extract version "1.0.0")
+    version="${jarfile##*-}"
+    version="${version%.*}"
+    
+    # derive the bsn from the file name
+    bsn=`basename $jarfile .jar|sed 's/-[0-9]\+.*//'`
+    bsn=`_adjust_bsn $bsn $bsnprefix`
+
+    # see if we can find the gav for this jar from gav.txt
+    gav=`_get_gav $jarfile`
+    if [ "$gav" != "" ]; then
+	groupid=`echo $gav|cut -f1 -d":"`
+	artifactid=`echo $gav|cut -f2 -d":"`
+	type=`echo $gav|cut -f3 -d":"`
+	classifier=`echo $gav|cut -f4 -d":"`
+	version=`echo $gav|cut -f5 -d":"`
+	# since we have the gav, then generate the bsn based on the gav, in the form of "groupid_artifactid"
+	bsn=${groupid}_${artifactid}
+	bsn=`_adjust_bsn $bsn $bsnprefix`
+    else
+	(>&2 echo "Can't determine gav for ${jarfile}")
+	exit 1
+    fi
+    
+    # if jar is a bundle, reuse the bsn from it, else generate one using jarfile's gav
+    activator=
+    unzip -c -q $jarfile META-INF/MANIFEST.MF 2>&1| grep Bundle-SymbolicName > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+		bsn=`_parse_manifest_header $jarfile Bundle-SymbolicName`
+		activator=`_parse_manifest_header $jarfile Bundle-Activator`
+		version=`_parse_manifest_header $jarfile Bundle-Version`
+    fi
+
+    bndfile="`basename ${jarfile} .jar`.bnd"
+    if [ -f $bndfile ]; then
+		echo "$bndfile already exist"
+		return
+    fi
+
+    echo "Generating bnd file for $jarfile"
+
+    if [ "$gav" != "" ]; then
+		printf "%-30s %s:%s:%s\n" "CSF-Embedded:" "$groupid" "$artifactid" "$version" >> $bndfile
+    fi
+    printf "%-30s %s\n" "-classpath:" "\${lsa;.;*.jar}" >> $bndfile
+    printf "%-30s %s\n" "-output:" "$outdir/${jarfile}" >> $bndfile
+    printf "%-30s %s\n" "Bundle-Version:" "${version}" >> $bndfile
+    printf "%-30s %s\n" "Bundle-Name:" "CASR - $groupid:$artifactid:$version" >> $bndfile
+    if [ "$bsn" != "" ]; then
+	printf "%-30s %s\n" "Bundle-SymbolicName:" "$bsn" >> $bndfile
+    fi
+    if [ "$activator" != "" ]; then
+		printf "%-30s %s\n" "Bundle-Activator:" "$activator" >> $bndfile
+    fi
+    printf "%-30s %s\n" "-includeresource:"	"@$jarfile;lib:=true" >> $bndfile
+    printf "%-30s %s\n" "-exportcontents:" "*; version=$version" >> $bndfile
+
+    check_spi $jarfile $bndfile 
+}
+
+# function used to create a bnd file from a given bundle
+function generate_bnd_from_bundle() {
+    jarfile=$1
+    bsnprefix=$2
+    outdir=tmp
+
+    # derive the bsn from the file name
+    bsn=`basename $jarfile .jar|sed 's/-[0-9]\+.*//'`
+    bsn=`_adjust_bsn $bsn $bsnprefix`
+
+    # see if we can find the gav for this jar from gav.txt
+    gav=`_get_gav $jarfile`
+    if [ "$gav" != "" ]; then
+	groupid=`echo $gav|cut -f1 -d":"`
+	artifactid=`echo $gav|cut -f2 -d":"`
+	type=`echo $gav|cut -f3 -d":"`
+	classifier=`echo $gav|cut -f4 -d":"`
+	version=`echo $gav|cut -f5 -d":"`
+	# since we have the gav, then generate the bsn based on the gav, in the form of "groupid_artifactid"
+	bsn=${groupid}_${artifactid}
+	bsn=`_adjust_bsn $bsn $bsnprefix`
+    else
+	(>&2 echo "Can't determine gav for ${jarfile}")
+	exit 1
+    fi
+    
+    bndfile="`basename ${jarfile} .jar`.bnd"
+    if [ -f $bndfile ]; then
+		echo "$bndfile already exist"
+		exit 1
+    fi
+
+    echo "Generating bnd file for $jarfile"
+
+    if [ "$gav" != "" ]; then
+		printf "%-30s %s:%s:%s\n" "CSF-Embedded:" "$groupid" "$artifactid" "$version" >> $bndfile
+    fi
+    printf "%-30s %s\n" "-classpath:" "\${lsa;.;*.jar}" >> $bndfile
+    printf "%-30s %s\n" "-output:" "$outdir/${jarfile}" >> $bndfile
+    printf "%-30s %s\n" "Bundle-Version:" "${version}" >> $bndfile
+    printf "%-30s %s\n" "Bundle-Name:" "CASR - $groupid:$artifactid:$version" >> $bndfile
+    if [ "$bsn" != "" ]; then
+	printf "%-30s %s\n" "Bundle-SymbolicName:" "$bsn" >> $bndfile
+    fi
+    printf "%-30s %s\n" "-includeresource:"	"@$jarfile;lib:=true" >> $bndfile
+
+    check_spi $jarfile $bndfile
+
+    # keep all existing headers, except bsn and Bundle-Name
+    java -cp ${SCRIPTDIR}/jartool.jar com.nokia.as.util.jartool.PrintBundleManifest $jarfile "Bundle-SymbolicName" "Bundle-Name" >> $bndfile
+}
+
+# --------------------------------------------------------------------------------------------------------
+
+##
+# Create bnd files for all jars.
+# Usage: create [-p <bsn prefix>] [-j <jarfile>]
+# 
+function _generate_bnd() {
+    jarfiles=
+    bsnprefix=com.nokia.as.thirdparty
+    
+    while  [ ! $# = 0 ]
+    do case $1 in
+       -p)
+	   shift
+ 	   bsnprefix=$1
+ 	   ;;
+       *)
+	   jarfiles=$*
+	   ;;
+       esac
+       shift
+    done
+    
+    # parse gav file, if found
+    _parse_gav gav.txt
+
+    # Generate bnd files
+
+    if [ "$jarfiles" == "" ]; then
+	# Generate bnd files for all jars
+	for jarfile in `_get_jars`; do
+	    generate_bnd_from_jar $jarfile $bsnprefix
+	done
+    else
+	for jarfile in $jarfiles; do
+	    bsn=`unzip -c -q $jarfile META-INF/MANIFEST.MF 2>&1| grep Bundle-SymbolicName > /dev/null 2>&1`
+	    if [ $? -eq 0 ]; then
+		generate_bnd_from_bundle $jarfile $bsnprefix
+	    else
+		generate_bnd_from_jar $jarfile $bsnprefix
+	    fi
+	done
+    fi
+}
+
+##
+# Build OSGi bundles from bnd file(s)
+# Usage: build [bnd files ...]
+# 
+function _print() {
+    bundle=$*
+    _bnd $bundle
+}
+
+##
+# Build OSGi bundles from bnd file(s)
+# Usage: build [bnd files ...]
+# 
+function _build() {
+    bndfiles=$*
+    
+    rm -rf tmp
+    if [ "$bndfiles" == "" ]; then
+	bndfiles=`ls *.bnd`
+    fi
+    echo -n "Generating bundles for "
+    for bndfile in $bndfiles; do echo -n "$bndfile "; done
+    echo
+
+    _bnd $bndfiles
+    \cp tmp/*.jar .
+    _bnd $bndfiles
+    \cp tmp/*.jar .
+    rm -rf tmp
+
+    # Store Import-Package header from all generated bundles into the bnd files
+
+    for i in $bndfiles; do
+	grep "Import-Package" $i> /dev/null 2>&1
+	if [ $? -ne 0 ]; then
+	    jarfile=`basename $i .bnd`.jar
+	    unzip -c -q $jarfile META-INF/MANIFEST.MF 2>&1| grep -w Import-Package > /dev/null 2>&1
+	    if [ $? -eq 0 ]; then
+		java -cp ${SCRIPTDIR}/jartool.jar com.nokia.as.util.jartool.PrintImport $jarfile >> $i
+	    fi
+	fi
+    done
+}
+
+#
+# List all jars
+#
+function _list_jars() {
+    for j in `_get_jars`; do
+	echo $j
+    done
+}
+
+#
+# List all bundles
+#
+function _list_bundles() {
+    for b in `_get_bundles`; do
+	echo $b
+    done
+}
+
+##
+# creates a microfeature for all bundles found from the current dir
+#
+
+function _create_feature() {
+    DOC="https://confluence.app.alcatel-lucent.com/"
+    DESC="feature description"
+    
+    # parse options
+
+    if  [ $# = 0 ]; then
+	_usage
+    fi
+
+    while  [ ! $# = 0 ]
+    do case $1 in
+	   -f)
+	       shift
+	       FEATURE=$1
+	       OUT=$1.bnd
+	       ;;
+	   --doc)
+	       shift
+	       DOC="$1"
+	       ;;
+	   --desc)
+	       shift
+	       DESC="$1"
+	       ;;
+       esac
+       shift
+    done
+
+    [[ -z $FEATURE ]] && echo "missing -f option" && exit 1
+
+    # parse all bsn from all bundles
+    for jarfile in *.jar; do
+	bsn=`unzip -c -q $jarfile META-INF/MANIFEST.MF 2>&1| grep Bundle-SymbolicName > /dev/null 2>&1`
+	if [ $? -eq 0 ]; then
+	    bsn=`_parse_manifest_header $jarfile Bundle-SymbolicName`
+	    version=`_parse_manifest_header $jarfile Bundle-Version`
+	    require_caps="$require_caps,osgi.identity;filter:='(&(osgi.identity=$bsn)(version=$version))'"
+	fi
+    done
+
+    require=${require_caps//,/$'\n'}
+    commas=$(echo "${require_caps}" | awk -F, '{print NF-1}')
+
+    echo "Bundle-Name: $FEATURE CASR Feature" > $OUT
+    echo "Bundle-Version: 1.0.0" >> $OUT
+    echo "Bundle-SymbolicName: $FEATURE" >> $OUT
+    echo "-output: tmp/$FEATURE-1.0.0.jar" >> $OUT
+    echo "Private-Package: " >> $OUT
+    echo >> $OUT
+    echo "Provide-Capability: com.nokia.as.feature;\\" >> $OUT
+    echo "                    com.nokia.as.feature=\"$FEATURE\";\\" >> $OUT
+    echo "                    version:Version=\"1.0.0\";\\" >> $OUT
+    echo "                    desc=\"$DESC\";\\" >> $OUT
+    echo "                    doc=\"$DOC\"" >> $OUT
+    echo >> $OUT
+    echo "Require-Capability: \\" >> $OUT
+    for str in $require; do
+	if [ "$commas" == "1" ]; then
+	    echo "    	$str" >> $OUT
+	else
+	    echo "    	$str,\\" >> $OUT
+	fi
+	commas=`expr $commas - 1`
+    done
+    echo >> $OUT
+    echo "-fixupmessages: \"Classpath is empty.\";\"The JAR is empty:*\"; is:=ignore" >> $OUT
+}
+
+function _find_class() {
+    if  [ $# = 0 ]; then
+	_usage
+    fi
+
+    pattern=`echo $1|sed "s/\.class$//g"|sed "s/\./\//g"`
+    
+    if [ $# -gt 1 ]; then
+	dirs="$@"
+    else   
+        dirs=.
+    fi
+    
+    for i in $dirs; do
+	if [ -f $i ]; then
+	    unzip -l $j 2>/dev/null | grep $pattern
+            if [ "$?" -eq "0" ]; then
+		echo "  (Found from $j)"
+		echo
+            fi
+	else
+            for j in `find $i \( -name "*.jar" -o -name "*.par" -o -name "*.war" -o -name "*.jmod" -not -name .git \)`; do
+		unzip -l $j 2>/dev/null | grep $pattern
+		if [ "$?" -eq "0" ]; then
+                    echo "      (Found from $j)"
+                    echo
+		fi
+            done
+	fi
+    done
+}
+
+#
+# Create a gradle project that can be used to build all converted bundles
+#
+function _create_gradle_project() {
+    if [ -d gav.txt ]; then
+	echo "gav.txt file not found"
+	exit 1
+    fi
+    
+    # parse gav file
+    _parse_gav gav.txt
+
+    # copy gradle template project and initialize it with all bnd file found from current dir
+
+    if [ -d gradle-project ]; then
+	echo "osgi gradle project already exist: `pwd`/gradle-project"
+	exit 1
+    fi
+
+    cp -r $SCRIPTDIR/template-gradle-project gradle-project
+
+    for bndfile in *.bnd; do
+	project=`basename $bndfile .bnd|sed 's/-[0-9]\+.*//'`
+	cp -r gradle-project/project.template gradle-project/$project
+	cp $bndfile gradle-project/$project/bnd.bnd
+
+	echo "include '$project'" >> gradle-project/settings.gradle
+
+	echo "dependencies {" >> gradle-project/${project}/build.gradle
+	for gav in `cat gav.txt | egrep '.*:.*:.*:.*:.*|.*:.*:.*'`; do
+	    colons=`echo $gav | tr -cd ':' | wc -c`
+	    if [ $colons -eq 4 ]; then
+		# gav is in like wsdl4j:wsdl4j:jar:1.6.2:compile
+		GROUP=`echo $gav|cut -f1 -d":"`
+		ARTIFACT=`echo $gav|cut -f2 -d":"`
+		VERSION=`echo $gav|cut -f4 -d":"`
+	    elif [ $colons -eq 2 ]; then
+		# gav is in like wsdl4j:wsdl4j:1.6.2
+		echo $gav
+		GROUP=`echo $gav|cut -f1 -d":"`
+		ARTIFACT=`echo $gav|cut -f2 -d":"`
+		VERSION=`echo $gav|cut -f3 -d":"`
+	    elif [ $colons -eq 5 ]; then
+		# gav is in like groupid:artifactid:type:classifier:version:scope, like net.sf.json-lib:json-lib:jar:jdk15:2.4:compile
+		GROUP=`echo $gav|cut -f1 -d":"`
+		ARTIFACT=`echo $gav|cut -f2 -d":"`
+		VERSION=`echo $gav|cut -f5 -d":"`
+		VERSION=$VERSION
+	    else
+		echo "wrong gavs format found from $gavfile; Expecting format like groupid:artitactid:version or groupid:artifactid:packaging:version:scope"
+		exit 1
+	    fi
+
+	    echo "	compile '$GROUP:$ARTIFACT:$VERSION'" >> gradle-project/$project/build.gradle
+	done
+
+	echo "}" >> gradle-project/$project/build.gradle
+    done
+
+   rm -rf gradle-project/project.template
+}
+
+if [ $# == 0 ]; then
+    _usage
+    exit 1
+fi
+
+while  [ ! $# = 0 ]
+do case $1 in
+       bnd)
+	   shift
+	   _generate_bnd $*
+	   exit 0
+	   ;;
+       
+       build)
+	   shift
+	   _build $*
+	   exit 0
+	   ;;
+       
+       feature)
+	   shift
+	   _create_feature $*
+	   exit 0
+	   ;;
+
+       gradle)
+	   shift
+	   _create_gradle_project $*
+	   exit 0
+	   ;;
+       
+       find)
+	   shift;
+	   _find_class $*
+	   exit 0
+	   ;;
+
+       lj)
+	   shift
+	   _list_jars $*
+	   exit 0
+	   ;;
+       
+       lb)
+	   shift
+	   _list_bundles $*
+	   exit 0
+	   ;;
+       
+       help)
+	   _usage
+	   exit 0
+	   ;;
+       
+       *)
+	   _bnd $*
+	   exit 0
+	   ;;
+   esac
+   shift
+done
+
+

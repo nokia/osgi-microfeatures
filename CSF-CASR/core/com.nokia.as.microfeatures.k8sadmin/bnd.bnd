@@ -1,0 +1,29 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	com.nokia.as.microfeatures.bundlerepository;version=1.0.0,\
+	com.nokia.as.microfeatures.features.core;version=1.0.0,\
+	org.apache.felix.http.servlet-api;version=1.1.2,\
+	org.apache.felix.dependencymanager.annotation;version=4.5,\
+	com.nokia.as.thirdparty.json;version=1.0.1,\
+	osgi.cmpn;version=6.0,\
+	com.nokia.as.k8s.controller-api;version=latest,\
+	com.alcatel.as.service.api;version=latest,\
+	org.apache.felix.dependencymanager,\
+	com.nokia.as.service.discovery.k8s.controller;version=latest,\
+	io.kubernetes.client-java-api;version=12.0,\
+	io.kubernetes.client-java;version=12.0,\
+	com.nokia.as.thirdparty.gson;version=latest,\
+	com.nokia.as.k8s.sless.fwk-api;version=latest,\
+	com.nokia.as.thirdparty.log4j;version=latest,\
+	org.keycloak.keycloak-servlet-adapter-spi;version=4.8,\
+	org.keycloak.keycloak-servlet-filter-adapter;version=4.8,\
+	org.keycloak.keycloak-core;version=4.8,\
+	com.alcatel_lucent.as.management.annotation;version=1.0.3,\
+	org.keycloak.keycloak-adapter-core,\
+	javax.ws.rs:javax.ws.rs-api;version=2.1
+	
+-testpath: \
+	${junit}
+
+-sub: *.bnd

@@ -1,0 +1,8 @@
+Bundle-Version: 1.0.18
+Bundle-Name: FelixLauncher
+Bundle-SymbolicName: com.alcatel.as.felix.launcher
+Private-Package: com.alcatel.as.felix
+#this bundle is NOT used inside OSGi.. 
+#the MANIFEST is only used by the OBR
+Import-Package: !*
+Include-Resource: META-INF=META-INF

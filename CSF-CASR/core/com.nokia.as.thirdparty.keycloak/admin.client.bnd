@@ -1,0 +1,15 @@
+CSF-Embedded: org.keycloak:keycloak-admin-client:${keycloak.version}
+Bundle-Name:  CASR - org.keycloak:keycloak-admin-client:${keycloak.version}
+Bundle-Version: ${keycloak.version}
+-includeresource: @keycloak-admin-client-${keycloak.version}.jar;lib:=true
+
+Export-Package: \
+  org.keycloak.admin.client;version=${keycloak.version},\
+  org.keycloak.admin.client.resource;version=${keycloak.version},\
+  org.keycloak.admin.client.token;version=${keycloak.version},\
+  com.nokia.as.thirdparty.keycloak.admin.client
+
+Import-Package:\
+  org.jboss.resteasy.*; version="[3.9,4)",\
+  *
+

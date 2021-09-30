@@ -1,0 +1,28 @@
+CSF-Artifact: false
+
+-fixupmessages: \
+   "Can't find super class"; is:=ignore,\
+   "io.kubernetes.client-java-api: The baseline version 11.0.1 is higher than the current version 10.0.1 for io.kubernetes.client-java-api in Baseline"; \
+   "io.kubernetes.client-java-extended: The baseline version 11.0.1 is higher than the current version 10.0.1 for io.kubernetes.client-java-extended in Baseline"; \
+   "io.kubernetes.client-java: The baseline version 11.0.1 is higher than the current version 10.0.1 for io.kubernetes.client-java in Baseline"; \
+   "io.kubernetes.client-java: The bundle version \\(11.0.1/11.0.1\\) is too low, must be at least 12.0.1"; is:=ignore,\
+   "io.kubernetes.client-java: The bundle version \\(11.0.1/11.0.1\\) is too low, must be at least 11.0.2";  is:=ignore,\
+   "io.kubernetes.client-java-proto: The baseline version 12.0.1 is higher than the current version 11.0.1 for io.kubernetes.client-java-proto in Baseline"; is:=ignore,\
+   "io.kubernetes.client-java: The baseline version 12.0.1 is higher than the current version 11.0.1.1 for io.kubernetes.client-java in Baseline"; is:=ignore,\
+   "io.kubernetes.client-java-extended: The baseline version 12.0.1 is higher than the current version 11.0.1 for io.kubernetes.client-java-extended in Baseline"; is:=ignore,\
+   "io.kubernetes.client-java-api: The baseline version 12.0.1 is higher than the current version 11.0.1 for io.kubernetes.client-java-api in Baseline"; is:=ignore
+
+-sub: *.bnd
+
+-buildpath:\
+    io.kubernetes:client-java;version=11.0.1,\
+    io.kubernetes:client-java-api;version=11.0.1,\
+    io.kubernetes:client-java-extended;version=11.0.1,\
+    io.kubernetes:client-java-proto;version=11.0.1,\
+    io.gsonfire:gson-fire;version=1.8.5,\
+    io.prometheus:simpleclient_httpserver;version=0.9.0
+
+
+
+    
+

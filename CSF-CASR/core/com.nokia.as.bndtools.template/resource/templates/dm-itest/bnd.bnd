@@ -1,0 +1,23 @@
+# we do not release this project in binary distribution.
+-releaserepo: 
+-baseline: 
+
+# Include common integration test bnd instruction
+-include \${workspace}/cnf/itest.bnd
+
+# Build dependencies 
+-buildpath: \
+	\${itest},\
+	\${osgi},\
+	org.apache.felix.dependencymanager.lambda,\
+	org.apache.felix.dependencymanager,\
+	com.nokia.as.util.test;version=latest
+
+Bundle-Version: 1.0.0
+Private-Package: $basePackageName$
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.junit)',\
+	osgi.identity;filter:='(osgi.identity=org.mockito.mockito-core)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager.lambda)',\
+	osgi.identity;filter:='(&(osgi.identity=com.nokia.as.util.test)(version>=1.1.0.RELEASE))'

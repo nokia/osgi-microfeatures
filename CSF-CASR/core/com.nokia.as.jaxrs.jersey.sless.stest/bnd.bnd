@@ -1,0 +1,25 @@
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	${junit},\
+	org.apache.felix.dependencymanager.annotation,\
+	com.alcatel.as.service.api;version=2.1,\
+	com.nokia.as.util.junit4osgi.tester;version=1.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	javax.ws.rs-api;version=2.0,\
+	org.apache.servicemix.bundles.okhttp;version=3.14,\
+    javax.validation:validation-api;version=1.1.0.Final,\
+    com.nokia.as.k8s.sless-api;version=latest,\
+	com.nokia.as.thirdparty.cloudevents.api;version=latest,\
+	org.glassfish.jersey.core.jersey-client;version=2.29
+		
+
+-testpath: \
+	${junit}
+
+javac.source: 1.8
+javac.target: 1.8
+
+-sub: *.bnd
+
+groupId: com.nokia.casr.http

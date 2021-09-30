@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: diameter
+  labels:
+spec:
+  containers:
+  - name: diameterioh
+    image: image
+    ports:
+    - name: mux-d-Tcp1-
+      protocol: TCP
+      containerPort: 8080
+status:
+  containerStatuses:
+  - containerID: 12345abcde
+    name: diameterioh
+    ready: false
+    restartCount: 0
+    image: image
+    imageID: 12345abcde
+  podIP: 172.4.5.6

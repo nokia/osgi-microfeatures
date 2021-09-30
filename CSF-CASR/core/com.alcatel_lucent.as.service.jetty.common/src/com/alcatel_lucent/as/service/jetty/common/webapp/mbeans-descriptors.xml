@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mbeans-descriptors PUBLIC "-//Apache Software Foundation//DTD Model MBeans Configuration File" "http://jakarta.apache.org/commons/dtds/mbeans-descriptors.dtd">
+<mbeans-descriptors>
+
+	<mbean name="ServletContext" 
+		type="com.alcatel_lucent.as.service.jetty.common.webapp.WebAppContext">
+
+	    <attribute name="displayName"
+			description="Display name"
+			type="string" writeable="false">
+			<descriptor>
+			</descriptor>
+	    </attribute>		
+
+	    <attribute name="contextPath"
+			description="Context path"
+			type="string" writeable="false">
+			<descriptor>
+			</descriptor>
+	    </attribute>		
+
+	    <attribute name="sessionsActive"
+			description="Number of sessions currently active"
+			type="int" writeable="false">
+			<descriptor>
+				<field name="gauge" value="true"/>
+			</descriptor>
+	    </attribute>		
+	    <attribute name="sessionsActiveMax"
+			description="Maximum number of active sessions"
+			type="int" writeable="false">
+			<descriptor>
+				<field name="gauge" value="true"/>
+			</descriptor>
+	    </attribute>		
+
+	    <attribute name="sessionTimeout"
+			description="Session timeout in seconds"
+			type="int" writeable="false">
+			<descriptor>
+				<field name="gauge" value="true"/>
+			</descriptor>
+	    </attribute>		
+
+	</mbean>
+	
+</mbeans-descriptors>

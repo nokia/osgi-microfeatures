@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!DOCTYPE peers PUBLIC "-//NEXTENSO//DTD CONTEXT 1.1//EN" "http://www.nextenso.com/">
+
+<peers>
+
+<!--
+
+<static-peer id="1" nb-retries="2" "retry-timeout="5">
+	<origin-host name="myorigin"/>
+	<host name="myhost" port="3868" secure="no"/>
+</static-peer>
+
+-->
+
+<dynamic-peer id="1">
+	<origin-host name="*"/>
+	<connection secure="optional"/>
+</dynamic-peer>
+
+
+</peers>

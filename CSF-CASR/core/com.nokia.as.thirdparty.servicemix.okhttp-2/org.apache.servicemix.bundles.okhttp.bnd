@@ -1,0 +1,22 @@
+CSF-Embedded:                  org.apache.servicemix.bundles:org.apache.servicemix.bundles.okhttp:2.7.5.1
+Bundle-Version:                2.7.5.1
+Bundle-Name:                   org.apache.servicemix.bundles.okhttp
+Bundle-SymbolicName:           org.apache.servicemix.bundles.okhttp
+-includeresource:              @org.apache.servicemix.bundles.okhttp-2.7.5_1.jar;lib:=true
+-exportcontents:               *; version=2.7.5.1
+#Import-Package:		      org.apache.harmony.xnet.provider.jsse; android.net; android.util; com.android.org.conscrypt; resolution:=optional, okio; version="[1.6, 2)", *
+Import-Package: \
+ org.apache.harmony.xnet.provider.jsse; android.net; android.util; com.android.org.conscrypt;\
+ org.apache.http;\
+ org.apache.http.client;\
+ org.apache.http.client.methods;\
+ org.apache.http.conn;\
+ org.apache.http.conn.params;\
+ org.apache.http.entity;\
+ org.apache.http.message;\
+ org.apache.http.params;\
+ org.apache.http.protocol; resolution:=optional,\
+ okio; version="[1.6, 2)",\
+ *
+
+-manifest org.apache.servicemix.bundles.okhttp.mf

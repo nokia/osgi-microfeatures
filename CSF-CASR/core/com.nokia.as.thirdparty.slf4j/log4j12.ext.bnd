@@ -1,0 +1,22 @@
+#
+# This bundle adds the special MDCFriend class in the com.nokia.as.thirdparty.log4j bundle
+#
+
+# Defines the human readable bundle description
+Bundle-Name: CASR Slf4j-Log4j12 Extension
+
+# This bundle will be attached to slf4j api bundle
+Fragment-Host: com.nokia.as.thirdparty.log4j
+
+# Our bundle version, as well as our exported package version
+version: 1.7.30
+
+# Defines the bundle version
+Bundle-Version: ${version}
+
+# Do not generate an Import-Package header
+Include-Resource: @slf4j-log4j12-${version}.jar!/org/apache/log4j/MDCFriend.class
+
+
+
+

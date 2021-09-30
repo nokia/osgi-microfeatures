@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1588004792364
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.net.sf.ezmorph_ezmorph
+Bundle-SymbolicName: com.nokia.as.thirdparty.net.sf.ezmorph_ezmorph
+Bundle-Version: 1.0.6.1
+Created-By: 1.8.0_251 (Oracle Corporation)
+CSF-Embedded: net.sf.ezmorph:ezmorph:1.0.6
+Export-Package: net.sf.ezmorph;version="1.0.6";uses:="org.apache.commo
+ ns.lang.exception",net.sf.ezmorph.array;version="1.0.6";uses:="net.sf
+ .ezmorph",net.sf.ezmorph.bean;version="1.0.6";uses:="net.sf.ezmorph,o
+ rg.apache.commons.beanutils",net.sf.ezmorph.object;version="1.0.6";us
+ es:="net.sf.ezmorph",net.sf.ezmorph.primitive;version="1.0.6";uses:="
+ net.sf.ezmorph",net.sf.ezmorph.test;version="1.0.6";uses:="junit.fram
+ ework"
+Import-Package: junit.framework,net.sf.ezmorph;version="[1.0,2)",net.s
+ f.ezmorph.array;version="[1.0,2)",net.sf.ezmorph.object;version="[1.0
+ ,2)",net.sf.ezmorph.primitive;version="[1.0,2)",org.apache.commons.be
+ anutils;version="[1.8,2)",org.apache.commons.lang.builder;version="[2
+ .5,3)",org.apache.commons.lang.exception;version="[2.5,3)",org.apache
+ .commons.logging;version="[1.1,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.1))"
+Tool: Bnd-4.3.1.201911131708
+

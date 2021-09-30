@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Root element -->
+<!ELEMENT container (context*, default-context?)>
+
+<!ELEMENT context (criterion)>
+<!ELEMENT default-context EMPTY>
+
+<!ELEMENT criterion (criterion-name, criterion-value, criterion-description?)>
+
+<!ELEMENT criterion-name (#PCDATA)>
+<!ELEMENT criterion-value (ipsrc|clid|or|and|not|criterion-ref|all)>
+<!ELEMENT criterion-description (#PCDATA)>
+
+<!ELEMENT all EMPTY>
+<!ELEMENT ipsrc (#PCDATA)>
+<!ELEMENT clid (#PCDATA)>
+<!ELEMENT and (ipsrc|clid|or|not|criterion-ref)+>
+<!ELEMENT or (ipsrc|clid|and|not|criterion-ref)+>
+<!ELEMENT not (ipsrc|clid|or|and|criterion-ref)>
+<!ELEMENT criterion-ref (#PCDATA)>
+
+<!-- context ID - a unique int among contexts which must be > 0 -->
+<!ATTLIST context 
+		id	CDATA	#REQUIRED
+>
+
+<!ATTLIST default-context
+		id	CDATA	#REQUIRED
+>
+
+
+<!-- Example
+
+<container>
+
+	<context id="1">
+		<criterion>
+			<criterion-name>criterion1</criterion-name>
+			<criterion-value>
+				<ipsrc>127.0.0.*</ipsrc>
+			</criterion-value>
+		</criterion>
+	</context>
+
+	<context id="2">
+		<criterion>
+			<criterion-name>criterion2</criterion-name>
+			<criterion-value>
+				<clid>0660*</clid>
+			</criterion-value>
+		</criterion>
+	</context>
+
+	<default-context id="3"/>
+
+</container>
+
+-->
+

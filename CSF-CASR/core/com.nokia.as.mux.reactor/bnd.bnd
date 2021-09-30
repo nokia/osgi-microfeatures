@@ -1,0 +1,22 @@
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	com.alcatel.as.utils;version=2.17.0,\
+	com.alcatel.as.service.api;version=2.0.0,\
+	com.alcatel.as.service.metering2;version=1.1.0,\
+	com.nextenso.mux;version=3.1,\
+	com.alcatel.as.mux.impl;version=3.1,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	org.apache.felix.dependencymanager;version=4.4,\
+	com.nokia.as.thirdparty.log4j;version=1.2
+	
+Export-Package: com.nokia.as.mux.reactor
+Bundle-Version: 1.5.0
+Import-Package: alcatel.tess.hometop.gateways.reactor;version="[1.15, 2)", *
+
+-fixupmessages: \
+ "Baseline mismatch for package com.nokia.as.mux.reactor, MAJOR change. Current is 1.3.2, repo is 1.3.2, suggest 2.0.0 or"; is:=ignore,\
+ "The bundle version \\(1.3.2/1.4.0\\) is too low, must be at least 2.0.0";is:=ignore,\
+ "Baseline mismatch for package com.nokia.as.mux.reactor, MAJOR change. Current is 1.4.0, repo is 1.3.2, suggest 2.0.0 or";is:=ignore
+
+ 

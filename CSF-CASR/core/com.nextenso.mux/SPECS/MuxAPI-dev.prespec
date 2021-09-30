@@ -1,0 +1,5 @@
+obsoletes:
+MuxAPI-test
+
+std_files:
+source

@@ -1,0 +1,1 @@
+sless=runtime.felix.log4j1,agent.sless.http:1.1.0,agent.sless.kafka,ioh.mux.sless,lib.k8s.resourcesvc.mock,lib.security.keycloak.jaxrs,stest.sless.jaxrs.test

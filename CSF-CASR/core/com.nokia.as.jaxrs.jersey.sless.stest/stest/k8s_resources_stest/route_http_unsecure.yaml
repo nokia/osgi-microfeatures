@@ -1,0 +1,11 @@
+apiVersion: "nokia.com/v1beta1"
+kind: CasrRoute
+metadata:
+    name: routeHTTPunsecure
+spec:
+  function:
+    name: kafka-write
+  route:
+    path: /unsecure
+    type: http
+

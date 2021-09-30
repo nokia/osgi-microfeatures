@@ -1,0 +1,4 @@
+Bundle-Version: 3.2.4
+Export-Package: \
+	com.nokia.licensing.interfaces,\
+	com.nokia.licensing.dtos

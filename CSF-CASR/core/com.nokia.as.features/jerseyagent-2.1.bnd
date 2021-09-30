@@ -1,0 +1,20 @@
+Bundle-Version: 1.0.0
+Bundle-Name: JAX-RS Agent feature (JAX-RS 2.1 API)
+
+Require-Capability: \
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.features.lib.jaxrs-2.1.jersey-min)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.jaxrs.jersey.agent)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.features.common.standalone)'
+   
+Require-Bundle: \
+ com.nokia.as.features.callout.standalone
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="agent.jaxrs.jersey";\
+  version:Version="1.1.0";\
+  desc="CASR lightweight jersey agent (JAX-RS 2.1)";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+JAX-RS+Agent";\
+  blacklist.identity="(|(osgi.identity=com.nokia.as.thirdparty.jaxrs)\
+                        (&(osgi.identity=com.nokia.as.jaxrs.jersey))\
+                        (&(osgi.identity=com.nokia.as.jaxrs.jersey.processor))\
+                        (&(osgi.identity=com.nokia.as.thirdparty.jersey.all)))"

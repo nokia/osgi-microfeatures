@@ -1,0 +1,12 @@
+CSF-Artifact: false
+-sub: *.bnd
+-fixupmessages: \
+   "Can't find super class"; is:=ignore,\
+   "com.nokia.as.thirdparty.com.squareup.okhttp3_okhttp: The baseline version 4.2.2 is higher than the current version 3.14.9 for com.nokia.as.thirdparty.com.squareup.okhttp3_okhttp in Baseline"; is:=ignore,\
+   "com.nokia.as.thirdparty.com.squareup.okhttp3_okhttp: The baseline version 4.9.0 is higher than the current version 3.14.9 for com.nokia.as.thirdparty.com.squareup.okhttp3_okhttp in Baseline"; is:=ignore,\
+   "com.nokia.as.thirdparty.com.squareup.okhttp3_okhttp: The baseline version 4.9.1 is higher than the current version 3.14.9 for com.nokia.as.thirdparty.com.squareup.okhttp3_okhttp in Baseline"; is:=ignore
+
+-buildpath:\
+    com.squareup.okhttp3:okhttp;version=3.14.9,\
+    com.squareup.okhttp3:okhttp-urlconnection;version=3.14.9,\
+    com.squareup.okhttp3:logging-interceptor;version=3.14.9

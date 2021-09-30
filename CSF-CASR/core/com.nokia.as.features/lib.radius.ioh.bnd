@@ -1,0 +1,7 @@
+Bundle-Version: 1.0.1
+Bundle-Name: Radius IOH Lib Feature
+Bundle-Category: assembly, internal
+X-Component-Category: io
+Require-Bundle: \
+ com.nokia.as.features.common,\
+ com.alcatel.as.radius.ioh

@@ -1,0 +1,9 @@
+CSF-Embedded:                  io.kubernetes:client-java-proto:8.0.0
+Bundle-Version:                8.0.0.1
+Bundle-Name:                   CASR - io.kubernetes:client-java-proto:8.0.0
+Bundle-SymbolicName:           io.kubernetes.client-java-proto
+Fragment-Host:                 io.kubernetes.client-java-api;bundle-version="[8.0.0,9.0.0)"
+-includeresource:              @client-java-proto-8.0.0.jar;lib:=true
+-exportcontents:               *; version=8.0.0
+Import-Package: \
+  com.google.protobuf;version="[3.4,4)"

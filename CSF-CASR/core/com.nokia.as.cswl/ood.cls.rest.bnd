@@ -1,0 +1,20 @@
+-privatepackage: \
+	com.nsn.ood.cls.rest,\
+	com.nsn.ood.cls.rest.convert,\
+	com.nsn.ood.cls.rest.filter,\
+	com.nsn.ood.cls.rest.filter.certificates,\
+	com.nsn.ood.cls.rest.filter.certificates.checkers,\
+	com.nsn.ood.cls.rest.filter.certificates.util,\
+	com.nsn.ood.cls.rest.query,\
+	com.nsn.ood.cls.rest.resource,\
+	com.nsn.ood.cls.rest.resource.internal
+Export-Package: com.nsn.ood.cls.rest.exception
+
+Include-Resource: resources/ood-cls-rest
+Bundle-Version: 1.1.7
+
+Import-Package: org.aspectj.runtime,\
+				org.aspectj.runtime.reflect,\
+				org.aspectj.runtime.internal,\
+				org.aspectj.lang,\
+				*

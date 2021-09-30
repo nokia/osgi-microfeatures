@@ -1,0 +1,26 @@
+summary: CalloutAgent (aka Super Agent)
+
+std_files:
+monconf/Application.calloutAgent
+monconf/callout.jvmopts
+monconf/callout.osgi.felix
+monconf/callout.user.specific.classpath
+monconf/callout.user.specific.param
+monconf/DbaseIds.calloutAgent
+monconf/Properties.calloutAgent
+scripts/migration/newbase/callout.upgrade
+
+pre:
+
+UPGRADE_DIR=$INSTALL_DIR/var/tmp/propupgrade
+
+if [ -f $INSTALL_DIR/monconf/callout.jvmopts ]; then
+    mkdir -p $UPGRADE_DIR
+    cp -f $INSTALL_DIR/monconf/callout.jvmopts $UPGRADE_DIR/
+fi
+
+if [ -f $INSTALL_DIR/monconf/callout.osgi ]; then
+    mkdir -p $UPGRADE_DIR
+    cp -f $INSTALL_DIR/monconf/callout.osgi $UPGRADE_DIR/
+fi
+

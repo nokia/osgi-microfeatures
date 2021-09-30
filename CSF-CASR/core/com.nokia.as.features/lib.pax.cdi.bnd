@@ -1,0 +1,21 @@
+Bundle-Version: 1.0.0
+Bundle-Name: Pax CDI Feature
+
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=javax.annotation-api)',\
+  osgi.identity;filter:='(osgi.identity=jboss-classfilewriter)',\
+  osgi.identity;filter:='(osgi.identity=org.apache.xbean.asm6-shaded)',\
+  osgi.identity;filter:='(osgi.identity=org.apache.xbean.bundleutils)',\
+  osgi.identity;filter:='(osgi.identity=org.apache.xbean.finder-shaded)',\
+  osgi.identity;filter:='(osgi.identity=org.jboss.weld.osgi-bundle)',\
+  osgi.identity;filter:='(osgi.identity=org.ops4j.pax.cdi.api)',\
+  osgi.identity;filter:='(osgi.identity=org.ops4j.pax.cdi.extender)',\
+  osgi.identity;filter:='(osgi.identity=org.ops4j.pax.cdi.extension)',\
+  osgi.identity;filter:='(osgi.identity=org.ops4j.pax.cdi.spi)',\
+  osgi.identity;filter:='(osgi.identity=org.ops4j.pax.cdi.weld)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.pax.cdi";\
+  version:Version="1.0.0";\
+  doc="https://www.google.com/url?q=https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature%2B-%2BCDI&sa=D&source=hangouts&ust=1533740170382000&usg=AFQjCNEQFzo9f2Vl8ym5WG7LYrJnId0ZYA";\
+  desc="Pax CDI"

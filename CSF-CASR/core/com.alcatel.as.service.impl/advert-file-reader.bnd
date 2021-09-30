@@ -1,0 +1,7 @@
+Bundle-Name: Advertisement File Reader
+Bundle-Category: core, internal
+Private-Package: com.alcatel.as.service.discovery.impl.filereader
+Import-Package: *
+-dsannotations: *
+Include-Resource: META-INF/fileAdvertReader.xml=monconf/fileAdvertReader.xml
+Bundle-Version: 1.0.3

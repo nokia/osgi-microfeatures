@@ -1,0 +1,26 @@
+-buildpath: \
+	org.apache.felix.framework;version=7.0.0,\
+	org.apache.felix.configadmin;version=1.9,\
+	org.apache.aries.util;version=1.1.3,\
+	osgi.annotation;version=7.0
+
+-testpath: \
+	${junit},\
+	include-libs/osgi.demo.helloservice.jar;version=file,\
+	resources;version=file
+
+javac.source: 1.8
+javac.target: 1.8
+
+Bundle-Version: 2.1.15
+
+Private-Package: com.nokia.as.osgi.launcher.impl
+Export-Package: com.nokia.as.osgi.launcher
+Import-Package: !org.eclipse.osgi.framework.internal.core, *
+
+Include-Resource: \
+    META-INF=resources/META-INF,\
+    META-INF/startlevel.txt=${workspace}/com.alcatel.as.felix.launcher/META-INF/startlevel.txt,\
+    @org.apache.felix.framework-7.0.0.jar,\
+    @org.apache.felix.configadmin-1.9.18.jar,\
+    @org.apache.aries.util-1.1.3.jar

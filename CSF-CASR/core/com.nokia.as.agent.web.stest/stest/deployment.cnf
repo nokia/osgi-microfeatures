@@ -1,0 +1,2 @@
+jaxrs20=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http,agent.servlet.jetty:1.0.0,stest.web.test
+jaxrs21=runtime.felix.log4j1,lib.csf.casr,ioh.mux.http,agent.servlet.jetty:1.1.0,stest.web.test

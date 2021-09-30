@@ -1,0 +1,13 @@
+Bundle-Name: ioh.mux.sless CASR Feature
+Bundle-Version: 1.0.0
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="ioh.mux.sless";\
+                    version:Version="1.0.0";\
+                    desc="CASR Serverless Controller IOH";\
+                    doc="https://confluence.app.alcatel-lucent.com/display/plateng/CASR+-+MicroFeatures";internal=true
+
+Require-Capability: \
+    	osgi.identity;filter:='(osgi.identity=com.nokia.as.k8s.sless-controller-impl)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.common)'

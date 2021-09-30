@@ -1,0 +1,4 @@
+Bundle-Version: 1.0.0
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.cxf.test";category:List<String>="test"; internal=true
+Require-Capability: osgi.identity;filter:='(osgi.identity=com.nokia.as.cxf.stest.test)'
+Private-Package:

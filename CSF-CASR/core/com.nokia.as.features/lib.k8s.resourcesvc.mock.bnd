@@ -1,0 +1,13 @@
+Bundle-Version: 1.0.2
+Bundle-Name: lib.k8s.resourcesvc.mock
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.k8s.controller-mock)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.k8s.yaml.ext)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.lib.http.okhttp2)'
+		
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.k8s.resourcesvc.mock";\
+  version:Version="1.0.0";\
+  internal=true;\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Kubernetes+Controller";\
+  desc="Mock Kubernetes Custom Resource API"

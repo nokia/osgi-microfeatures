@@ -1,0 +1,11 @@
+Bundle-Version: 1.0.2
+Bundle-Name: Callout Bundles 
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="Callout Bundles"; internal=true
+Require-Bundle: \
+ com.nokia.as.features.common,\
+ com.alcatel.as.calloutagent.callout,\
+ com.alcatel.as.service.impl.coordinator,\
+ com.alcatel.as.service.impl.mbeanparser,\
+ DNSClient,\
+ com.nokia.as.thirdparty.dnsjava
+

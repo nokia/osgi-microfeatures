@@ -1,0 +1,18 @@
+-buildpath: \
+	osgi.annotation; version=6.0.1,\
+	osgi.core; version=6.0,\
+	osgi.cmpn; version=6.0,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.nokia.as.thirdparty.log4j;version=latest,\
+	org.apache.felix.dependencymanager.annotation;version=4.2
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.1
+Private-Package: com.nokia.as.service.jarinstaller,\
+	com.nokia.as.service.urlinstaller
+
+Include-Resource:  \
+	META-INF/bundleURLs.txt=META-INF/bundleURLs.txt
+ 

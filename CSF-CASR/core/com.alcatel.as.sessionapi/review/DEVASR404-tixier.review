@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Review id="DEVASR404">
+  <ReviewIssue id="GL2D0TIV">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-09 :: 15:44:20:215 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 10:55:02:866 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>tixier</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="9">com/alcatel/as/session/distributed/transaction/BroadcastTransaction.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>BroadcastTransaction: How to use this transaction?</Summary>
+    <Description>il manque de la doc pour utiliser broadcast tx</Description>
+    <Annotation>to be reworked</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GL2D4O1C">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-09 :: 15:47:19:728 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-11 :: 17:46:08:366 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>tixier</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="36">com/alcatel/as/session/distributed/transaction/RegexBroadcasterTransaction.java</File>
+    <Type>item.type.label.other</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>RegexBroadcasterTransaction: no code in API. why ?</Summary>
+    <Description></Description>
+    <Annotation>@internal to be reworked</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GL2D61LH">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-09 :: 15:48:23:957 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 10:54:54:614 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>tixier</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="42">com/alcatel/as/session/distributed/transaction/ScriptBroadcasterTransaction.java</File>
+    <Type>item.type.label.other</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>ScriptBroadcasterTransaction: no code in API. Why ?</Summary>
+    <Description></Description>
+    <Annotation>@internal to be reworked</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GL2D6X1O">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-09 :: 15:49:04:716 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 13:26:06:440 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>tixier</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="20">com/alcatel/as/session/distributed/transaction/BroadcastTransaction.java</File>
+    <Type>item.type.label.other</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>BroadcastTransaction: does "getdesinationGroup" work?</Summary>
+    <Description></Description>
+    <Annotation>not really a transaction</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.invalidWontfix</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GL2D8UEB">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-09 :: 15:50:34:595 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 10:54:44:085 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>tixier</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="20">com/alcatel/as/session/distributed/transaction/BroadcastTransaction.java</File>
+    <Type>item.type.label.other</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>BroadcastTransaction: naming?</Summary>
+    <Description>le nommage n'est pas ideal (en plus apres on fait Broadcaster transaction)</Description>
+    <Annotation>@internal to be reworked</Annotation>
+    <Revision></Revision>
+    <Resolution>item.resolution.label.validFixlater</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GL2DBGVA">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-09 :: 15:52:37:030 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 10:54:20:375 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>tixier</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="171">com/alcatel/as/session/distributed/event/SessionEventFilter.java</File>
+    <Type>item.type.label.other</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>SessionEventFilter: What is GROUP_EVENTS ?</Summary>
+    <Description></Description>
+    <Annotation>remove GROUP_EVENTS - use only "destinationGroup"</Annotation>
+    <Revision>GROUP_EVENTS is removed</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GL2DELCH">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-09 :: 15:55:02:801 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-03-14 :: 10:53:51:857 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>tixier</ReviewerId>
+    <AssignedTo>millon</AssignedTo>
+    <File line="303">com/alcatel/as/session/distributed/event/SessionEventFilter.java</File>
+    <Type>item.label.unset</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>SessionEventFilter: listenedGroup</Summary>
+    <Description>what is listenedGroup vs distinationGroup ?</Description>
+    <Annotation>use destination group</Annotation>
+    <Revision>use the word destinationGroup</Revision>
+    <Resolution>item.resolution.label.validNeedsfixing</Resolution>
+    <Status>item.status.label.closed</Status>
+  </ReviewIssue>
+</Review>

@@ -1,0 +1,18 @@
+{
+	"$schema":"http://json-schema.org/draft-03/schema",
+	"type":"object",
+	"javaType":"com.nsn.ood.cls.model.gen.errors.ETagError",
+	"required":true,
+	"properties":{
+		"providedETag":{
+			"type":"string",
+			"required":true
+		},
+		"currentETag":{
+			"type":"string",
+			"required":true
+		}
+
+	},
+	"additionalProperties":false
+}

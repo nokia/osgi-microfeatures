@@ -1,0 +1,33 @@
+CSF-Embedded:                  io.confluent:kafka-schema-serializer:5.5.2
+Bundle-Version:                5.5.2
+Bundle-Name:                   CASR - io.confluent:kafka-schema-serializer:5.5.2
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.confluent_kafka-schema-serializer
+-includeresource:              @kafka-schema-serializer-5.5.2.jar;lib:=true
+-exportcontents:               *; version=5.5.2
+Import-Package: \
+  com.fasterxml.jackson.core.type;version="[2.10,3)",\
+  com.fasterxml.jackson.databind;version="[2.10,3)",\
+  io.confluent.common.config;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry.avro;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry.client;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry.client.rest.entities;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry.client.rest.exceptions;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry.testutil;version="[5.5,6)",\
+  io.confluent.kafka.schemaregistry.utils;version="[5.5,6)",\
+  io.confluent.kafka.serializers;version="[5.5,6)",\
+  io.confluent.kafka.serializers.subject;version="[5.5,6)",\
+  io.confluent.kafka.serializers.subject.strategy;version="[5.5,6)",\
+  kafka.common;version="[2.5,3)",\
+  org.apache.avro;version="[1.9,2)",\
+  org.apache.avro.generic;version="[1.9,2)",\
+  org.apache.kafka.clients.consumer;version="[2.5,3)",\
+  org.apache.kafka.clients.producer;version="[2.5,3)",\
+  org.apache.kafka.common;version="[2.5,3)",\
+  org.apache.kafka.common.cache;version="[2.5,3)",\
+  org.apache.kafka.common.config;version="[2.5,3)",\
+  org.apache.kafka.common.errors;version="[2.5,3)",\
+  org.apache.kafka.common.record;version="[2.5,3)",\
+  org.apache.kafka.common.serialization;version="[2.5,3)"
+
+Fragment-Host: com.nokia.as.thirdparty.io.confluent_kafka-avro-serializer; bundle-version="[5.5.2, 6)"

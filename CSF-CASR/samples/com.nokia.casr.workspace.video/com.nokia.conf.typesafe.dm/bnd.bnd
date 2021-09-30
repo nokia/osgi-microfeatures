@@ -1,0 +1,11 @@
+-buildpath: \
+	osgi.annotation,\
+	osgi.core,\
+	osgi.cmpn,\
+	org.apache.felix.dependencymanager.annotation
+
+-testpath: \
+	${junit}
+
+Bundle-Version: 1.0.0.${tstamp}
+Private-Package: com.nokia.conf.typesafe.dm

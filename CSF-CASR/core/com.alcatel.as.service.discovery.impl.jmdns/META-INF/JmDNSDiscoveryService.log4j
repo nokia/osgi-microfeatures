@@ -1,0 +1,7 @@
+##################################
+# JmDNS Discovery service Logger #
+##################################
+
+#log4j.logger.as.service.discovery.jmdns=DEBUG
+#log4j.logger.javax.jmdns.impl.JmDNSImpl=DEBUG
+

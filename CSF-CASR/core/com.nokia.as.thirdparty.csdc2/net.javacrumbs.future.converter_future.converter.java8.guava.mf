@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1587977934406
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.net.javacrumbs.future.converter_f
+ uture.converter.java8.guava
+Bundle-SymbolicName: com.nokia.as.thirdparty.net.javacrumbs.future.con
+ verter_future.converter.java8.guava
+Bundle-Version: 1.2.0
+Created-By: 1.8.0_251 (Oracle Corporation)
+CSF-Embedded: net.javacrumbs.future-converter:future-converter-java8-g
+ uava:1.2.0
+Export-Package: net.javacrumbs.futureconverter.java8guava;version="1.2
+ .0";uses:="com.google.common.util.concurrent"
+Import-Package: com.google.common.util.concurrent;version="[26.0,27)",
+ net.javacrumbs.futureconverter.common.internal;version="[1.2,2)",net.
+ javacrumbs.futureconverter.guavacommon;version="[1.2,2)",net.javacrum
+ bs.futureconverter.java8common;version="[1.2,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.3.1.201911131708
+

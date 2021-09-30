@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<advertisements>
+  <advertisement ip="127.0.0.1" port="25000">
+    <property name="module.id">286</property>
+    <property name="component.name">HttpIOH</property>
+    <property name="mux.factory.remote">ioh</property>
+    <property name="group.target">*</property>
+    <property name="group.name">FE</property>
+    <property name="instance.name">Tcp</property>
+  </advertisement>
+  <advertisement ip="127.0.0.1" port="25001">
+    <property name="module.id">286</property>
+    <property name="component.name">HttpIOH</property>
+    <property name="mux.factory.remote">ioh</property>
+    <property name="group.target">*</property>
+    <property name="group.name">FE</property>
+    <property name="instance.name">Tcp</property>
+  </advertisement>
+    <advertisement ip="127.0.0.1" port="26000">
+    <property name="module.id">287</property>
+    <property name="component.name">genericIOH</property>
+    <property name="mux.factory.remote">ioh</property>
+    <property name="group.target">*</property>
+    <property name="group.name">FE</property>
+    <property name="instance.name">Tcp</property>
+  </advertisement>
+  
+    <advertisement ip="127.0.0.1" port="26001">
+    <property name="module.id">287</property>
+    <property name="component.name">genericIOH</property>
+    <property name="mux.factory.remote">ioh</property>
+    <property name="group.target">*</property>
+    <property name="group.name">FE</property>
+    <property name="instance.name">Tcp</property>
+  </advertisement>
+  
+  <!--advertisement ip="127.0.0.1" port="12100">
+    <property name="module.id">289</property>
+    <property name="component.name">DiameterIOH</property>
+    <property name="mux.factory.remote">ioh</property>
+    <property name="group.target">*</property>
+    <property name="group.name">FE</property>
+    <property name="instance.name">Tcp</property>
+  </advertisement-->
+  <!--advertisement ip="127.0.0.1" port="13100">
+    <property name="module.id">296</property>
+    <property name="component.name">RadiusOH</property>
+    <property name="mux.factory.remote">ioh</property>
+    <property name="group.target">*</property>
+    <property name="group.name">FE</property>
+    <property name="instance.name">Tcp</property>
+  </advertisement-->
+</advertisements>

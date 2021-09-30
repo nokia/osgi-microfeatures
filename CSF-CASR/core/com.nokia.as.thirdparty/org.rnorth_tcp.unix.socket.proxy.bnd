@@ -1,0 +1,8 @@
+CSF-Embedded:                  org.rnorth:tcp-unix-socket-proxy:1.0.2
+Bundle-Version:                1.0.2
+Bundle-Name:                   com.nokia.as.thirdparty.org.rnorth_tcp.unix.socket.proxy
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.rnorth_tcp.unix.socket.proxy
+-includeresource:              @tcp-unix-socket-proxy-1.0.2.jar;lib:=true
+-exportcontents:               *; version=1.0.2
+
+-manifest org.rnorth_tcp.unix.socket.proxy.mf

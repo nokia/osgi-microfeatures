@@ -1,0 +1,89 @@
+{
+	"$schema":"http://json-schema.org/draft-03/schema",
+	"type":"object",
+	"javaType":"com.nsn.ood.cls.model.gen.features.Features",
+	"description":"Feature reservation content type schema",
+	"properties":{
+		"features":{
+			"type":"array",
+			"required":false,
+			"default": null,
+			"description":"List of features",
+			"items":{
+				"type":"object",
+				"javaType":"com.nsn.ood.cls.model.gen.features.Feature",
+				"extends":{
+					"$ref":"resource.json"
+				},
+				"required":false,
+				"properties":{
+					"featureCode":{
+						"type":"integer",
+						"required":true,
+						"description":"Unique licensed Feature Code"
+					},
+					"type":{
+						"type":"string",
+						"required":false,
+						"enum":[
+							"on_off",
+							"capacity"
+						]
+						
+					},
+					"capacity":{
+						"type":"integer",
+						"required":false,
+						"description":"Feature capacity"
+					},
+					"allocations":{
+						"type":"array",
+						"required":false,
+						"description":"Feature reservation from pool license(s)",
+						"items":{
+							"type":"object",
+							"javaType":"com.nsn.ood.cls.model.gen.features.Allocation",
+							"required":true,
+							"properties":{
+								"capacity":{
+									"type":"integer",
+									"required":false,
+									"description":"Capacity allocation from single capacity-based pool license"
+								},
+								"usage":{
+									"type":"string",
+									"required":true,
+									"enum":[
+										"pool",
+										"floating_pool"
+									]
+									
+								},
+								"poolLicense":{
+									"type":"string",
+									"format":"uri",
+									"required":true,
+									"description":"Parent pool License Key reference by serialnumber"
+								},
+								"endDate":{
+									"type":"string",
+									"format":"date-time",
+									"required":false,
+									"description":"Term License Key expiration date"
+								}
+								
+							},
+							"additionalProperties":false
+						}
+						
+					}
+					
+				},
+				"additionalProperties":false
+			}
+			
+		}
+		
+	},
+	"additionalProperties":false
+}

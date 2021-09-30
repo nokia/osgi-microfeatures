@@ -1,0 +1,167 @@
+# A short definition of the parameters that can be used follows, for a full documentation  check the  Sun documentation 
+#
+#
+# JSDK 1.4.2
+#
+# -XX:+UseParNewGC - This flag turns on parallel garbage collection in the young generation. It can be enabled together with the 
+#   CMS collector in the old generation. Available in J2SE1.4.1 on an experimental basis.
+#
+# -XX:ParallelGCThreads=1 - This switch sets the number of parallel GC threads that the JVM must run for performing garbage collection 
+#   in the young generation. The default value of n is equal to the number of CPUs on the system. However, it has been observed that 
+#   tweaking this number may improve performance in some cases. An example might be that of multiple instances of JVM running on a 
+#   single multi-CPU system. In this case, the number of parallel GC threads for each JVM may need to be set to less than the 
+#   number of CPUs by using this switch. Available from J2SE1.4.1
+#
+# -XX:MaxNewSize=12m -XX:NewSize=12m - The parameters NewSize and MaxNewSize bound the young generation size from below and above. 
+#   Setting these equal to one another fixes the young generation, just as setting -Xms and -Xmx equal fixes the total heap size. 
+#   This is useful for tuning the young generation at a finer granularity than the integral multiples allowed by NewRatio.
+#
+# -XX:SurvivorRatio=128 - XX:SurvivorRatio to a very high value, say 128. This is because, in this case, the survivor spaces are not 
+#   used, and objects are promoted directly from Eden to the old generation during every GC cycle. By setting a high survivor ratio, 
+#   most of the the young generation heap is allocated to "Eden". Available from J2SE1.3.
+#
+# -XX:MaxTenuringThreshold=y This switch determines how much the objects may age in the young generation before getting promoted to the 
+#   older generation. The default value is 31. For a big enough young generation and "survivor space", the long-lived objects may be 
+#   copied up to 31 times between the survivor spaces before they are finally promoted to the old generation. For most Telco applications, 
+#   it has been found that 80-90% of the objects that are created per call or session die almost immediately after they are created, 
+#   and the rest (10-20%) survive the entire duration of that call. Setting -XX:MaxTenuringThreshold=0 promotes all objects allocated 
+#   by the application in the young generation, which survive a single GC cycle, directly to the old generation without copying them 
+#   around between the survivor spaces in the young generation. This setting, when used with CMS collector in the old generation helps 
+#   in two ways.
+#   * The young generation GC does not have to waste its time copying the 10-20% long lived objects multiple times between the survivor 
+#     spaces, only to finally promote them to the old generation.
+#   * Additionally, most of the collection and cleaning work of these objects can be done "concurrently" in the old generation. 
+#     This behavior leads to additional reduction in GC sequential overhead.
+#
+#   When this switch is used, it is advisable to set the -XX:SurvivorRatio to a very high value, say 128. This is because, in this case, 
+#   the survivor spaces are not used, and objects are promoted directly from Eden to the old generation during every GC cycle. 
+#   By setting a high survivor ratio, most of the the young generation heap is allocated to "Eden". Available from J2SE1.3.
+#
+#  -XX:+UseConcMarkSweepGC - This flag turns on concurrent garbage collection in the old generation. Available from J2SE1.4.1.
+#
+#  -XX:CMSInitiatingOccupancyFraction=60 - -XX:CMSInitiatingOccupancyFraction=x
+#   Sets the threshold percentage of the used heap in the old generation at which the CMS collection takes place. For example, if set 
+#   to 60, the CMS collector will be initiated every time the old generation becomes 60% full. By default, this threshold is calculated 
+#   at run time, and the CMS collector might be triggered only when the old generation heap is about 80-90% full. Tuning this value can 
+#   improve performance in many cases. Since the CMS collector does not suspend the mutators as it sweeps and frees memory, setting this 
+#   switch can ensure that enough free memory is available for object promotion from the young generation as more data is allocated by 
+#   the application. Sometimes, if this switch is not tuned, CMS collection might not be able to keep up and may fail, eventually 
+#   triggering the default stop-the-world mark-compact collector. Available from J2SE1.4.1.
+#
+#
+# -DCHECKRUNTIMEVERSION=x.yy placeholder that is checked at runtime, authorizes that the parameters are taken in account if the 
+# java runtime version (java -version) is at least equal or greater thab the indicated version. This placeholder was created to check
+# runtime version 1.5 and its new GC CMS Incremental.
+#
+#
+#
+#
+# JSDK 1.5
+#
+#
+#
+#
+#
+# -XX:MaxGCMinorPauseMillis=xx A hint to the virtual machine that pause times of nnn milliseconds or less are desired. The vm will adjust 
+# the java heap size and other gc-related parameters in an attempt to keep gc-induced pauses shorter than nnn milliseconds. Note that 
+# this may cause the vm to reduce overall throughput, and in some cases the vm will not be able to meet the desired pause time goal.  
+# By default there is no pause time goal. There are definite limitations on how well a pause time goal can be met. The pause time for 
+# a GC depends on the amount of live data in the heap. The minor and major collections depend in different ways on the amount of live data. 
+# This parameter should be used with caution. A value that is too small will cause the system to spend an excessive amount of time doing 
+# garbage collection.
+#
+# -XX:MaxGCPauseMillis=<value>  A hint to the virtual machine that it's desirable that not more than 1 / (1 + nnn) of the application 
+# execution time be spent in the collector.
+#
+# For example -XX:GCTimeRatio=19 sets a goal of 5% of the total time for GC and throughput goal of 95%. That is, the application should get 
+# 19 times as much time as the collector.
+# 
+# By default the value is 99, meaning the application should get at least 99 times as much time as the collector. That is, the collector 
+# should run for not more than 1% of the total time. This was selected as a good choice for server applications. A value that is too high 
+# will cause the size of the heap to grow to its maximum.
+#
+# -XX:+UseParNewGC - This flag turns on parallel garbage collection in the young generation. It can be enabled together with the 
+#   CMS collector in the old generation. Available in J2SE1.4.1 on an experimental basis.
+#
+# -XX:MaxNewSize=12m -XX:NewSize=12m - The parameters NewSize and MaxNewSize bound the young generation size from below and above. 
+#   Setting these equal to one another fixes the young generation, just as setting -Xms and -Xmx equal fixes the total heap size. 
+#   This is useful for tuning the young generation at a finer granularity than the integral multiples allowed by NewRatio.
+#
+# -XX:SurvivorRatio=128 - XX:SurvivorRatio to a very high value, say 128. This is because, in this case, the survivor spaces are not 
+#   used, and objects are promoted directly from Eden to the old generation during every GC cycle. By setting a high survivor ratio, 
+#   most of the the young generation heap is allocated to "Eden". Available from J2SE1.3.
+#
+# -XX:+CMSParallelRemarkEnabled - reduce remark pauses
+#
+# -XX:SurvivorRatio=128 - XX:SurvivorRatio to a very high value, say 128. This is because, in this case, the survivor spaces are not 
+#   used, and objects are promoted directly from Eden to the old generation during every GC cycle. By setting a high survivor ratio, 
+#   most of the the young generation heap is allocated to "Eden". Available from J2SE1.3.
+#
+# -XX:MaxTenuringThreshold=y This switch determines how much the objects may age in the young generation before getting promoted to the 
+#   older generation. The default value is 31. For a big enough young generation and "survivor space", the long-lived objects may be 
+#   copied up to 31 times between the survivor spaces before they are finally promoted to the old generation. For most Telco applications, 
+#   it has been found that 80-90% of the objects that are created per call or session die almost immediately after they are created, 
+#   and the rest (10-20%) survive the entire duration of that call. Setting -XX:MaxTenuringThreshold=0 promotes all objects allocated 
+#   by the application in the young generation, which survive a single GC cycle, directly to the old generation without copying them 
+#   around between the survivor spaces in the young generation. This setting, when used with CMS collector in the old generation helps 
+#   in two ways.
+#   * The young generation GC does not have to waste its time copying the 10-20% long lived objects multiple times between the survivor 
+#     spaces, only to finally promote them to the old generation.
+#   * Additionally, most of the collection and cleaning work of these objects can be done "concurrently" in the old generation. 
+#     This behavior leads to additional reduction in GC sequential overhead.
+#
+#   When this switch is used, it is advisable to set the -XX:SurvivorRatio to a very high value, say 128. This is because, in this case, 
+#   the survivor spaces are not used, and objects are promoted directly from Eden to the old generation during every GC cycle. 
+#   By setting a high survivor ratio, most of the the young generation heap is allocated to "Eden". Available from J2SE1.3.
+#
+# -XX:+UseConcMarkSweepGC - This flag turns on concurrent garbage collection in the old generation. Available from J2SE1.4.1.
+#
+# -XX:+CMSIncrementalMode default: disabled This flag enables the incremental mode. Note that the concurrent collector must be enabled 
+# (with -XX:+UseConcMarkSweepGC) for this option to work.
+#
+# -XX:+CMSIncrementalPacing default: disabled This flag enables automatic adjustment of the incremental mode duty cycle based on 
+# statistics collected while the JVM is running.
+#
+# -XX:CMSIncrementalDutyCycleMin=0 he i-cms automatic pacing feature uses statistics gathered while the program is running to compute a 
+# duty cycle so that concurrent collections complete before the heap becomes full. However, past behavior is not a perfect predictor 
+# of future behavior and the estimates may not always be accurate enough to prevent the heap from becoming full. If too many full 
+# collections occur, try the following steps, one at a time:
+# 
+# Increase the safety factor:
+# 
+# -XX:CMSIncrementalSafetyFactor=<N>
+# 
+# Increase the minimum duty cycle:
+# 
+# -XX:CMSIncrementalDutyCycleMin=<N>
+# 
+# Disable automatic pacing and use a fixed duty cycle:
+# 
+# -XX:-CMSIncrementalPacing -XX:CMSIncrementalDutyCycle=<N>
+#
+# This are the options generated by "Parallel" configuration value when starting a JVM
+# -DCHECKRUNTIMEVERSION=1.5 -DflowControl.gc.cms=true -XX:+UseParNewGC -XX:MaxNewSize=20m -XX:NewSize=20m 
+# -XX:+CMSParallelRemarkEnabled -XX:SurvivorRatio=128 -XX:MaxTenuringThreshold=0 -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode 
+# -XX:+CMSIncrementalPacing -XX:CMSIncrementalDutyCycleMin=0 -XX:CMSIncrementalDutyCycle=10 -XX:-TraceClassUnloading
+#
+# Custom1 old file with 16MB in Young Generation 
+# CUSTOM=" -DCHECKRUNTIMEVERSION=1.5 -DflowControl.gc.cms=true -XX:+UseParNewGC -XX:MaxNewSize=16m -XX:NewSize=16m 
+# -XX:+CMSParallelRemarkEnabled -XX:SurvivorRatio=128 -XX:MaxTenuringThreshold=0 -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode 
+# -XX:+CMSIncrementalPacing -XX:CMSIncrementalDutyCycleMin=0 -XX:CMSIncrementalDutyCycle=10 -XX:-TraceClassUnloading 
+#
+#
+# Custom2 old file with 32MB in Young Generation 
+# CUSTOM=" -DCHECKRUNTIMEVERSION=1.5 -DflowControl.gc.cms=true -XX:+UseParNewGC -XX:MaxNewSize=32m -XX:NewSize=32m 
+# -XX:+CMSParallelRemarkEnabled -XX:SurvivorRatio=128 -XX:MaxTenuringThreshold=0 -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode 
+# -XX:+CMSIncrementalPacing -XX:CMSIncrementalDutyCycleMin=0 -XX:CMSIncrementalDutyCycle=10 -XX:-TraceClassUnloading 
+
+#
+# Custom3 old file with 48MB in Young Generation 
+# CUSTOM=" -DCHECKRUNTIMEVERSION=1.5 -DflowControl.gc.cms=true -XX:+UseParNewGC -XX:MaxNewSize=48m -XX:NewSize=48m 
+# -XX:+CMSParallelRemarkEnabled -XX:SurvivorRatio=128 -XX:MaxTenuringThreshold=0 -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode 
+# -XX:+CMSIncrementalPacing -XX:CMSIncrementalDutyCycleMin=0 -XX:CMSIncrementalDutyCycle=10 -XX:-TraceClassUnloading 
+#
+#
+#
+# The parameter flowControl.gc.cms=true, activates the memory level sent to the stack, it must normally be set all in all Custom files
+#

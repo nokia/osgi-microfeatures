@@ -1,0 +1,1350 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a first iteration at defining the rest APIs to manage NCMS infrastructure, application and repo lifecycle.",
+    "version" : "0.1.0",
+    "title" : "NCMS Lifecycle API"
+  },
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "NCMS",
+    "description" : ""
+  }, {
+    "name" : "application",
+    "description" : "Manage Application"
+  }, {
+    "name" : "infrastructure"
+  }, {
+    "name" : "repository"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "consumes" : [ "application/json", "application/xml" ],
+  "produces" : [ "application/json", "application/xml" ],
+  "paths" : {
+    "/ncms/applications/{repo}__{application}__{version}" : {
+      "post" : {
+        "tags" : [ "application" ],
+        "summary" : "02.Instantiate (Installation)",
+        "description" : "Returns json string with application instance id (appId)",
+        "operationId" : "instantiate",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "produces" : [ "text/plain" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "application",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "namespace",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "default" : "default"
+        }, {
+          "name" : "version",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "Cluster",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "201" : {
+            "description" : "application created"
+          },
+          "406" : {
+            "description" : "install failed"
+          },
+          "400" : {
+            "description" : "command failed"
+          },
+          "404" : {
+            "description" : "unknown or unreachable cluster"
+          },
+          "408" : {
+            "description" : "command timeout"
+          },
+          "500" : {
+            "description" : "internal error"
+          },
+          "502" : {
+            "description" : "cluster not prepared"
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/applications/{id}/operate" : {
+      "post" : {
+        "tags" : [ "application" ],
+        "summary" : "03.Custom Command for app (operate)",
+        "description" : "Returns json string with command result",
+        "operationId" : "operate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "command",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/applications/{id}" : {
+      "get" : {
+        "tags" : [ "application" ],
+        "summary" : "02b.Get Status",
+        "description" : "Returns json string wit    h command result",
+        "operationId" : "status",
+        "produces" : [ "text/plain" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "Cluster",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "command succeeded with links"
+          },
+          "400" : {
+            "description" : "command failed"
+          },
+          "404" : {
+            "description" : "application or cluster unknown"
+          },
+          "408" : {
+            "description" : "command timeout"
+          },
+          "500" : {
+            "description" : "internal error"
+          },
+          "502" : {
+            "description" : "cluster not prepared"
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "application" ],
+        "summary" : "04.Terminate (De-installation)",
+        "description" : "Returns json string with command result",
+        "operationId" : "terminate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "Cluster",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "application deleted"
+          },
+          "400" : {
+            "description" : "command failed"
+          },
+          "404" : {
+            "description" : "application or cluster unknown"
+          },
+          "408" : {
+            "description" : "command timeout"
+          },
+          "500" : {
+            "description" : "internal error"
+          },
+          "502" : {
+            "description" : "cluster not prepared"
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/applications/{id}/backup" : {
+      "put" : {
+        "tags" : [ "application" ],
+        "summary" : "12a.Application Backup",
+        "description" : "Returns json string with command result",
+        "operationId" : "backup",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "tag",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/applications/{id}/{tag}" : {
+      "put" : {
+        "tags" : [ "application" ],
+        "summary" : "12b.Application Restore",
+        "description" : "Returns json string with command result",
+        "operationId" : "restore",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "tag",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/applications/{id}/upgrade" : {
+      "post" : {
+        "tags" : [ "application" ],
+        "summary" : "06.Software Upgrade (Upgrade a with a new main release).",
+        "description" : "Returns json string with command result",
+        "operationId" : "upgrade",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/applications/{id}/rollback" : {
+      "post" : {
+        "tags" : [ "application" ],
+        "summary" : "06c.Application Rollback",
+        "description" : "Returns json string with command result",
+        "operationId" : "rollback",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/applications" : {
+      "get" : {
+        "tags" : [ "application" ],
+        "summary" : "02c.Get list of all running applications",
+        "description" : "Returns text/uri-list",
+        "operationId" : "list",
+        "produces" : [ "text/uri-list" ],
+        "parameters" : [ {
+          "name" : "Cluster",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "command succeeded"
+          },
+          "406" : {
+            "description" : "unsupported command"
+          },
+          "404" : {
+            "description" : "unknown or unreachable cluster"
+          },
+          "408" : {
+            "description" : "command timeout"
+          },
+          "500" : {
+            "description" : "internal error"
+          },
+          "502" : {
+            "description" : "cluster not prepared"
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/applications/{id}/scale" : {
+      "post" : {
+        "tags" : [ "application" ],
+        "summary" : "07b.Application Scale (Manual/Planned Scaling",
+        "description" : "Returns json string with command result",
+        "operationId" : "scale",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/clusters/{target}/onboard" : {
+      "post" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "01. Onboarding (Package Delivery & Onboarding)",
+        "description" : "Returns json string with results",
+        "operationId" : "onboarding",
+        "consumes" : [ "multipart/form-data" ],
+        "parameters" : [ {
+          "name" : "target",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "version",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "default" : "17.12"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "uuid",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/FormDataMultiPart"
+          }
+        }, {
+          "name" : "uploadOnly",
+          "in" : "query",
+          "required" : false,
+          "type" : "boolean",
+          "default" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "409" : {
+            "description" : "cannot upload files"
+          },
+          "404" : {
+            "description" : "lab unknown"
+          },
+          "400" : {
+            "description" : "wrong parameters"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ncms/clusters/queue/list" : {
+      "get" : {
+        "tags" : [ "infrastructure" ],
+        "operationId" : "queues",
+        "produces" : [ "text/uri-list" ],
+        "parameters" : [ {
+          "name" : "running",
+          "in" : "query",
+          "required" : false,
+          "type" : "boolean",
+          "default" : true
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/ncms/clusters/queue/{id}" : {
+      "get" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "02b.Instantiate (Installation Supervising)",
+        "description" : "to get cluster resource being created",
+        "operationId" : "creating",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "tail",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "default" : 100,
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "log of cluster being created"
+          },
+          "303" : {
+            "description" : "cluster created, see other to obtain the created cluster resource"
+          },
+          "409" : {
+            "description" : "cluster creation fails, see /queues/logs/cluster to log"
+          },
+          "410" : {
+            "description" : "cluster already done or failed"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "infrastructure" ],
+        "operationId" : "cancel",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/ncms/clusters/queue/logs/{id}" : {
+      "get" : {
+        "tags" : [ "infrastructure" ],
+        "operationId" : "logging",
+        "produces" : [ "text/plain" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/ncms/clusters/{id}/instantiate" : {
+      "post" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "02.Instantiate (Installation/Pre-configuration)",
+        "description" : "Returns json string with id_token",
+        "operationId" : "instantiate",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "produces" : [ "text/plain" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "target",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "version",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "default" : "17.12"
+        }, {
+          "name" : "flavor",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "default" : "mini"
+        }, {
+          "name" : "options",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "default" : "--offline --dry-run"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "201" : {
+            "description" : "create a being created queue resource"
+          },
+          "303" : {
+            "description" : "cluster being created, see other existing queue resource"
+          },
+          "400" : {
+            "description" : "wrong parameters"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ncms/clusters/{id}/operate" : {
+      "post" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "03.Operate  VNF (Put into service, [NFV]: Modify VNF Info/change resource parameters - Start/Stop )",
+        "description" : "Returns json string with command result",
+        "operationId" : "operate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "command",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "args",
+          "in" : "query",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "201" : {
+            "description" : "create a being created queue resource"
+          },
+          "303" : {
+            "description" : "cluster being created, see other existing queue resource"
+          },
+          "406" : {
+            "description" : "unsupported command"
+          },
+          "404" : {
+            "description" : "unknown cluster"
+          },
+          "408" : {
+            "description" : "command timeout"
+          },
+          "500" : {
+            "description" : "internal error"
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/clusters/{id}" : {
+      "get" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "03b.Status of VNF",
+        "description" : "Returns json string with command result",
+        "operationId" : "status",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "04.Terminate (De-installation)",
+        "description" : "Returns json string with command result",
+        "operationId" : "terminate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "mode",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/clusters/{id}/{tag}" : {
+      "post" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "12a.Application Backup",
+        "description" : "Returns json string with command result",
+        "operationId" : "backup",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "tag",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "12b.Application Restore",
+        "description" : "Returns json string with command result",
+        "operationId" : "restore",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "tag",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/clusters/{id}/update" : {
+      "post" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "05b.Software Update (Update a single VNFC or take a new VNF drop, or patching)",
+        "description" : "Returns json string with command result",
+        "operationId" : "update",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/clusters" : {
+      "get" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "02.List of instances)",
+        "description" : "Returns json string with id_token",
+        "operationId" : "list",
+        "produces" : [ "text/uri-list" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ncms/clusters/{id}/prepare" : {
+      "post" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "05a.Prepare Update/Upgrade",
+        "description" : "Returns json string with command result",
+        "operationId" : "prepare",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arg",
+          "in" : "query",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "default" : "--deploy"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "prepare the rest feature on a cluster, show results"
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/clusters/{id}/scale" : {
+      "post" : {
+        "tags" : [ "infrastructure" ],
+        "summary" : "07a.Scale (Manual/Planned Scaling) Up or Down",
+        "description" : "Returns json string with command result",
+        "operationId" : "scale",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/repos/{id}" : {
+      "post" : {
+        "tags" : [ "repository" ],
+        "summary" : "01a.Application upload",
+        "description" : "Returns json string with info",
+        "operationId" : "upload",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "repository" ],
+        "summary" : "04.Application/Version delete from repo",
+        "description" : "Returns json string with info",
+        "operationId" : "remove",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/repos/{repository_name}" : {
+      "get" : {
+        "tags" : [ "repository" ],
+        "summary" : "02b.List available applications in a repository",
+        "description" : "Returns json string with command result",
+        "operationId" : "catalog",
+        "parameters" : [ {
+          "name" : "repository_name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "Cluster",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/repos" : {
+      "get" : {
+        "tags" : [ "repository" ],
+        "summary" : "02.List available repositories",
+        "description" : "Returns json string with command result",
+        "operationId" : "list",
+        "parameters" : [ {
+          "name" : "Cluster",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "repository" ],
+        "summary" : "01b.get update from remote repository",
+        "description" : "Returns the string with command result",
+        "operationId" : "update",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    },
+    "/ncms/repos/search" : {
+      "get" : {
+        "tags" : [ "repository" ],
+        "summary" : "02b.search available applications in a all repository",
+        "description" : "Returns json string with command result",
+        "operationId" : "search",
+        "parameters" : [ {
+          "name" : "exp",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "flag",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "Cluster",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "id_token" : [ ]
+        } ]
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "id_token" : {
+      "description" : "JWT Bearer token",
+      "type" : "oauth2",
+      "authorizationUrl" : "https://nokia.com/api/oauth2",
+      "flow" : "implicit",
+      "scopes" : {
+        "SUPER_ADMIN" : "Super Admin Role",
+        "TENANT_ADMIN" : "Tenant Admin Role",
+        "DEVAPP" : "Applicatio Developper"
+      }
+    }
+  },
+  "definitions" : {
+    "BodyPart" : {
+      "type" : "object",
+      "properties" : {
+        "contentDisposition" : {
+          "$ref" : "#/definitions/ContentDisposition"
+        },
+        "entity" : {
+          "type" : "object"
+        },
+        "headers" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "mediaType" : {
+          "$ref" : "#/definitions/MediaType"
+        },
+        "messageBodyWorkers" : {
+          "$ref" : "#/definitions/MessageBodyWorkers"
+        },
+        "parent" : {
+          "$ref" : "#/definitions/MultiPart"
+        },
+        "providers" : {
+          "$ref" : "#/definitions/Providers"
+        },
+        "parameterizedHeaders" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/ParameterizedHeader"
+            }
+          }
+        }
+      }
+    },
+    "ContentDisposition" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "parameters" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        },
+        "fileName" : {
+          "type" : "string"
+        },
+        "creationDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "modificationDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "readDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "size" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    },
+    "FormDataBodyPart" : {
+      "type" : "object",
+      "properties" : {
+        "contentDisposition" : {
+          "$ref" : "#/definitions/ContentDisposition"
+        },
+        "entity" : {
+          "type" : "object"
+        },
+        "headers" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "mediaType" : {
+          "$ref" : "#/definitions/MediaType"
+        },
+        "messageBodyWorkers" : {
+          "$ref" : "#/definitions/MessageBodyWorkers"
+        },
+        "parent" : {
+          "$ref" : "#/definitions/MultiPart"
+        },
+        "providers" : {
+          "$ref" : "#/definitions/Providers"
+        },
+        "formDataContentDisposition" : {
+          "$ref" : "#/definitions/FormDataContentDisposition"
+        },
+        "simple" : {
+          "type" : "boolean"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        },
+        "parameterizedHeaders" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/ParameterizedHeader"
+            }
+          }
+        }
+      }
+    },
+    "FormDataContentDisposition" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "parameters" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        },
+        "fileName" : {
+          "type" : "string"
+        },
+        "creationDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "modificationDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "readDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "size" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "FormDataMultiPart" : {
+      "type" : "object",
+      "properties" : {
+        "contentDisposition" : {
+          "$ref" : "#/definitions/ContentDisposition"
+        },
+        "entity" : {
+          "type" : "object"
+        },
+        "headers" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "mediaType" : {
+          "$ref" : "#/definitions/MediaType"
+        },
+        "messageBodyWorkers" : {
+          "$ref" : "#/definitions/MessageBodyWorkers"
+        },
+        "parent" : {
+          "$ref" : "#/definitions/MultiPart"
+        },
+        "providers" : {
+          "$ref" : "#/definitions/Providers"
+        },
+        "bodyParts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BodyPart"
+          }
+        },
+        "fields" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/FormDataBodyPart"
+            }
+          }
+        },
+        "parameterizedHeaders" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/ParameterizedHeader"
+            }
+          }
+        }
+      }
+    },
+    "MediaType" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "subtype" : {
+          "type" : "string"
+        },
+        "parameters" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        },
+        "wildcardType" : {
+          "type" : "boolean"
+        },
+        "wildcardSubtype" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "MessageBodyWorkers" : {
+      "type" : "object"
+    },
+    "MultiPart" : {
+      "type" : "object",
+      "properties" : {
+        "contentDisposition" : {
+          "$ref" : "#/definitions/ContentDisposition"
+        },
+        "entity" : {
+          "type" : "object"
+        },
+        "headers" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "mediaType" : {
+          "$ref" : "#/definitions/MediaType"
+        },
+        "messageBodyWorkers" : {
+          "$ref" : "#/definitions/MessageBodyWorkers"
+        },
+        "parent" : {
+          "$ref" : "#/definitions/MultiPart"
+        },
+        "providers" : {
+          "$ref" : "#/definitions/Providers"
+        },
+        "bodyParts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BodyPart"
+          }
+        },
+        "parameterizedHeaders" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/ParameterizedHeader"
+            }
+          }
+        }
+      }
+    },
+    "ParameterizedHeader" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        },
+        "parameters" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "Providers" : {
+      "type" : "object"
+    }
+  }
+}

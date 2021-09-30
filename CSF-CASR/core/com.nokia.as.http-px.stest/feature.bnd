@@ -1,0 +1,5 @@
+Bundle-Version: 1.0.0-SNAPSHOT
+Bundle-Name: com.nokia.as.http-px.stest System Test
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.http-proxy";category:List<String>="test"; internal=true
+Include-Resource: stest=stest
+X-Unpack: stest

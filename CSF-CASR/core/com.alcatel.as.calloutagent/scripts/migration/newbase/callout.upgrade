@@ -1,0 +1,253 @@
+#!/bin/sh
+
+##
+# Script used to migrate some CalloutServer file data properties. This script is invoked
+# by the "update.sh" cdrom script, just AFTER rpm-conf upadte, but before any other 
+# rpm-xxx update
+#
+
+##
+# (see CalloutServer-conf.prespec file)
+#
+ADMIN=$INSTALL_DIR/scripts/admin/systemAdmin.sh
+UPGRADE_DIR=$INSTALL_DIR/var/tmp/propupgrade.callout
+
+UPGRADE_CMD_FILE=$UPGRADE_DIR/upgrade.cmd
+RPM_REFERENCE_DIR=$INSTALL_DIR/scripts/migration/current
+RPM_REFERENCE_FILE=$RPM_REFERENCE_DIR/callout.version
+OLD_REFERENCE_FILE="${INSTALL_DIR}/var/tmp/calloutServer_lastupgrade_version"
+
+CHKFILE="$INSTALL_DIR/var/tmp/check.$$"
+FORCE="${1:-}"
+
+rm -rf $UPGRADE_DIR
+mkdir -p $UPGRADE_DIR
+
+# Migrate previous
+mkdir -p $RPM_REFERENCE_DIR
+if [ ! -f $RPM_REFERENCE_FILE ]
+then
+    if [ -f $OLD_REFERENCE_FILE ]
+    then	
+        cp $OLD_REFERENCE_FILE $RPM_REFERENCE_FILE
+    fi
+fi
+
+# Clean previous. No more used
+rm -f $OLD_REFERENCE_FILE
+
+function debug() {
+    echo $1 | tee -a $UPGRADE_DIR/upgrade.log > /dev/null
+}
+
+function out() {
+    echo $1 | tee -a $UPGRADE_DIR/upgrade.log
+}
+
+# check if upgrade need to be applied. Always apply if DISTCONFVERFILE cannot
+# be found or is empty
+if [ -s "$RPM_REFERENCE_FILE" ]; then
+  rpm -qa | grep "CalloutServer-conf" > "$CHKFILE"
+  diff "$CHKFILE" "$RPM_REFERENCE_FILE"
+  DIFFRES=$?
+  rm -f "$CHKFILE"
+  if [[ $DIFFRES -eq 0 && "$FORCE" != "-force" ]]; then
+    out "No need to apply `basename $0` since CalloutServer-conf RPM has not changed"
+    exit 0
+  fi
+fi
+
+
+##
+# Upgrade a callout property in a given group.
+# Usage: upgrade <group> <componentName> <propFileData> <propName> <log4jPropName>
+#
+function upgrade() {
+    group=$1
+    componentName=$2
+    propFileData=$3
+    propName=$4
+
+    # If "merge" cmd is not installed, we can not upgrade ...
+    debug "Overriding property $group/$componentName/$propName with new version";
+    cat <<EOF >> $UPGRADE_CMD_FILE
+updateProxyComponentProperty
+$group
+$componentName
+$propName
+$INSTALL_DIR/monconf/$propFileData
+EOF
+}
+
+function get_log4j() {
+    group=$1
+    componentName=$2
+    log4jPropName=$3
+
+    out "Getting log4j loggers for $group/$componentName/$log4jPropName";
+    cat <<EOF >> $UPGRADE_CMD_FILE
+getProxyComponentProperty
+$group
+$componentName
+$log4jPropName
+$UPGRADE_DIR/logger_${group}_${componentName}.properties
+EOF
+}
+
+upgrade_logger() {
+    file=$1
+    debug "Checking loggers ..."
+
+    perl -pi -e 's/log4j.logger.reactor[^=]*/log4j.logger.as.service.reactor/g' $i
+    perl -pi -e 's/log4j.logger.callout.addressing[\s]*=/log4j.logger.callout.connection=/g' $i
+    perl -pi -e 's/log4j.logger.callout.out[\s]*=/log4j.logger.stdout=/g' $i
+    perl -pi -e 's/log4j.logger.callout.err[\s]*=/log4j.logger.stderr=/g' $i
+    perl -pi -e 's/log4j.logger.FastCacheImpl[\s]*=/log4j.logger.as.service.fc.FastCache=/g' $i
+    perl -pi -e 's/log4j.logger.alcatel.tess.hometop.gateways.utils.ObjectPool[\s]*=/log4j.logger.as.util.ObjectPool=/g' $i
+    perl -pi -e 's/log4j.logger.alcatel.tess.hometop.gateways.utils.SafeObjectPool[\s]*=/log4j.logger.as.util.SafeObjectPool=/g' $i
+    perl -pi -e 's/log4j.logger.com.nextenso.proxylet.mgmt.ProxyletReporter[\s]*=/log4j.logger.as.service.management.MBeanReporter=/g' $i
+    perl -pi -e 's/log4j.logger.com.alcatel.config/log4j.logger.as.util.config/g' $i
+    perl -pi -e 's/log4j.logger.alcatel.tess.hometop.gateways.concurrent.ThreadPool[\s]*=/log4j.logger.as.util.ThreadPool=/g' $i
+    perl -pi -e 's/log4j.logger.com.nextenso.dbase.api[\s]*=/log4j.logger.as.util.FastCache=/g' $i
+    perl -pi -e 's/log4j.logger.com.alcatel.as.stats.session[\s]*=/log4j.logger.as.stat.ds=/g' $i
+    perl -pi -e 's/log4j.logger.sip.client[^=]*/log4j.logger.as.service.sipclient/g' $i
+    perl -pi -e 's/log4j.logger.alcatel.tess.hometop.gateways.reactor/log4j.logger.as.service.reactor/g' $i
+    perl -pi -e 's/log4j.logger.com.alcatel_lucent.agent.mngt.ApplicationMBeanFactory/log4j.logger.as.service.appmbeans.ApplicationMBeanFactoryImpl/g' $i
+    perl -pi -e 's/log4j.logger.com.nextenso.proxylet.mgmt.ProxyletRegister/log4j.logger.callout.mbeans/g' $i
+    perl -pi -e 's/log4j.logger.com.alcatel.as.service.spi.impl.SpiLoaderImpl/log4j.logger.as.service.spi.SpiLoaderImpl/g' $i
+    perl -pi -e 's/log4j.logger.com.alcatel.as.session.distributed/log4j.logger.as.service.ds/g' $i
+    perl -pi -e 's/log4j.appender.SYSLOGNG.layout.ConversionPattern=%d{ISO8601} %t %-5p %c %x - %m%n/log4j.appender.SYSLOGNG.layout.ConversionPattern=%t %-5p %c %x - %m%n\nlog4j.appender.SYSLOGNG.fallback=com.alcatel_lucent.as.service.log4j.fallback\nlog4j.logger.com.alcatel_lucent.as.service.log4j.fallback=DEBUG,FILE/g' $i
+
+    # Force SYSLOGNG port to 6100 (#DCTPD00721596.01)
+    perl -pi -e 's/log4j.appender.SYSLOGNG.port[\s]*=.*/log4j.appender.SYSLOGNG.port=6100/g' "$i"
+}
+
+function upgrade_log4j() {
+    propName=$1
+    local UPGRADE_LOG4J_FILE=$UPGRADE_DIR/upgrade_l4j.cmd
+    for i in $UPGRADE_DIR/logger_*.properties; do
+	upgrade_logger "$i"
+	file=`basename "$i"`
+	group=`echo "$file" | sed 's/logger_\(.*\)_.*/\1/'`
+	component=`echo "$file" | sed 's/logger_.*_\(.*\)\.properties/\1/'`
+
+	cat <<EOF >> $UPGRADE_LOG4J_FILE
+updateProxyComponentProperty
+$group
+$component
+$propName
+$i
+EOF
+    done
+    cat <<EOF >> $UPGRADE_LOG4J_FILE
+doneWithProperties
+doneWithProxyAppProperties
+doneWithProxyComponentProperties
+exit
+EOF
+    $INSTALL_DIR/scripts/admin/systemAdmin.sh < $UPGRADE_LOG4J_FILE 2>&1 >> $UPGRADE_DIR/upgrade.log
+}
+
+##
+# Upgrade user specific jvm params
+function upgrade_user_specific_jvmparams() {
+    USER_SPECIFIC=$INSTALL_DIR/var/tmp/specificUserJvmParams.txt
+    OLD_USER_SPECIFIC=$INSTALL_DIR/var/tmp/old_callout_users_pecific_param
+    NEW_USER_SPECIFIC=$INSTALL_DIR/var/tmp/new_callout_users_pecific_param
+
+    cat <<EOF > $OLD_USER_SPECIFIC
+##
+# Enter here application specific jvm parameters.
+#
+# Add your specif -XX or -D here.
+# The default options activate the concurrent GC.
+#
+# (Each line must ends with a backslash, except the last one)
+#
+##
+-XX:+UseParNewGC \\
+-XX:+CMSParallelRemarkEnabled \\
+-XX:SurvivorRatio=128 \\
+-XX:MaxTenuringThreshold=0 \\
+-XX:+UseConcMarkSweepGC \\
+-XX:+CMSIncrementalMode \\
+-XX:+CMSIncrementalPacing  \\
+-XX:CMSIncrementalDutyCycleMin=10 \\
+-XX:CMSIncrementalDutyCycle=10 \\
+-XX:MaxNewSize=__JVM_EDENSIZE__m -XX:NewSize=__JVM_EDENSIZE__m
+EOF
+
+    cat <<EOF > $NEW_USER_SPECIFIC
+##
+# Enter here application specific jvm parameters.
+#
+# Add your specif -XX or -D here.
+# The default options activate the concurrent GC.
+#
+# (Each line must ends with a backslash, except the last one)
+#
+##
+EOF
+
+    for g in `$INSTALL_DIR/bin/dbkeys 104`; 
+    do
+	if [ "$g" != "System" ]; then
+	    out "Checking group $g"
+	    $INSTALL_DIR/bin/dbkeys 16 | grep "/CalloutAgent/${g}_" 2>&1 > /dev/null
+	    if [ "$?" == 0 ]; then
+		out "Checking specific user jvmparams in group $g"
+		$ADMIN getProxyComponentProperty $g CalloutAgent agent.user.specific.param $USER_SPECIFIC
+		if [ -f $USER_SPECIFIC ]; then
+		    dos2unix $USER_SPECIFIC 2> /dev/null 2>&1
+		    oldmd5=`md5sum $OLD_USER_SPECIFIC|cut -f1 -d" "`
+		    usermd5=`md5sum $USER_SPECIFIC|cut -f1 -d" "`
+		    if [ "$oldmd5" == "$usermd5" ]; then
+			out "Removing old jdk1.6 GC parameters in group $g ..."
+			$ADMIN updateProxyComponentProperty $g CalloutAgent agent.user.specific.param $NEW_USER_SPECIFIC
+		    fi
+		fi
+	    fi
+	fi
+    done
+    
+    rm -f $USER_SPECIFIC
+    rm -f $OLD_USER_SPECIFIC
+    rm -f $NEW_USER_SPECIFIC
+}
+
+out "Checking Callout Agent properties"
+doupgrade=false
+
+for g in `$INSTALL_DIR/bin/dbkeys 104`; 
+do
+  if [ "$g" != "System" ]; then
+      out "Checking group $g"
+      $INSTALL_DIR/bin/dbkeys 16 | grep "/CalloutAgent/${g}_" 2>&1 > /dev/null
+      if [ "$?" == 0 ]; then
+	  out "Checking callout agents in group $g"
+	  upgrade $g CalloutAgent callout.jvmopts agent.jvmargs
+	  upgrade $g CalloutAgent callout.osgi.felix agent.osgi
+	  get_log4j $g CalloutAgent agent.tracer.log4j
+	  doupgrade=true
+      fi
+  fi
+done
+
+if [ "$doupgrade" == "true" ]; then
+    cat <<EOF >> $UPGRADE_CMD_FILE
+doneWithProperties
+doneWithProxyAppProperties
+doneWithProxyComponentProperties
+exit
+EOF
+    out "Upgrading CalloutAgent properties. This may take a while ..."
+    $INSTALL_DIR/scripts/admin/systemAdmin.sh < $UPGRADE_CMD_FILE 2>&1 > $UPGRADE_DIR/upgrade.log
+    out "Upgrading CalloutAgent log4j ..."
+    upgrade_log4j "agent.tracer.log4j"
+
+    upgrade_user_specific_jvmparams
+fi
+
+rpm -qa | grep "CalloutServer-conf" > "$RPM_REFERENCE_FILE"
+
+exit 0

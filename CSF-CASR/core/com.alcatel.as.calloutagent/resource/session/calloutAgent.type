@@ -1,0 +1,4 @@
+type=CalloutAgent
+table=171
+keepAlive=false
+persistent=true

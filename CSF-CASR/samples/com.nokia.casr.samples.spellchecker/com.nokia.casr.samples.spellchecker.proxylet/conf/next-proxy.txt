@@ -1,0 +1,15 @@
+// Proxy Selection Access Control (javascript)
+// -------------------------------------------
+// nextProxy must return:
+//  "DIRECT"
+//  or "PROXY host:port"
+
+function nextProxy(host) { 
+  /*
+  if (host.match("127.0.0.1"))     return "DIRECT";
+  if (host.match(".*localhost.*")) return "DIRECT";
+  return "PROXY proxy.foo.com:3128";
+  */
+  
+  return "DIRECT";
+}

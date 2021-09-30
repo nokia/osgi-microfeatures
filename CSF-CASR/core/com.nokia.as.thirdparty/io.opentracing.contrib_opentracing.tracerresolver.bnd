@@ -1,0 +1,9 @@
+CSF-Embedded:                  io.opentracing.contrib:opentracing-tracerresolver:0.1.8
+Bundle-Version:                0.1.8
+Bundle-Name:                   com.nokia.as.thirdparty.io.opentracing.contrib_opentracing.tracerresolver
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.opentracing.contrib_opentracing.tracerresolver
+-includeresource:              @opentracing-tracerresolver-0.1.8.jar;lib:=true
+-exportcontents:               *; version=0.1.8
+SPI-Consumer:                  *
+
+-manifest io.opentracing.contrib_opentracing.tracerresolver.mf

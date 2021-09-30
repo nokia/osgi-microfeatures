@@ -1,0 +1,9 @@
+CSF-Embedded:                  org.apache.yetus:audience-annotations:0.5.0
+Bundle-Version:                0.5.0
+Bundle-Name:                   com.nokia.as.thirdparty.org.apache.yetus_audience.annotations
+Bundle-SymbolicName:           com.nokia.as.thirdparty.org.apache.yetus_audience.annotations
+-includeresource:              @audience-annotations-0.5.0.jar;lib:=true
+-exportcontents:               *; version=0.5.0
+Import-Package:		       com.sun.javadoc; com.sun.tools.doclets.standard; resolution:=optional, *
+
+#-manifest org.apache.yetus_audience.annotations.mf

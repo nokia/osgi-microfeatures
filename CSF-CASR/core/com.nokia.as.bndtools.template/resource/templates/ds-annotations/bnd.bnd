@@ -1,0 +1,10 @@
+-buildpath: \
+	osgi.annotation; version=7.0,\
+	osgi.core; version=7.0,\
+	osgi.cmpn; version=7.0
+
+-testpath: \
+	\${junit}
+
+Bundle-Version: 1.0.0
+Private-Package: $basePackageName$

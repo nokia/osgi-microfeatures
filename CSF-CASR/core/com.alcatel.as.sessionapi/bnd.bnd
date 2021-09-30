@@ -1,0 +1,24 @@
+Bundle-Name: SessionAPI
+X-Obsoletes: SessionAPI
+Bundle-Category: core, api
+Export-Package:com.alcatel.as.session.distributed;\
+ com.alcatel.as.session.distributed.event;\
+ com.alcatel.as.session.distributed.message;\
+ com.alcatel.as.session.distributed.smartkey;\
+ com.alcatel.as.session.distributed.transaction;\
+ com.alcatel.as.session.distributed.util
+#
+# CAUTION: version must have the same value in "session.pom"
+#
+# version = major.minor.patch
+#  - major : new release
+#  - minor : compatible release (new SP for example)
+#  - patch : fix on a SP
+#
+# 4.9.0: add smartkey package
+Import-Package: *
+-buildpath: \
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.alcatel.as.service.api;version=1.0
+
+Bundle-Version: 1.0.2

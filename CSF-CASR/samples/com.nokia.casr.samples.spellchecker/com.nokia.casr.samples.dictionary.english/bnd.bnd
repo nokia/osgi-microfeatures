@@ -1,0 +1,9 @@
+-buildpath: \
+	${osgi},\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.nokia.casr.samples.service.dictionary;version=latest,\
+	org.apache.felix.dependencymanager.annotation;version=4.2
+
+Bundle-Version: 1.0.0
+Private-Package: com.nokia.casr.samples.dictionary.english
+

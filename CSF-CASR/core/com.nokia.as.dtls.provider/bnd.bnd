@@ -1,0 +1,18 @@
+Bundle-Version: 1.0.9
+
+Private-Package: \
+	dtls.patch.sun2,\
+	javax.net.ssl,\
+	sun.security.ssl,\
+	sun.security.util,\
+	sun.security.provider.certpath,\
+	sun.security.action,\
+	sun.security.validator
+
+Export-Package: \
+  com.nokia.as.dtls.provider
+
+Import-Package: !*
+
+# The following means the CASR bundle installer won't load this bundle at all.
+Bundle-StartLevel: -1

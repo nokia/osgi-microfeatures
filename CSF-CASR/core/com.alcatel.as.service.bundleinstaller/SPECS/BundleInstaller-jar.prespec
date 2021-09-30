@@ -1,0 +1,11 @@
+std_files:
+bundles/repository/core/bundle-installer.jar
+bundles/repository/blueprint/mock-bundle-installer.jar
+
+post:
+if [ -z "$INSTALL_DIR" ]; then
+    echo "INSTALL_DIR not set" 1>&2
+    exit 1
+fi
+#rm -rf $INSTALL_DIR/var/tmp/osgi/* 
+#rm -rf $INSTALL_DIR/var/tmp/osgi/.__*

@@ -1,0 +1,1735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Review id="PlatformServicesImplementation4.0SP4">
+  <ReviewIssue id="GIRG8B1T">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-10 :: 15:09:15:761 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-10 :: 15:10:19:454 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="10">com/alcatel/as/service/management/gs/impl/ShutdownServiceImpl.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>Should be static</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GIRGCS61">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-10 :: 15:12:44:569 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:04:10:051 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="12">com/alcatel/as/service/management/gs/impl/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>should be uppercase and private</Summary>
+    <Description>what is gs ?</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2TY5CS">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:18:44:380 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:19:07:313 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="15">com/alcatel/as/service/appmbeans/impl/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>should be LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2TZZCF">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:20:09:903 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:20:21:694 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="45">com/alcatel/as/service/appmbeans/impl/ApplicationMBeanFactoryImpl.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>Should be LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2U13FZ">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:21:01:871 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:21:16:206 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="391">com/alcatel/as/service/appmbeans/impl/ApplicationMBeanFactoryImpl.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>StringBuilder should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2UDM5E">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:30:45:986 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:31:05:524 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="243">com/alcatel/as/service/appmbeans/impl/ApplicationMBeanFactoryImpl.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>logger.isDebugEnabled() should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2UHFQ3">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:33:44:283 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:34:32:775 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="8">com/alcatel/as/service/appmbeans/impl/ApplicationObjectNameFactory.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>privatize the attributes</Summary>
+    <Description>setParent() and setPid() should be created and static</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2UKNJU">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:36:14:394 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:36:58:710 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="609">com/alcatel/as/service/appmbeans/impl/ApplicationMBeanFactoryImpl.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>StringBuilder should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2UM5EY">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:37:24:202 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:37:39:304 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="33">com/alcatel/as/service/appmbeans/impl/ApplicationObjectNameFactory.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>StringBuilder should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2UMPR9">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:37:50:565 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:38:07:148 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="23">com/alcatel/as/service/appmbeans/impl/ApplicationObjectNameFactory.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>should be static</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2UNW5J">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:38:45:511 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:40:48:803 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="6">com/alcatel/as/service/appmbeans/impl/ApplicationObjectNameFactory.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>needed class ?</Summary>
+    <Description>This class only contains (or should) static part and is only used by ApplicationMBeanFactoryImpl.
+Then, it should be a part of this class (not a subclass)</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2UTQWI">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:43:18:642 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:44:50:750 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="46">com/alcatel/as/service/appmbeans/impl/MBeanReporter.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>logger priority test</Summary>
+    <Description>for each logger.warn(), logger.info() or logger.debug() with a + on Strings, a check MUST be done.
+
+This is a generic remark for all the classes and internal classes</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2UWLA7">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:45:31:327 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:48:00:273 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="231">com/alcatel/as/service/appmbeans/impl/MBeanReporter.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>should be final</Summary>
+    <Description>and LOGGER (uppercase)</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2V0K5E">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:48:36:482 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:48:49:474 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="260">com/alcatel/as/service/appmbeans/impl/MBeanReporter.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>could be final</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2V1LYU">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:49:25:494 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:49:41:642 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="278">com/alcatel/as/service/appmbeans/impl/MBeanReporter.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>could be private final </Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2V4CBI">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:51:32:958 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:51:57:893 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="454">com/alcatel/as/service/appmbeans/impl/MBeanReporter.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>StringCaseHashtable should not be used any more</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2V69U2">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:53:03:050 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:53:56:285 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="134">com/alcatel/as/service/appmbeans/impl/MBeanReporter.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>call ProxyletObjectName toString method</Summary>
+    <Description>And this method should be created.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2VCM99">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:57:59:085 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:59:41:070 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="564">com/alcatel/as/service/appmbeans/impl/MBeanReporter.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>Long &lt;-&gt; long not needed</Summary>
+    <Description>now is made as a LOng but only its long value is used. 
+It is simpler to directly store then use the long value.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2VEZOK">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 14:59:49:796 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:01:23:807 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="572">com/alcatel/as/service/appmbeans/impl/MBeanReporter.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>move code to another class</Summary>
+    <Description>all the end of the method deals with a AlarmRepetition object and its attributes, it could be moved to this class.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2VHPG9">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:01:56:505 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:02:22:590 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="633">com/alcatel/as/service/appmbeans/impl/MBeanReporter.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>use arrays method on List</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2VJSU2">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:03:34:202 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:04:20:212 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="567">com/alcatel/as/service/appmbeans/impl/MBeanReporter.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>why do you use int[] whereas you use List&lt;Integer&gt; in the method ?</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2W0HRX">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:16:33:021 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:16:44:386 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="105">com/alcatel/as/service/appmbeans/impl/ProxyletObjectName.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>StringBuilder should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2W1VSX">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:17:37:857 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:18:37:313 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="27">com/alcatel/as/service/appmbeans/impl/ProxyletObjectName.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>the hashtable types could be defined (&lt;String, String&gt;)</Summary>
+    <Description>Then, the getPriority could directly Strings, without cast.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2W464O">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:19:24:552 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:19:46:655 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="39">com/alcatel/as/service/appmbeans/impl/ProxyletObjectName.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>Logger should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2W5B21">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:20:17:593 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:20:25:177 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="55">com/alcatel/as/service/appmbeans/impl/ProxyletObjectName.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>Logger should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2W6DY3">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:21:07:995 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:21:38:558 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="1">com/alcatel/as/service/concurrent/impl/Test.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>Not a class for a implementation</Summary>
+    <Description>should be moved into a test module</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2W7IQ9">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:22:00:849 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:22:12:344 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="14">com/alcatel/as/service/concurrent/impl/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>LOGGER should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2W8SKM">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:23:00:262 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:23:21:342 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="57">com/alcatel/as/service/concurrent/impl/EventDispatcherExecutor.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>should be named DISPATCHER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2WB8RR">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:24:54:567 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:25:49:647 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="18">com/alcatel/as/service/concurrent/impl/EventDispatcherExecutor.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>the id could be calculated only once</Summary>
+    <Description>and when the _workerId is set.
+it could be long if getId is often called.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2WDNKK">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:26:47:060 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:26:58:845 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="14">com/alcatel/as/service/concurrent/impl/PeriodicFutureTask.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>should be named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2WJ1EF">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:30:58:263 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:31:51:608 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="11">com/alcatel/as/service/concurrent/impl/ThreadLocals.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>cb = callback</Summary>
+    <Description>if cb means callback, why do not you call methods and constants with Callback to make them readable ?</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2WLIV9">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:32:54:213 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:33:35:624 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="148">com/alcatel/as/service/concurrent/impl/ThreadPoolExecutor.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>should be private </Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2WNJI7">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:34:28:351 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:34:56:436 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="167">com/alcatel/as/service/concurrent/impl/ThreadPoolExecutor.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>null attribute </Summary>
+    <Description>what happens if the _timerSF is not set ?</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2WRWDF">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:37:51:651 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:38:05:671 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="15">com/alcatel/as/service/config/impl/FelixPersistenceManager.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>should be final</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ2WVY4W">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:41:00:560 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-18 :: 15:41:23:369 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="28">com/alcatel/as/service/config/impl/FelixPersistenceManager.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>why @SuppressWarnings("unchecked")</Summary>
+    <Description>for all the methods ?</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ46ILLK">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 12:58:20:120 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 12:58:38:423 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="20">com/alcatel/as/service/config/impl/fc/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>should be named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ46L4QN">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:00:18:239 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:01:44:210 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="47">com/alcatel/as/service/config/impl/fc/Activator.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>wrong test</Summary>
+    <Description>watchedComponents should not be set at this level and the test should be made on wcomp.
+watchedComponents is only used in the "then" part.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ46NPI5">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:02:18:461 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:02:30:291 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="29">com/alcatel/as/service/config/impl/fc/OsgiConfigurationAdmin.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>should be named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ46O70O">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:02:41:160 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:03:40:553 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="31">com/alcatel/as/service/config/impl/fc/OsgiConfigurationAdmin.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_configs should be final</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ46R6M1">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:05:00:601 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:05:49:685 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="51">com/alcatel/as/service/config/impl/fc/OsgiConfigurationAdmin.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>system should be a Map</Summary>
+    <Description>Dictionary is obsolete.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ46SDKC">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:05:56:268 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:16:17:458 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="76">com/alcatel/as/service/config/impl/fc/OsgiConfigurationAdmin.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>globalConfig should be a HashMap&lt;String, String&gt;</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ47ACWS">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:19:55:228 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:20:36:294 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="193">com/alcatel/as/service/config/impl/fc/OsgiConfigurationAdmin.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>remove the @SuppressWarning</Summary>
+    <Description>if something is not used -&gt; remove it</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ47BS2H">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:21:01:529 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:21:15:568 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="140">com/alcatel/as/service/config/impl/fc/OsgiConfigurationAdmin.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>val is always a String</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ47G2H9">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:24:21:645 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:25:25:066 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="272">com/alcatel/as/service/config/impl/fc/OsgiConfigurationAdmin.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>"service.pid.modified" should be a constant</Summary>
+    <Description>to be shared with the part using the props.get() method</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ47JC7I">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:26:54:222 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:27:21:776 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="191">com/alcatel/as/service/config/impl/fc/OsgiConfigurationAdmin.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>Dictionary is obsolete</Summary>
+    <Description>use a Map ?</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ47KGRG">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:27:46:780 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:28:55:690 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="247">com/alcatel/as/service/config/impl/fc/OsgiConfigurationAdmin.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>Enumeration should be replaced by Iterator </Summary>
+    <Description>or Iterable ? </Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ47NPNW">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:30:18:284 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:31:15:055 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="311">com/alcatel/as/service/config/impl/fc/OsgiConfigurationAdmin.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>use name instead of  propertyNames[i]</Summary>
+    <Description>a loop like for (String name: propertyNames) could be used </Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ47SQCW">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:34:12:464 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:35:40:908 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="16">com/alcatel/as/service/config/impl/fc/ConfigWrapper.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>not used ?</Summary>
+    <Description>It seems that this class is not used.
+If it is the case, remove it.
+
+If it has been made for tests, move it to a test module and add it in automatic tests.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ47V2EZ">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:36:01:403 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:36:12:687 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="16">com/alcatel/as/service/config/impl/file/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>should be named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ47YNRV">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:38:49:051 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:39:05:085 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="29">com/alcatel/as/service/config/impl/file/ConfigEntry.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_dic should be final</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ47ZOBR">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:39:36:423 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:41:18:369 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="35">com/alcatel/as/service/config/impl/file/ConfigEntry.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>why cm ?</Summary>
+    <Description>and not _configuration ou _config, what is the m for ?
+The remark is also for method parameters, method names and ConfigurationAdmin _cm</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ483FWT">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:42:32:141 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 13:42:55:562 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="43">com/alcatel/as/service/config/impl/file/ConfigEntry.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_lastModified does not need to be initialized</Summary>
+    <Description>already done !</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ491ZYF">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:09:24:423 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:09:37:494 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="111">com/alcatel/as/service/config/impl/file/ConfigEntry.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>PID should be named pid</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4930BC">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:10:11:544 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:11:15:615 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="111">com/alcatel/as/service/config/impl/file/ConfigEntry.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>are parameters needed ?</Summary>
+    <Description>updateCM is always called with (_dic, _pid).
+The, the parameters could be removed and directly use the attributes.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ498R1A">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:14:39:454 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:15:15:690 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="26">com/alcatel/as/service/config/impl/file/StandaloneConfig.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_logger should be private  and named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ499TYA">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:15:29:890 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:15:42:222 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="27">com/alcatel/as/service/config/impl/file/StandaloneConfig.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_configs should be final</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ49AJFF">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:16:02:907 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:16:16:481 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="37">com/alcatel/as/service/config/impl/file/StandaloneConfig.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>s/when/where ?</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ49CGG9">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:17:32:361 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:18:38:163 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="73">com/alcatel/as/service/config/impl/file/StandaloneConfig.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>"platform.agent.pid" should be a constant</Summary>
+    <Description>to be shared with client part (doing the get)</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ49FPGM">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:20:04:006 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:20:59:078 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="86">com/alcatel/as/service/config/impl/file/StandaloneConfig.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>isEnabledFor () should be used</Summary>
+    <Description>before doing + on strings.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ49L5Q2">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:24:18:362 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:24:39:364 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="24">com/alcatel/as/service/diagnostics/impl/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>logger should be private and named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ49MWZ7">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:25:40:339 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:25:45:594 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="18">com/alcatel/as/service/diagnostics/impl/DMNotAvail.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>logger should be private and named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ49OWNO">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:27:13:236 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:27:35:353 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="69">com/alcatel/as/service/diagnostics/impl/DMNotAvail.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>isDebugEnabled() should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ49RXUD">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:29:34:741 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:29:40:238 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="17">com/alcatel/as/service/diagnostics/impl/DSNotAvail.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>logger should be private and named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ49SV4G">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:30:17:872 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:30:25:343 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="19">com/alcatel/as/service/diagnostics/impl/ServiceDiagnosticsImpl.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>logger should be private and named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ49TCW9">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:30:40:905 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:30:49:780 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="22">com/alcatel/as/service/diagnostics/impl/ServiceDiagnosticsImpl.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>diags should be final</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ49WEHB">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:33:02:927 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:34:20:084 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="38">com/alcatel/as/service/diagnostics/impl/ServiceDiagnosticsImpl.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>all the call to logger should be protected by a test</Summary>
+    <Description>The protection is the use of isDebugEnabled() ....</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4AI9IK">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:50:02:924 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:50:08:875 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="17">com/alcatel/as/service/log4j/impl/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_logger should be named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4AJ3F2">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:50:41:678 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:50:59:899 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="35">com/alcatel/as/service/log4j/impl/Activator.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>property names should constants</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4AMS0C">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:53:33:516 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:53:54:417 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="58">com/alcatel/as/service/log4j/impl/Log4jConfigurator.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>property names should constants</Summary>
+    <Description>or removed if really deprecated</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4AOR3A">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:55:05:638 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:55:17:668 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="148">com/alcatel/as/service/log4j/impl/Log4jConfigurator.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>Use StringBuilder</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4APH8X">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:55:39:537 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:55:56:942 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="175">com/alcatel/as/service/log4j/impl/Log4jConfigurator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_logger should be private and named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4ARG4R">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:57:11:403 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:57:29:464 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="27">com/alcatel/as/service/log4j/impl/OsgiLogServiceImpl.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>the constant should be uppercased</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4AUPM4">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 14:59:43:660 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:00:18:488 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="218">com/alcatel/as/service/log4j/impl/OsgiLogServiceImpl.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>StringBuilder should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4AVLB2">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:00:24:734 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:00:36:004 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="81">com/alcatel/as/service/log4j/impl/SyslogNGAppender.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>StringBuilder should be used</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4AY3K7">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:02:21:703 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:02:35:033 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="108">com/alcatel/as/service/log4j/impl/SyslogNGAppender.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>msg can be null</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4BGNJL">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:16:47:409 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:17:04:229 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="14">com/alcatel/as/service/management/gs/impl/ShutdownServiceImpl.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>do not use @override for API implementation</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4BM1W1">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:20:59:281 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:21:15:814 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="107">com/alcatel/as/service/mbeanparser/impl/InstancePropertyImpl.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>do not use @override for API implementation</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ4BOWNW">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:23:12:476 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-19 :: 15:23:18:068 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="25">com/alcatel/as/service/mbeanparser/impl/AbstractPropertyImpl.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_logger should be private and named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5OW9U7">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:20:37:327 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:21:13:997 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="103">com/alcatel/as/service/mbeanparser/impl/AbstractPropertyImpl.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>constant usage</Summary>
+    <Description>why do not you TYPE instead of "type"?</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5POOGT">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:42:42:653 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:42:54:686 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="10">com/alcatel/as/service/mbeanparser/impl/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_logger should be named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5PQMZU">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:44:14:058 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:45:17:459 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="17">com/alcatel/as/service/mbeanparser/impl/InstancePropertiesImpl.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>param names are not readable</Summary>
+    <Description>please use names with meaning !
+what are p, g, c and i ?</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5PYWK1">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:50:39:697 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:51:27:504 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="81">com/alcatel/as/service/mbeanparser/impl/InstancePropertyImpl.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>parameter names</Summary>
+    <Description>k and v ???
+
+I understand they are key and value. Then  why the names are nor key and value ?</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5Q0W6H">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:52:12:521 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:53:47:411 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="98">com/alcatel/as/service/mbeanparser/impl/InstancePropertyImpl.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>@Override is only for overriding</Summary>
+    <Description>not for interface implementation</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5Q38YX">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:54:02:409 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:54:18:638 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="19">com/alcatel/as/service/mbeanparser/impl/MBeanDescriptorImpl.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>logger should be static and named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5Q3QXH">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:54:25:685 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:54:58:720 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="24">com/alcatel/as/service/mbeanparser/impl/MBeanDescriptorImpl.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>meaningless attribute name</Summary>
+    <Description>!!</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5Q4QUM">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:55:12:238 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:55:51:520 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="27">com/alcatel/as/service/mbeanparser/impl/MBeanDescriptorImpl.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>meaningless parameter names</Summary>
+    <Description>for all the class...
+unreadable</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5Q6DE3">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:56:28:107 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:56:47:759 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="18">com/alcatel/as/service/mbeanparser/impl/MBeanDescriptorImpl.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>MBeanDescriptorImpl pr BundleDescriptorImpl ?</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5Q8ZWX">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:58:30:609 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:58:46:589 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="118">com/alcatel/as/service/mbeanparser/impl/MBeanDescriptorImpl.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>a test should be made on the log level</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5QABS6">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:59:32:646 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 14:59:44:660 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="216">com/alcatel/as/service/mbeanparser/impl/MBeanParserImpl.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>a test should be made on the log level</Summary>
+    <Description>for all the class</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5QHDO1">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:05:01:681 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:05:17:402 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="22">com/alcatel/as/service/mbeanparser/impl/PropertyDescriptorImpl.java</File>
+    <Type>item.type.label.clarity</Type>
+    <Severity>item.severity.label.major</Severity>
+    <Summary>meaningless parameter names</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5QIHL8">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:05:53:420 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:06:06:682 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="16">com/alcatel/as/service/mgmt/impl/fc/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_logger should be named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5QJ7ON">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:06:27:239 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:06:42:461 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="28">com/alcatel/as/service/mgmt/impl/fc/ManagedServiceTracker.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_logger should be static and named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5QJS4R">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:06:53:739 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:07:07:081 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="29">com/alcatel/as/service/mgmt/impl/fc/ManagedServiceTracker.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>VOID_I should be final</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5QK7MW">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:07:13:832 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:07:31:029 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="30">com/alcatel/as/service/mgmt/impl/fc/ManagedServiceTracker.java</File>
+    <Type>item.type.label.programLogic</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>VOID_S should be final</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5QLKCE">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:08:16:958 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:08:32:284 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="76">com/alcatel/as/service/mgmt/impl/fc/ManagedServiceTracker.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>the log level must be tested</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5QNA8I">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:09:37:170 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:09:43:849 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="165">com/alcatel/as/service/mgmt/impl/fc/ManagedServiceTracker.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>the log level must be tested</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5QPEOJ">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:11:16:243 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:11:23:474 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="271">com/alcatel/as/service/mgmt/impl/fc/ManagedServiceTracker.java</File>
+    <Type>item.type.label.optimization</Type>
+    <Severity>item.severity.label.minor</Severity>
+    <Summary>the log level must be tested</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5RWKX9">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:44:50:541 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:45:01:846 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="40">com/alcatel/as/service/osgi/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_logger should be named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5RXPPC">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:45:43:392 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:45:48:375 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="12">com/alcatel/as/service/spi/impl/Activator.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_logger should be named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5RXZP2">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:45:56:342 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:46:03:373 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="31">com/alcatel/as/service/spi/impl/SpiLoaderImpl.java</File>
+    <Type>item.type.label.codingStandards</Type>
+    <Severity>item.severity.label.normal</Severity>
+    <Summary>_logger should be named LOGGER</Summary>
+    <Description></Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+  <ReviewIssue id="GJ5RZFO4">
+    <ReviewIssueMeta>
+      <CreationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:47:03:700 CET</CreationDate>
+      <LastModificationDate format="yyyy-MM-dd :: HH:mm:ss:SSS z">2011-01-20 :: 15:47:42:782 CET</LastModificationDate>
+    </ReviewIssueMeta>
+    <ReviewerId>EC</ReviewerId>
+    <AssignedTo>EC</AssignedTo>
+    <File line="51">com/alcatel/as/service/spi/impl/SpiLoaderImpl.java</File>
+    <Type>item.type.label.suggestion</Type>
+    <Severity>item.label.unset</Severity>
+    <Summary>_services final ?</Summary>
+    <Description>this atttributes could be set in initialization step.</Description>
+    <Annotation></Annotation>
+    <Revision></Revision>
+    <Resolution>item.label.unset</Resolution>
+    <Status>item.status.label.open</Status>
+  </ReviewIssue>
+</Review>

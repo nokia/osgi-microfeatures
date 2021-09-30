@@ -1,0 +1,8 @@
+# this file contains all the runtimes needed to execute the tests
+# Here, we deploy two runtimes ("client" and "server")
+# NOTE: the runtimes must be started in the order they are declared in this file
+
+test-agent=runtime.felix,lib.log.log4j:1.0.0,lib.csf.casr.muxreactor,discovery.static.file,stest.mux-reactor.unit
+test-agent-tls=runtime.felix,lib.log.log4j:1.0.0,lib.csf.casr.muxreactor,discovery.static.file,stest.mux-reactor.unit-tls
+test-ioh=runtime.felix,lib.log.log4j:1.0.0,ioh.mux.http:1.0.0
+

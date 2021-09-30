@@ -1,0 +1,34 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	org.apache.felix.configadmin;version=1.9,\
+	org.apache.felix.dependencymanager;version=4.4,\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	org.apache.felix.gogo.runtime;version=0.16,\
+	org.apache.felix.scr;version=2.0,\
+	org.apache.felix.scr.compat;version=1.0,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.alcatel.as.service.api;version=2.3.0,\
+	com.alcatel.as.service.metering2;version=1.0.0,\
+	com.alcatel.as.utils;version=2.0,\
+	com.nextenso.proxylet.api;version=1.0,\
+	com.alcatel.as.service.bundleinstaller.impl;version=1.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	javassist;version=3.21,\
+	org.apache.commons.lang;version=2.6,\
+	org.apache.commons.configuration;version=1.9,\
+	com.nokia.as.thirdparty.servlet.api;version=3.1,\
+	com.nokia.as.thirdparty.jsr166e;version=1.7,\
+	com.nokia.as.thirdparty.commons.modeler_commons.modeler;version=2.0,\
+	com.nokia.as.thirdparty.json;version=1.0,\
+	com.nokia.as.thirdparty.javax.management.j2ee;version=1.1,\
+	org.apache.felix.dependencymanager.lambda;version=1.1,\
+	org.apache.aries.util;version=1.1,\
+	com.alcatel.as.ioh;version=1.13
+	
+-testpath: ${junit}
+	
+-sub: \
+    *.bnd

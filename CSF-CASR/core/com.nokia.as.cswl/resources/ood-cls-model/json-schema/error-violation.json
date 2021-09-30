@@ -1,0 +1,22 @@
+{
+	"$schema":"http://json-schema.org/draft-03/schema",
+	"type":"object",
+	"javaType":"com.nsn.ood.cls.model.gen.errors.ViolationError",
+	"required":true,
+	"properties":{
+		"message":{
+			"type":"string",
+			"required":true
+		},
+		"path":{
+			"type":"string",
+			"required":true
+		},
+		"value":{
+			"type":"string",
+			"required":true
+		}
+
+	},
+	"additionalProperties":false
+}

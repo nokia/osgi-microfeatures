@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1556814846622
+Bundle-ManifestVersion: 2
+Bundle-Name: org.jvnet.staxex:stax-ex:1.8.0
+Bundle-SymbolicName: org.jvnet.staxex.stax-ex
+Bundle-Version: 1.8.0
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: org.jvnet.staxex:stax-ex:1.8.0
+Export-Package: org.jvnet.staxex;version="1.8.0";uses:="javax.activati
+ on,javax.xml.namespace,javax.xml.stream",org.jvnet.staxex.util;versio
+ n="1.8.0";uses:="javax.xml.bind.attachment,javax.xml.namespace,javax.
+ xml.stream,org.w3c.dom"
+Import-Package: javax.activation,javax.xml.bind.attachment,javax.xml.n
+ amespace,javax.xml.stream,org.jvnet.staxex;version="[1.8,2)",org.w3c.
+ dom
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-4.2.0.201903051501
+

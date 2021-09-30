@@ -1,0 +1,34 @@
+# 
+# Indicates the weight of each message type.
+# The weight is used in overload control : the higher the weight, the less likely of being rejected.
+# 
+# Syntax:
+# 
+# weight -name <name> -app <app-id> [-cmd <cmd-code>]* -value <value> [-sp0 <valueWithSP0> -sp1 <valueWithSP1> -sp2 <valueWithSP2> -sp3 <valueWithSP3> -sp4 <valueWithSP4>]
+# 
+# - <name> : a name identifying this policy (good practice)
+# - <app-id> : an application id in decimal of hexadecimal format (start with 0x for hexa)
+# - <cmd-code> : an optional list of zero, one or many command codes
+# - <value> : the value of the weight : MUST BE > 0 and <= 100
+# - -sp0, -sp1, etc... : if set, a Session-Priority AVP will be looked for and the corresponding weight value will be taken if found
+# 
+# Insert as many lines as needed.
+# 
+# The default policy corresponds to -app 0 (and no command code).
+# 
+# Examples:
+# 
+#   All commands of app-id 123:
+# weight -name MyLine1 -app 123 -v 50
+#   Commands 1 and 2 of app-id 123:
+# weight -name MyLine2 -app 123  -cmd 1 -cmd 2 -v 50
+# 
+#   All commands of app-id 123 and specific values if Session-Priority is found
+# weight -name MyLine1 -app 123 -v 50 -sp0 90 -sp1 80 -sp2 70 -sp3 60 -sp4 55
+# 
+#   Default weight
+# weight -name DEF -app 0 -value 20
+# 
+# By default, no weight is assigned (this file is fully commented). It results in assigning 100 (max value) to all messages.
+#
+#

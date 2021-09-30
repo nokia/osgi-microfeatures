@@ -1,0 +1,16 @@
+CSF-Embedded:                  io.opencensus:opencensus-contrib-http-util:0.24.0
+Bundle-Version:                0.24.0
+Bundle-Name:                   CASR - io.opencensus:opencensus-contrib-http-util:0.24.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.opencensus_opencensus-contrib-http-util
+-includeresource:              @opencensus-contrib-http-util-0.24.0.jar;lib:=true
+-exportcontents:               *; version=0.24.0
+Import-Package: \
+  com.google.common.base;version="[30.0,31)",\
+  com.google.common.collect;version="[30.0,31)",\
+  com.google.common.primitives;version="[30.0,31)",\
+  io.opencensus.contrib.http.util;version="[0.24,1)",\
+  io.opencensus.stats;version="[0.28,1)",\
+  io.opencensus.tags;version="[0.28,1)",\
+  io.opencensus.trace;version="[0.28,1)",\
+  io.opencensus.trace.propagation;version="[0.28,1)",\
+  javax.annotation

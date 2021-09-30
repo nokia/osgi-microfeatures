@@ -1,0 +1,10 @@
+##
+# Enter here application specific jvm parameters.
+#
+# Add your specif -XX or -D here.
+# The default options activate the concurrent GC.
+#
+# (Each line must ends with a backslash, except the last one)
+#
+##
+

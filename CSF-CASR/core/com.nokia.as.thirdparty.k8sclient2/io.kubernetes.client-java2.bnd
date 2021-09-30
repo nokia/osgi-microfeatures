@@ -1,0 +1,14 @@
+CSF-Embedded:                  io.kubernetes:client-java:2.0.0
+Bundle-Version:                2.0.0.2
+Bundle-Name:                   io.kubernetes.client-java2
+Bundle-SymbolicName:           io.kubernetes.client-java2
+-includeresource:              @client-java-2.0.0.jar;lib:=true
+-exportcontents:               *; version=2.0.0
+Fragment-Host:                 io.kubernetes.client-java-api2;bundle-version="[2.0.0,2.0.1)"
+Import-Package: \
+ com.microsoft.aad.adal4j; resolution:=optional,\
+ org.bouncycastle.*;version="[1.60,2)",\
+ *
+
+
+-manifest io.kubernetes.client-java2.mf

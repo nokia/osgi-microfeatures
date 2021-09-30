@@ -1,0 +1,13 @@
+CSF-Artifact: false
+-sub: *.bnd
+-fixupmessages: \
+   "Can't find super class"; is:=ignore,\
+   "The baseline version 8.0.0 is higher than the current version 4.0.0 for io.kubernetes.client-java-api in Baseline"; is:=ignore,\
+   "The baseline version 10.0.1 is higher than the current version 4.0.0 for io.kubernetes.client-java-api in Baseline"; is:=ignore,\
+   "io.kubernetes.client-java-api: The baseline version 11.0.1 is higher than the current version 4.0.0 for io.kubernetes.client-java-api in Baseline"; is:=ignore,\
+   "io.kubernetes.client-java-api: The baseline version 12.0.1 is higher than the current version 4.0.0 for io.kubernetes.client-java-api in Baseline"; is:=ignore
+
+-buildpath:\
+    io.kubernetes:client-java;version=4.0.0,\
+    io.kubernetes:client-java-api;version=4.0.0,\
+    io.kubernetes:client-java-proto;version=4.0.0

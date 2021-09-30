@@ -1,0 +1,8 @@
+CSF-Embedded:                  commons-modeler:commons-modeler:2.0.1
+Bundle-Version:                2.0.1
+Bundle-Name:                   com.nokia.as.thirdparty.commons.modeler_commons.modeler
+Bundle-SymbolicName:           com.nokia.as.thirdparty.commons.modeler_commons.modeler
+-includeresource:              @commons-modeler-2.0.1.jar;lib:=true
+-exportcontents:               *; version=2.0.1
+
+-manifest                      commons.modeler_commons.modeler.mf

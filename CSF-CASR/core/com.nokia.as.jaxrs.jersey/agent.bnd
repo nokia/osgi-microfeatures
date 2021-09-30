@@ -1,0 +1,10 @@
+Bundle-Version: 3.0.2
+Include-Resource:  \
+ META-INF/jersey.desc=META-INF/jersey.desc, \
+ META-INF/agentServersConf.txt=META-INF/agentServersConf.txt
+
+ASR-MuxHandlerDesc: META-INF/jersey.desc
+Private-Package: \
+  com.nokia.as.jaxrs.jersey.common.impl,\
+  com.nokia.as.jaxrs.jersey.agent.impl,\
+  com.nokia.as.jaxrs.jersey.agent

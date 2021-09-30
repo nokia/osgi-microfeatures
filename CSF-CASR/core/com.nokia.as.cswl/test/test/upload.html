@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Upload test (internal use only)</title>
+</head>
+<body>
+	<h1>Upload licenses:</h1>
+	<button onclick="addNext()" type="button">Add</button>
+	<form action="../licenses/upload" method="post" enctype="multipart/form-data">
+		<p>
+			<span>Select a file: </span><input type="file" name="file1" size="150" />
+		</p>
+		<input type="submit" value="Upload" />
+	</form>
+</body>
+<script type="text/javascript">
+	var filesCount = 1;
+
+	function addNext() {
+		var newP = document.querySelector("form > p").cloneNode(true);
+		newP.querySelector("input").setAttribute("name", "file" + (++filesCount));
+
+		var submit = document.querySelector("form > input[type=submit]");
+		document.querySelector("form").insertBefore(newP, submit);
+	};
+</script>
+</html>

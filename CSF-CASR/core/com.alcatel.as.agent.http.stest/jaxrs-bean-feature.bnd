@@ -1,0 +1,7 @@
+Bundle-Version: 1.0.0
+Bundle-Name: Web Agent Servlet Test  
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.httpagent.jaxrs";category:List<String>="test"; internal=true
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=com.alcatel.as.agent.http.stest.jaxrs-bean)'
+  
+Private-Package: 

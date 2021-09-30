@@ -1,0 +1,8 @@
+Bundle-Version: 1.0.2
+Bundle-Name: Http IOH Lib Feature
+Bundle-Category: assembly, internal
+X-Component-Category: io
+Require-Bundle: \
+ com.nokia.as.features.common,\
+ com.alcatel.as.http.ioh,\
+ DNSClient

@@ -1,0 +1,25 @@
+CSF-Artifact: false
+
+-fixupmessages: \
+ "Baseline mismatch for package com.google.gson, MINOR change. Current is 2.8.6, repo is 2.8.5, suggest 2.9.0";\
+ "The bundle version \\(2.8.5/2.8.6\\) is too low, must be at least 2.9.0"; is:=ignore
+ 
+-buildpath: \
+        osgi.annotation;version=6.0.1,\
+        osgi.core;version=6.0,\
+        osgi.cmpn;version=6.0,\
+	com.google.code.gson:gson;version=2.8.6
+
+-includeresource: @gson-2.8.6.jar;lib:=true
+
+CSF-Embedded: com.google.code.gson:gson:2.8.6
+Bundle-Name: CASR - com.google.code.gson:gson:2.8.6
+Bundle-Version: 2.8.6
+-exportcontents: *
+
+Import-Package: \
+ com.google.gson.internal;\
+ com.google.gson.internal.bind;\
+ com.google.gson.internal.bind.util;\
+ com.google.gson.internal.reflect;version="[2.8,3)",\
+ *

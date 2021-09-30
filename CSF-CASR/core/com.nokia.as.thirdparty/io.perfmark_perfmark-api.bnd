@@ -1,0 +1,9 @@
+CSF-Embedded:                  io.perfmark:perfmark-api:0.23.0
+Bundle-Version:                0.23.0
+Bundle-Name:                   CASR - io.perfmark:perfmark-api:0.23.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.perfmark_perfmark-api
+-includeresource:              @perfmark-api-0.23.0.jar;lib:=true
+-exportcontents:               *; version=0.23.0
+Import-Package: \
+  io.perfmark.impl;resolution:=optional,\
+  javax.annotation

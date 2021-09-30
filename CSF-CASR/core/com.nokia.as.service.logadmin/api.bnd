@@ -1,0 +1,3 @@
+Bundle-Version: 1.0.0
+Export-Package: com.nokia.as.log.service.admin
+Require-Capability: osgi.extender;filter:="(&(osgi.extender=com.nokia.as.service.fragmentactivator)(version>=1.0.0))"

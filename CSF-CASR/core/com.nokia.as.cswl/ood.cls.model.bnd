@@ -1,0 +1,15 @@
+Bundle-Version: 1.1.7
+Export-Package: \
+	com.nsn.ood.cls.model.gen.clients,\
+	com.nsn.ood.cls.model.gen.errors,\
+	com.nsn.ood.cls.model.gen.features,\
+	com.nsn.ood.cls.model.gen.hal,\
+	com.nsn.ood.cls.model.gen.licenses,\
+	com.nsn.ood.cls.model.internal,\
+	com.nsn.ood.cls.model.util,\
+	com.nsn.ood.cls.model.gen.metadata,\
+	com.nsn.ood.cls.model.json,\
+	com.nsn.ood.cls.model.metadata,\
+	com.nsn.ood.cls.model
+	
+Include-Resource: resources/ood-cls-model/

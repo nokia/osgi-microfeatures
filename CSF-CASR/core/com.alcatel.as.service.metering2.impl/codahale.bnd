@@ -1,0 +1,6 @@
+Bundle-Name: Metering2 Codhalale Common 
+Private-Package: com.alcatel.as.util.metering2.reporter.codahale.impl
+Export-Package: com.alcatel.as.util.metering2.reporter.codahale
+Bundle-Version: 2.0.3
+Bundle-SymbolicName: com.alcatel.as.util.metering2.reporter.codahale
+Bundle-Activator: com.alcatel.as.util.metering2.reporter.codahale.impl.Activator

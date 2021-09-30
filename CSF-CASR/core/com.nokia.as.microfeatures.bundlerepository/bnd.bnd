@@ -1,0 +1,34 @@
+-buildpath: \
+	osgi.core;version=6.0.0,\
+	osgi.annotation;version=6.0.1,\
+	org.apache.felix.dependencymanager.annotation;version=4.5,\
+	org.apache.felix.gogo.runtime;version=0.16,\
+	org.apache.felix.resolver;version=2.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	org.apache.ace.obr.storage;version=2.1,\
+	biz.aQute.bndlib;version=4.1,\
+	biz.aQute.repository;version=4.1
+
+-testpath: \
+	${junit}
+
+javac.source: 1.8
+javac.target: 1.8
+
+Bundle-Version: 1.0.15
+Private-Package: \
+	com.nokia.as.microfeatures.bundlerepository.impl,\
+    org.osgi.service.resolver,\
+    org.apache.felix.resolver.*
+	
+Export-Package: com.nokia.as.microfeatures.bundlerepository
+
+# we must embed bndlib + bndlib repo. We take take to not embed osgi 
+-includeresource: \
+  @biz.aQute.bndlib-4.1.0.jar!/(aQute/**|org/osgi/service/repository/**|org/osgi/util/function/**|org/osgi/util/promise/**),\
+  @biz.aQute.repository-4.1.0.jar
+
+Import-Package: !org.gradle.api.logging, *
+
+# This bundle is part of the microfeature group id
+groupId: com.nokia.casr.microfeatures

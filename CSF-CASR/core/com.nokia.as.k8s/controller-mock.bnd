@@ -1,0 +1,4 @@
+Bundle-Version: 1.0.9
+Private-Package: \
+	com.nokia.as.k8s.controller.mock,\
+	com.nokia.as.k8s.controller.serialization

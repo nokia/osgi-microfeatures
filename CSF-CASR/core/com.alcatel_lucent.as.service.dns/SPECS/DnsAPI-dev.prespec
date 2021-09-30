@@ -1,0 +1,28 @@
+obsoletes:
+DnsAPI-test
+
+std_files:
+api/lib/ReadDnsAPI.txt
+source
+
+post:
+if [ -z "$INSTALL_DIR" ]; then
+	echo "INSTALL_DIR not set" 1>&2
+	exit 1
+fi
+
+mkdir -p $INSTALL_DIR/api/lib
+ln -sf ../../lib/dns-api.jar $INSTALL_DIR/api/lib/dns-api.jar
+
+
+preun:
+if [ ! "$1" = "0" ]; then
+        # Nothing to do it is an update
+        exit 0
+fi
+if [ -z "$INSTALL_DIR" ]; then
+	echo "INSTALL_DIR not set" 1>&2
+	exit 1
+fi
+
+rm -f $INSTALL_DIR/api/lib/dns-api.jar

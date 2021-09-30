@@ -1,0 +1,17 @@
+# Build dependencies 
+-buildpath: \
+	${osgi},\
+	${junit},\
+	org.apache.felix.dependencymanager.annotation,\
+	org.apache.felix.dependencymanager,\
+	com.alcatel.as.utils;version=2.5,\
+	com.nokia.as.util.junit4osgi.tester;version=1.0,\
+	com.nokia.as.util.test;version=1.1,\
+	com.alcatel.as.service.api;version=latest,\
+	javax.ws.rs:javax.ws.rs-api;version=2.1,\
+	org.glassfish.jersey.media.jersey-media-multipart;version=2.29,\
+	com.nokia.as.thirdparty.servlet.api;version=3.1.2
+Bundle-Version: 1.0.0.${tstamp}
+-sub: *.bnd
+
+groupId: com.nokia.casr.http

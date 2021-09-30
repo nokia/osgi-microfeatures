@@ -1,0 +1,15 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	javax.jmdns;version=3.4,\
+	com.alcatel.as.service.api;version=1.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2
+    
+Bundle-Version: 1.0.6
+Bundle-Name: JmDNSDiscoveryService
+Private-Package: com.alcatel.as.service.discovery.impl.jmdns
+Include-Resource: META-INF/JmDNSDiscoveryService.log4j=META-INF/JmDNSDiscoveryService.log4j
+

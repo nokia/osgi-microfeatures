@@ -1,0 +1,4 @@
+-baseline: 
+-releaserepo:
+Bundle-Version: 1.0.0
+Export-Package: com.nokia.as.autoconfig.test.bundle.api

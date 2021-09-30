@@ -1,0 +1,15 @@
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	${junit},\
+	org.apache.felix.dependencymanager;version=4.4,\
+	org.apache.felix.dependencymanager.lambda;version=1.1,\
+	dom4j:dom4j;version=1.6	
+
+Bundle-Version: 1.2.5
+Export-Package: \
+ com.nokia.as.util.test.osgi,\
+ com.nokia.as.util.test.player,\
+ com.nokia.as.util.test.player.diameter
+Include-Resource: @dom4j-1.6.jar!/**
+Import-Package: !EDU.oswego.cs.dl.util.concurrent,com.sun.msv.*;org.gjt.xpp;org.jaxen.*;org.relaxng.*;org.xmlpull.*;resolution:=optional,*

@@ -1,0 +1,13 @@
+<settings> 
+ 
+  <mirrors>
+    <mirror>
+      <id>csf-repository</id>
+      <name>CSF Maven Repository</name>
+      <url>https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+  
+</settings>
+

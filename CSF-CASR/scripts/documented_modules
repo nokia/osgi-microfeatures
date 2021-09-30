@@ -1,0 +1,10 @@
+#put subprojects that should be publicly documented in this file
+com.nextenso.proxylet.api
+com.nextenso.proxylet.http
+com.alcatel.as.ioh
+com.alcatel.as.service.api
+com.alcatel.as.service.metering2
+com.alcatel.as.utils
+com.alcatel_lucent.as.service.dns
+com.alcatel_lucent.as.management.annotation
+com.nokia.as.k8s

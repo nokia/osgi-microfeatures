@@ -1,0 +1,53 @@
+CSF-Embedded:                  com.squareup.okhttp3:okhttp:4.9.1
+Bundle-Version:                4.9.1
+Bundle-Name:                   CASR - com.squareup.okhttp3:okhttp:4.9.1
+Bundle-SymbolicName:           com.nokia.as.thirdparty.com.squareup.okhttp3_okhttp
+-includeresource:              @okhttp-4.9.1.jar;lib:=true,\
+			       @okhttp-urlconnection-4.9.1.jar;lib:=true,\
+			       @logging-interceptor-4.9.1.jar;lib:=true
+-exportcontents:               *; version=4.9.1
+Import-Package: \
+  android.net.http;\
+  android.net.ssl;\
+  android.os;\
+  android.security;\
+  android.util;\
+  dalvik.system;resolution:=optional,\
+  javax.net,\
+  javax.net.ssl,\
+  javax.security.auth.x500,\
+  kotlin;version="[1.4,2)",\
+  kotlin.annotation;version="[1.4,2)",\
+  kotlin.collections;version="[1.4,2)",\
+  kotlin.comparisons;version="[1.4,2)",\
+  kotlin.io;version="[1.4,2)",\
+  kotlin.jvm;version="[1.4,2)",\
+  kotlin.jvm.functions;version="[1.4,2)",\
+  kotlin.jvm.internal;version="[1.4,2)",\
+  kotlin.jvm.internal.markers;version="[1.4,2)",\
+  kotlin.ranges;version="[1.4,2)",\
+  kotlin.sequences;version="[1.4,2)",\
+  kotlin.text;version="[1.4,2)",\
+  okhttp3;version="[4.9,5)",\
+  okhttp3.internal;version="[4.9,5)",\
+  okhttp3.internal.authenticator;version="[4.9,5)",\
+  okhttp3.internal.cache;version="[4.9,5)",\
+  okhttp3.internal.concurrent;version="[4.9,5)",\
+  okhttp3.internal.connection;version="[4.9,5)",\
+  okhttp3.internal.http;version="[4.9,5)",\
+  okhttp3.internal.http1;version="[4.9,5)",\
+  okhttp3.internal.http2;version="[4.9,5)",\
+  okhttp3.internal.io;version="[4.9,5)",\
+  okhttp3.internal.platform;version="[4.9,5)",\
+  okhttp3.internal.platform.android;version="[4.9,5)",\
+  okhttp3.internal.proxy;version="[4.9,5)",\
+  okhttp3.internal.publicsuffix;version="[4.9,5)",\
+  okhttp3.internal.tls;version="[4.9,5)",\
+  okhttp3.internal.ws;version="[4.9,5)",\
+  okio;version="[2.8,3)",\
+  org.bouncycastle.jsse;version="[1.66,2)",\
+  org.bouncycastle.jsse.provider;version="[1.66,2)",\
+  org.conscrypt;version="[2.5,3)";resolution:=optional,\
+  org.openjsse.javax.net.ssl;version="[1.1.0, 2)",\
+  org.openjsse.net.ssl;version="[1.1.0, 2)",\
+  sun.security.ssl

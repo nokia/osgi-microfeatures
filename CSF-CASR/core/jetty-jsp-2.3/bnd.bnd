@@ -1,0 +1,51 @@
+-buildpath:\
+ com.sun.el.javax.el;version=3.0.0,\
+ org.glassfish.web.javax.servlet.jsp;version=2.3.2,\
+ javax.servlet.jsp-api;version=2.3.1,\
+ org.glassfish.web.javax.servlet.jsp.jstl;version=1.2.2,\
+ org.eclipse.jetty.orbit:org.eclipse.jdt.core;version=3.8.2,\
+ javax.servlet.jsp.jstl;version=1.2.0.v201105211821,\
+ org.eclipse.jetty.toolchain:jetty-jsp-jdt;version=2.3.3,\
+ com.nokia.as.thirdparty.servlet.api;version=3.1.1,\
+ ant:ant;version=1.5
+
+Bundle-Name: JSP 2.3
+Bundle-Category: http
+Bundle-Description: JSP 2.3 for jetty
+Bundle-Version: 2.3.1
+Include-Resource: @javax.el-3.0.0.jar!/javax/**,\
+ @javax.el-3.0.0.jar!/com/sun/**,\
+ @javax.servlet.jsp-2.3.2.jar!/org/**,\
+ @javax.servlet.jsp-2.3.2.jar!/META-INF/services/**,\
+ @javax.servlet.jsp-api-2.3.1.jar!/javax/**,\
+ @javax.servlet.jsp.jstl-1.2.2.jar!/org/**,\
+ @javax.servlet.jsp.jstl-1.2.2.jar!/META-INF/*tld,\
+ @jetty-jsp-jdt-2.3.3.jar!/org/**,\
+ @org.eclipse.jdt.core-3.8.2.v20130121.jar,\
+ @javax.servlet.jsp.jstl-1.2.0.v201105211821.jar!/javax/**
+
+# so far, we were exporting javax.el with wrong 2.3.0 version , but the actual version is 3.0.0, so in the following,
+# we export javax.el as before with 2.3.0 version (to make sure we don't break anything),
+# but we also export javax.el with correct 3.0.0 version.
+
+Export-Package: \
+ javax.servlet.jsp.el;javax.servlet.jsp.tagext;javax.servlet.jsp;version=2.3.1,\
+ javax.el; com.sun.el; com.sun.el.lang; com.sun.el.parser; com.sun.el.stream; com.sun.el.util; version=2.3.0,\
+ javax.el; com.sun.el; com.sun.el.lang; com.sun.el.parser; com.sun.el.stream; com.sun.el.util; version=3.0.0,\
+ javax.servlet.jsp.jstl.*;\
+ org.apache.jasper.*;\
+ org.apache.taglibs.*;\
+ org.eclipse.jdt.*;\
+ org.glassfish.jsp.api.*; version="2.3.0"
+
+Import-Package: \
+ !org.eclipse.jdt.internal.compiler.tool,\
+ javax.servlet;\
+ javax.servlet.http;\
+ javax.servlet.resources;version="2.7.0",\
+ *;resolution:=optional
+
+DynamicImport-Package: *
+
+
+groupId: com.nokia.casr.http

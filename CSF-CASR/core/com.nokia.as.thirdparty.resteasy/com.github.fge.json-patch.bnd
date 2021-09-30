@@ -1,0 +1,21 @@
+CSF-Embedded:                  com.github.fge:json-patch:1.9
+Bundle-Version:                1.9
+Bundle-Name:                   CASR - com.github.fge:json-patch:1.9
+Bundle-SymbolicName:           com.github.fge.json-patch
+-includeresource:              @json-patch-1.9.jar;lib:=true
+-exportcontents:               *; version=1.9
+Import-Package: \
+  com.fasterxml.jackson.annotation;\
+  com.fasterxml.jackson.core;\
+  com.fasterxml.jackson.databind;\
+  com.fasterxml.jackson.databind.annotation;\
+  com.fasterxml.jackson.databind.jsontype;\
+  com.fasterxml.jackson.databind.node;\
+  com.fasterxml.jackson.databind.ser.std;version="[2.2,3)",\
+  com.github.fge.jackson;version="[1.6,2)",\
+  com.github.fge.jackson.jsonpointer;version="[1.6,2)",\
+  com.github.fge.msgsimple.bundle;version="[1.1,2)",\
+  com.github.fge.msgsimple.load;version="[1.1,2)",\
+  com.google.common.base;version="[28.1,29)",\
+  com.google.common.collect;version="[28.1,29)",\
+  javax.annotation

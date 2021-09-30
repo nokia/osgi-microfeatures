@@ -1,0 +1,11 @@
+CSF-Embedded:                  io.kubernetes:client-java-proto:4.0.0
+Bundle-Version:                4.0.0.1
+Bundle-Name:                   io.kubernetes.client-java-proto
+Bundle-SymbolicName:           io.kubernetes.client-java-proto
+-includeresource:              @client-java-proto-4.0.0.jar;lib:=true
+-exportcontents:               *; version=4.0.0
+Fragment-Host:                 io.kubernetes.client-java-api;bundle-version="[4.0.0,4.0.1)"
+
+-manifest io.kubernetes.client-java-proto.mf
+-baseline:
+

@@ -1,0 +1,9 @@
+Bundle-Version: 2.0.9
+Bundle-Name: Sless Controller Impl
+Export-Package: com.nokia.as.k8s.sless.fwk.controller
+Private-Package: com.nokia.as.k8s.sless.fwk.controller.ioh,\
+                 com.nokia.as.k8s.sless.fwk
+
+Include-Resource:  \
+ META-INF/defSlessTcpServer.txt=META-INF/defSlessTcpServer.txt
+

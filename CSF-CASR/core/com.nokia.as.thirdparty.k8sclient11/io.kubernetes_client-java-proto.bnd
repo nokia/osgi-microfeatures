@@ -1,0 +1,19 @@
+CSF-Embedded:                  io.kubernetes:client-java-proto:11.0.1
+Bundle-Version:                11.0.1
+Bundle-Name:                   CASR - io.kubernetes:client-java-proto:11.0.1
+Bundle-SymbolicName:           io.kubernetes.client-java-proto
+-includeresource:              @client-java-proto-11.0.1.jar;lib:=true
+Bnd-LastModified: 1614752931740
+Build-Jdk-Spec: 1.8
+Bundle-Description: Kubernetes Client Library
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Version: 11.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: \
+  io.kubernetes.client.proto;version="11.0.1"
+Import-Package: \
+  com.google.protobuf;version="[3.14,4)"
+Manifest-Version: 1.0
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-5.1.1.202006162103

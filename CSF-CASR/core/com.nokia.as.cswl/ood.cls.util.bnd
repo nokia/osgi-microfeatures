@@ -1,0 +1,17 @@
+Bundle-Version: 1.1.7
+Export-Package: \
+	com.nsn.ood.cls.util,\
+	com.nsn.ood.cls.util.cdi,\
+	com.nsn.ood.cls.util.convert,\
+	com.nsn.ood.cls.util.exception,\
+	com.nsn.ood.cls.util.license,\
+	com.nsn.ood.cls.util.log,\
+	com.nsn.ood.cls.util.resteasy
+	
+Include-Resource: resources/ood-cls-util
+
+Import-Package: org.aspectj.runtime,\
+				org.aspectj.runtime.reflect,\
+				org.aspectj.runtime.internal,\
+				org.aspectj.lang,\
+				*

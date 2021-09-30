@@ -1,0 +1,8 @@
+CSF-Embedded:                  com.kohlschutter.junixsocket:junixsocket-native-common:2.0.4
+Bundle-Version:                2.0.4
+Bundle-Name:                   com.nokia.as.thirdparty.com.kohlschutter.junixsocket_junixsocket.native.common
+Bundle-SymbolicName:           com.nokia.as.thirdparty.com.kohlschutter.junixsocket_junixsocket.native.common
+-includeresource:              @junixsocket-native-common-2.0.4.jar;lib:=true
+-exportcontents:               *; version=2.0.4
+
+-manifest com.kohlschutter.junixsocket_junixsocket.native.common.mf

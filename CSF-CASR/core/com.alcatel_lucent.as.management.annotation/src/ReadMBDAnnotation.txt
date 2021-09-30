@@ -1,0 +1,5 @@
+/******************************************************************/
+This file is only present to allows to create
+a link from $INSTALL_DIR/api/lib to $INSTALL_DIR/lib/dns-api.jar
+This link is used for the developpment with ECLIPSE.
+/******************************************************************/

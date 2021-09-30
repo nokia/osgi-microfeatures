@@ -1,0 +1,2 @@
+Bundle-Version: 2.2.1
+Export-Package: com.nokia.as.jaxrs.jersey.common

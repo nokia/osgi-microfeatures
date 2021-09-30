@@ -1,0 +1,14 @@
+#
+# implementation bundle for the com.nokia.as.service.tlsexport service
+#
+
+-buildpath: \
+	${osgi},\
+	com.nokia.as.service.tlsexport;version=1.0,\
+	org.apache.felix.dependencymanager.annotation;version=5.0,\
+	com.nokia.as.service.hkdf;version=1.1,\
+    slf4j.api;version=1.7
+
+
+Bundle-Version: 1.0.4
+Private-Package: com.nokia.as.tlsexport

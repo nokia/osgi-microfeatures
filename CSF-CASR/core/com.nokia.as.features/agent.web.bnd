@@ -1,0 +1,48 @@
+Bundle-Version: 1.0.11
+Bundle-Name: Web Agent Bundles
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="Web Agent Bundles"; internal=true
+
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.features.callout)',\
+  osgi.identity;filter:='(osgi.identity=com.alcatel_lucent.as.service.jetty.common)',\
+  osgi.identity;filter:='(osgi.identity=com.alcatel_lucent.as.agent.web)',\
+  osgi.identity;filter:='(osgi.identity=org.apache.felix.http.whiteboard)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.annotations)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.client)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.continuation)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.deploy)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.io)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.jaas)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.jmx)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.jndi)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.plus)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.proxy)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.rewrite)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.schemas)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.security)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.server)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.servlet)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.servlets)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.util)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.webapp)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.xml)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.websocket.api)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.websocket.client)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.websocket.common)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.websocket.server)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.websocket.servlet)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.websocket.javax.websocket)',\
+  osgi.identity;filter:='(osgi.identity=org.eclipse.jetty.websocket.javax.websocket.server)',\
+  osgi.identity;filter:='(osgi.identity=org.apache.aries.spifly.dynamic.bundle)',\
+  osgi.identity;filter:='(osgi.identity=org.apache.aries.util)',\
+  osgi.identity;filter:='(osgi.identity=jetty-jsp-2.3)',\
+  osgi.identity;filter:='(osgi.identity=com.eclipsesource.jaxrs.provider.multipart)',\
+  osgi.identity;filter:='(osgi.identity=com.eclipsesource.jaxrs.publisher)',\
+  osgi.identity;filter:='(osgi.identity=com.eclipsesource.jaxrs.provider.security)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.features.asm)'
+
+
+  
+
+
+  

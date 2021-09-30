@@ -1,0 +1,14 @@
+Bundle-Name: tools.k8s.client11 CASR Feature
+Bundle-Version: 1.0.0
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="lib.k8s.client";\
+                    version:Version="11.0.0";\
+                    desc="Kubernetes Client API Libraries 11.0.0";\
+                    doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Kubernetes+Java+Client"
+
+Require-Capability: \
+	osgi.identity;filter:='(&(osgi.identity=io.kubernetes.client-java-api)(version>=11.0.1)(!(version>=12.0.0)))',\
+        osgi.identity;filter:='(&(osgi.identity=io.kubernetes.client-java-extended)(version>=11.0.1)(!(version>=12.0.0)))'
+

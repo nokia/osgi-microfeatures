@@ -1,0 +1,12 @@
+Bundle-Version: 1.0.4
+Bundle-Name: Etcd Discovery
+Require-Capability: \
+    osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.discovery.impl.etcd)',\
+    osgi.identity;filter:='(osgi.identity=com.nokia.as.features.lib.etcd.etcd4j)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="discovery.etcd.etcd4j";\
+  alias:List<String>="Etcd Discovery";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Etcd4j+Discovery?src=contextnavpagetreemode";\
+  desc="Library used to connect agents to io handlers using etcd4j (v2)"

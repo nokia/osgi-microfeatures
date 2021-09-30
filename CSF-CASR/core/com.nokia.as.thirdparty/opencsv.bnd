@@ -1,0 +1,8 @@
+CSF-Embedded:                  com.opencsv:opencsv:3.5
+Bundle-Version:                3.5
+Bundle-Name:                   CASR - com.opencsv:opencsv:3.5
+Bundle-SymbolicName:           com.nokia.as.thirdparty.opencsv
+-includeresource:              @opencsv-3.5.jar;lib:=true
+-exportcontents:               *; version=3.5
+
+-manifest opencsv.mf

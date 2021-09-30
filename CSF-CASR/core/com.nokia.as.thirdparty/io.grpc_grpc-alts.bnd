@@ -1,0 +1,36 @@
+CSF-Embedded:                  io.grpc:grpc-alts:1.36.0
+Bundle-Version:                1.36.0
+Bundle-Name:                   CASR - io.grpc:grpc-alts:1.36.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.io.grpc_grpc-alts
+-includeresource:              @grpc-alts-1.36.0.jar;lib:=true
+-exportcontents:               *; version=1.36.0
+Import-Package: \
+  com.google.auth;version="[0.22,1)",\
+  com.google.auth.oauth2;version="[0.22,1)",\
+  com.google.common.base;version="[30.0,31)",\
+  com.google.common.collect;version="[30.0,31)",\
+  com.google.common.primitives;version="[30.0,31)",\
+  com.google.protobuf;version="[3.12,4)",\
+  io.grpc;version="[1.36,2)",\
+  io.grpc.alts.internal;version="[1.36,2)",\
+  io.grpc.auth;version="[1.36,2)",\
+  io.grpc.grpclb;version="[1.36,2)",\
+  io.grpc.internal;version="[1.36,2)",\
+  io.grpc.netty.shaded.io.grpc.netty;\
+  io.grpc.netty.shaded.io.netty.buffer;\
+  io.grpc.netty.shaded.io.netty.channel;\
+  io.grpc.netty.shaded.io.netty.channel.nio;\
+  io.grpc.netty.shaded.io.netty.channel.socket.nio;\
+  io.grpc.netty.shaded.io.netty.handler.codec;\
+  io.grpc.netty.shaded.io.netty.handler.ssl;\
+  io.grpc.netty.shaded.io.netty.util;\
+  io.grpc.netty.shaded.io.netty.util.concurrent;resolution:=optional,\
+  io.grpc.protobuf;version="[1.36,2)",\
+  io.grpc.stub;version="[1.36,2)",\
+  io.grpc.xds;resolution:=optional,\
+  javax.annotation,\
+  javax.crypto,\
+  javax.crypto.spec,\
+  javax.net.ssl
+
+Fragment-Host:		       com.nokia.as.thirdparty.io.grpc_grpc-api

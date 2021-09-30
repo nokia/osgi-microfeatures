@@ -1,0 +1,10 @@
+Bundle-Version: 1.1.7
+
+Include-Resource: resources/ood-cls-rest-util
+Export-Package: com.nsn.ood.cls.rest.util
+
+Import-Package: org.aspectj.runtime,\
+				org.aspectj.runtime.reflect,\
+				org.aspectj.runtime.internal,\
+				org.aspectj.lang,\
+				*

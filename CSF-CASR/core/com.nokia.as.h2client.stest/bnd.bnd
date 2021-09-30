@@ -1,0 +1,17 @@
+-buildpath: \
+	${osgi},\
+	${junit},\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	org.apache.felix.dependencymanager,\
+	com.nokia.as.util.junit4osgi.tester;version=1.0,\
+	com.nokia.as.util.test;version=1.1,\
+	com.nokia.as.thirdparty.log4j;version=1.2.19,\
+	com.alcatel.as.service.api;version=2.1.1,\
+	javax.ws.rs-api;version=2.0,\
+	com.alcatel.as.http.ioh.h2client;version=latest,\
+	org.apache.felix.gogo.runtime;version=1.1.2,\
+	com.nokia.as.service.hkdf;version=1.1.1
+
+-sub: *.bnd
+
+groupId: com.nokia.casr.http

@@ -1,0 +1,26 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.alcatel_lucent.as.service.dns;version=1.0,\
+	com.alcatel.as.service.api;version=2.0.0,\
+	com.alcatel.as.service.metering2;version=1.0.0,\
+	com.alcatel.as.sipservlet10;version=1.0,\
+	com.alcatel.as.utils;version=2.0,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.nokia.as.thirdparty.dnsjava;version=2.0.1
+
+Bundle-Name: DNSClient
+Bundle-AutoStart: true
+Private-Package: com.alcatel_lucent.as.service.dns.impl,\
+ com.alcatel_lucent.as.service.dns.impl.parser
+Import-Package: sun.net.spi.nameservice;resolution:=optional,*
+DynamicImport-Package: *
+-dsannotations:*
+Include-Resource: \
+ META-INF/mbeans-descriptors.xml=META-INF/mbeans-descriptors.xml,\
+ META-INF/services/com.alcatel_lucent.as.service.dns.DNSFactory=META-INF/services/com.alcatel_lucent.as.service.dns.DNSFactory
+Bundle-Version: 1.0.10
+

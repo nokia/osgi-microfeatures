@@ -1,0 +1,6 @@
+Export-Package: \
+	org.amdatu.scheduling,\
+	org.amdatu.scheduling.annotations,\
+	org.amdatu.scheduling.annotations.timeinterval,\
+	org.amdatu.scheduling.constants
+Bundle-Version: 1.1.0

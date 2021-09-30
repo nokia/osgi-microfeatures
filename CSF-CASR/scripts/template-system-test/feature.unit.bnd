@@ -1,0 +1,11 @@
+#bnd for the microfeature bringing the junit test suite bundle
+
+Bundle-Version: 1.0.0
+Bundle-Name: %MODULE_NAME% System Test Unit Feature
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="%FEATURE_NAME%.unit";category:List<String>="test"; internal=true
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.junit)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.junit4osgi.tester)',\
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.test)',\
+  osgi.identity;filter:='(osgi.identity=%MODULE_NAME%.unit)'
+  

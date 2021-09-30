@@ -1,0 +1,25 @@
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	com.nextenso.proxylet.api;version=1.0,\
+	com.alcatel.as.service.api;version=2.1,\
+	com.alcatel.as.service.metering2;version=1.0,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.alcatel.as.utils;version=2.5,\
+	com.nextenso.proxylet.http;version=1.4,\
+	com.alcatel.as.calloutagent.callout;version=3.0,\
+	com.alcatel.as.calloutagent.callout-admin;version=1.0,\
+	com.nextenso.mux;version=3.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.alcatel.as.sessionapi;version=1.0,\
+	com.alcatel_lucent.sip.sipservlet.commonapi;version=1.0,\
+	com.alcatel_lucent.as.service.dns;version=1.0,\
+	com.alcatel.as.agent.http.parser;version=1.0,\
+	org.apache.felix.dependencymanager,\
+	com.nokia.as.thirdparty.servlet.api;version=3.1,\
+	com.alcatel.as.http.ioh.h2client;version=1.5
+
+-sub: \
+    *.bnd
+
+groupId: com.nokia.casr.http

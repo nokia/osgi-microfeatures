@@ -1,0 +1,17 @@
+Bundle-Version: 1.0.2
+Bundle-Name: Http Proxy Definition
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.common.standalone)',\
+	osgi.identity;filter:='(osgi.identity=DNSClient)',\
+    	osgi.identity;filter:='(osgi.identity=com.alcatel.as.http.ioh.proxy)',\
+	osgi.identity;filter:='(osgi.identity=com.alcatel.as.http.ioh.h2client.feature)'
+
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="ioh.proxy.http";\
+  alias:List<String>="Http Proxy";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Http+Proxy";\
+  desc="CASR http proxy io handler"
+
+

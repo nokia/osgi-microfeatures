@@ -1,0 +1,30 @@
+apiVersion: "nokia.com/v1beta1"
+kind: CasrRoute
+metadata:
+  name: routeHTTP
+spec:
+  function:
+      name: kafka-write
+  route:
+      path: /hello
+      type: http
+      params:
+          - name: http.method
+            value: GET,POST
+          - name: http.consumes
+            value: application/json
+          - name: http.produces
+            value: application/json,text/xml
+          # - name: http.role
+          #   value: user,admin
+          - name: http.header
+            value: x-foo:bar,x-foo2:baz
+
+          - name: kafka.topic
+            value: demo
+          - name: kafka.bootstrap.servers
+            value: localhost:9092
+          - name: kafka.key.serializer
+            value: org.apache.kafka.common.serialization.StringSerializer
+          - name: kafka.value.serializer
+            value: org.apache.kafka.common.serialization.StringSerializer

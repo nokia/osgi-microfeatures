@@ -1,0 +1,5 @@
+summary: JmDNS jar file
+
+std_files:
+lib/jmdns.jar
+bundles/repository/blueprint/javax.jmdns.jar

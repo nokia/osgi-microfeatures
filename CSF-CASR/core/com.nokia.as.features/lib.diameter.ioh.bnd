@@ -1,0 +1,8 @@
+Bundle-Version: 1.0.1
+Bundle-Name: Diameter IOH Lib Feature
+Bundle-Category: assembly, internal
+Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="Diameter IOH Lib"; internal=true
+X-Component-Category: io
+Require-Bundle: \
+ com.nokia.as.features.common,\
+ com.alcatel.as.diameter.ioh

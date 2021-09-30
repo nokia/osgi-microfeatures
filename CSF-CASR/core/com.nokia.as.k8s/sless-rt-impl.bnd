@@ -1,0 +1,4 @@
+Bundle-Version: 1.1.8
+Bundle-Name: Sless Runtime Impl
+Private-Package: com.nokia.as.k8s.sless.fwk.runtime.impl, \
+		 com.nokia.as.k8s.sless.fwk.runtime.impl.agent

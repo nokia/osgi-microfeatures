@@ -1,0 +1,12 @@
+Bundle-Version: 1.0.8
+Bundle-Name: Kafka feature
+
+Require-Capability: \
+    osgi.identity;filter:='(osgi.identity=com.nokia.ckaf)'
+ 
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="lib.csf.ckaf";\
+  alias:List<String>="Kafka Java Client";\
+  version:Version="1.0.0";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Kafka+Client?src=contextnavpagetreemode";\
+  desc="CKAF java kafka client 3.x"

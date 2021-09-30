@@ -1,0 +1,27 @@
+Include-Resource: @janino-2.5.16.jar
+Bundle-SymbolicName: com.nokia.as.thirdparty.janino
+Bundle-Name: Codehaus-Janino
+CSF-Embedded: org.codehaus.janino:janino:jar:2.5.16
+
+ver: 2.5.16
+Bundle-Version: ${ver}
+
+Import-Package: *;resolution:=optional
+
+Export-Package = \
+  org.codehaus.janino;\
+  org.codehaus.janino.samples;\
+  org.codehaus.janino.tools;\
+  org.codehaus.janino.util;\
+  org.codehaus.janino.util.enumerator;\
+  org.codehaus.janino.util.iterator;\
+  org.codehaus.janino.util.resource;version=${ver};-split-package:=merge-first  
+
+-testpath: \
+	${junit}
+
+javac.source: 1.8
+javac.target: 1.8
+-buildpath: \
+	org.codehaus.janino:janino;version=2.5,\
+	org.apache.servicemix.bundles.ant;version=1.10

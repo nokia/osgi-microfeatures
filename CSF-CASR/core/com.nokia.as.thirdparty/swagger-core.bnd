@@ -1,0 +1,9 @@
+CSF-Embedded:                  io.swagger:swagger-core:1.5.3
+Bundle-Version:                1.5.3
+Bundle-Name:                   CASR - io.swagger:swagger-core:1.5.3
+Bundle-SymbolicName:           com.nokia.as.thirdparty.swagger-core
+-includeresource:              @swagger-core-1.5.3.jar;lib:=true
+-exportcontents:               *; version=1.5.3
+SPI-Consumer:                  *
+
+-manifest swagger-core.mf

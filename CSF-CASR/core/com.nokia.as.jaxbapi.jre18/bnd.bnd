@@ -1,0 +1,13 @@
+Bundle-Version: 1.0.0
+
+Fragment-Host: system.bundle;extension:=framework
+
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+
+Export-Package: javax.xml.bind;\
+ javax.xml.bind.annotation;\
+ javax.xml.bind.annotation.adapters;\
+ javax.xml.bind.attachment;\
+ javax.xml.bind.helpers;\
+ javax.xml.bind.util; version=2.3
+

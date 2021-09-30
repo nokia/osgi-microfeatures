@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jsr77Api
+Bundle-SymbolicName: com.nokia.as.thirdparty.javax.management.j2ee
+Bundle-Version: 1.1.2
+CSF-Artifact: false
+CSF-Embedded: javax.management.j2ee:management-api:1.1-rev-1
+Export-Package: javax.management.j2ee;version="0.0.0";uses:="javax.ejb
+ ,javax.management",javax.management.j2ee.statistics;version="0.0.0"
+Import-Package: javax.ejb;resolution:=optional,javax.management
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+X-Obsoletes: JSR77Api
+

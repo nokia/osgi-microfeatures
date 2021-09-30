@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE preferences SYSTEM 'http://java.sun.com/dtd/preferences.dtd'>
+
+<preferences EXTERNAL_XML_VERSION="1.0">
+	<root type="system">
+		<map>
+		</map>
+
+		<node name="licenseInstall">
+			<map>
+				<entry key="oracle" value="com.nokia.licensing.impl.LicenseInstallImpl" />
+			</map>
+		</node>
+
+		<node name="licenseCheck">
+			<map>
+				<entry key="licenseCheckImpl" value="com.nokia.licensing.impl.LicenseCheckImpl" />
+			</map>
+		</node>
+
+		<node name="credentials">
+			<map>
+				<entry key="credAccImpl" value="com.nokia.licensing.agnosticImpl.CredentialAccessImpl" />
+			</map>
+		</node>
+
+		<node name="directory">
+			<map>
+				<entry key="OES-default" value="/opt/nokia/oss/license" />
+				<entry key="licfileRepoPath" value="/var/opt/nokia/oss/global/license/LIC-File_Repo/" />
+			</map>
+		</node>
+
+		<node name="servicelocator">
+			<map>
+				<entry key="driverName" value="oracle.jdbc.driver.OracleDriver" />
+				<entry key="url" value="jdbc:oracle:thin:@127.0.0.1:1521:OSS" />
+				<entry key="userName" value="license" />
+				<entry key="passWd" value="license" />
+				<entry key="dialect" value="org.hibernate.dialect.OracleDialect" />
+			</map>
+		</node>
+
+		<node name="loggingConfig">
+			<map>
+				<entry key="errorlog" value="/opt/nokia/oss/license/CLJL/log/as_error.log" />
+				<entry key="errorlog_size" value="10485760" />
+				<entry key="errorlog_count" value="10" />
+				<entry key="tracelog" value="/opt/nokia/oss/license/CLJL/log/as_trace.log" />
+				<entry key="tracelog_size" value="10485760" />
+				<entry key="tracelog_count" value="10" />
+				<entry key="activitylog" value="/opt/nokia/oss/license/CLJL/log/as_activity.log" />
+				<entry key="activitylog_size" value="10485760" />
+				<entry key="activitylog_count" value="10" />
+				<entry key="auditlog" value="/opt/nokia/oss/license/CLJL/log/as_audit.log" />
+				<entry key="auditlog_size" value="10485760" />
+				<entry key="auditlog_count" value="10" />
+			</map>
+		</node>
+
+		<!-- The possible entries for value is JPA, SQL -->
+		<node name="ImplPlugin">
+			<map>
+				<entry key="impl" value="SQL" />
+			</map>
+		</node>
+
+		<node name="SQLPlugin">
+			<map>
+				<entry key="schema" value="LICENSE" />
+			</map>
+		</node>
+
+		<node name="dataStorage">
+			<map>
+				<entry key="dataStorageImpl" value="com.nokia.licensing.agnosticImpl.DataBasePluginImpl" />
+			</map>
+		</node>
+	</root>
+</preferences>

@@ -1,0 +1,16 @@
+### set a prefix on a monitorable and a specific meter
+#exportMeters -m <MonMonitorable> -mt <meterName> -prefix <monprefix>
+
+### filter meters
+#exportMeters -m <MonMonitorable> -mt <meter1> -mt <meter2>
+##  or
+#exportMeters -m MonMonitorable -prefix monprefix -mts <meterPattern>
+
+### set an alias to a specific meter
+#exportMeters -m MonMonitorable -mt meter1 -alias newMeterName
+
+### export ASR meter to prometheus with labels (alias is mandatory in that usecase)
+## The command below export one meter to prometheus as "name{key=value, key2=value2}"
+#exportMeters -m <monitorable> -mt <meter> -alias <name> -lb <key>=<value> -lb <key2>=<value2>
+## The command below export a pattern of meter to prometheus as "name{key1=v, key2=v}". Refer to documentation for pattern design
+#exportMeters -m <monitorable> -mts <pattern with labels> -alias <name>

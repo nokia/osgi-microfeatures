@@ -1,0 +1,10 @@
+# This is our timer service implementation. We declare the services with
+# some osgi-like service properties, and the services can then be
+# loaded using com.alcatel.as.util.serviceloader.ServiceLoader class
+#
+# For example:
+# 
+#  TimerService ts = ServiceLoader.loadClass(TimerService.class, "(strict=true)", null, null);
+#
+com.alcatel.as.service.concurrent.impl.jdkTimerServiceImplStandalone;strict=true
+com.alcatel.as.service.concurrent.impl.WheelTimerServiceImplStandalone;strict=false

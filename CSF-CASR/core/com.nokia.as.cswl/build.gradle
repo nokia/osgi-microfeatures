@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'jsonschema2pojo'
+
+repositories {
+  maven {
+    url 'http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered'
+    url '/home/jenkins/.m2/repository'
+  }
+  mavenLocal()
+}
+
+configurations {
+  testDeps
+}
+
+jsonSchema2Pojo {
+  annotationStyle = 'jackson2'
+  generateBuilders = true
+  useJodaDates = true
+  useLongIntegers = true
+  useCommonsLang3 = true
+  targetPackage = 'com.nsn.ood.cls.model.gen.hal'
+  propertyWordDelimiters = ['-', ' ', '_'] as char[]
+  targetDirectory = file("${project.projectDir}/src")
+  source = files("${project.projectDir}/resources/ood-cls-model/json-schema/resource.json", 
+                 "${project.projectDir}/resources/ood-cls-model/json-schema/link.json",
+                 "${project.projectDir}/resources/ood-cls-model/json-schema/clients.json",
+                 "${project.projectDir}/resources/ood-cls-model/json-schema/dblicenses.json",
+                 "${project.projectDir}/resources/ood-cls-model/json-schema/licenses.json",
+                 "${project.projectDir}/resources/ood-cls-model/json-schema/features.json",
+                 "${project.projectDir}/resources/ood-cls-model/json-schema/error.json",
+                 "${project.projectDir}/resources/ood-cls-model/json-schema/error-etag.json",
+                 "${project.projectDir}/resources/ood-cls-model/json-schema/error-feature.json",
+                 "${project.projectDir}/resources/ood-cls-model/json-schema/error-violation.json",
+                 "${project.projectDir}/resources/ood-cls-model/json-schema/metadata.json")  
+}

@@ -1,0 +1,13 @@
+Bundle-Version: 1.0.6
+Bundle-Name: discovery.k8s
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.service.discovery.k8s.client)',\
+	osgi.identity;filter:='(&(osgi.identity=io.kubernetes.client-java)(version>=8.0.0)(!(version>=9.0.0)))',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.features.lib.http.okhttp3)'
+	
+Provide-Capability: com.nokia.as.feature;\
+  com.nokia.as.feature="discovery.k8s";\
+  alias:List<String>="Pods Tracking,discovery.k8s.amdatu";\
+  version:Version="1.0.1";\
+  doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Pods+Tracking?src=contextnavpagetreemode";\
+  desc="Discovery mechanism using Kubernetes API server"

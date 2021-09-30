@@ -1,0 +1,13 @@
+CSF-Embedded:                  com.github.vladimir-bukhtoyarov:bucket4j-core:4.10.0
+Bundle-Version:                4.10.0
+Bundle-Name:                   CASR - com.github.vladimir-bukhtoyarov:bucket4j-core:4.10.0
+Bundle-SymbolicName:           com.nokia.as.thirdparty.com.github.vladimir-bukhtoyarov_bucket4j-core
+-includeresource:              @bucket4j-core-4.10.0.jar;lib:=true
+-exportcontents:               *; version=4.10.0
+SPI-Consumer:                  *
+Import-Package: \
+  io.github.bucket4j;version="[4.10,5)",\
+  io.github.bucket4j.grid;version="[4.10,5)",\
+  io.github.bucket4j.local;version="[4.10,5)",\
+  io.github.bucket4j.serialization;version="[4.10,5)"
+

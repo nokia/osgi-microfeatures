@@ -1,0 +1,5 @@
+Bundle-Name: Log4jMetricsReporter
+Bundle-SymbolicName: com.alcatel.as.util.metering2.reporter.log4j
+Private-Package: com.alcatel.as.util.metering2.reporter.log4j
+Bundle-Activator: com.alcatel.as.util.metering2.reporter.log4j.Activator
+Bundle-Version: 1.0.7

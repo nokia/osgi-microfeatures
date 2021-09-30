@@ -1,0 +1,35 @@
+Bundle-Name: lib.cxf.jaxws CASR Feature
+Bundle-Version: 1.0.1
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="lib.cxf.jaxws";\
+                    version:Version="1.0.0";\
+                    desc="CXF jaxws library with java 11 support";\
+                    doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+CXF+Jaxws"
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.fasterxml.woodstox.woodstox-core)',\
+	osgi.identity;filter:='(osgi.identity=com.sun.istack.commons-runtime)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.cxf.cxf-core)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.cxf.cxf-rt-bindings-soap)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.cxf.cxf-rt-bindings-xml)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.cxf.cxf-rt-databinding-jaxb)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.cxf.cxf-rt-frontend-jaxws)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.cxf.cxf-rt-frontend-simple)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.cxf.cxf-rt-management)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.cxf.cxf-rt-transports-http)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.cxf.cxf-rt-wsdl)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.geronimo.specs.geronimo-ws-metadata_2.0_spec)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.karaf.jaas.boot)',\
+	osgi.identity;filter:='(osgi.identity=com.sun.xml.fastinfoset.FastInfoset)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.saaj-impl)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.wsdl4j)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.xmlresolver)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.servicemix.specs.stax-api-1.0)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.ws.xmlschema.core)',\
+	osgi.identity;filter:='(osgi.identity=org.jvnet.staxex.stax-ex)',\
+	osgi.identity;filter:='(osgi.identity=stax2-api)'
+
+
+

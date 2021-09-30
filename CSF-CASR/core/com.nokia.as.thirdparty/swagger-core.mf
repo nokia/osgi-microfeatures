@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1598350734017
+Bundle-ManifestVersion: 2
+Bundle-Name: CASR - io.swagger:swagger-core:1.5.3
+Bundle-SymbolicName: com.nokia.as.thirdparty.swagger-core
+Bundle-Version: 1.5.3
+Created-By: 1.8.0_252 (AdoptOpenJDK)
+CSF-Embedded: io.swagger:swagger-core:1.5.3
+Export-Package: io.swagger.config;version="1.5.3";uses:="io.swagger.co
+ re.filter,io.swagger.models",io.swagger.converter;version="1.5.3";use
+ s:="io.swagger.models,io.swagger.models.properties",io.swagger.core.f
+ ilter;version="1.5.3";uses:="io.swagger.model,io.swagger.models,io.sw
+ agger.models.parameters,io.swagger.models.properties",io.swagger.jack
+ son;version="1.5.3";uses:="com.fasterxml.jackson.core,com.fasterxml.j
+ ackson.databind,com.fasterxml.jackson.databind.introspect,com.fasterx
+ ml.jackson.databind.jsontype,com.fasterxml.jackson.databind.module,io
+ .swagger.converter,io.swagger.models,io.swagger.models.properties",io
+ .swagger.model;version="1.5.3";uses:="io.swagger.models",io.swagger.u
+ til;version="1.5.3";uses:="com.fasterxml.jackson.core,com.fasterxml.j
+ ackson.databind,com.fasterxml.jackson.databind.module,io.swagger.mode
+ ls,io.swagger.models.auth,io.swagger.models.parameters,io.swagger.mod
+ els.properties"
+Import-Package: com.fasterxml.jackson.annotation;version="[2.10,3)",co
+ m.fasterxml.jackson.core;version="[2.10,3)",com.fasterxml.jackson.cor
+ e.type;version="[2.10,3)",com.fasterxml.jackson.core.util;version="[2
+ .10,3)",com.fasterxml.jackson.databind;version="[2.10,3)",com.fasterx
+ ml.jackson.databind.introspect;version="[2.10,3)",com.fasterxml.jacks
+ on.databind.jsontype;version="[2.10,3)",com.fasterxml.jackson.databin
+ d.module;version="[2.10,3)",com.fasterxml.jackson.databind.node;versi
+ on="[2.10,3)",com.fasterxml.jackson.databind.type;version="[2.10,3)",
+ com.fasterxml.jackson.databind.util;version="[2.10,3)",com.fasterxml.
+ jackson.dataformat.yaml,io.swagger.annotations;version="[1.5,2)",io.s
+ wagger.converter;version="[1.5,2)",io.swagger.core.filter;version="[1
+ .5,2)",io.swagger.jackson;version="[1.5,2)",io.swagger.model;version=
+ "[1.5,2)",io.swagger.models;version="[1.5,2)",io.swagger.models.auth;
+ version="[1.5,2)",io.swagger.models.parameters;version="[1.5,2)",io.s
+ wagger.models.properties;version="[1.5,2)",io.swagger.util;version="[
+ 1.5,2)",javax.validation.constraints,javax.xml.bind.annotation,org.ap
+ ache.commons.lang3,org.apache.commons.lang3.text,org.slf4j
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+SPI-Consumer: *
+Tool: Bnd-5.1.2.202007211702
+

@@ -1,0 +1,2 @@
+TEST_PACKAGE_NAME=com.alcatel.as.agent.http.stest
+TEST_SUITE_NAME=AsyncProxyletTests

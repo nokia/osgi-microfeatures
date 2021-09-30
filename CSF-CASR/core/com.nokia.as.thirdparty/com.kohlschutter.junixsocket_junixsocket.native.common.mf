@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1561644127625
+Bundle-ManifestVersion: 2
+Bundle-Name: com.nokia.as.thirdparty.com.kohlschutter.junixsocket_juni
+ xsocket.native.common
+Bundle-SymbolicName: com.nokia.as.thirdparty.com.kohlschutter.junixsoc
+ ket_junixsocket.native.common
+Bundle-Version: 2.0.4
+Created-By: 1.8.0_191 (Oracle Corporation)
+CSF-Embedded: com.kohlschutter.junixsocket:junixsocket-native-common:2
+ .0.4
+Export-Package: lib.amd64-Linux-gpp.jni;version="2.0.4",lib.x86_64-Mac
+ OSX-gpp.jni;version="2.0.4",org.newsclub.net.jni;version="2.0.4",org.
+ newsclub.net.unix;version="2.0.4"
+Import-Package: org.scijava.nativelib;version="[2.0,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-4.2.0.201903051501
+

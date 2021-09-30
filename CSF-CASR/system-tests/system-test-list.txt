@@ -1,0 +1,15 @@
+stest.http-proxy
+stest.h2client
+stest.resteasy
+stest.web
+stest.httpagent
+stest.dtls
+stest.http2
+stest.jaxrs
+stest.sless.jaxrs
+stest.mux-reactor
+stest.cxf
+stest.csdc2
+stest.etcd4j
+stest.csdc
+stest.ckaf

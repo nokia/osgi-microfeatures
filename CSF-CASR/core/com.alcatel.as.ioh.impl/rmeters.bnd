@@ -1,0 +1,13 @@
+Bundle-AutoStart: true
+Bundle-Name: MetersIOH
+Bundle-Category: ioh
+Export-Package: com.alcatel.as.ioh.engine.meters
+
+-dsannotations: *
+
+Include-Resource:  \
+ META-INF/meters.desc=META-INF/meters.desc
+
+ASR-MuxHandlerDesc=META-INF/meters.desc
+Bundle-Version: 1.0.37
+

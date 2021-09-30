@@ -1,0 +1,157 @@
+##
+# This file contains bnd declaration which are applied to all workspace projects.
+# See http://enroute.osgi.org/tutorial_maven/050-start.html
+#
+
+#
+# Artifactory maven repositories. You can set the following environment variable: CSF_REPO_DELIVERED, CSF_REPO_CANDIDATES, CSF_REPO_SNAPSHOTS
+# in environment, in order to specify specific artifactory repos.
+#
+repo-delivered:  ${env;CSF_REPO_DELIVERED;http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered}
+repo-candidate:  ${env;CSF_REPO_CANDIDATES;http://repo.lab.pl.alcatel-lucent.com/csf-mvn-candidates}
+repo-snapshot: ${env;CSF_REPO_SNAPSHOTS;http://repo.lab.pl.alcatel-lucent.com/csf-mvn-snapshots}
+
+#
+# Set here the maven group id for the workspace bundles
+#
+groupId: com.nokia.csf.mygroup
+
+#
+# Uncomment the following when you want to deploy snapshots to artifactory, else leave the two following lines commented.
+#
+#-snapshot: SNAPSHOT
+#-pom: groupid = ${groupId}, version = ${versionmask;===;${@version}}-SNAPSHOT
+
+#
+# Uncomment the following when you want to deploy releases to artifactory, else leave the three following lines commented.
+#
+-snapshot: RELEASE
+-pom: groupid = ${groupId}, version = ${versionmask;===;${@version}}
+-baseline: *
+
+#
+# Bnd Plugin paths.
+#
+-pluginpath: \
+    ${workspace}/cnf/cache/org.apache.felix.dependencymanager.annotation-4.2.1.jar;\
+        url=${repo-delivered}/org/apache/felix/org.apache.felix.dependencymanager.annotation/4.2.1/org.apache.felix.dependencymanager.annotation-4.2.1.jar,\
+    ${workspace}/cnf/cache/com.alcatel_lucent.as.management.annotation.jar;\
+		url=${repo-delivered}/com/nokia/casr/com.alcatel_lucent.as.management.annotation/1.0.0/com.alcatel_lucent.as.management.annotation-1.0.0.jar
+
+#
+# Release repo where we push our workspace bundles. 
+#
+-plugin.1.Artifactory: aQute.bnd.repository.maven.provider.MavenBndRepository; \
+    releaseUrl = '${repo-candidate}-local, ${repo-delivered}'; \
+    snapshotUrl = '${repo-snapshot}-local, ${repo-delivered}'; \
+    name = Artifactory; \
+    index = ${.}/artifactory.mvn; \
+    noupdateOnRelease=true
+
+#
+# CASR OBR used to get all buildtime/runtime dependencies needed to work with CASR components.
+#
+-plugin.2.CASR_OBR: aQute.bnd.repository.osgi.OSGiRepository; \
+    name=CASR_OBR; \
+    poll.time=-1; \
+    cache=${workspace}/cnf/cache; \
+    locations=http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered/com/nokia/casr/com.nokia.casr.obr/17.9.1/com.nokia.casr.obr-17.9.1.xml
+
+#
+# Baseline repo. You can deploy your bundles here before releasing to Artifactory. Doing so will make it possible to use
+# Semantic Versioning.
+#
+-plugin.3.Baseline: aQute.bnd.deployer.repository.LocalIndexedRepo; \
+    name = Baseline; \
+    pretty = true; \
+    local = ${.}/baseline
+
+#
+# Local repo. You can add whatever bundles here, they will be made available in buildpath.
+#
+-plugin.4.Local: aQute.bnd.deployer.repository.LocalIndexedRepo; \
+    name = Local; \
+    pretty = true; \
+    local = ${.}/local
+
+#
+# Always write generated bundles in ~/.m2/repository
+#
+-plugin.5.M2: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository; \
+    name = M2; \
+    noupdateOnRelease=true
+
+#
+# Templates used to create new projects under Eclipse. Don't remove that.
+#
+-plugin.6.Templates: \
+    aQute.bnd.deployer.repository.LocalIndexedRepo; \
+    name = Templates; \
+    pretty = true; \
+    local = ${build}/templates
+
+#
+# Make sure all compiled artifacts are always pushed to local ~/.m2/repository
+#
+-buildrepo: M2
+
+#
+# Name of the repositories where we want to deploy our bundles.
+# By default, we deploy artifacts to our local Baseline repo.
+# but you can deploy to artifactory either using "gradlew -Dreleaserepo=Artifactory,Baseline", or
+# from Eclipse -> Release Workspace Bundles menu you can select "Artifactory" repo.
+#
+-releaserepo: ${def;releaserepo;Baseline}
+
+#
+# baseline repo
+#
+-baselinerepo: Baseline
+
+#
+# Artifactory connection settings
+#
+usr = ${env;ARTIFACTORY_USR;admin}
+pwd = ${env;ARTIFACTORY_PSW;admin123}
+csfrepo = ${env;CSF_REPO;http://localhost:8081}
+-connection-settings: ${if;${pwd};server;-dummy};id=${csfrepo};username=${usr};password=${pwd}, -bnd
+
+#
+# Don't include sources in generated bundles
+#
+-sources:               false
+
+#
+# Java parameters
+#
+javac.source: 1.8
+javac.target: 1.8
+
+#
+# JUnit
+#
+junit: org.apache.servicemix.bundles.junit; version=4.12
+
+#
+# Common osgi build-time dependencies
+#
+osgi: osgi.annotation, osgi.core,osgi.cmpn
+
+#
+# bndlib
+#
+bndlib=biz.aQute.bndlib;version=3.5.0
+
+#
+# ASR and Dependency Manager Annotations support
+#
+-plugin: \
+	org.apache.felix.dm.annotation.plugin.bnd.AnnotationPlugin;add-require-capability=true,\
+	com.alcatel_lucent.as.management.bnd.AnnotationPlugin
+
+#
+# Removes some headers in order to reduce binary diff between same bundles that are not changed between subsequent releases.
+#
+-removeheaders: Bnd-LastModified,Tool,Created-By,Include-Resource
+

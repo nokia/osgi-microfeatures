@@ -1,0 +1,58 @@
+# root bnd file
+
+-fixupmessages: \
+  "com.nokia.as.features.lib.radius.ioh: Host com.nokia.as.features.common= for this fragment/require bundle cannot be found on the classpath";is:=ignore,\
+  "com.nokia.as.features.lib.radius.ioh: Host com.alcatel.as.radius.ioh= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.discovery.file: Host com.alcatel.as.service.impl.advert-file-reader= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.ioh.web.standalone: Host com.nokia.as.features.common.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.ioh.web.standalone: Host com.nokia.as.features.lib.http.ioh= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.agent.radius.standalone: Host com.nokia.as.features.common.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.agent.radius.standalone: Host com.nokia.as.features.callout.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.agent.radius.standalone: Host com.alcatel.as.agent.radius= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.diameter.ioh: Host com.nokia.as.features.common= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.diameter.ioh: Host com.alcatel.as.diameter.ioh= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.diameter.lb: Host com.nokia.as.features.common= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.diameter.lb: Host com.alcatel.as.diameter.lb= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.diameter.lb: Host com.alcatel.as.diameter.lb.impl.router= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.diameter.lb: Host com.alcatel.as.diameter.lb.impl.router.ext= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.discovery.jmdns: Host com.alcatel.as.service.discovery.impl.jmdns= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.ioh.radius.standalone: Host com.nokia.as.features.common.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.ioh.radius.standalone: Host com.nokia.as.features.lib.radius.ioh= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.diameter.lb.standalone: Host com.nokia.as.features.common.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.diameter.lb.standalone: Host com.nokia.as.features.diameter.lb= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.http.ioh: Host com.nokia.as.features.common= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.http.ioh: Host com.alcatel.as.http.ioh= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.http.ioh: Host DNSClient= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.jerseyagent-2.1: Host com.nokia.as.features.callout.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.callout.standalone: Host com.nokia.as.features.callout= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.callout.standalone: Host com.nokia.as.features.common.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.callout.standalone: Host com.alcatel.as.proxylet.deployer= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.callout.standalone: Host com.alcatel.as.service.impl.appmbeans-standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.callout: Host com.nokia.as.features.common= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.callout: Host com.alcatel.as.calloutagent.callout= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.callout: Host com.alcatel.as.service.impl.coordinator= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.callout: Host com.alcatel.as.service.impl.mbeanparser= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.callout: Host DNSClient= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.callout: Host com.nokia.as.thirdparty.dnsjava= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.common.standalone: Host com.nokia.as.features.common= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.common.standalone: Host com.alcatel.as.session.distributed.mock= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.common.standalone: Host com.alcatel.as.service.impl.standalone-reporter= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.ioh.diameter.standalone: Host com.nokia.as.features.common.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.ioh.diameter.standalone: Host com.nokia.as.features.lib.diameter.ioh= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.diameter.agent: Host com.nokia.as.features.callout= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.diameter.agent: Host com.alcatel.as.agent.diameter= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.diameter.agent: Host com.alcatel_lucent.as.ims= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.diameter.agent: Host com.alcatel_lucent.as.ims.diameter.common= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.diameter.agent: Host com.alcatel_lucent.as.ims.impl.cx= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.diameter.agent: Host com.alcatel_lucent.as.ims.impl.charging.rf= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.diameter.agent: Host com.alcatel_lucent.as.ims.impl.charging.ro= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.lib.diameter.agent: Host com.alcatel_lucent.as.ims.impl.sh= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.jerseyagent: Host com.nokia.as.features.callout.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.agent.diameter.standalone: Host com.nokia.as.features.common.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.agent.diameter.standalone: Host com.nokia.as.features.callout.standalone= for this fragment/require bundle cannot be found on the classpath"; is:=ignore,\
+  "com.nokia.as.features.agent.diameter.standalone: Host com.nokia.as.features.lib.diameter.agent= for this fragment/require bundle cannot be found on the classpath"; is:=ignore
+
+-buildpath: com.nokia.as.util.jartool
+
+-sub: \
+    *.bnd

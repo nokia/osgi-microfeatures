@@ -1,0 +1,9 @@
+.DS_Store
+.gradle/
+/generated/
+.metadata
+/.recommenders/
+.settings
+**/cnf/baseline/
+**/cnf/cache/
+*.class

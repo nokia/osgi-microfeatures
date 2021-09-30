@@ -1,0 +1,26 @@
+<servers>
+
+  <!-- This is the external diameter listening endpoint.
+       Change the client id to use a real farm.
+       You can add others : clone this section and change the ip/port/name -->
+  <server ip="127.0.0.1" port="3868" processor="diameter.lb.def" name="lb-tcp">
+     <property name="diameter.lb.client.id">hss-test</property>
+  </server>
+
+  <!-- Comment the following server to de-activate the test hss -->
+  <server ip="127.0.0.1" port="4868" processor="diameter.test.server" name="lb-test">
+  </server>
+
+  <!-- Comment the following server if the companion web agent is not used.
+       If the companion web agent is running on a different host, change the ip address below. -->
+  <server ip="127.0.0.1" port="9876" processor="meters.ioh.mux" name="meters-mux">
+    <property name="meters.ioh.agent.group">standalone</property>
+  </server>
+
+  <!-- Uncomment the following server to activate the OSGi remote shell server -->
+  <!--server ip="127.0.0.1" port="16000" processor="gogo.shell" name="gogo">
+    <property name="server.port.range">1000</property>
+    <property name="read.timeout">1000000</property>
+  </server-->
+
+</servers>

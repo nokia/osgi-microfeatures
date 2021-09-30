@@ -1,0 +1,13 @@
+# Build dependencies 
+-buildpath: \
+	${osgi},\
+	${junit},\
+	org.apache.felix.dependencymanager.annotation;version=4.2,\
+	org.apache.felix.dependencymanager,\
+	com.alcatel.as.utils;version=2.2.1,\
+	com.nokia.as.util.junit4osgi.tester;version=1.0,\
+	com.nokia.as.util.test;version=1.1,\
+	com.alcatel.as.service.api;version=latest
+
+Bundle-Version: 1.0.0
+-sub: *.bnd

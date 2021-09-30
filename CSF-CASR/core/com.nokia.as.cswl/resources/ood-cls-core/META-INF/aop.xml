@@ -1,0 +1,14 @@
+<aspectj>
+    <aspects>
+    	<aspect name="com.nsn.ood.cls.core.audit.AuditLogInterceptor"/>
+    	<aspect name="com.nsn.ood.cls.util.log.LoggableInterceptor"/>
+    	<include within="com.nsn..*"/>
+    	<include within="@com.nsn.ood.cls.util.log.Loggable *"/>
+    	<include within="@com.nsn.ood.cls.core.audit.AuditLog *"/>
+    </aspects>
+    <weaver>
+    	<include within="com.nsn..*"/>
+    	<include within="@com.nsn.ood.cls.util.log.Loggable *"/>
+    	<include within="@com.nsn.ood.cls.core.audit.AuditLog *"/>
+    </weaver>
+</aspectj>

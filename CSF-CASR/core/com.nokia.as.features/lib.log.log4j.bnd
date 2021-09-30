@@ -1,0 +1,27 @@
+Bundle-Version: 1.0.4
+Bundle-Name: Log4j 1.2 API Feature
+
+# we blacklist log4j2 bridges, and pax-logging api
+
+Provide-Capability: com.nokia.as.feature; \
+    com.nokia.as.feature="lib.log.log4j";\
+    version:Version="1.0.0";\
+    desc="Log4j 1.2 API";\
+    doc="https://confluence.app.alcatel-lucent.com/display/plateng/MicroFeature+-+Log4j";\
+    blacklist.identity="(|(osgi.identity=com.nokia.as.thirdparty.log4j2.log4j12.api)\
+                          (osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12.ext.log4j2)\
+                          (osgi.identity=org.ops4j.pax.logging.pax-logging-api))"
+
+Require-Capability: \
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.log4j)',\
+	osgi.identity;filter:='(osgi.identity=slf4j.api)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.osgi.osgilog2log4j)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12)',\
+        osgi.identity;filter:='(osgi.identity=com.nokia.as.thirdparty.slf4j.log4j12.ext)',\
+	osgi.identity;filter:='(osgi.identity=com.alcatel.as.service.impl.log4j1)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.service.logadmin.log4j1)',\
+	osgi.identity;filter:='(osgi.identity=com.nokia.as.log4jappender.log4j1)'
+	
+
+ 
+ 

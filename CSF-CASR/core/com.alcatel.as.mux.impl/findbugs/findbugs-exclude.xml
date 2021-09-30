@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FindBugsFilter>
+	<LastVersion value="-1" relOp="NEQ" />
+
+	<Match>
+		<Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS" />
+	</Match>
+
+	<Match>
+		<Bug pattern="EI_EXPOSE_REP" />
+	</Match>
+
+	<Match>
+		<Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+	</Match>
+
+	<Match>
+		<Class name="com.nextenso.mux.impl.Activator" />
+		<Bug pattern="UPM_UNCALLED_PRIVATE_METHOD" />
+	</Match>
+	<Match>
+		<Class name="com.nextenso.mux.impl.FlowControl" />
+		<Bug pattern="DM_EXIT" />
+	</Match>
+	<Match>
+		<Class name="com.nextenso.mux.impl.MuxConnectionImpl$MuxSocket" />
+		<Bug pattern="SF_SWITCH_FALLTHROUGH" />
+	</Match>
+</FindBugsFilter>

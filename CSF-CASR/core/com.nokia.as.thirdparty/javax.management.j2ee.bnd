@@ -1,0 +1,9 @@
+Bundle-Name: Jsr77Api
+Bundle-Version: 1.1.2
+X-Obsoletes: JSR77Api
+-exportcontents: *;version="0.0.0"
+Import-Package: javax.ejb;resolution:=optional,*
+Include-Resource: @management-api-1.1-rev-1.jar!/**
+CSF-Embedded: javax.management.j2ee:management-api:1.1-rev-1
+-manifest javax.management.j2ee.mf
+
