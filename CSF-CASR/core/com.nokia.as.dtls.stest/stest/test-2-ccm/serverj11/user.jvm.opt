@@ -1,3 +1,0 @@
- -Djdk.tls.server.protocols=TLSv1.3 -Djdk.tls.server.cipherSuites=TLS_AES_128_CCM_8_SHA256
- 
-

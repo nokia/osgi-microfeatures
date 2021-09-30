@@ -1,6 +1,0 @@
-Bundle-Version: 1.0.2
-Private-Package: 
-Bundle-Name: DTLS System Test
-Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.dtls";category:List<String>="test"; internal=true
-Include-Resource: stest=stest
-X-Unpack: stest
