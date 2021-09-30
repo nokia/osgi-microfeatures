@@ -1,0 +1,15 @@
+###############################################################################
+# DiameterIOH Loggers
+###############################################################################
+
+# the DiameterIOH engine logger
+#log4j.logger.as.ioh.engine.diameter=DEBUG
+#log4j.logger.as.ioh.engine.diameter.traffic=DEBUG
+
+# optionally below to focus on an agent instance
+#log4j.logger.as.ioh.engine.diameter.agent.<intanceName>.<containerId>=DEBUG
+
+
+#log4j.logger.as.ioh.diameter.router=DEBUG
+#log4j.logger.as.ioh.diameter.proc=DEBUG
+

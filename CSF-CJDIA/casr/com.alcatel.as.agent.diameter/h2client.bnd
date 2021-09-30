@@ -1,0 +1,7 @@
+Bundle-Name: DiameterClient Over Http2
+Private-Package: com.nextenso.diameter.agent.impl.h2
+
+Bundle-Version: 1.1.9
+
+Include-Resource:  \
+ META-INF/h2clientHeaders.txt=META-INF/h2clientHeaders.txt

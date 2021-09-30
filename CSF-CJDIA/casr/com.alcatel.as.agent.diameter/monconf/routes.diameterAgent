@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!DOCTYPE routes PUBLIC "-//NEXTENSO//DTD CONTEXT 1.1//EN" "http://www.nextenso.com/">
+
+<routes>
+
+<!--
+
+<route id="1">
+	<destination-realm name="*"/>
+	<application id="1"/>
+	<routing-peer id="1"/>
+</route>
+
+-->
+
+</routes>

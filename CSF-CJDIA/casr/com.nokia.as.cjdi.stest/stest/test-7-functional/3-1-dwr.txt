@@ -1,0 +1,37 @@
+play: @conf.incl
+
+hate.declare: test1 "CJDI-03.001 Functional - Respond to DWR"
+hate.declare: test2 "CJDI-03.002 Functional - Send DWR on timeout"
+hate.declare: test3 "CJDI-03.003 Functional - Close on no DWA"
+
+hate.enter: test1
+
+play: @init.incl
+
+set: log 0
+
+for : iter 100 >>
+diameter.dwr >>
+diameter.read-resp >>
+diameter.check-resp
+
+set: log 1
+log: done : sent $iter DWR
+
+hate.enter: test2
+
+for: iter 3 >>
+diameter.read-req >>
+equal: $diameter.req.command 280 >>
+diameter.send-resp
+
+hate.enter: test3
+
+# assume 2 DWR
+diameter.read-req
+diameter.read-req
+
+diameter.closed
+
+
+

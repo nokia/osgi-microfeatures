@@ -1,0 +1,26 @@
+play: @conf.incl
+
+hate.declare: test1 "CJDI-05.001 Functional - Dpr/Dpa exchange"
+hate.declare: test2 "CJDI-05.002 Functional - Dpr/Dpa Close timeout"
+
+hate.enter: test1
+
+play: @init.incl
+
+diameter.dpr
+diameter.read-resp
+diameter.check-resp
+
+diameter.close
+
+hate.enter: test2
+
+play: @init.incl
+
+diameter.dpr
+diameter.read-resp
+diameter.check-resp
+
+diameter.closed
+
+

@@ -1,0 +1,37 @@
+{
+  "name": "webapp",
+  "homepage": ".",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@nokia-csf-uxr/csfWidgets": "^17.31.0",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
+    "prop-types": "^15.6.2",
+    "react": "16.1.1",
+    "react-dom": "16.1.1",
+    "react-redux": "^5.0.7",
+    "react-scripts": "2.0.5",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "vis": "^4.21.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "sh prebuild.sh;react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "babel-plugin-transform-remove-console": "^6.9.4"
+  }
+}

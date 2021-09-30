@@ -1,0 +1,22 @@
+Bundle-Name: DiameterIOH
+Bundle-AutoStart: false
+Bundle-SymbolicName: com.alcatel.as.diameter.ioh
+Bundle-Category: diameter, ioh
+Import-Package: *
+Export-Package: com.alcatel.as.diameter.parser, \
+		com.alcatel.as.diameter.ioh
+
+Private-Package: com.alcatel.as.diameter.ioh.impl, \
+		 com.alcatel.as.diameter.ioh.impl.monitor, \
+		 com.alcatel.as.diameter.ioh.impl.utils, \
+		 com.alcatel.as.diameter.ioh.impl.router
+
+-dsannotations: *
+
+Include-Resource:  \
+ META-INF/defDiameterSctpServer.txt=META-INF/defDiameterSctpServer.txt,\
+ META-INF/defDiameterTcpServer.txt=META-INF/defDiameterTcpServer.txt,\
+ META-INF/diameter-ioh.log4=META-INF/diameter-ioh.log4j,\
+ META-INF/diameterMsgWeights.txt=META-INF/diameterMsgWeights.txt
+
+Bundle-Version: 4.6.2

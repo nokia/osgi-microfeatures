@@ -1,0 +1,9 @@
+Bundle-Name: Diameter Bearer
+Bundle-SymbolicName: com.alcatel.as.webadmin.diameteragent
+Bundle-Category: webadmin, diameter, internal
+Private-Package: com.nextenso.proxylet.admin.diameter,\
+ com.nextenso.proxylet.admin.diameter.beareragg
+Include-Resource: diameterAgent=resource/diameterAgent
+Bundle-Activator: com.nextenso.proxylet.admin.diameter.beareragg.Activator
+Bundle-Version: 1.0.5
+

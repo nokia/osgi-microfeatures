@@ -1,0 +1,10 @@
+
+set: fast 0
+
+set: port1-1 3868
+set: port1-2 3869
+
+set: port2-1 4868
+
+
+set: port $(port1-1)

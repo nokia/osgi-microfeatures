@@ -1,0 +1,19 @@
+#
+# First define the list of avps that may be extracted : 1 avp per line.
+# the name can be anything, it has to be unique
+# avp -name <name> -code <code> -[vid <vendorid>] -format <utf8|uint32>
+#
+# ex:
+# avp -name sessionid -code 263 -format utf8
+#
+
+# Then define the list of headers to include : 1 header per line.
+# 
+# header -name <name> -avp <avp_name> [-app <appId>] [-def <default>]
+#
+# ex:
+# header -name X-Session-Id -avp sessionid -app 123 -def NotAvailable
+#
+# if the appId is not set, then the header applies to all applications (except for those which have specific header rules)
+# -def : this is a default value in case the avp is not found in the message (optional parameter)
+#

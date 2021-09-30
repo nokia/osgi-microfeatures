@@ -1,0 +1,40 @@
+Bundle-Name: DiameterAgent (internal)
+Bundle-Category: diameter, proxylet, internal
+Bundle-SymbolicName: com.alcatel.as.agent.diameter
+Export-Package: \
+	com.nextenso.proxylet.admin.diameter,\
+	com.nextenso.diameter.agent.impl,\
+	com.nextenso.diameter.agent.peer,\
+	com.nextenso.diameter.agent,\
+	com.nextenso.diameter.agent.engine,\
+	com.nextenso.diameter.agent.engine.criterion,\
+	com.nextenso.diameter.agent.peer.statemachine,\
+	com.nextenso.diameter.agent.peer.statemachine.rfc3588,\
+	com.nextenso.diameter.agent.peer.xml,\
+	com.nextenso.diameter.agent.ha
+
+Private-Package: com.nextenso.diameter.agent.dictionary,\
+	com.nextenso.diameter.agent.metrics
+
+
+#Private-Package: com.nextenso.diameter.agent,\
+# com.nextenso.diameter.agent.engine,\
+# com.nextenso.diameter.agent.engine.criterion,\
+# com.nextenso.diameter.agent.peer.statemachine,\
+# com.nextenso.diameter.agent.peer.statemachine.rfc3588,\
+# com.nextenso.diameter.agent.peer.xml,\
+# com.nextenso.diameter.agent.ha
+DynamicImport-Package: *
+Import-Package: *
+Include-Resource: META-INF=META-INF,\
+ META-INF/capabilities.diameterAgent=monconf/capabilities.diameterAgent,\
+ META-INF/peers.diameterAgent=monconf/peers.diameterAgent,\
+ META-INF/routes.diameterAgent=monconf/routes.diameterAgent,\
+ META-INF/diam.log4j=resource/calloutAgent/diam.log4j,\
+ META-INF/diam.desc=resource/calloutAgent/diam.desc,\
+ diameterAgent=resource/diameterAgent
+ASR-MuxHandlerDesc: META-INF/diam.desc
+Bundle-Version: 7.5.0
+
+# Turn off baselining
+#-baseline:

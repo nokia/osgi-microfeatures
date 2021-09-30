@@ -1,0 +1,36 @@
+play: @conf.incl
+
+hate.declare: test1 "CJDI-01.001 Functional - Connection"
+hate.declare: test2 "CJDI-01.002 Functional - Close idle Connection"
+hate.declare: test3 "CJDI-01.003 Functional - Open many connections"
+
+hate.enter: test1
+
+diameter.open: $server $port1-1
+diameter.close
+
+diameter.open: $server $port1-2
+diameter.close
+
+diameter.open: $server $port2-1
+diameter.close
+
+hate.enter: test2
+
+diameter.open: $server $port
+compare: fast 1
+if: diameter.close
+else: diameter.closed
+
+hate.enter: test3
+
+set: log 0
+for: iter 1000 >>
+diameter.open: $server $port >>
+diameter.close
+set: log 1
+
+# check gogo counters
+
+
+

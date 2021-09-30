@@ -1,0 +1,7 @@
+<servers>
+
+  <server ip="127.0.0.1" port="4868" processor="diameter.ioh.ext" name="diamSctpExt">
+    <property name="read.timeout">3000</property>
+  </server>
+
+</servers>

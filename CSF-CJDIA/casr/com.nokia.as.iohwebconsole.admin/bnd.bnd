@@ -1,0 +1,29 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	osgi.cmpn;version=6.0,\
+	org.apache.felix.dependencymanager.annotation;version=4.5,\
+	com.alcatel.as.service.api;version=2.0,\
+	org.apache.commons.compress;version=1.13,\
+	org.apache.felix.http.api;version=2.2,\
+	com.nokia.as.thirdparty.json;version=1.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.nokia.as.thirdparty.servlet.api;version=3.1
+	
+
+
+-testpath: \
+	${junit}
+
+javac.source: 1.8
+javac.target: 1.8
+
+Bundle-Version: 1.0.3
+Private-Package: com.nokia.as.iohwebconsole.admin
+
+# For legacy ( pauline )
+#-includeresource: admin = legacy
+
+# For react web admin
+-includeresource: admin = webapp/build
+

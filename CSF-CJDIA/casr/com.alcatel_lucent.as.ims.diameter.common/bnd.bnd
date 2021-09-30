@@ -1,0 +1,10 @@
+# root bnd file
+
+-buildpath: \
+    ${osgi},\
+    com.nextenso.proxylet.diameter;version=2.1,\
+    com.alcatel_lucent.as.ims;version=1.0,\
+    com.nextenso.proxylet.api;version=1.0
+
+-sub: \
+    *.bnd

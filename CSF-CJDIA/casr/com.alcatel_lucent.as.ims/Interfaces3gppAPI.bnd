@@ -1,0 +1,15 @@
+Bundle-Name: Interfaces3gppAPI
+Bundle-SymbolicName: com.alcatel_lucent.as.ims
+X-Obsoletes: 3gpp, api
+Import-Package: *
+Export-Package:\
+ com.alcatel_lucent.as.ims;\
+ com.alcatel_lucent.as.ims.diameter;\
+ com.alcatel_lucent.as.ims.diameter.charging;\
+ com.alcatel_lucent.as.ims.diameter.charging.rf;\
+ com.alcatel_lucent.as.ims.diameter.charging.ro;\
+ com.alcatel_lucent.as.ims.diameter.cx;\
+ com.alcatel_lucent.as.ims.diameter.sh;\
+ com.alcatel_lucent.as.ims.diameter.gaa
+
+Bundle-Version: 1.0.4

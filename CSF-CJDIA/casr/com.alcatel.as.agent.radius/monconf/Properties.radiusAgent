@@ -1,0 +1,119 @@
+MODULE	CalloutAgent
+AGENT   RadiusAgent
+PUBLIC
+
+# ----------------------------------------------------------------------------
+# Radius Agent parameters
+# ----------------------------------------------------------------------------
+
+SECTION 1 Radius Agent parameters
+
+        NAME        radiusagent.secret
+        OID         RadiusSecrets 1600
+        LEVEL       Basic
+        TITLE       Radius Secrets
+        VALID       None
+        TYPE        FileData
+        REQUIRED    Yes
+	    DYNAMIC     Yes
+        DEFAULT     secret.radiusAgent
+<p>This property contains the list of all authorized clients along with the matching shared secrets.
+<br>The format is : <b>client_ip secret ["nocheck"]</b>
+<br>The client_ip can be a mask or a specific host (then it is prefixed with "H:").
+<br>The last (optional) field "nocheck" disables secret checking (but the secret value is still used for responses).
+<br><br>Examples:
+<br>&nbsp;H:192.32.31.45     customSecret
+<br>&nbsp;H:192.32.31.46     otherSecret       nocheck
+<br>&nbsp;255.255.255.255    secretForWorld
+<br>The list is ordered: the first matching client_ip is used.
+
+	NAME        radiusagent.next.acct
+        OID         NextRadiusAccountingServer 1601
+        LEVEL       Basic
+        TITLE       Next Radius Accounting Server
+        VALID       None
+        TYPE        FileData
+        REQUIRED    Yes
+	    DYNAMIC     Yes
+        DEFAULT     nextAcct.radiusAgent
+<p>Specifies the next Radius Accounting Server in the chain for a given client IP. The format of each line is <b>["H:"]client_ip server_ip:server_port secret</b>, or <b>["H:"]client_ip server_ip secret</b>.
+<br>"H:" before the client_ip specifies an exact IP Address. If "H:" is not present, client_ip specifies an IP Address mask.
+
+	    NAME        radiusagent.next.auth
+        OID         NextRadiusAccessServer 1602
+        LEVEL       Basic
+        TITLE       Next Radius Access Server
+        VALID       None
+        TYPE        FileData
+        REQUIRED    Yes
+	    DYNAMIC     Yes
+        DEFAULT     nextAuth.radiusAgent
+<p>Specifies the next Radius Access Server in the chain for a given client IP. The format of each line is <b>["H:"]client_ip server_ip:server_port secret</b>, or <b>["H:"]client_ip server_ip secret</b>.
+<br>"H:" before the client_ip specifies an exact IP Address. If "H:" is not present, client_ip specifies an IP Address mask.
+
+        NAME        radiusagent.req.timeout
+        OID         RequestTimeout 1603
+        LEVEL       Basic
+        TITLE       Request Timeout
+        VALID       None
+        TYPE        Integer 1 3600
+        REQUIRED    Yes
+	    DYNAMIC     Yes
+        DEFAULT     3
+<p>The timeout in seconds after which a request is considered as aborted if not replied to.
+
+        NAME        radiusagent.req.max
+        OID         RequestRetransmissionAttempts 1604
+        LEVEL       Basic
+        TITLE       Request Retransmission Attempts
+        VALID       None
+        TYPE        Integer 1 99
+        REQUIRED    Yes
+	    DYNAMIC     Yes
+        DEFAULT     3
+<p>The maximum number of request retransmission attempts.
+
+        NAME        radiusagent.resp.timeout
+        OID         ResponseCache 1605
+        LEVEL       Basic
+        TITLE       Response Cache
+        VALID       None
+        TYPE        Integer 0 3600
+        REQUIRED    Yes
+	    DYNAMIC     Yes
+        DEFAULT     3
+<p>The timeout in seconds during which a response remains in cache to support client retransmission.
+
+	NAME        radiusagent.proxylets
+        LEVEL       Basic
+        TITLE       Radius Agent Proxylets
+        VALID       None
+        TYPE        FileData
+        REQUIRED    No
+        DYNAMIC     No
+        DEFAULT     radiusagent.proxylets.xml
+<p>Proxylet XML Configuration. This configuration allows to bypass what is configuring from the Proxy Application Deployment GUI, 
+and specify the exact list of proxylets in XML. <p>
+If this configuration is left empty, then the Proxy Application Deployment GUI is used for configuring the list of all active proxylets.
+
+PRIVATE
+
+# ----------------------------------------------------------------------------------
+SECTION  1  Radius Agent Private Parameters
+# ----------------------------------------------------------------------------------
+
+        NAME        radiusagent.stack
+        OID         RadiusStackInstance 1606
+        LEVEL       Basic
+        TITLE       Radius Stack instance
+        VALID       None
+        TYPE        String
+        REQUIRED    Yes
+	    DYNAMIC     Yes
+        DEFAULT     *
+<p>
+The names of the Radius Stack instances that the Radius Agent will connect to (separated by spaces).
+The special value <b>" * "</b> means that the Radius Agent will connect to all the Radius Stacks no matter the instance.
+Note that the Radius Agent must be restarted to take into account any change of that property.
+</p>
+

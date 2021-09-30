@@ -1,0 +1,6 @@
+<servers>
+
+  <!--server ip="0.0.0.0" port="3868" processor="diameter.ioh.ext" name="diamSctpExt">
+  </server-->
+
+</servers>

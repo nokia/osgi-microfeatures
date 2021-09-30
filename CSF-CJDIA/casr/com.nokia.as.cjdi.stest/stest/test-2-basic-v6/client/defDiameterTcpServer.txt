@@ -1,0 +1,16 @@
+<servers>
+
+  <server ip="::1" port="4868" processor="diameter.ioh.ext" name="diamTcpExt">
+        <property name="read.timeout">3000</property>
+  </server>
+
+  <server ip="127.0.0.1" port="12101" processor="diameter.ioh.mux.def" name="diamMux">
+      <property name="server.port.range">1000</property>
+      <property name="ioh.tcp.connect.read.timeout">3000</property>
+      <property name="ioh.sctp.connect.read.timeout">3000</property>
+      <property name="diameter.ioh.agent.group">*</property>
+      <property name="ioh.tcp.write.buffer">1024000</property>
+      <property name="ioh.sctp.write.buffer">1024000</property>
+  </server>
+
+</servers>

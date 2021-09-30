@@ -1,0 +1,15 @@
+-buildpath: \
+	${osgi},\
+	com.alcatel.as.service.api;version=1.0,\
+	com.nextenso.proxylet.api;version=1.0
+
+Bundle-Version: 1.1.1
+Bundle-Name: RadiusAPI
+Export-Package: com.nextenso.proxylet.radius;\
+ com.nextenso.proxylet.radius.acct;\
+ com.nextenso.proxylet.radius.auth;\
+ com.nextenso.proxylet.radius.event
+Import-Package: *
+
+# This header tells that this bundle can be exported to the classpath, using the casr osgi launcher tool.
+CASR-API: true

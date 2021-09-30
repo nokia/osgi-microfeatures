@@ -1,0 +1,30 @@
+<servers>
+
+  <!-- This is the external diameter port 1 -->
+  <server ip="0.0.0.0" port="3868" processor="diameter.ioh.ext.APP1" name="ext1-3868">
+  </server>
+  <!-- This is the external diameter port 2 -->
+  <server ip="0.0.0.0" port="3869" processor="diameter.ioh.ext.APP1" name="ext1-3869">
+  </server>
+
+  <!-- Mux 1 -->
+  <server ip="0.0.0.0" port="12100" processor="diameter.ioh.mux.def" name="mux1">
+      <property name="ioh.application.name">APP1</property>
+      <property name="diameter.ioh.agent.group">*</property>
+      <property name="ioh.tcp.write.buffer">2048000</property>
+      <property name="ioh.sctp.write.buffer">2048000</property>
+  </server>
+
+  <!-- This is the external diameter port 2 -->
+  <server ip="0.0.0.0" port="4868" processor="diameter.ioh.ext.APP2" name="ext2-4868">
+  </server>
+
+  <!-- Mux 2 -->
+  <server ip="0.0.0.0" port="12101" processor="diameter.ioh.mux.def" name="mux2">
+      <property name="ioh.application.name">APP2</property>
+      <property name="diameter.ioh.agent.group">*</property>
+      <property name="ioh.tcp.write.buffer">2048000</property>
+      <property name="ioh.sctp.write.buffer">2048000</property>
+  </server>
+
+</servers>

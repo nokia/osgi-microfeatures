@@ -1,0 +1,4 @@
+std_files:
+resource/calloutAgent
+resource/diameterAgent
+resource/session/mem

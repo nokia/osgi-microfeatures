@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Root element -->
+<!ELEMENT peers ((static-peer | dynamic-peer)*)>
+
+<!ELEMENT static-peer (origin-host, host, source?)>
+
+<!ATTLIST static-peer
+	id	CDATA	#REQUIRED
+	handler	CDATA	#IMPLIED
+	nb-retries CDATA #IMPLIED
+	retry-timeout CDATA #IMPLIED
+	quarantine CDATA #IMPLIED
+>
+
+<!ELEMENT host EMPTY>
+
+<!ATTLIST host
+	name	CDATA	#REQUIRED
+	port	CDATA	"3868"
+	secure	(yes | no)	"no"
+	protocol	(TCP | SCTP)	"TCP"
+>
+
+<!ELEMENT source EMPTY>
+
+<!ATTLIST source
+	ip	CDATA	#IMPLIED
+	port	CDATA	#IMPLIED
+>
+
+<!-- Client Peer -->
+<!ELEMENT dynamic-peer ((origin-host | origin-realm), connection)>
+
+<!ATTLIST dynamic-peer
+	id	CDATA	#REQUIRED
+>
+
+<!ELEMENT origin-host EMPTY>
+<!ATTLIST origin-host
+	name	CDATA	#REQUIRED
+>
+
+<!ELEMENT origin-realm EMPTY>
+<!ATTLIST origin-realm
+	name	CDATA	#REQUIRED
+>
+
+<!ELEMENT connection EMPTY>
+
+<!ATTLIST connection
+	secure	(required | forbidden | optional)	#REQUIRED
+>
+
+<!--
+
+<peers>
+
+<static-peer id="1"  nb-retries="2" "retry-timeout="5" quarantine="120000" >
+	<origin-host name="nx0144"/>
+	<host name="nx0144" port="3868" secure="no"/>
+</static-peer>
+
+
+<dynamic-peer id="1">
+	<origin-host name="nx0144"/>
+	<connection secure="forbidden"/>
+</dynamic-peer>
+
+
+<dynamic-peer id="2">
+	<origin-realm name="*"/>
+	<connection secure="required"/>
+</dynamic-peer>
+
+
+</peers>
+
+-->

@@ -1,0 +1,20 @@
+<servers>
+
+  <server ip="127.0.0.1" port="4868" processor="diameter.ioh.ext" name="diamTcpExt">
+        <property name="read.timeout">3000</property>
+  </server>
+
+  <server ip="127.0.0.1" port="12101" processor="diameter.ioh.mux.def" name="diamMux">
+      <property name="server.port.range">1000</property>
+      <property name="ioh.tcp.connect.read.timeout">3000</property>
+      <property name="ioh.sctp.connect.read.timeout">3000</property>
+      <property name="diameter.ioh.agent.group">*</property>
+      <property name="ioh.tcp.write.buffer">1024000</property>
+      <property name="ioh.sctp.write.buffer">1024000</property>
+      <property name="ioh.sctp.connect.secure.protocol">DTLSv1.2</property>
+      <property name="ioh.sctp.connect.secure.cipher">TLS_RSA_WITH_AES_128_CBC_SHA</property>
+      <property name="ioh.sctp.connect.secure.keystore.file">instance/client.ks</property>
+      <property name="ioh.sctp.connect.secure.keystore.pwd">password</property>
+  </server>
+
+</servers>

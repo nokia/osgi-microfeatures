@@ -1,0 +1,12 @@
+Bundle-Name: agent.proxylet.diameter.httpgw CASR Feature
+Bundle-Version: 1.0.0
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="agent.proxylet.diameter.httpgw";\
+                    version:Version="1.0.0";\
+                    desc="Provides a gateway from Http to Diameter";\
+                    doc="https://confluence.app.alcatel-lucent.com/"
+
+Require-Capability: \
+    	osgi.identity;filter:='(osgi.identity=com.alcatel.as.agent.diameter.httpgw)'

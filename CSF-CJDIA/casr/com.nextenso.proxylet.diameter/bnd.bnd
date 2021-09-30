@@ -1,0 +1,34 @@
+ root bnd file
+
+-buildpath: \
+	${osgi},\
+	com.nextenso.proxylet.api;version=1.0
+    
+-testpath: \
+	${junit},\
+	org.mockito.mockito-all
+	
+Bundle-Name: DiameterAPI
+Bundle-Category: proxylet, diameter, api
+X-Obsoletes: DiameterAPI
+Export-Package: \
+	com.nextenso.proxylet.diameter,\
+	com.nextenso.proxylet.diameter.client,\
+	com.nextenso.proxylet.diameter.dictionary,\
+	com.nextenso.proxylet.diameter.dictionary.annotations,\
+	com.nextenso.proxylet.diameter.event,\
+	com.nextenso.proxylet.diameter.nasreq,\
+	com.nextenso.proxylet.diameter.util
+Import-Package: *
+Bundle-Version: 2.7.0
+
+# This header tells that this bundle can be exported to the classpath, using the casr osgi launcher tool.
+CASR-API: true
+
+#-fixupmessages.baselining-error-to-warning: \
+#    "Baseline mismatch for package com.nextenso.proxylet.diameter...";is:=warning,\
+#    "Baseline mismatch for package com.nextenso.proxylet.diameter.client...";is:=warning,\
+#    "Baseline mismatch for package com.nextenso.proxylet.diameter.dictionary, MAJOR change...";is:=warning,\
+#    "The bundle version...";is:=warning
+    
+

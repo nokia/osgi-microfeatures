@@ -1,0 +1,11 @@
+Bundle-Name: Standalone Diameter IO Handler Assembly
+Bundle-SymbolicName: com.alcatel.as.diameter.ioh.standalone.asmb
+Bundle-Category: assembly, internal, diameter
+Include-Resource: META-INF/assembly.cfg=bnd/diameter-ioh-launcher-asmb.cfg
+X-Component-Category: agent
+Require-Bundle: \
+ com.alcatel.as.agent.launcher.asmb,\
+ com.alcatel.as.diameter.ioh,\
+ com.alcatel.as.ioh.impl.core
+ 
+Bundle-Version: 1.0.2

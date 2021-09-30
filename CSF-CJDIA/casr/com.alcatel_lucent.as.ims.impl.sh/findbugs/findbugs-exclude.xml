@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FindBugsFilter>
+
+    <Match>
+        <Class name="com.alcatel_lucent.as.ims.impl.sh.PnrImpl"/>
+        <Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS"/>
+    </Match>
+    
+ </FindBugsFilter>
+		

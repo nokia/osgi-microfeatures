@@ -1,0 +1,2 @@
+server=runtime.felix.log4j1:1.0.0,ioh.mux.diameter:1.0.0,agent.proxylet.diameter:1.0.0,discovery.static.file:1.0.0,stest.diameter.server
+client=runtime.felix.log4j1:1.0.0,ioh.mux.diameter:1.0.0,agent.proxylet.diameter:1.0.0,discovery.static.file:1.0.0,stest.diameter.client

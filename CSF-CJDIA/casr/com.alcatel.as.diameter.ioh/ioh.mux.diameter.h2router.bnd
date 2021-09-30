@@ -1,0 +1,13 @@
+Bundle-Name: ioh.mux.diameter.h2router CASR Feature
+Bundle-Version: 1.0.0
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="ioh.mux.diameter.h2router";\
+                    version:Version="1.0.0";\
+                    desc="An Http2 router for the Diameter IOH";\
+                    doc="https://confluence.app.alcatel-lucent.com/"
+
+Require-Capability: \
+    	osgi.identity;filter:='(osgi.identity=com.alcatel.as.diameter.ioh.h2router)',\
+	osgi.identity;filter:='(osgi.identity=com.alcatel.as.http.ioh.h2client.feature)'

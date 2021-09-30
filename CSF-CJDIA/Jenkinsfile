@@ -1,0 +1,226 @@
+#!groovy
+
+pipeline {
+   agent {
+     kubernetes {
+       label 'build-rhel7-c-jdk8-jdk11-mvn3-casr'
+       inheritFrom 'k8s-build'
+       containerTemplate {
+         name 'java-c-mvn'
+         image "csf-docker-delivered.${ARTIFACTORY_URL}/build_centos_c_jdk8_mvn3:1.0.9"	 
+         alwaysPullImage true
+         workingDir '/home/jenkins'
+         ttyEnabled true
+         command 'cat'
+         args ''
+       }
+      yaml """
+      spec:
+        hostNetwork: "true"
+      """  
+     }
+   }
+   
+  options {
+     buildDiscarder(logRotator(daysToKeepStr: '7', artifactDaysToKeepStr: '0', numToKeepStr: '50'))
+  }
+
+  triggers { 
+    gerrit(customUrl: '',
+            gerritProjects: [[
+                branches:
+                    [[compareType: 'PLAIN',
+                      pattern: '1.0'
+                    ]],
+                    compareType: 'PLAIN',
+                    disableStrictForbiddenFileVerification: false,
+                    pattern: 'CSF-CJDIA'
+            ]],
+            serverName: 'nokia-gerrit',
+            triggerOnEvents:
+                [changeMerged(),
+                 patchsetCreated(excludeDrafts: true,
+                                 excludeNoCodeChange: false,
+                                 excludeTrivialRebase: false)
+                ]
+        )
+     parameterizedCron('H 0 * * * % TEST=true')
+  }
+
+  parameters {
+    string(name: 'GERRIT_REFSPEC',
+           defaultValue: 'refs/heads/1.0',
+    	   description: 'Build branch 1.0 by default, can be overridden on Gerrit builds')
+
+    string(name: 'TEST',
+           defaultValue: 'false',
+    	   description: 'Enter true to perform all tests.')
+
+    string(name: 'TEST_OBR_URLS',
+           defaultValue: '',
+    	   description: 'Configures the OBR(s) to use when doing tests. Leave this property empty in case you want to test without any already deployed OBR.'    )
+
+    choice(name: 'SONAR',
+    	   choices: 'no\nyes\n',
+    	   description: 'Run SonarQube..')   
+  }
+
+  environment {
+    CSF_BUNDLE_SOURCES = false
+  }
+
+  stages {
+    stage('Checkout CASR') {
+      steps {
+        container('java-c-mvn') {
+
+          withCredentials([usernamePassword(credentialsId: 'csf-jenkins-for-artifactory',
+                          usernameVariable: 'ARTIFACTORY_BUILD_LOGIN_USR', passwordVariable: 'ARTIFACTORY_BUILD_LOGIN_PSW')]) {
+	         echo "Checkouting CASR"
+
+            dir('csf-casr-repo') {
+                  git branch: '1.0', credentialsId: 'csf-gerrit-ssh', url: 'ssh://gerrit.ext.net.nokia.com:29418/CSF-CASR'
+            }
+	        
+          }
+        }
+      }
+    }
+
+    stage('Build') {
+      when {
+        expression { TEST == 'true' || params.DEPLOY == 'true' }
+      }
+      steps {
+        container('java-c-mvn') {
+ 	  /* rebuild CSF-CASR project in order to have latest dependencies in ~/.m2/repository/ */
+          echo "Building CSF-CASR ..."
+          sh """
+          cd csf-casr-repo/core/
+          ./gradlew jar
+	  cd ../..
+	  ./csf-casr-repo/runtime/create-obr-m2.sh
+          """
+
+          /* now build cjdi */
+          echo "Building CSF-CJDIA ..."	     
+          sh """
+          cd casr
+          ./gradlew jar
+	  cd ..
+  	  ./csf-casr-repo/runtime/create-obr-m2.sh
+          """
+        }
+      }
+    }
+
+    stage('Tests with OBR') {
+      when {
+        expression { params.TEST == 'true' && TEST_OBR_URLS != '' }
+      }
+      steps {
+         withCredentials([usernamePassword(credentialsId: 'csf-jenkins-for-artifactory',
+                          usernameVariable: 'ARTIFACTORY_BUILD_LOGIN_USR', passwordVariable: 'ARTIFACTORY_BUILD_LOGIN_PSW')]) {
+            container('java-c-mvn') {
+              sh """
+	          cd casr
+		 ./gradlew check
+	          cd ../csf-casr-repo/system-tests
+	          ./create-system-test.sh "${params.TEST_OBR_URLS}" diameteragent "stest.diameter"
+	          ./run-system-test.sh "${params.TEST_OBR_URLS}" diameteragent
+
+                  cd ../../casr
+#                 ./gradlew jacocoRootReport
+             """
+           }
+         }
+      }
+    }
+
+    stage('Tests without OBR') {
+      when {
+        expression { params.TEST == 'true' && TEST_OBR_URLS == '' }
+      }
+      steps {
+         withCredentials([usernamePassword(credentialsId: 'csf-jenkins-for-artifactory',
+                          usernameVariable: 'ARTIFACTORY_BUILD_LOGIN_USR', passwordVariable: 'ARTIFACTORY_BUILD_LOGIN_PSW')]) {
+           container('java-c-mvn') {
+	         /* create-obr-m2.sh needs unzip */
+                 sh """
+	          cd casr
+		 ./gradlew check
+                 cd ../csf-casr-repo/runtime
+	         ./create-obr-m2.sh
+	         cd ../system-tests
+	         ./create-system-test.sh file://\${HOME}/.m2/repository/obr.xml diameteragent "stest.diameter"
+	         ./run-system-test.sh file://\${HOME}/.m2/repository/obr.xml diameteragent
+                 cd ../../casr
+#		 ./gradlew jacocoRootReport
+                 """
+           }
+         }
+      }
+    }
+
+    stage('SQ Analysis publish') {
+       environment {
+         SONAR_CSF_LOGIN = credentials("sonar-csf-login")
+       }//this can be moved to the env() at the beginning of pipeline
+      when {
+        expression { params.SONAR == 'yes' }
+      }
+      steps {
+           withSonarQubeEnv('sonar_csf') {
+	           sh """
+	           cd casr
+             ./gradlew sonarqube \
+                  -Dsonar.analysis.mode=publish \
+                  -Dsonar.cfamily.build-wrapper-output.bypass=true \
+                  -Dsonar.login=${SONAR_CSF_LOGIN}
+               """
+           }
+       } 
+    }
+
+  }
+  
+  post {
+    regression { 
+      script {
+        if (params["TEST"] == 'true') {
+          archiveArtifacts artifacts: '**/system-tests/*/logs/**/*.log', allowEmptyArchive: true
+        }
+      }
+    }
+
+    failure {
+      script {
+        if (params["TEST"] == 'true') {
+          archiveArtifacts artifacts: '**/system-tests/*/logs/**/*.log', allowEmptyArchive: true
+        }
+      }
+    }
+  
+    unstable {
+      script {
+        if (params["TEST"] == 'true') {
+          archiveArtifacts artifacts: '**/system-tests/*/logs/**/*.log', allowEmptyArchive: true
+        }
+      }
+    }
+
+    always {
+        junit allowEmptyResults: true, testResults: '**/test-reports/*/*.xml'
+	
+        publishHTML (target: [
+          allowMissing: true,
+          alwaysLinkToLastBuild: false,
+          keepAll: true,
+          reportDir: 'casr/build/reports/jacoco/jacocoRootReport/html',
+          reportFiles: 'index.html',
+          reportName: "JaCoCo Code Coverage"
+        ])
+    }
+  }
+}
+

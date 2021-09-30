@@ -1,0 +1,9 @@
+Bundle-Name: Interfaces3gppCxImpl
+Bundle-SymbolicName: com.alcatel_lucent.as.ims.impl.cx
+Import-Package: *
+Private-Package:\
+ com.alcatel_lucent.as.ims.impl.cx,\
+ com.alcatel_lucent.as.ims.impl.cx.factory
+Include-Resource: META-INF/services=META-INF/services
+-dsannotations: *
+Bundle-Version: 1.0.6

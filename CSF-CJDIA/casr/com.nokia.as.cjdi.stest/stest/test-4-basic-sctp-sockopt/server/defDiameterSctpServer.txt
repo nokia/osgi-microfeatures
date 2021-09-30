@@ -1,0 +1,10 @@
+<servers>
+
+  <server ip="127.0.0.1" port="3868" processor="diameter.ioh.ext" name="diamSctpExt">
+    <property name="read.timeout">3000</property>
+    <property name="sctp.socket.rto.min">10</property>
+    <property name="sctp.socket.rto.max">20</property>
+    <property name="sctp.socket.rto.init">15</property>
+  </server>
+
+</servers>

@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<!DOCTYPE peers PUBLIC "-//NEXTENSO//DTD CONTEXT 1.1//EN" "http://www.nextenso.com/">
+
+<peers>
+  <static-peer id="1">
+  <origin-host name="server.alcatel.com"/>
+    <host name="127.0.0.1" port="3868" secure="no" protocol="SCTP"/>
+  </static-peer>
+</peers>

@@ -1,0 +1,19 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	com.nextenso.mux;version=3.0,\
+	com.alcatel.as.service.api;version=1.0,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.alcatel.as.utils;version=2.0,\
+	com.nextenso.proxylet.api;version=1.0,\
+	com.alcatel.as.calloutagent.callout;version=3.0,\
+	com.alcatel.as.calloutagent.callout-admin;version=1.0,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	org.apache.felix.dependencymanager.annotation;version=5.0,\
+	org.apache.felix.dependencymanager;version=4.4,\
+	com.nextenso.proxylet.radius;version=1.1.0
+
+-sub: \
+    *.bnd

@@ -1,0 +1,11 @@
+diameter.open: $server $port
+
+diameter.avp: diameter.avp.Host-IP-Address 257 0 !0!1!0!0!0!0
+diameter.avp: diameter.avp.Acct-Application-Id 258 0 /1
+
+diameter.cer: diameter.avp.Acct-Application-Id diameter.avp.Host-IP-Address
+diameter.read-resp
+diameter.check-resp
+diameter.check-resp-avp: 268 0 /2001
+
+

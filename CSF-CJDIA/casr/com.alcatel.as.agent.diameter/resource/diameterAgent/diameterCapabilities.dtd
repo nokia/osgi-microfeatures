@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Root element -->
+<!ELEMENT capabilities (relay | (acct-application | auth-application)+)>
+
+<!ELEMENT relay EMPTY>
+<!ELEMENT auth-application EMPTY>
+<!ELEMENT acct-application EMPTY>
+
+<!ATTLIST auth-application
+	id	CDATA	#REQUIRED
+>
+<!ATTLIST acct-application
+	id	CDATA	#REQUIRED
+>
+<!ATTLIST auth-application
+	vendor-id	CDATA	#IMPLIED
+>
+<!ATTLIST acct-application
+	vendor-id	CDATA	#IMPLIED
+>
+
+<!--
+<capabilities>
+	<acct-application id="1"/>
+	<auth-application vendor-id="5" id="2"/>
+</capabilities>
+-->

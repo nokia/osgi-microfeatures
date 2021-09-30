@@ -1,0 +1,71 @@
+play: @init.incl
+
+hate.declare: test1 "CJDI-06.001 Functional - Synchronous pxlet"
+hate.declare: test2 "CJDI-06.002 Functional - Asynchronous pxlet"
+hate.declare: test3 "CJDI-06.003 Functional - Redirect pxlet"
+hate.declare: test4 "CJDI-06.004 Functional - Same pxlet"
+hate.declare: test5 "CJDI-06.005 Functional - Synchronous pxlet - MAY_BLOCK"
+hate.declare: test6 "CJDI-06.006 Functional - Asynchronous pxlet - MAY_BLOCK"
+hate.declare: test7 "CJDI-06.007 Functional - Redirect pxlet - MAY_BLOCK"
+hate.declare: test8 "CJDI-06.008 Functional - Same pxlet - MAY_BLOCK"
+
+diameter.avp: diameter.avp.Acct-Application-Id-MB 258 0 /2
+
+hate.enter: test1
+
+diameter.send-req: 1 1 diameter.avp.Acct-Application-Id
+diameter.read-resp
+diameter.check-resp
+diameter.check-resp-avp: 268 0 /2001
+
+hate.enter: test2
+
+diameter.send-req: 1 2 diameter.avp.Acct-Application-Id
+diameter.read-resp
+diameter.check-resp
+diameter.check-resp-avp: 268 0 /2001
+
+hate.enter: test3
+
+diameter.send-req: 1 3 diameter.avp.Acct-Application-Id
+diameter.read-resp
+diameter.check-resp
+diameter.check-resp-avp: 268 0 /2001
+
+hate.enter: test4
+
+diameter.send-req: 1 4 diameter.avp.Acct-Application-Id
+diameter.read-resp
+diameter.check-resp
+diameter.check-resp-avp: 268 0 /2001
+
+hate.enter: test5
+
+diameter.send-req: 2 1 diameter.avp.Acct-Application-Id-MB
+diameter.read-resp
+diameter.check-resp
+diameter.check-resp-avp: 268 0 /2001
+
+hate.enter: test6
+
+diameter.send-req: 2 2 diameter.avp.Acct-Application-Id-MB
+diameter.read-resp
+diameter.check-resp
+diameter.check-resp-avp: 268 0 /2001
+
+hate.enter: test7
+
+diameter.send-req: 2 3 diameter.avp.Acct-Application-Id-MB
+diameter.read-resp
+diameter.check-resp
+diameter.check-resp-avp: 268 0 /2001
+
+hate.enter: test8
+
+diameter.send-req: 2 4 diameter.avp.Acct-Application-Id-MB
+diameter.read-resp
+diameter.check-resp
+diameter.check-resp-avp: 268 0 /2001
+
+
+diameter.close

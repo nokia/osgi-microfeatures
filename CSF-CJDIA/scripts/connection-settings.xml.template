@@ -1,0 +1,11 @@
+<settings>
+
+  <servers>
+    <server>
+      <id>https://repo.lab.pl.alcatel-lucent.com</id>
+      <username>ARTIFACTORY_USER</username>
+      <password>ARTIFACTORY_PSWD</password>
+    </server>
+  </servers>
+
+</settings>

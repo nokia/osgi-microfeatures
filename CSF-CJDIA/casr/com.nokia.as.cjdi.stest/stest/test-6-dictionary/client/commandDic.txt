@@ -1,0 +1,115 @@
+{
+  "commandDefinitions": [
+    {
+      "requestName": "My-Diameter-Request",
+      "answerName": "My-Diameter-Answer",
+      "requestAbbreviation": "MDR",
+      "answerAbbreviation": "MDA",
+      "code": 268,
+      "applicationId": 10,
+      "requestPBitPolicy": "optional",
+      "requestEBitPolicy": "optional",
+      "answerPBitPolicy": "optional",
+      "answerEBitPolicy": "optional",
+      "requestElements": [
+        {
+          "avpName": "Session-Id",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Auth-Application-Id",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Origin-Host",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Origin-Realm",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Destination-Realm",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Auth-Request-Type",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Destination-Host",
+          "minOccurence": 0,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "NAS-Identifier",
+          "minOccurence": 0,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "My-Custom-AVP",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        }
+      ],
+      "answerElements": [
+        {
+          "avpName": "Session-Id",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Auth-Application-Id",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Origin-Host",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Origin-Realm",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Destination-Realm",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Auth-Request-Type",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Destination-Host",
+          "minOccurence": 0,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "NAS-Identifier",
+          "minOccurence": 0,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "My-Custom-AVP",
+          "minOccurence": 1,
+          "maxOccurence": 1
+        },
+        {
+          "avpName": "Proxy-Info",
+          "minOccurence": 0,
+          "maxOccurence": "*"
+        }
+      ]
+    }
+  ]
+}

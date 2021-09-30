@@ -1,0 +1,309 @@
+MODULE	CalloutAgent
+AGENT   DiameterAgent
+PUBLIC
+
+# ----------------------------------------------------------------------------
+# Diameter Agent parameters
+# ----------------------------------------------------------------------------
+
+SECTION 1 Diameter Agent parameters
+
+	NAME        diameteragent.originRealm
+        OID         LocalRealm 4600
+    LEVEL       Basic
+    TITLE       Local Realm
+    VALID       None
+    TYPE        String
+    REQUIRED    Yes
+    DYNAMIC     No
+    DEFAULT     <enter value>
+The local Realm.
+
+	NAME        diameteragent.appendRealm
+        OID         RealmInOriginHost 4601
+    LEVEL       Basic
+    TITLE       Realm in OriginHost
+    VALID       None
+    TYPE        Boolean
+    REQUIRED    Yes
+    DYNAMIC     No
+    DEFAULT     true
+Specifies if the OriginHost should be ended with the OriginRealm.
+
+	NAME        diameteragent.productname
+        OID         ProductName 4602
+    LEVEL       Basic
+    TITLE       Product Name
+    VALID       None
+    TYPE        String
+    REQUIRED    Yes
+    DYNAMIC     No
+    DEFAULT     A5350 Diameter Agent
+The Product Name.
+
+	NAME        diameteragent.firmwareRevision
+        OID         FirmwareRevision 4603
+    LEVEL       Basic
+    TITLE       Firmware revision
+    VALID       None
+    TYPE        Integer -1 10000
+    REQUIRED    Yes
+    DYNAMIC     No
+    DEFAULT     -1
+The Firmware revision (-1 value means the associated AVP is not filled in the CER/CEA).
+
+	NAME        diameteragent.vendorId
+        OID         VendorIdentifier 4604
+    LEVEL       Basic
+    TITLE       Vendor identifier
+    VALID       None
+    TYPE        Integer 0 100000
+    REQUIRED    Yes
+    DYNAMIC     No
+    DEFAULT     0
+The Vendor identifier.
+
+	NAME        diameteragent.sessionLifetime
+        OID         SessionLifetime 4605
+    LEVEL       Basic
+    TITLE       Session Lifetime
+    VALID       None
+    TYPE        Integer 0 3600
+    REQUIRED    Yes
+    DYNAMIC     Yes
+    DEFAULT     600
+The Session lifetime.
+
+    NAME        diameteragent.client.attempts
+        OID         DiameterClientAttempts 4606
+    LEVEL       Basic
+    TITLE       Diameter Client Attempts
+    VALID       None
+    TYPE        Integer 1 99
+    REQUIRED    Yes
+    DYNAMIC     Yes
+    DEFAULT     3
+Specifies the maximum number of times a request is sent before it is considered as timed out.
+The minimum value is 1.
+
+	NAME        diameteragent.client.timeout
+        OID         DiameterClientTimeout 4607
+    LEVEL       Basic
+    TITLE       Diameter Client Timeout
+    VALID       None
+    TYPE        Integer 1 60
+    REQUIRED    Yes
+	DYNAMIC     Yes
+    DEFAULT     4
+Specifies the timeout value <b>in seconds</b> of the Diameter Client.
+A value of N seconds indicates that the timeout of a request will occur randomly in the interval [N, 2*N] .
+Then, the request may be retransmitted if it has not yet exceeded the maximum number of retransmissions.
+
+	NAME        diameteragent.timer.tc
+        OID         DiameterConnectionTimeout 4608
+    LEVEL       Basic
+    TITLE       Diameter Connection Timeout
+    VALID       None
+    TYPE        Integer 5 3600
+    REQUIRED    Yes
+	DYNAMIC     No
+    DEFAULT     30
+Specifies the Tc timeout value <b>in seconds</b> used for defined static peers.
+See RFC 3588 section 2.1.
+
+	NAME        diameteragent.watchdogAsServer
+        OID         WatchdogAsServer 4609
+    LEVEL       Basic
+    TITLE       Send DWR when acting as server
+    VALID       None
+    TYPE        Boolean
+    REQUIRED    Yes
+	DYNAMIC     No
+    DEFAULT     false
+Indicates whether the Diameter agent should sent the DWR when it acts as a server. 
+Whatever the value, the Diameter agent will always send DWR when it acts as a client.
+
+    NAME        diameteragent.capabilities
+        OID         Capabilities 4610
+    LEVEL       Basic
+    TITLE       Capabilities
+    VALID       None
+    TYPE        Filedata
+    REQUIRED    Yes
+    DYNAMIC     No
+    DEFAULT     capabilities.diameterAgent
+The Advertised Capabilities.
+
+    NAME        diameteragent.peers
+        OID         Peers 4611
+    LEVEL       Basic
+    TITLE       Peers
+    VALID       None
+    TYPE        Filedata
+    REQUIRED    No
+    DYNAMIC     No
+    DEFAULT     peers.diameterAgent
+The static Peers.
+
+    NAME        diameteragent.routes
+        OID         Routes 4612
+    LEVEL       Basic
+    TITLE       Routes
+    VALID       None
+    TYPE        Filedata
+    REQUIRED    No
+    DYNAMIC     Yes 
+    DEFAULT     routes.diameterAgent
+The Routes.
+
+    NAME       diameteragent.ha
+        OID         HighAvailability 4613
+    LEVEL      Basic
+    TITLE      High Availability activated
+    VALID      none
+    TYPE       Boolean
+    REQUIRED   Yes
+    DYNAMIC    No
+    DEFAULT    false
+<p>Activates the High Availability mode. This mode may require a registry to be started at the level group.
+
+	NAME        diameteragent.proxylets
+        LEVEL       Basic
+        TITLE       Diameter Agent Proxylets
+        VALID       None
+        TYPE        FileData
+        REQUIRED    No
+        DYNAMIC     No
+        DEFAULT     pxletContext.diameterAgent
+<p>Proxylet XML Configuration. This configuration allows to bypass what is configuring from the Proxy Application Deployment GUI, 
+and specify the exact list of proxylets in XML. <p>
+If this configuration is left empty, then the Proxy Application Deployment GUI is used for configuring the list of all active proxylets.
+
+        NAME        diameteragent.delayConnection
+        LEVEL       Hidden
+        TITLE       Auto Start Mux Connections
+        VALID       None
+        TYPE        Boolean
+        REQUIRED    No
+        DYNAMIC     No
+        DEFAULT     false
+<p>Specifies if the agent should start traffic by default when a mux connection is opened.
+
+
+PRIVATE
+
+# ----------------------------------------------------------------------------------
+SECTION  1  Diameter Agent Private Parameters
+# ----------------------------------------------------------------------------------
+
+    NAME        diameteragent.originHost
+        OID         LocalOriginHost 4614
+    LEVEL       Basic
+    TITLE       Local OriginHost
+    VALID       None
+    TYPE        String
+    REQUIRED    No
+    DYNAMIC     No
+    DEFAULT     
+The local OriginHost.
+
+    NAME        diameteragent.originHost.client
+        OID         ClientLocalOriginHost 4615
+    LEVEL       Basic
+    TITLE       Client  Local OriginHost
+    VALID       None
+    TYPE        String
+    REQUIRED    No
+    DYNAMIC     No
+    DEFAULT    %LEGACY% 
+The local OriginHost used when acting as a client. %LEGACY% means to use the old property. %AGENT% includes the agent name, %STACK% the diameter IO Handler name.
+
+    NAME        diameteragent.originHost.server
+        OID         ServerLocalOriginHost 4616
+    LEVEL       Basic
+    TITLE       Server Local OriginHost
+    VALID       None
+    TYPE        String
+    REQUIRED    No
+   	DYNAMIC     No
+    DEFAULT     %LEGACY% 
+The local OriginHost. used when acting as a server. %LEGACY% means to use the old property. %STACK% the diameter IO Handler name. (%AGENT% is never taken into account for server)
+
+	NAME        diameteragent.originRealm
+        OID         LocalRealm 4617
+    LEVEL       Basic
+    TITLE       Local Realm
+    VALID       None
+    TYPE        String
+    REQUIRED    No
+    DYNAMIC     No
+    DEFAULT     
+The local Realm.
+
+	NAME        diameteragent.sessionLifetime
+        OID         SessionLifetime 4618
+    LEVEL       Basic
+    TITLE       Session Lifetime
+    VALID       None
+    TYPE        Integer 0 3600
+    REQUIRED    No
+    DYNAMIC     Yes
+    DEFAULT     
+The Session lifetime.
+
+	NAME        diameteragent.hostIPAddress
+        OID         LocalIpAddress 4619
+    LEVEL       Basic
+    TITLE       Local Ip Address
+    VALID       None
+    TYPE        String
+    REQUIRED    No
+    DYNAMIC     No
+    DEFAULT     
+The IP Address
+
+    NAME        diameteragent.stackInstance
+        OID         DiameterStackInstance 4620
+    LEVEL       Basic
+    TITLE       Diameter Stack instance
+    VALID       None
+    TYPE        String
+    REQUIRED    Yes
+    DYNAMIC     Yes
+    DEFAULT     *
+<p>
+The stack instance.
+
+    NAME        diameteragent.capabilities
+        OID         Capabilities 4621
+    LEVEL       Basic
+    TITLE       Capabilities
+    VALID       None
+    TYPE        Filedata
+    REQUIRED    No
+   	DYNAMIC     No
+    DEFAULT     capabilities.diameterAgent.private
+The Advertised Capabilities.
+
+    NAME        diameteragent.peers
+        OID         Peers 4622
+    LEVEL       Basic
+    TITLE       Peers
+    VALID       None
+    TYPE        Filedata
+    REQUIRED    No
+   	DYNAMIC     No
+    DEFAULT     peers.diameterAgent.private
+The static Peers.
+
+    NAME        diameteragent.routes
+        OID         Routes 4623
+    LEVEL       Basic
+    TITLE       Routes
+    VALID       None
+    TYPE        Filedata
+    REQUIRED    No
+   	DYNAMIC     Yes
+    DEFAULT     routes.diameterAgent.private
+The Routes.
+

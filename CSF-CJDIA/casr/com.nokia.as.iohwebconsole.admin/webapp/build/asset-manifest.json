@@ -1,0 +1,18 @@
+{
+  "main.css": "./static/css/main.78d2c206.chunk.css",
+  "main.js": "./static/js/main.d813be48.chunk.js",
+  "main.js.map": "./static/js/main.d813be48.chunk.js.map",
+  "static/css/1.dc682777.chunk.css": "./static/css/1.dc682777.chunk.css",
+  "static/js/1.4668738c.chunk.js": "./static/js/1.4668738c.chunk.js",
+  "static/js/1.4668738c.chunk.js.map": "./static/js/1.4668738c.chunk.js.map",
+  "runtime~main.js": "./static/js/runtime~main.4a686d48.js",
+  "runtime~main.js.map": "./static/js/runtime~main.4a686d48.js.map",
+  "static/media/csfWidgets.css": "./static/media/login_background_blur.5bb5f4e4.png",
+  "static/media/App.css": "./static/media/ionicons.0d3af9ed.woff",
+  "static/media/vis.min.css": "./static/media/backIcon.dd0baa69.png",
+  "static/css/main.78d2c206.chunk.css.map": "./static/css/main.78d2c206.chunk.css.map",
+  "static/css/1.dc682777.chunk.css.map": "./static/css/1.dc682777.chunk.css.map",
+  "index.html": "./index.html",
+  "precache-manifest.536b9ef6c5e1bd87d2e39f48380e9ba2.js": "./precache-manifest.536b9ef6c5e1bd87d2e39f48380e9ba2.js",
+  "service-worker.js": "./service-worker.js"
+}

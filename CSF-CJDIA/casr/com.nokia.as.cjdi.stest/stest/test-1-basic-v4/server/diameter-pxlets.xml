@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE context PUBLIC "-//NEXTENSO//DTD CONTEXT 1.1//EN" "http://www.nextenso.com/">
+
+<context>
+  <name>DIAMETER context</name>
+  <request-chain>
+        <proxylet>
+                <name>RequestServerProxylet</name>
+                <description>Request Test Proxylet</description>
+                <protocol>DIAMETER</protocol>
+                <class>com.nokia.as.cjdi.stest.server.RequestServerProxylet</class>
+                <criterion>
+                        <name>all</name>
+                        <criterion-value>
+                                <all/>
+                        </criterion-value>
+                </criterion>
+        </proxylet>
+  </request-chain>
+
+  <response-chain>
+        <proxylet>
+                <name>ResponseServerProxylet</name>
+                <description>Response Test Proxylet</description>
+                <protocol>DIAMETER</protocol>
+                <class>com.nokia.as.cjdi.stest.server.ResponseServerProxylet</class>
+                <criterion>
+                        <name>all</name>
+                        <criterion-value>
+                                <all/>
+                        </criterion-value>
+                </criterion>
+        </proxylet>
+  </response-chain>
+</context>

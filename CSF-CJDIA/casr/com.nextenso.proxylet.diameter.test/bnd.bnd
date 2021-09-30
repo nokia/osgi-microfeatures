@@ -1,0 +1,17 @@
+# root bnd file
+
+-buildpath: \
+	${osgi},\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.alcatel.as.service.api;version=1.0,\
+	com.alcatel.as.utils;version=2.0,\
+	com.nextenso.proxylet.api;version=1.0,\
+	com.nextenso.proxylet.diameter;version=2.1
+    
+Export-Package: com.nextenso.proxylet.diameter.test
+Bundle-Version: 1.0.0
+X-Exports-Diameter-Proxylets: com.nextenso.proxylet.diameter.test.TestServer
+
+# Do not deploy this bundle to artifactory
+-releaserepo:
+-baseline: 

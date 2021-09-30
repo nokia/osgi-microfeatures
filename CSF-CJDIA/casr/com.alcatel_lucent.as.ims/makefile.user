@@ -1,0 +1,29 @@
+API_SRC_PREFIX := src
+API_SRC_DIR := api/src
+API_TEST_DIR := autotest/diameter/jdiameter/src/
+API_SRC_JAR := $(API_SRC_PREFIX)-$(notdir $(INTERFACES3GPPAPI_TARGET))
+LIB_TARGET := lib/$(notdir $(INTERFACES3GPPAPI_TARGET))
+API_LIB_TARGET := api/lib/$(notdir $(INTERFACES3GPPAPI_TARGET))
+
+user: moduleend
+
+moduleend: $(API_SRC_DIR)/$(API_SRC_JAR)  lib_target copy_api
+
+$(API_SRC_DIR)/$(API_SRC_JAR)  : $(INTERFACES3GPPAPI_SRC) srcfiles
+	@echo "Generating api source code jar file ..."
+	mkdir -p $(API_SRC_DIR)
+	$(JAR) $(JAR_FLAGS) $(API_SRC_DIR)/$(API_SRC_JAR) $(INTERFACES3GPPAPI_SRC)
+	mkdir -p $(API_TEST_DIR)
+	cp -p $(API_SRC_DIR)/$(API_SRC_JAR) $(API_TEST_DIR)/$(API_SRC_JAR)
+	
+clean::
+	rm -fr $(API_SRC_DIR)/$(API_SRC_JAR)
+	rm -fr $(API_TEST_DIR)/$(API_SRC_JAR)
+
+lib_target:
+	@if [ $(INTERFACES3GPPAPI_TARGET) -nt $(LIB_TARGET) ]; then echo "making bundle target ..."; mkdir -p $(dir $(LIB_TARGET)); cp -p $(INTERFACES3GPPAPI_TARGET) $(LIB_TARGET); fi
+
+copy_api:
+	 mkdir -p api/lib
+	 cp -p $(LIB_TARGET) $(API_LIB_TARGET)
+	 

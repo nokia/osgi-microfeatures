@@ -1,0 +1,48 @@
+#
+# session type name. 
+#
+name = diameteragent 
+
+#
+# Set this property to true if the session can be accessed on any agent.
+# If true, a session registry is needed. 
+# 
+shared = true
+
+#
+# Set this property to true if the session must survive an agent crash.
+#
+ha = true
+
+#
+# Set this property to change the secondary selection strategy. Upon creating 
+# a new session, a secondary agent is chosen among the set of available peer agents 
+# using a round robin strategy. You can make this election take into account
+# the network topology of the cluster:
+#
+#   round-robin-far  : the secondary is chosen among peer agents that are far, i.e. running
+#                      on other sub-network.
+#   round-robin-near : the secondary is chosen among peer agents that are near, i.e. running
+#                      on the same sub-network or on the local machine.
+#   round-robin-plain : peer agents are chosen randomly.
+#
+replicationStrategy = round-robin-far
+
+#
+# Set this to true is the session identifier can be internally hashed into a long
+#
+hashed = false
+
+#
+# Set this to inactivity or to absolute do define the semantics you
+# want to session duration.
+#
+sessionTimeoutType = inactivity
+
+	
+#
+# The following fields are deprecated. They have no effect.
+#
+transactionTimeout = 0
+isolationMode = 1
+rollbackIfException = true

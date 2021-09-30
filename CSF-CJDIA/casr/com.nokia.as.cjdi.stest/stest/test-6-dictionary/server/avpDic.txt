@@ -1,0 +1,20 @@
+{
+  "customFormats": [
+    {
+      "name": "MyCustomFormat",
+      "baseType": "OctetString"
+    }
+  ],
+  "avpDefinitions": [
+    {
+      "name": "My-Custom-AVP",
+      "code": 666,
+      "vendorId": 420,
+      "vendorFlagPolicy": "required",
+      "mandatoryFlagPolicy": "optional",
+      "protectedFlagPolicy": "optional",
+      "needsEncryption": false,
+      "type": "MyCustomFormat"
+    }
+  ]
+}

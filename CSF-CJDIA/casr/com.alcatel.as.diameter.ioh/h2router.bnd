@@ -1,0 +1,7 @@
+Bundle-Name: Http2Router
+Private-Package: com.alcatel.as.diameter.ioh.impl.router.h2
+
+Bundle-Version: 1.1.6
+
+Include-Resource:  \
+ META-INF/h2routerHeaders.txt=META-INF/h2routerHeaders.txt

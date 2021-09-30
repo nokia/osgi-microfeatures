@@ -1,0 +1,6 @@
+Bundle-Name: Interfaces3gppCommon
+Bundle-SymbolicName: com.alcatel_lucent.as.ims.diameter.common
+Import-Package: *
+Export-Package:\
+ com.alcatel_lucent.as.ims.diameter.common
+Bundle-Version: 1.0.4

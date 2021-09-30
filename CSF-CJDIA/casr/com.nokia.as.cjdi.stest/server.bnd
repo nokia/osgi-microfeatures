@@ -1,0 +1,5 @@
+Bundle-Version: 1.0.5
+Private-Package: \
+	com.nokia.as.cjdi.stest.server,\
+	com.nokia.as.cjdi.stest.common
+

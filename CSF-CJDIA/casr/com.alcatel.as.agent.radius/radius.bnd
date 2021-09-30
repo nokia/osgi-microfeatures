@@ -1,0 +1,22 @@
+Bundle-Version: 2.2.0
+Bundle-Name: RadiusAgent (internal)
+Bundle-SymbolicName: com.alcatel.as.agent.radius
+X-Obsoletes: RadiusPlugin
+Bundle-Category: radius, proxylet, internal
+Bundle-Activator: com.nextenso.radius.agent.Activator
+Export-Package: com.nextenso.proxylet.admin.radius,\
+ com.nextenso.radius.agent,\
+ com.nextenso.radius.agent.client,\
+ com.nextenso.radius.agent.engine,\
+ com.nextenso.radius.agent.engine.criterion,\
+ com.nextenso.radius.agent.engine.xml,\
+ com.nextenso.radius.agent.impl
+Import-Package: !com.alcatel.as.proxylet.deployer.launcher, *
+Include-Resource: META-INF=META-INF,\
+ META-INF/nextAcct.radiusAgent=monconf/nextAcct.radiusAgent,\
+ META-INF/nextAuth.radiusAgent=monconf/nextAuth.radiusAgent,\
+ META-INF/secret.radiusAgent=monconf/secret.radiusAgent,\
+ META-INF/radius.desc=resource/calloutAgent/radius.desc,\
+ META-INF/radius.log4j=resource/calloutAgent/radius.log4j
+ASR-MuxHandlerDesc: META-INF/radius.desc
+

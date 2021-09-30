@@ -1,0 +1,19 @@
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	${junit},\
+	org.apache.felix.dependencymanager.annotation;version=5.0,\
+	com.alcatel.as.service.api;version=1.0,\
+	com.nokia.as.util.junit4osgi.tester;version=1.0,\
+	com.nextenso.proxylet.diameter;version=2.5,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	com.nextenso.proxylet.api;version=1.0,\
+	com.alcatel_lucent.as.management.annotation;version=1.0.3
+
+-testpath: \
+	${junit}
+
+javac.source: 1.8
+javac.target: 1.8
+
+-sub: *.bnd

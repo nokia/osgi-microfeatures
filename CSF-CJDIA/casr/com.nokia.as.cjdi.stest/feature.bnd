@@ -1,0 +1,9 @@
+Bundle-Version: 1.0.13
+Bundle-Name: Diameter System Tests
+Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.diameter";category:List<String>="test"; internal=true
+Include-Resource: stest=stest
+X-Unpack: stest
+
+Require-Capability: \
+  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.test)'
+  

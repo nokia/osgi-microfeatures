@@ -1,0 +1,14 @@
+<servers>
+
+  <!-- This is the external diameter port -->
+  <!--server ip="0.0.0.0" port="3868" processor="diameter.ioh.ext" name="diamTcpExt">
+  </server-->
+
+  <!-- Activate Http IOH Mux : do not modify -->
+  <!--server ip="0.0.0.0" port="12100" processor="diameter.ioh.mux.def" name="diamMux">
+      <property name="diameter.ioh.agent.group">*</property>
+      <property name="ioh.tcp.write.buffer">2048000</property>
+      <property name="ioh.sctp.write.buffer">2048000</property>
+  </server-->
+
+</servers>

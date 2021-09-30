@@ -1,0 +1,22 @@
+#######################################
+# Radius Agent Loggers
+#######################################
+
+#log4j.logger.agent.radius=DEBUG
+#log4j.logger.agent.radius.command.acct=DEBUG
+#log4j.logger.agent.radius.command.auth=DEBUG
+#log4j.logger.agent.radius.activator=DEBUG
+#log4j.logger.agent.radius.command=DEBUG
+#log4j.logger.agent.radius.properties=DEBUG
+#log4j.logger.agent.radius.client.manager=DEBUG
+#log4j.logger.agent.radius.client=DEBUG
+#log4j.logger.agent.radius.request.access=DEBUG
+#log4j.logger.agent.radius.request.accounting=DEBUG
+#log4j.logger.agent.radius.utils=DEBUG
+#log4j.logger.agent.radius.launcher=DEBUG
+#log4j.logger.agent.radius.authenticator.manager=DEBUG
+#log4j.logger.agent.radius.server=DEBUG
+#log4j.logger.agent.radius.authentication=DEBUG
+#log4j.logger.agent.radius.pxlet.context=DEBUG
+#log4j.logger.agent.radius.pxlet.container=DEBUG
+#log4j.logger.agent.radius.pxlet.engine=DEBUG

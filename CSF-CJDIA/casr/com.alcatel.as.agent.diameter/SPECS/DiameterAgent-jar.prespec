@@ -1,0 +1,5 @@
+std_files:
+bundles/repository/core/diameteragent.jar
+bundles/repository/assemblies/diameter-asmb.jar
+bundles/repository/assemblies/diameter-launcher-asmb.jar
+lib/diameteragent.jar

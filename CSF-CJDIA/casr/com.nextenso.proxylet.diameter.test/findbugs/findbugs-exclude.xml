@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FindBugsFilter>
+   <!--
+        Cannot change the API
+    -->
+    <Match>
+        <Class name="com.nextenso.proxylet.diameter.DiameterAVP"/>
+        <Bug pattern="NP_CLONE_COULD_RETURN_NULL"/>
+    </Match>
+
+    <Match>
+        <Class name="com.nextenso.proxylet.diameter.DiameterAVP"/>
+        <Bug pattern="CN_IDIOM_NO_SUPER_CALL"/>
+    </Match>
+
+     <!--
+        Not final because it is initialized in a static block
+     -->
+    <Match>
+        <Class name="com.nextenso.proxylet.diameter.util.IPFilterRuleFormat"/>
+        <Bug pattern="MS_SHOULD_BE_FINAL"/>
+   </Match>
+    
+    <!--
+        Not relevant
+    -->
+    <Match>
+      <Or>
+         <Bug pattern="USBR_UNNECESSARY_STORE_BEFORE_RETURN"/>
+         <Bug pattern="WEM_WEAK_EXCEPTION_MESSAGING"/>
+         <Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS"/>
+      </Or>
+    </Match>
+    
+ </FindBugsFilter>

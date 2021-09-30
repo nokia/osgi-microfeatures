@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FindBugsFilter>
+  <LastVersion value="-1" relOp="NEQ"/>
+  <And>
+    <!-- 
+           To remove this warning, the Launcher class in the CalloutServer 
+           module should be renamed.
+     -->
+    <Bug pattern="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS"/>
+    <Class name="com.nextenso.diameter.agent.Launcher"/>
+  </And>
+  
+  <And>
+    <Bug pattern="DB_DUPLICATE_SWITCH_CLAUSES"/>
+    <Class name="com.nextenso.diameter.agent.peer.statemachine.rfc3588.StateIOpen"/>
+  </And>
+  
+  <And>
+    <Bug pattern="DB_DUPLICATE_SWITCH_CLAUSES"/>
+    <Class name="com.nextenso.diameter.agent.peer.statemachine.rfc3588.StateROpen"/>
+  </And>
+</FindBugsFilter>

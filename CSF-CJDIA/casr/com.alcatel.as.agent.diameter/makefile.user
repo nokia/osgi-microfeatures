@@ -1,0 +1,17 @@
+SRC_PREFIX := src
+TEST_DIR := autotest/diameter/jdiameter/src/
+SRC_JAR := $(SRC_PREFIX)-$(notdir $(DIAMETERAGENT_TARGET))
+LIB_TARGET := lib/$(notdir $(DIAMETERAGENT_TARGET))
+
+user: moduleend 
+
+moduleend: $(TEST_DIR)/$(SRC_JAR) 
+
+$(TEST_DIR)/$(SRC_JAR) : $(DIAMETERAGENT_SRC) srcfiles makefile.user
+	@echo "Generating implementation source code jar file for tests (jdiameter) ..."
+	mkdir -p $(TEST_DIR)
+	$(JAR) $(JAR_FLAGS) $(TEST_DIR)$(SRC_JAR) META-INF/services/com* $(DIAMETERAGENT_SRC)
+
+clean::
+	rm -fr $(TEST_DIR)/$(SRC_JAR)
+	

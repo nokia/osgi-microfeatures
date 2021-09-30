@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FindBugsFilter>
+   <!--
+        Cannot change the API
+    -->
+    <Match>
+        <Class name="com.alcatel_lucent.as.ims.impl.cx.SaaImpl"/>
+        <Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS"/>
+    </Match>
+    
+ </FindBugsFilter>
+		

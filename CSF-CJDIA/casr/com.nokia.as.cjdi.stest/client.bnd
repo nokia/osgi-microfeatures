@@ -1,0 +1,5 @@
+Bundle-Version: 1.0.6
+Private-Package: \
+	com.nokia.as.cjdi.stest.client,\
+	com.nokia.as.cjdi.stest.common
+Junit-Tests: 1

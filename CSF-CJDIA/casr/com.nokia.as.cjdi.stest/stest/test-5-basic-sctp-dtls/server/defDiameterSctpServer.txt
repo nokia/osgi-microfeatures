@@ -1,0 +1,12 @@
+<servers>
+
+  <server ip="127.0.0.1" port="3868" processor="diameter.ioh.ext" name="diamSctpExt" secure="true">
+    <property name="read.timeout">3000</property>
+    <property name="sctp.secure.protocol">DTLSv1.2</property>
+    <property name="sctp.secure.cipher">TLS_RSA_WITH_AES_128_CBC_SHA</property> <!-- optional property by def : all ciphers applicable to the protocol-->
+    <property name="sctp.secure.keystore.file">instance/server.ks</property>
+    <property name="sctp.secure.keystore.pwd">password</property> 
+    <property name="sctp.secure.client.authenticate">true</property>
+  </server>
+
+</servers>

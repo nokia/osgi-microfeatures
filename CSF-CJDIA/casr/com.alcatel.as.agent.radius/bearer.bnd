@@ -1,0 +1,5 @@
+Bundle-Version: 2.0.2
+Bundle-Name: Radius Bearer
+Bundle-SymbolicName: com.alcatel.as.webadmin.radius
+Private-Package: com.nextenso.proxylet.admin.radius, com.nextenso.proxylet.admin.radius.agg
+Bundle-Activator: com.nextenso.proxylet.admin.radius.agg.Activator

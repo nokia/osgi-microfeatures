@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Root element -->
+<!ELEMENT routes (route*)>
+
+<!ELEMENT route 
+	(destination-realm,
+	application,
+	routing-peer)>
+
+<!ATTLIST route
+	id	CDATA	#IMPLIED
+	metrics	CDATA	#IMPLIED
+>
+
+<!ELEMENT destination-realm EMPTY>
+<!ATTLIST destination-realm
+	name	CDATA	#REQUIRED
+>
+
+<!ELEMENT application EMPTY>
+
+<!ATTLIST application
+	id	CDATA	#REQUIRED
+>
+
+<!ATTLIST application
+	type	CDATA	#IMPLIED
+>
+
+<!ELEMENT routing-peer EMPTY>
+
+<!ATTLIST routing-peer
+	id	CDATA	#REQUIRED
+>
+
+<!--
+
+<routes>
+
+<route id="1" metrics="1">
+	<destination-realm name="com"/>
+	<application id="1" type="acct"/>
+	<routing-peer id="2"/>
+</route>
+
+<route id="2">
+	<destination-realm name="com"/>
+	<application id="1" type="auth"/>
+	<routing-peer id="2"/>
+</route>
+
+<route id="3">
+	<destination-realm name="*"/>
+	<application id="*"/>
+	<routing-peer id="1"/>
+</route>
+
+</routes>
+
+-->

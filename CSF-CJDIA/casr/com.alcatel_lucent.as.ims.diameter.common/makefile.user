@@ -1,0 +1,16 @@
+SRC_PREFIX := src
+TEST_DIR := autotest/diameter/jdiameter/src/
+SRC_JAR := $(SRC_PREFIX)-$(notdir $(INTERFACES3GPPCOMMON_TARGET))
+LIB_TARGET := lib/$(notdir $(INTERFACES3GPPCOMMON_TARGET))
+
+user: moduleend 
+
+moduleend: $(TEST_DIR)/$(SRC_JAR) 
+
+$(TEST_DIR)/$(SRC_JAR) : $(INTERFACES3GPPCOMMON_SRC) srcfiles
+	@echo "Generating implementation source code jar file for tests (jdiameter) ..."
+	mkdir -p $(TEST_DIR)
+	$(JAR) $(JAR_FLAGS) $(TEST_DIR)$(SRC_JAR) $(INTERFACES3GPPCOMMON_SRC)
+
+clean::
+	rm -fr $(TEST_DIR)/$(SRC_JAR)

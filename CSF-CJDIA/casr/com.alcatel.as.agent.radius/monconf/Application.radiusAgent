@@ -1,0 +1,16 @@
+NAME         RadiusAgent
+ID           3
+ROOTOID      alcatel 637 srd 71 a5350 6 RadiusAgent 1030 
+COMMAND      none
+COUNTER       Accounting Requests processed  { NumAccountingReq 100 }
+COUNTER       Access Requests processed  { NumAccessReq 101 }
+OBSOLETE     Memory Size (Kb) { MemSize }
+OPTION         1 Reset Clear all pending requests   { Reset 50 }
+CONTROL      false
+UNIQUE       false
+CHECK        
+STOP         
+SUDO         false
+PRIORITY     99
+EXTERNAL     false
+KILLDELAY    10

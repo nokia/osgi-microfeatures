@@ -1,0 +1,7 @@
+Bundle-Name: Http To Diameter Gateway
+Private-Package: com.nextenso.diameter.agent.httpgw
+
+Bundle-Version: 1.1.8
+
+Include-Resource:  \
+ META-INF/httpgwHeaders.txt=META-INF/httpgwHeaders.txt

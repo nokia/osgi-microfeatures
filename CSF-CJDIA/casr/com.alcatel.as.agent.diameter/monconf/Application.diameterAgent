@@ -1,0 +1,13 @@
+NAME        DiameterAgent
+ID          278
+ROOTOID      alcatel 637 srd 71 a5350 6 DiameterAgent 1000 
+COMMAND     none
+OPTION         0 Connect Attempts to connect all defined peers   { Connect 50 }
+CONTROL      false
+UNIQUE       false
+CHECK        
+STOP         
+SUDO         false
+PRIORITY     99
+EXTERNAL     false
+KILLDELAY    10

@@ -1,0 +1,15 @@
+###############################################################################
+# RadiusIOH Loggers
+###############################################################################
+
+# the RadiusIOH engine logger
+#log4j.logger.as.ioh.engine.radius=DEBUG
+#log4j.logger.as.ioh.engine.radius.traffic=DEBUG
+
+# optionally below to focus on an agent instance
+#log4j.logger.as.ioh.engine.radius.agent.<intanceName>.<containerId>=DEBUG
+
+
+#log4j.logger.as.ioh.radius.router=DEBUG
+#log4j.logger.as.ioh.radius.proc=DEBUG
+
