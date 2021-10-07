@@ -3,14 +3,13 @@
 -buildpath: \
 	${osgi},\
 	${bndlib},\
-	com.alcatel.as.service.api;version=2.4.0,\
+	com.alcatel.as.service.api;version=2.6.0,\
 	com.alcatel.as.service.metering2;version=1.0.0,\
 	com.alcatel_lucent.as.management.annotation;version=1.0,\
 	com.nokia.as.thirdparty.json;version=1.0,\
 	org.apache.felix.dependencymanager;version=4.4,\
 	com.nokia.as.thirdparty.log4j;version=1.2,\
-	com.sun.jna;version=4.5,\
-	com.nokia.as.service.tlsexport;version=1.0
+	com.sun.jna;version=4.5
 
 Bundle-Name: Utils
 Bundle-Activator: alcatel.tess.hometop.gateways.osgi.Activator
@@ -36,7 +35,7 @@ Include-Resource: META-INF/services/alcatel.tess.hometop.gateways.reactor.Reacto
  CharsetMib.properties=resource/CharsetMib.properties,\
  utils/RfcDateParser.properties=resource/utils/RfcDateParser.properties
 
-Bundle-Version: 2.19.0
+Bundle-Version: 2.19.1
 
 -fixupmessages: \
  "Baseline mismatch for package alcatel.tess.hometop.gateways.reactor, MAJOR change. Current is 1.16.0, repo is 1.15.0, suggest 2.0.0 or";is:=ignore,\

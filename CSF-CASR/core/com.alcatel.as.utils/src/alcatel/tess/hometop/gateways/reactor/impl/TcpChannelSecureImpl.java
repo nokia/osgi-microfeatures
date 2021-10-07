@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.SocketChannel;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
@@ -136,7 +137,8 @@ public class TcpChannelSecureImpl extends TcpChannelImpl {
   }
   
   public Map<String, Object> exportTlsKey(String asciiLabel, byte[] context_value, int length) {
-      return _reactor.getReactorProvider().getTlsExport().exportKey(((TLSEngineImpl) _tlse).sslEngine(), asciiLabel, context_value, length);
+      // return _reactor.getReactorProvider().getTlsExport().exportKey(((TLSEngineImpl) _tlse).sslEngine(), asciiLabel, context_value, length);
+      return Collections.emptyMap();
   }
 
   /**

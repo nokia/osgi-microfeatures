@@ -1,10 +1,10 @@
-CSF-Embedded:                  org.jboss.resteasy:resteasy-jaxrs:3.14.0.Final
-Bundle-Version:                3.14.0.Final
-Bundle-Name:                   CASR - org.jboss.resteasy:resteasy-jaxrs:3.14.0.Final
+CSF-Embedded:                  org.jboss.resteasy:resteasy-jaxrs:3.15.2.Final
+Bundle-Version:                3.15.2.Final
+Bundle-Name:                   CASR - org.jboss.resteasy:resteasy-jaxrs:3.15.2.Final
 Bundle-SymbolicName:           com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jaxrs
--includeresource:              @resteasy-jaxrs-3.14.0.Final.jar;lib:=true
--exportcontents:               *; version=3.14.0.Final
-Fragment-Host:		       com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-client
+Fragment-Host:                 com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-client
+-includeresource:              @resteasy-jaxrs-3.15.2.Final.jar;lib:=true
+-exportcontents:               *; version=3.15.2.Final
 Import-Package: \
   javax.activation,\
   javax.annotation,\
@@ -30,7 +30,7 @@ Import-Package: \
   javax.xml.transform.dom,\
   javax.xml.transform.sax,\
   javax.xml.transform.stream,\
-  org.apache.commons.codec.binary;version="[1.14,2)",\
+  org.apache.commons.codec.binary;version="[1.15,2)",\
   org.apache.commons.io.output;version="[1.4,2)",\
   org.apache.http;version="[4.4,5)",\
   org.apache.http.auth;version="[4.5,5)",\
@@ -47,49 +47,49 @@ Import-Package: \
   org.apache.http.params;version="[4.4,5)",\
   org.apache.http.protocol;version="[4.4,5)",\
   org.apache.http.util;version="[4.4,5)",\
-  org.apache.log4j,\
+  org.apache.log4j;version="[1.2, 2)",\
   org.eclipse.microprofile.config;resolution:=optional,\
   org.eclipse.microprofile.config.spi;resolution:=optional,\
   org.jboss.logging;version="[3.4,4)",\
-  org.jboss.resteasy.annotations;version="[3.14,4)",\
-  org.jboss.resteasy.annotations.cache;version="[3.14,4)",\
-  org.jboss.resteasy.annotations.interception;version="[3.14,4)",\
-  org.jboss.resteasy.annotations.jaxrs;version="[3.14,4)",\
-  org.jboss.resteasy.annotations.providers.img;version="[3.14,4)",\
-  org.jboss.resteasy.api.validation;version="[3.14,4)",\
-  org.jboss.resteasy.client;version="[3.14,4)",\
-  org.jboss.resteasy.client.core;version="[3.14,4)",\
-  org.jboss.resteasy.client.core.executors;version="[3.14,4)",\
-  org.jboss.resteasy.client.core.extractors;version="[3.14,4)",\
-  org.jboss.resteasy.client.core.marshallers;version="[3.14,4)",\
-  org.jboss.resteasy.client.exception;version="[3.14,4)",\
-  org.jboss.resteasy.client.exception.mapper;version="[3.14,4)",\
-  org.jboss.resteasy.core;version="[3.14,4)",\
-  org.jboss.resteasy.core.interception;version="[3.14,4)",\
-  org.jboss.resteasy.core.interception.jaxrs;version="[3.14,4)",\
-  org.jboss.resteasy.core.registry;version="[3.14,4)",\
-  org.jboss.resteasy.core.request;version="[3.14,4)",\
-  org.jboss.resteasy.logging;version="[3.14,4)",\
-  org.jboss.resteasy.microprofile.config;version="[3.14,4)",\
-  org.jboss.resteasy.mock;version="[3.14,4)",\
-  org.jboss.resteasy.plugins.delegates;version="[3.14,4)",\
-  org.jboss.resteasy.plugins.interceptors;version="[3.14,4)",\
-  org.jboss.resteasy.plugins.interceptors.encoding;version="[3.14,4)",\
-  org.jboss.resteasy.plugins.providers;version="[3.14,4)",\
-  org.jboss.resteasy.plugins.providers.sse;version="[3.14,4)",\
-  org.jboss.resteasy.plugins.providers.validation;version="[3.14,4)",\
-  org.jboss.resteasy.plugins.server;version="[3.14,4)",\
-  org.jboss.resteasy.plugins.server.resourcefactory;version="[3.14,4)",\
-  org.jboss.resteasy.plugins.server.servlet;version="[3.14,4)",\
-  org.jboss.resteasy.resteasy_jaxrs.i18n;version="[3.14,4)",\
-  org.jboss.resteasy.specimpl;version="[3.14,4)",\
-  org.jboss.resteasy.spi;version="[3.14,4)",\
-  org.jboss.resteasy.spi.interception;version="[3.14,4)",\
-  org.jboss.resteasy.spi.metadata;version="[3.14,4)",\
-  org.jboss.resteasy.spi.statistics;version="[3.14,4)",\
-  org.jboss.resteasy.spi.validation;version="[3.14,4)",\
-  org.jboss.resteasy.statistics;version="[3.14,4)",\
-  org.jboss.resteasy.util;version="[3.14,4)",\
+  org.jboss.resteasy.annotations;version="[3.15,4)",\
+  org.jboss.resteasy.annotations.cache;version="[3.15,4)",\
+  org.jboss.resteasy.annotations.interception;version="[3.15,4)",\
+  org.jboss.resteasy.annotations.jaxrs;version="[3.15,4)",\
+  org.jboss.resteasy.annotations.providers.img;version="[3.15,4)",\
+  org.jboss.resteasy.api.validation;version="[3.15,4)",\
+  org.jboss.resteasy.client;version="[3.15,4)",\
+  org.jboss.resteasy.client.core;version="[3.15,4)",\
+  org.jboss.resteasy.client.core.executors;version="[3.15,4)",\
+  org.jboss.resteasy.client.core.extractors;version="[3.15,4)",\
+  org.jboss.resteasy.client.core.marshallers;version="[3.15,4)",\
+  org.jboss.resteasy.client.exception;version="[3.15,4)",\
+  org.jboss.resteasy.client.exception.mapper;version="[3.15,4)",\
+  org.jboss.resteasy.core;version="[3.15,4)",\
+  org.jboss.resteasy.core.interception;version="[3.15,4)",\
+  org.jboss.resteasy.core.interception.jaxrs;version="[3.15,4)",\
+  org.jboss.resteasy.core.registry;version="[3.15,4)",\
+  org.jboss.resteasy.core.request;version="[3.15,4)",\
+  org.jboss.resteasy.logging;version="[3.15,4)",\
+  org.jboss.resteasy.microprofile.config;version="[3.15,4)",\
+  org.jboss.resteasy.mock;version="[3.15,4)",\
+  org.jboss.resteasy.plugins.delegates;version="[3.15,4)",\
+  org.jboss.resteasy.plugins.interceptors;version="[3.15,4)",\
+  org.jboss.resteasy.plugins.interceptors.encoding;version="[3.15,4)",\
+  org.jboss.resteasy.plugins.providers;version="[3.15,4)",\
+  org.jboss.resteasy.plugins.providers.sse;version="[3.15,4)",\
+  org.jboss.resteasy.plugins.providers.validation;version="[3.15,4)",\
+  org.jboss.resteasy.plugins.server;version="[3.15,4)",\
+  org.jboss.resteasy.plugins.server.resourcefactory;version="[3.15,4)",\
+  org.jboss.resteasy.plugins.server.servlet;version="[3.15,4)",\
+  org.jboss.resteasy.resteasy_jaxrs.i18n;version="[3.15,4)",\
+  org.jboss.resteasy.specimpl;version="[3.15,4)",\
+  org.jboss.resteasy.spi;version="[3.15,4)",\
+  org.jboss.resteasy.spi.interception;version="[3.15,4)",\
+  org.jboss.resteasy.spi.metadata;version="[3.15,4)",\
+  org.jboss.resteasy.spi.statistics;version="[3.15,4)",\
+  org.jboss.resteasy.spi.validation;version="[3.15,4)",\
+  org.jboss.resteasy.statistics;version="[3.15,4)",\
+  org.jboss.resteasy.util;version="[3.15,4)",\
   org.reactivestreams;version="[1.0,2)",\
   org.slf4j,\
   org.w3c.dom,\

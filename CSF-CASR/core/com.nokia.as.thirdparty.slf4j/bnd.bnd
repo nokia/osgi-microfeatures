@@ -1,6 +1,9 @@
+slf4j_version=1.7.31
+
 -buildpath: \
-	slf4j.log4j12;version=1.7.30,\
-	slf4j.api;version=1.7.30,\
+	slf4j.log4j12;version=${slf4j_version},\
+	slf4j.api;version=${slf4j_version},\
 	com.nokia.as.thirdparty.log4j;version=1.2.19
-	
+
+
 -sub: *.bnd

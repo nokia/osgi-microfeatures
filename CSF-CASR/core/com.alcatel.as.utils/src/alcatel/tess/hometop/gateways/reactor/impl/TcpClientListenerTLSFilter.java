@@ -2,6 +2,7 @@ package alcatel.tess.hometop.gateways.reactor.impl;
 
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
@@ -136,7 +137,8 @@ public class TcpClientListenerTLSFilter implements TcpChannel, TcpClientChannelL
 	}
 
 	public Map<String, Object> exportTlsKey(String asciiLabel, byte[] context_value, int length) {
-		return _reactorProvider.getTlsExport().exportKey(_tls.sslEngine(), asciiLabel, context_value, length);
+	    //return _reactorProvider.getTlsExport().exportKey(_tls.sslEngine(), asciiLabel, context_value, length);
+	    return Collections.emptyMap();	    
 	}
 
 	public void setWriteBlockedPolicy(WriteBlockedPolicy writeBlockedPolicy) {

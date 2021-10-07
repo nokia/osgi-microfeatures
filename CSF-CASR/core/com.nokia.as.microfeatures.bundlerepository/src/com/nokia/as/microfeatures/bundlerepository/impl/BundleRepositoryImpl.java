@@ -79,12 +79,7 @@ public class BundleRepositoryImpl implements BundleRepository {
 	 * same parameter as OBR, but deprecated
 	 */
 	private final static String OBR_REMOTE = "obr.remote";
-	
-	/**
-	 * url for our local obr
-	 */
-	private final static String LOCAL_OBR = "obr.local";
-	
+		
 	/**
 	 * system property to use as a shortcut for using ~/.m2/repository/obr.xml
 	 */
@@ -118,7 +113,7 @@ public class BundleRepositoryImpl implements BundleRepository {
 	/**
 	 * Do we need to resolve optional dependencies ? (For OBR <= 18.3.2, we need to resolve optional dependencies)
 	 */
-	private volatile boolean _resolveOptionalDependencies;
+	private volatile boolean _resolveOptionalDependencies = true;
 	
 	/**
 	 * Resolves OBR by forcing selection of highest bundle versions, which is normally bad.
@@ -169,10 +164,13 @@ public class BundleRepositoryImpl implements BundleRepository {
 	        // Initialize the registry needed by the Bnd OBR
 	        _registry = BndRegistry.INSTANCE.getRegistry();
 
-			// by default, we don't resolve optional dependencies unless if you specify -Doptional=true
-			// Notice that if you don't specify -Doptional=true, then we still resolve optional dependencies
-			// for obrs <= 18.3.2 (see setObr method which checks obr urls)
-			_resolveOptionalDependencies = "true".equals(_bc.getProperty("optional"));
+			// by default, we resolve optional dependencies unless if you specify -Doptional=false
+	        String resolveOptional = _bc.getProperty("optional");
+	        if (resolveOptional != null) {
+	        	_resolveOptionalDependencies = "true".equals(resolveOptional);
+	        } else {
+	        	_resolveOptionalDependencies = true; 
+	        }
 			
 			// Calculate service properties.
 			String store = _bc.getProperty("org.apache.ace.obr.storage.file:fileLocation");
@@ -200,7 +198,7 @@ public class BundleRepositoryImpl implements BundleRepository {
 				}
 			}
 			
-			List<String> releases = Collections.EMPTY_LIST;
+			List<String> releases = Collections.emptyList();
 			List<String> obrs = new ArrayList<>();
 			obrs.add(_localObr);
 			if (configuredObrs != null) {
@@ -255,9 +253,6 @@ public class BundleRepositoryImpl implements BundleRepository {
 			if (! _obrUrls.contains(newUrl)) {
 				OSGiRepository repo = createRepository(newUrl);
 	            _repositories.put(new URI(newUrl), repo);
-				if (! _resolveOptionalDependencies && ResolverUtil.detectNokiaObrsWhichNeedsOptionalDependencies(newUrl)) {
-					_resolveOptionalDependencies = true;
-				}
 				if (ResolverUtil.detectNokiaObrsWithCSFAR1822Bug(newUrl)) {
 					_hasCSFAR_1822Bug = true;
 				}

@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import com.sun.jna.Native;
+import com.sun.jna.Pointer;
+
 /**
  * struct sctp_setadaptation {
  *	__u32	ssb_adaptation_ind;
@@ -34,5 +37,19 @@ public class sctp_setadaptation implements SctpSocketParam {
 
 	public SctpSocketParam merge(SctpSocketParam other) {
 		return other;
-	}	
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setInt(0, (int) ssb_adaptation_ind);
+		return p;
+	}
+	
+	public sctp_setadaptation fromJNA(Pointer p) {
+		ssb_adaptation_ind = p.getInt(0);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 4; //1 int
+	}
 }

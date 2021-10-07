@@ -1,5 +1,25 @@
 The versions correspond to the microfeatures ubber jar deployed to artifactory (see https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered-local/com/nokia/casr/microfeatures/com.nokia.casr.microfeatures.main/)
 
+version 1.0.53
+==============
+
+CSFAR-4100: fixed wrong microfeatures version.
+
+version 1.0.52
+==============
+
+CSFAR-4100: Improve microfeature checklocalobr gogo command
+
+version 1.0.51:
+==============
+
+CSFAR-4090: Added support for MICROFEATURES_BLACKLIST env variable
+
+version 1.0.50:
+==============
+
+CSFAR-4090: Allow microfeatures tool to support blacklists
+
 version 1.0.49:
 ==============
 

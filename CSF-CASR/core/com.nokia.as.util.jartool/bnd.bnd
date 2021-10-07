@@ -9,7 +9,7 @@
 
 javac.source: 1.8
 javac.target: 1.8
-Bundle-Version: 2.0.7
+Bundle-Version: 2.0.8
 Private-Package: com.nokia.as.util.jartool
 Main-Class: com.nokia.as.util.jartool.Manifest
 

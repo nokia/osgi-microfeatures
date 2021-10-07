@@ -7,7 +7,8 @@ CSF-Artifact: false
    "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jaxb-provider: Baseline mismatch for package org.jboss.resteasy.plugins.providers.jaxb.i18n, MAJOR change. Current is 3.14.0.Final, repo is 3.13.1.Final, suggest 4.0.0 or -"; is:=ignore,\
    "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jaxb-provider: The bundle version \\(3.13.1/3.14.0\\) is too low, must be at least 4.0.0"; is:=ignore,\
    "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-client: Baseline mismatch for package org.jboss.resteasy.client.jaxrs.i18n, MAJOR change. Current is 3.14.0.Final, repo is 3.13.1.Final, suggest 4.0.0 or -"; is:=ignore,\
-   "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-client: The bundle version \\(3.13.1/3.14.0\\) is too low, must be at least 4.0.0"; is:=ignore
+   "com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-client: The bundle version \\(3.13.1/3.14.0\\) is too low, must be at least 4.0.0"; is:=ignore,\
+   "com.nokia.as.thirdparty.org.jboss.resteasy*"; is:=ignore
 
 
 -buildpath:\

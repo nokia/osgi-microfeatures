@@ -2,8 +2,11 @@ CSF-Artifact: false
 
 -fixupmessages: \
    "Can't find super class"; is:=ignore,\
-   "io.kubernetes.client-java: Baseline mismatch for package io.kubernetes.client.util, MAJOR change. Current is 12.0.1, repo is 12.0.0, suggest 13.0.0 or -"; is:=ignore,\
-   "io.kubernetes.client-java: The bundle version \\(12.0.0/12.0.1\\) is too low, must be at least 13.0.0"
+   "com.nokia.as.thirdparty.com.github.vladimir-bukhtoyarov_bucket4j-core: *";\
+   "io.kubernetes.client-java-api: *";\
+   "io.kubernetes.client-java-extended: *"; \
+   "io.kubernetes.client-java: *"; \
+   "io.kubernetes.client-java-proto: *"; is:=ignore
 
 -sub: *.bnd
 

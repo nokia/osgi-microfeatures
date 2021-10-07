@@ -174,8 +174,6 @@ Private-Package: \
 	com.nokia.as.autoconfig;version=latest,\
 	com.nokia.as.osgi.fragmentactivator;version=latest,\
 	com.nokia.as.osgi.jre18;version=latest,\
-	com.nokia.as.sctp.native.linux32;version=latest,\
-	com.nokia.as.sctp.native.linux64;version=latest,\
 	com.nokia.as.service.gogo;version=latest,\
 	com.nokia.as.service.logadmin.api;version=latest,\
 	org.objenesis;version='2.5',\

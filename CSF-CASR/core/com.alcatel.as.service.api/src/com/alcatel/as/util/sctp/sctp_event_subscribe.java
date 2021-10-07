@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import com.sun.jna.Pointer;
+
 /**
  * struct sctp_event_subscribe {
  *	__u8 sctp_data_io_event;
@@ -100,6 +102,38 @@ public class sctp_event_subscribe implements SctpSocketParam {
 						this.sctp_adaptation_layer_event || other.sctp_adaptation_layer_event,
 						this.sctp_authentication_event || other.sctp_authentication_event,
 						this.sctp_sender_dry_event || other.sctp_sender_dry_event);
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setByte(0, sctp_data_io_event ? (byte) 1 : (byte) 0);
+		p.setByte(1, sctp_association_event ? (byte) 1 : (byte) 0);
+		p.setByte(2, sctp_address_event ? (byte) 1 : (byte) 0);
+		p.setByte(3, sctp_send_failure_event ? (byte) 1 : (byte) 0);
+		p.setByte(4, sctp_peer_error_event ? (byte) 1 : (byte) 0);
+		p.setByte(5, sctp_shutdown_event ? (byte) 1 : (byte) 0);
+		p.setByte(6, sctp_partial_delivery_event ? (byte) 1 : (byte) 0);
+		p.setByte(7, sctp_adaptation_layer_event ? (byte) 1 : (byte) 0);
+		p.setByte(8, sctp_authentication_event ? (byte) 1 : (byte) 0);
+		p.setByte(9, sctp_sender_dry_event ? (byte) 1 : (byte) 0);
+		return p;
+	}
+	
+	public sctp_event_subscribe fromJNA(Pointer p) {
+		sctp_data_io_event = (p.getByte(0) == (byte) 1); 
+		sctp_association_event = (p.getByte(1) == (byte) 1); 
+		sctp_address_event = (p.getByte(2) == (byte) 1); 
+		sctp_send_failure_event = (p.getByte(3) == (byte) 1); 
+		sctp_peer_error_event = (p.getByte(4) == (byte) 1); 
+		sctp_shutdown_event = (p.getByte(5) == (byte) 1); 
+		sctp_partial_delivery_event = (p.getByte(6) == (byte) 1); 
+		sctp_adaptation_layer_event = (p.getByte(7) == (byte) 1); 
+		sctp_authentication_event = (p.getByte(8) == (byte) 1); 
+		sctp_sender_dry_event = (p.getByte(9) == (byte) 1);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 10; //10 booleans
 	}
 
 }

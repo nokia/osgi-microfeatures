@@ -10,7 +10,7 @@ import org.osgi.framework.Constants;
 import com.alcatel.as.service.concurrent.PlatformExecutors;
 import com.alcatel.as.service.concurrent.TimerService;
 import com.alcatel.as.service.metering2.MeteringService;
-import com.nokia.as.service.tlsexport.TlsExportService;
+//import com.nokia.as.service.tlsexport.TlsExportService;
 
 import alcatel.tess.hometop.gateways.concurrent.ThreadPool;
 import alcatel.tess.hometop.gateways.reactor.ReactorProvider;
@@ -35,7 +35,7 @@ public class Activator extends DependencyActivatorBase {
     dm.add(createComponent()
         .setInterface(ReactorProvider.class.getName(), props)
         .setImplementation(ReactorProviderImpl.class)
-        .add(createServiceDependency().setService(TlsExportService.class).setRequired(false))
+	   //.add(createServiceDependency().setService(TlsExportService.class).setRequired(false))
         .add(createServiceDependency().setService(MeteringService.class)
              .setRequired(true))
         .add(createServiceDependency().setService(TimerService.class, "(" + TimerService.STRICT + "=true)")

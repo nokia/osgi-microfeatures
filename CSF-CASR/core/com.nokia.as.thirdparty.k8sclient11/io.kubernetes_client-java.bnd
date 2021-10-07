@@ -1,5 +1,4 @@
-CSF-Embedded:                  io.kubernetes:client-java:11.0.1,simpleclient_httpserver:0.9.0
-Bundle-Version:                11.0.1.1
+CSF-Embedded:                  io.kubernetes:client-java:11.0.1,io.prometheus:simpleclient_httpserver:0.9.0
 Bundle-Name:                   CASR - io.kubernetes:client-java:11.0.1
 Bundle-SymbolicName:           io.kubernetes.client-java
 -includeresource:              @client-java-11.0.1.jar;lib:=true,\
@@ -9,7 +8,7 @@ Build-Jdk-Spec: 1.8
 Bundle-Description: Kubernetes Client Library
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
 Bundle-ManifestVersion: 2
-Bundle-Version: 11.0.1.1
+Bundle-Version: 11.0.1.2
 Created-By: Apache Maven Bundle Plugin
 Export-Package: \
   io.kubernetes.client;version="11.0.1",\

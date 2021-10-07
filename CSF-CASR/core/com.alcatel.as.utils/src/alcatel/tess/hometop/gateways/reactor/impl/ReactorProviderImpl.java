@@ -21,7 +21,7 @@ import com.alcatel.as.service.concurrent.PlatformExecutors;
 import com.alcatel.as.service.concurrent.TimerService;
 import com.alcatel.as.service.metering2.MeteringService;
 import com.alcatel.as.util.sctp.SctpSocketOption;
-import com.nokia.as.service.tlsexport.TlsExportService;
+//import com.nokia.as.service.tlsexport.TlsExportService;
 
 import alcatel.tess.hometop.gateways.reactor.AsyncChannel;
 import alcatel.tess.hometop.gateways.reactor.Reactor;
@@ -112,7 +112,7 @@ public class ReactorProviderImpl extends ReactorProvider {
   /**
    * Tls Export Service (injected, optional)
    */
-  private volatile TlsExportService _tlsExport;
+  //private volatile TlsExportService _tlsExport;
     
   /**
    * Default SO_LINGER option to use
@@ -728,10 +728,12 @@ public class ReactorProviderImpl extends ReactorProvider {
   NioSelector[] getSelectors() {
 	  return _selectors;
   }
-  
+
+    /*
   TlsExportService getTlsExport() {
-	  return _tlsExport;
+      return _tlsExport;
   }
+    */
   
   private void initSelectors(NioSelector[] selectors) {
 	  for (int i = 0; i < selectors.length; i++) {

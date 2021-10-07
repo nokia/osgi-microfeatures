@@ -7,7 +7,7 @@ Bundle-Name: CASR Slf4j-Log4j12 bundle
 Fragment-Host: slf4j.api
 
 # Our bundle version, as well as our exported package version
-version: 1.7.30
+version: ${slf4j_version}
 
 # Defines the bundle version
 Bundle-Version: ${version}
@@ -18,4 +18,4 @@ Export-Package: org.slf4j.impl;version=${version}
 # defines the G.A.V which we embed inside our bundle. This G.A.V list will be used when calculated list of external 3rd party libraries using getgav runtime script.
 CSF-Embedded: org.slf4j:slf4j-log4j12:${version}
 
--baseline:
+

@@ -1,5 +1,4 @@
 CSF-Embedded:                  io.kubernetes:client-java-proto:12.0.1
-Bundle-Version:                12.0.1
 Bundle-Name:                   CASR - io.kubernetes:client-java-proto:12.0.1
 Bundle-SymbolicName:           io.kubernetes.client-java-proto
 -includeresource:              @client-java-proto-12.0.1.jar;lib:=true

@@ -1,5 +1,4 @@
 CSF-Embedded:                  io.kubernetes:client-java-api:11.0.1
-Bundle-Version:                11.0.1
 Bundle-Name:                   CASR - io.kubernetes:client-java-api:11.0.1
 Bundle-SymbolicName:           io.kubernetes.client-java-api
 -includeresource:              @client-java-api-11.0.1.jar;lib:=true

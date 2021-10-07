@@ -2,15 +2,11 @@ CSF-Artifact: false
 -sub: *.bnd
 -fixupmessages: \
    "Can't find super class"; is:=ignore;\
-   "io.kubernetes.client-java: The baseline version 11.0.1 is higher than the current version 10.0.1.1 for io.kubernetes.client-java in Baseline"; \
-   "io.kubernetes.client-java-extended: The baseline version 11.0.1 is higher than the current version 10.0.1 for io.kubernetes.client-java-extended in Baseline"; \
-   "io.kubernetes.client-java-api: The baseline version 11.0.1 is higher than the current version 10.0.1 for io.kubernetes.client-java-api in Baseline"; is:=ignore,\
-   "io.kubernetes.client-java-proto: Version for package io.kubernetes.client.proto is set to different values in the source \\(10.0.0\\) and in the manifest \\(10.0.1\\). The version in the manifest is not picked up by an other sibling bundles in this project or projects that directly depend on this project"; is:=ignore,\
-   "io.kubernetes.client-java: Version for package io.prometheus.client.exporter is set to different values in the source \\(10.0.1\\) and in the manifest \\(0.9.0\\). The version in the manifest is not picked up by an other sibling bundles in this project or projects that directly depend on this project"; is:=ignore,\
-   "io.kubernetes.client-java-proto: The baseline version 12.0.1 is higher than the current version 10.0.1 for io.kubernetes.client-java-proto in Baseline"; is:=ignore,\
-   "io.kubernetes.client-java: The baseline version 12.0.1 is higher than the current version 10.0.1.1 for io.kubernetes.client-java in Baseline"; is:=ignore,\
-   "io.kubernetes.client-java-extended: The baseline version 12.0.1 is higher than the current version 10.0.1 for io.kubernetes.client-java-extended in Baseline"; is:=ignore,\
-   "io.kubernetes.client-java-api: The baseline version 12.0.1 is higher than the current version 10.0.1 for io.kubernetes.client-java-api in Baseline"; is:=ignore
+   "com.nokia.as.thirdparty.com.github.vladimir-bukhtoyarov_bucket4j-core: *";\
+   "io.kubernetes.client-java-api: *";\
+   "io.kubernetes.client-java-extended: *"; \
+   "io.kubernetes.client-java: *"; \
+   "io.kubernetes.client-java-proto: *"; is:=ignore
 
 -buildpath:\
     com.flipkart.zjsonpatch:zjsonpatch;version=0.4.11,\

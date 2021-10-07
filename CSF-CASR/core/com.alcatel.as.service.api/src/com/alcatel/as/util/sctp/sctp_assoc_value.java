@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import com.sun.jna.Pointer;
+
 /**
  * struct sctp_assoc_value {
  *   sctp_assoc_t            assoc_id;
@@ -18,6 +20,10 @@ public class sctp_assoc_value implements SctpSocketParam {
 	
 	public sctp_assoc_value() { }
 
+	public sctp_assoc_value(int assoc_id) {
+		this(assoc_id, 0);
+	}
+	
 	public sctp_assoc_value(long assoc_value) {
 		this(0, assoc_value);
 	}
@@ -52,5 +58,21 @@ public class sctp_assoc_value implements SctpSocketParam {
 		else assoc_value = other.assoc_value;
 
 		return new sctp_assoc_value(assoc_value);
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setInt(0, assoc_id);
+		p.setInt(4, (int) assoc_value);
+		return p;
+	}
+	
+	public sctp_assoc_value fromJNA(Pointer p) {
+		assoc_id = p.getInt(0);
+		assoc_value = p.getInt(4);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 8; //2 int
 	}
 }

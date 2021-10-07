@@ -1,5 +1,8 @@
 package com.alcatel.as.util.sctp;
 
+import com.sun.jna.Native;
+import com.sun.jna.Pointer;
+
 public class sctp_spp_flags {
 	private final int SPP_HB_ENABLE = 1 << 0;
 	private final int SPP_HB_DISABLE = 1 << 1;

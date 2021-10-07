@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import com.sun.jna.Pointer;
+
 /**
  * struct sctp_sndrcvinfo {
  *	__u16 		 sinfo_stream;
@@ -31,6 +33,10 @@ public class sctp_sndrcvinfo implements SctpSocketParam {
 	public long 		  sinfo_cumtsn;
 	
 	public sctp_sndrcvinfo() { }
+	
+	public sctp_sndrcvinfo(int sinfo_assoc_id) {
+		this(sinfo_assoc_id, 0, 0, new sctp_sinfo_flags(0), 0, 0, 0, 0, 0);
+	}
 	
 	public sctp_sndrcvinfo(int sinfo_stream, int sinfo_ssn, sctp_sinfo_flags sinfo_flags, long sinfo_ppid, 
 			   long sinfo_context, long sinfo_timetolive, long sinfo_tsn, long sinfo_cumtsn) {
@@ -113,5 +119,35 @@ public class sctp_sndrcvinfo implements SctpSocketParam {
                 else timetolive = other.sinfo_timetolive;
 
 		return new sctp_sndrcvinfo(stream, other.sinfo_flags, ppid, context, timetolive);
-	}	
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setShort(0, (short) sinfo_stream);
+		p.setShort(2, (short) sinfo_ssn);
+		p.setShort(4, (short) sinfo_flags.flags);
+		p.setInt(8, (int) sinfo_ppid);
+		p.setInt(12, (int) sinfo_context);
+		p.setInt(16, (int) sinfo_timetolive);
+		p.setInt(20, (int) sinfo_tsn);
+		p.setInt(24, (int) sinfo_cumtsn);
+		p.setInt(28, (int) sinfo_assoc_id);
+		return p;
+	}
+	
+	public sctp_sndrcvinfo fromJNA(Pointer p) {
+		sinfo_stream = p.getShort(0);
+		sinfo_ssn = p.getShort(2);
+		sinfo_flags = new sctp_sinfo_flags(p.getShort(4));
+		sinfo_ppid = p.getInt(8);
+		sinfo_context = p.getInt(12);
+		sinfo_timetolive = p.getInt(16);
+		sinfo_tsn = p.getInt(20);
+		sinfo_cumtsn = p.getInt(24);
+		sinfo_assoc_id = p.getInt(28);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 32; //3 shorts + 6 int + 2 padding
+	}
 }

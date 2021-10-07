@@ -12,7 +12,7 @@
 -runee: JavaSE-1.8
 
 -runproperties: \
-    microfeatures.version=1.0.49,\
+    microfeatures.version=1.0.53,\
 	org.osgi.service.http.port=9090,\
 	felix.log.level=1,\
 	ds.loglevel=warn,\

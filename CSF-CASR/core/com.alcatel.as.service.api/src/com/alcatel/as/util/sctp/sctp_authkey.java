@@ -1,9 +1,11 @@
 package com.alcatel.as.util.sctp;
 
-import java.util.Arrays;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.util.Arrays;
+
+import com.sun.jna.Pointer;
 
 /**
  * struct sctp_authkey {
@@ -60,5 +62,19 @@ public class sctp_authkey implements SctpSocketParam {
 
 	public SctpSocketParam merge(SctpSocketParam other) {
 		return other;
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setInt(0, sca_assoc_id);
+		p.setShort(4, (short) sca_keynumber);
+		p.setShort(6, (short) sca_keylength);
+		for(int i = 0; i < sca_keylength; i++) {
+			p.setByte(8 + i, sca_key[i]);
+		}
+		return p;
+	}
+	
+	public int jnaSize() {
+		return 8 + sca_keylength; //1 int, 2 short and a byte array
 	}
 }

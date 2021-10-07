@@ -3,6 +3,12 @@ package com.alcatel.as.util.sctp;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.util.Arrays;
+import java.util.List;
+
+import com.sun.jna.Native;
+import com.sun.jna.Pointer;
+import com.sun.jna.Structure;
 
 /**
  * struct sctp_rtoinfo {
@@ -21,7 +27,11 @@ public class sctp_rtoinfo implements SctpSocketParam {
 	public long srto_min;
 
 	public sctp_rtoinfo() { }
-
+	
+	public sctp_rtoinfo(int sctp_assoc_id) {
+		this(sctp_assoc_id, 0, 0, 0);
+	}
+	
 	public sctp_rtoinfo(long srto_initial, long srto_max, long srto_min) {
 		this(0, srto_initial, srto_max, srto_min);
 	}
@@ -71,5 +81,25 @@ public class sctp_rtoinfo implements SctpSocketParam {
                 else min = other.srto_min;
 
 		return new sctp_rtoinfo(initial, max, min);
+	}
+
+	public Pointer toJNA(Pointer p) {
+		p.setInt(0, sctp_assoc_id);
+		p.setInt(4, (int) srto_initial);
+		p.setInt(8, (int) srto_max);
+		p.setInt(12, (int) srto_min);
+		return p;
+	}
+	
+	public sctp_rtoinfo fromJNA(Pointer p) {
+		sctp_assoc_id = p.getInt(0);
+		srto_initial = p.getInt(4);
+		srto_max = p.getInt(8);
+		srto_min = p.getInt(12);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 16; //4 ints
 	}
 }

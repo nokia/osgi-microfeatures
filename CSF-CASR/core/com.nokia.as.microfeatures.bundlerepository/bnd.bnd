@@ -15,7 +15,7 @@
 javac.source: 1.8
 javac.target: 1.8
 
-Bundle-Version: 1.0.15
+Bundle-Version: 1.0.16
 Private-Package: \
 	com.nokia.as.microfeatures.bundlerepository.impl,\
     org.osgi.service.resolver,\

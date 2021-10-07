@@ -16,7 +16,7 @@
 javac.source: 1.8
 javac.target: 1.8
 
-Bundle-Version: 1.0.46
+Bundle-Version: 1.0.47
 Private-Package: com.nokia.as.features.admin
 
 -includeresource: resources=caruntimecomposer/build,\

@@ -9,7 +9,7 @@ Bundle-Name: CASR Slf4j-Log4j12 Log4j2 Extensions
 Fragment-Host: com.nokia.as.thirdparty.log4j2.log4j12.api
 
 # Our bundle version, as well as our exported package version
-version: 1.7.30
+version: ${slf4j_version}
 
 # Defines the bundle version
 Bundle-Version: ${version}

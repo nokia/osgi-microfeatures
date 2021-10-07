@@ -53,8 +53,6 @@ javac.target: 1.8
 	com.alcatel_lucent.as.management.annotation;version=snapshot,\
 	com.alcatel.as.service.impl.fileconfig;version=snapshot,\
 	com.nokia.as.osgi.jre18;version=snapshot,\
-	com.nokia.as.sctp.native.linux32;version=snapshot,\
-	com.nokia.as.sctp.native.linux64;version=snapshot,\
 	org.objenesis;version=2.5,\
 	com.nokia.as.thirdparty.json;version=snapshot,\
 	com.nokia.as.thirdparty.log4j;version=snapshot,\

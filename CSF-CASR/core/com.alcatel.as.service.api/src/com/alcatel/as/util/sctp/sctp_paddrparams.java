@@ -1,9 +1,16 @@
 package com.alcatel.as.util.sctp;
 
-import java.net.InetSocketAddress;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
+
+import org.apache.log4j.Logger;
+
+import com.sun.jna.Memory;
+import com.sun.jna.Native;
+import com.sun.jna.Pointer;
 
 /**
  * struct sctp_paddrparams {
@@ -27,6 +34,10 @@ public class sctp_paddrparams implements SctpSocketParam {
 	public sctp_spp_flags spp_flags;
 
 	public sctp_paddrparams() { }
+	
+	public sctp_paddrparams(int spp_assoc_id) {
+		this(spp_assoc_id, null, 0, 0, 0, 0, new sctp_spp_flags(0));
+	}
 
 	public sctp_paddrparams(InetSocketAddress spp_address, long spp_hbinterval, 
 							int spp_pathmaxrxt, long spp_pathmtu, long spp_sackdelay, sctp_spp_flags spp_flags) {
@@ -111,6 +122,34 @@ public class sctp_paddrparams implements SctpSocketParam {
 							  hbzero);
 
 		return new sctp_paddrparams(other.spp_address, hbinterval, pathmaxrxt, pathmtu, sackdelay, flags);
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		int size = sockaddr_storage.jnaSize();
+		p.setInt(0, spp_assoc_id);
+		p = sockaddr_storage.toJNA(spp_address, p, 4);
+		p.setInt(4 + size, (int) spp_hbinterval);
+		p.setShort(8 + size, (short) spp_pathmaxrxt);
+		p.setInt(10 + size, (int) spp_pathmtu);
+		p.setInt(14 + size, (int) spp_sackdelay);
+		p.setInt(18 + size, (int) spp_flags.flags);
+		return p;
+	}
+	
+	public sctp_paddrparams fromJNA(Pointer p) throws UnknownHostException {
+		int size = sockaddr_storage.jnaSize();
+		spp_assoc_id = p.getInt(0);
+		spp_address = sockaddr_storage.fromJNA(p, 4);
+		spp_hbinterval = p.getInt(4 + size);
+		spp_pathmaxrxt = p.getShort(8 + size);
+		spp_pathmtu = p.getInt(10 + size);
+		spp_sackdelay = p.getInt(14 + size);
+		spp_flags = new sctp_spp_flags(p.getInt(18 + size));
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 22 + sockaddr_storage.jnaSize() + 2; //5 int + 1 short + 128 sockaddr_storage + 2 alignment
 	}
 
 }

@@ -1,5 +1,4 @@
 CSF-Embedded:                  io.kubernetes:client-java-proto:10.0.1
-Bundle-Version:                10.0.1
 Bundle-Name:                   CASR - io.kubernetes:client-java-proto:10.0.1
 Bundle-SymbolicName:           io.kubernetes.client-java-proto
 Fragment-Host:                 io.kubernetes.client-java-api;bundle-version="[10.0.1,11.0.0)"

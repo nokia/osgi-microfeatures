@@ -111,6 +111,11 @@ public class FeatureRepositoryImpl implements FeatureRepository {
 	 * log4j feature version 2.0.0 (for log4j2 support)
 	 */
 	private final static String FEATURE_LOG4J_V2 = "2.0.0";
+	
+	/**
+	 * env variable that can be used to specify list of bundle symbolic names which must be blacklisted
+	 */
+	private final static String BLACKLIST = "MICROFEATURES_BLACKLIST";
 
 	/**
 	 * Feature 
@@ -773,10 +778,26 @@ public class FeatureRepositoryImpl implements FeatureRepository {
 				}
 			}
 		}
-
+		
+		// see if user has specified a list of blacklisted bundle symbolic names
+		getUserBlackList().forEach(filters::add);
 		return resolveBlacklistedResources(filters);
 	}
 	
+	private List<String> getUserBlackList() {
+		String blacklist = System.getProperty("blacklist");
+		if (blacklist == null) {
+			blacklist = System.getenv(BLACKLIST);
+		}
+		if (blacklist == null) {
+			return Collections.emptyList();
+		}
+		String[] bsns = blacklist.split(",");
+		List<String> list = new ArrayList<>(bsns.length);
+		Stream.of(bsns).forEach(bsn -> list.add("(osgi.identity=" + bsn + ")"));
+		return list;
+	}
+
 	@Override
 	public Set<Resource> resolveBlacklistedResources(List<String> filters) {				
 		// if jre=1.8, blacklist com.nokia.as.osgi.jre18 system bundle, because some obrs don't provide it and we have it installed in our runtime.

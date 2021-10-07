@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import com.sun.jna.Native;
+import com.sun.jna.Pointer;
+
 /**
  * struct sctp_assocparams {
  *	sctp_assoc_t	sasoc_assoc_id;
@@ -25,6 +28,10 @@ public class sctp_assocparams implements SctpSocketParam {
 	public long sasoc_cookie_life;
 
 	public sctp_assocparams() { }
+	
+	public sctp_assocparams(int sasoc_assoc_id) {
+		this(sasoc_assoc_id, 0, 0, 0, 0, 0);
+	}
 
 	public sctp_assocparams(int sasoc_asocmaxrxt, long sasoc_cookie_life) {
 		this(0, sasoc_asocmaxrxt, 0, 0, 0, sasoc_cookie_life);
@@ -82,5 +89,29 @@ public class sctp_assocparams implements SctpSocketParam {
                 else cookie_life = other.sasoc_cookie_life;
 		
 		return new sctp_assocparams(asocmaxrxt, cookie_life);
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setInt(0, sasoc_assoc_id);
+		p.setShort(4, (short) sasoc_asocmaxrxt);
+		p.setShort(6, (short) sasoc_number_peer_destinations);
+		p.setInt(8, (int) sasoc_peer_rwnd);
+		p.setInt(12, (int) sasoc_local_rwnd);
+		p.setInt(16, (int) sasoc_cookie_life);
+		return p;
+	}
+	
+	public sctp_assocparams fromJNA(Pointer p) {
+		sasoc_assoc_id = p.getInt(0);
+		sasoc_asocmaxrxt = p.getShort(4);
+		sasoc_number_peer_destinations = p.getShort(6);
+		sasoc_peer_rwnd = p.getInt(8);
+		sasoc_local_rwnd = p.getInt(12);
+		sasoc_cookie_life = p.getInt(16);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 20; //4 ints + 2 shorts
 	}
 }

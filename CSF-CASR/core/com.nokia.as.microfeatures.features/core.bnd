@@ -1,4 +1,4 @@
-Bundle-Version: 1.2.2
+Bundle-Version: 1.2.3
 Export-Package: com.nokia.as.microfeatures.features
 Private-Package: \
 	com.nokia.as.microfeatures.features.impl.core,\

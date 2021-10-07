@@ -3,6 +3,10 @@ package com.alcatel.as.util.sctp;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.net.UnknownHostException;
+
+import com.alcatel.as.util.sctp.sctp_paddrinfo.sctp_spinfo_state;
+import com.sun.jna.Pointer;
 
 /**
  * struct sctp_status {
@@ -40,6 +44,10 @@ public class sctp_status implements SctpSocketParam {
 	public int 			  sstat_outstrms;
 	public long			  sstat_fragmentation_point;
 	public sctp_paddrinfo sstat_primary;
+	
+	public sctp_status(int sstat_assoc_id) {
+		this(0, null, 0, 0, 0, 0, 0, 0, new sctp_paddrinfo(0, null));
+	}
 	
 	public sctp_status(int sstat_assoc_id, sctp_sstat_state sstat_state, long sstat_rwnd, int sstat_unackdata,
 			int sstat_penddata, int sstat_instrms, int sstat_outstrms, long sstat_fragmentation_point,
@@ -89,5 +97,40 @@ public class sctp_status implements SctpSocketParam {
 
 	public SctpSocketParam merge(SctpSocketParam other) {
 		throw new UnsupportedOperationException("This options is GET only, can't be merged");
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setInt(0, sstat_assoc_id);
+		return p; //no need to set the other values, only getsockopt is permitted on this struct
+	}
+	
+	public sctp_status fromJNA(Pointer p) throws UnknownHostException {
+		sstat_assoc_id = p.getInt(0);
+		
+		int state = p.getInt(4);
+		switch(state) {
+			case 0: sstat_state = sctp_sstat_state.SCTP_EMPTY; break;
+			case 1: sstat_state = sctp_sstat_state.SCTP_CLOSED; break;
+			case 2: sstat_state = sctp_sstat_state.SCTP_COOKIE_WAIT; break;
+			case 3: sstat_state = sctp_sstat_state.SCTP_COOKIE_ECHOED; break;
+			case 4: sstat_state = sctp_sstat_state.SCTP_ESTABLISHED; break;
+			case 5: sstat_state = sctp_sstat_state.SCTP_SHUTDOWN_PENDING; break;
+			case 6: sstat_state = sctp_sstat_state.SCTP_SHUTDOWN_SENT; break;
+			case 7: sstat_state = sctp_sstat_state.SCTP_SHUTDOWN_RECEIVED; break;
+			default: sstat_state = sctp_sstat_state.SCTP_SHUTDOWN_ACK_SENT;
+		}
+		
+		sstat_rwnd = p.getInt(8);
+		sstat_unackdata = p.getShort(12);
+		sstat_penddata = p.getShort(14);
+		sstat_instrms = p.getShort(16);
+		sstat_outstrms = p.getShort(18);
+		sstat_fragmentation_point = p.getInt(20);
+		sstat_primary = sstat_primary.fromJNA(p, 24);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 24 + sstat_primary.jnaSize(); //4 int + 4 short + sctp_paddrinfo
 	}
 }

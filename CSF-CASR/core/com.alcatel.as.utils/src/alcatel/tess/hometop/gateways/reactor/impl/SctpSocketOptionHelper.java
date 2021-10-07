@@ -4,16 +4,18 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import java.net.UnknownHostException;
 
 import org.apache.log4j.Logger;
 
-import com.alcatel.as.util.sctp.sctp_boolean;
+import com.alcatel.as.util.sctp.SctpSocketOption;
 import com.alcatel.as.util.sctp.sctp_assoc_value;
 import com.alcatel.as.util.sctp.sctp_assocparams;
 import com.alcatel.as.util.sctp.sctp_authchunk;
 import com.alcatel.as.util.sctp.sctp_authchunks;
 import com.alcatel.as.util.sctp.sctp_authkey;
 import com.alcatel.as.util.sctp.sctp_authkeyid;
+import com.alcatel.as.util.sctp.sctp_boolean;
 import com.alcatel.as.util.sctp.sctp_event_subscribe;
 import com.alcatel.as.util.sctp.sctp_hmacalgo;
 import com.alcatel.as.util.sctp.sctp_initmsg;
@@ -24,29 +26,59 @@ import com.alcatel.as.util.sctp.sctp_sack_info;
 import com.alcatel.as.util.sctp.sctp_setadaptation;
 import com.alcatel.as.util.sctp.sctp_sndrcvinfo;
 import com.alcatel.as.util.sctp.sctp_status;
+import com.sun.jna.Library;
+import com.sun.jna.Memory;
+import com.sun.jna.Native;
+import com.sun.jna.Pointer;
+import com.sun.jna.ptr.IntByReference;
 import com.sun.nio.sctp.Association;
 import com.sun.nio.sctp.SctpChannel;
 import com.sun.nio.sctp.SctpServerChannel;
 import com.sun.nio.sctp.SctpStandardSocketOptions;
 
-import com.alcatel.as.util.sctp.SctpSocketOption;
-
 public class SctpSocketOptionHelper {
+
+	private static int SOL_SOCKET = 1;
+	private static int SO_REUSEADDR = 2;
 	
-	static {
-		try {
-			System.loadLibrary("asrsctp");
-			Logger.getLogger("alcatel.tess.hometop.gateways.reactor.impl.SctpSocketOptionHelper").debug("Loaded asrsctp native library successfully");
-		} catch(Throwable e) {
-			Logger.getLogger("alcatel.tess.hometop.gateways.reactor.impl.SctpSocketOptionHelper").warn("Could not load asrsctp native library", e);
-		}
+	private static int IPPROTO_SCTP = 132;
+	private static int SCTP_RTOINFO = 0;
+	private static int SCTP_ASSOCINFO = 1;
+	private static int SCTP_INITMSG = 2;
+	private static int SCTP_ADAPTATION_LAYER = 7;
+	private static int SCTP_PEER_ADDR_PARAMS = 9;
+	private static int SCTP_DEFAULT_SEND_PARAM = 10;
+	private static int SCTP_EVENTS = 11;
+	private static int SCTP_I_WANT_MAPPED_V4_ADDR = 12;
+	private static int SCTP_MAXSEG = 13;
+	private static int SCTP_STATUS = 14;
+	private static int SCTP_GET_PEER_ADDR_INFO = 15;
+	private static int SCTP_DELAYED_SACK = 16;
+	private static int SCTP_CONTEXT = 17;
+	private static int SCTP_FRAGMENT_INTERLEAVE = 18;
+	private static int SCTP_PARTIAL_DELIVERY_POINT = 19;
+	private static int SCTP_MAX_BURST = 20;
+	private static int SCTP_AUTH_CHUNK = 21;
+	private static int SCTP_HMAC_IDENT = 22;
+	private static int SCTP_AUTH_KEY = 23;
+	private static int SCTP_AUTH_ACTIVE_KEY = 24;
+	private static int SCTP_AUTH_DELETE_KEY = 25;
+	private static int SCTP_PEER_AUTH_CHUNKS = 26;
+	private static int SCTP_LOCAL_AUTH_CHUNKS = 27;
+
+	private interface SocketOption extends Library {
+		public void getsockopt(int fd, int level, int option, Pointer value, Pointer len);
+		public void setsockopt(int fd, int level, int option, Pointer value, int len);
 	}
-	
+
+	private SocketOption helper = Native.loadLibrary("c", SocketOption.class);
+	private final Logger logger = Logger.getLogger(SctpSocketOptionHelper.class);
+
 	public Object getOption(SctpChannel chan, SctpSocketOption option, Object extra) throws IOException {
 		try {
 			int fd = getFileDescriptor(chan);
 			int assocID = getAssocId(chan);
-			
+
 			switch(option) {
 			case SCTP_DISABLEFRAGMENTS:
 				return new sctp_boolean(chan.getOption(SctpStandardSocketOptions.SCTP_DISABLE_FRAGMENTS));
@@ -61,7 +93,7 @@ public class SctpSocketOptionHelper {
 			throw new IOException(e);
 		}
 	}
-	
+
 	public Object getOption(SctpServerChannel chan, SctpSocketOption option, Object extra) throws IOException {
 		try {
 			int fd = getFileDescriptor(chan);
@@ -80,65 +112,61 @@ public class SctpSocketOptionHelper {
 			throw new IOException(e);
 		}
 	}
-	
+
 	public Object getOption(int fd, int assocID, SctpSocketOption option, Object extra) throws IOException {
 		switch(option) {
 		case SCTP_ADAPTATION_LAYER:
-			return n_getSCTP_ADAPTATION_LAYER(fd);
+			return getSCTP_ADAPTATION_LAYER(fd);
 		case SCTP_ASSOCINFO:
-			return n_getSCTP_ASSOCINFO(fd, assocID);
+			return getSCTP_ASSOCINFO(fd, assocID);
 		case SCTP_AUTH_ACTIVE_KEY:
-			return n_getSCTP_AUTH_ACTIVE_KEY(fd, assocID);
-//		case SCTP_AUTOCLOSE:
-//			return getSCTP_AUTOCLOSE(chan);
+			return getSCTP_AUTH_ACTIVE_KEY(fd, assocID);
 		case SCTP_CONTEXT:
-			return n_getSCTP_CONTEXT(fd, assocID);
+			return getSCTP_CONTEXT(fd, assocID);
 		case SCTP_DEFAULT_SEND_PARAM:
-			return n_getSCTP_DEFAULT_SEND_PARAM(fd, assocID);
+			return getSCTP_DEFAULT_SEND_PARAM(fd, assocID);
 		case SCTP_DELAYED_SACK:
-			return n_getSCTP_DELAYED_SACK(fd, assocID);
+			return getSCTP_DELAYED_SACK(fd, assocID);
 		case SCTP_EVENTS:
-			return n_getSCTP_EVENTS(fd);
+			return getSCTP_EVENTS(fd);
 		case SCTP_FRAGMENT_INTERLEAVE:
-			return new sctp_boolean(n_getSCTP_FRAGMENT_INTERLEAVE(fd));
-//		case SCTP_GET_ASSOC_NUMBER:
-//			return getSCTP_GET_ASSOC_NUMBER(chan);
+			return new sctp_boolean(getSCTP_FRAGMENT_INTERLEAVE(fd));
 		case SCTP_GET_PEER_ADDR_INFO:
-			return n_getSCTP_PEER_ADDR_INFO(fd, assocID, (InetSocketAddress) extra); 
+			return getSCTP_PEER_ADDR_INFO(fd, assocID, (InetSocketAddress) extra); 
 		case SCTP_HMAC_IDENT:
-			return n_getSCTP_HMAC_IDENT(fd);
+			return getSCTP_HMAC_IDENT(fd);
 		case SCTP_INITMSG:
-			return n_getSCTP_INITMSG(fd);
+			return getSCTP_INITMSG(fd);
 		case SCTP_I_WANT_MAPPED_V4_ADDR:
-			return new sctp_boolean(n_getSCTP_I_WANT_MAPPED_V4_ADDR(fd));
+			return new sctp_boolean(getSCTP_I_WANT_MAPPED_V4_ADDR(fd));
 		case SCTP_LOCAL_AUTH_CHUNKS:
-			return n_getSCTP_LOCAL_AUTH_CHUNKS(fd, assocID);
+			return getSCTP_LOCAL_AUTH_CHUNKS(fd, assocID);
 		case SCTP_MAXSEG:
-			return n_getSCTP_MAXSEG(fd, assocID);
+			return getSCTP_MAXSEG(fd, assocID);
 		case SCTP_MAX_BURST:
-			return n_getSCTP_MAX_BURST(fd, assocID);
+			return getSCTP_MAX_BURST(fd, assocID);
 		case SCTP_PARTIAL_DELIVERY_POINT:
-			return new sctp_assoc_value(n_getSCTP_PARTIAL_DELIVERY_POINT(fd));
+			return new sctp_assoc_value(0, getSCTP_PARTIAL_DELIVERY_POINT(fd));
 		case SCTP_PEER_ADDR_PARAMS:
-			return n_getSCTP_PEER_ADDR_PARAMS(fd, assocID);
+			return getSCTP_PEER_ADDR_PARAMS(fd, assocID);
 		case SCTP_PEER_AUTH_CHUNKS:
-			return n_getSCTP_PEER_AUTH_CHUNKS(fd, assocID);
+			return getSCTP_PEER_AUTH_CHUNKS(fd, assocID);
 		case SCTP_RTOINFO:
-			return n_getSCTP_RTOINFO(fd, assocID);
+			return getSCTP_RTOINFO(fd, assocID);
 		case SCTP_STATUS:
-			return n_getSCTP_STATUS(fd, assocID);
+			return getSCTP_STATUS(fd, assocID);
 		case SCTP_SO_REUSEADDR:
-			return n_getSCTP_REUSE_ADDR(fd);
+			return getSO_REUSEADDR(fd);
 		default:
 			throw new IOException("Operation not supported");
 		}
 	}
-	
+
 	public void setOption(SctpChannel chan, SctpSocketOption option, Object extra) throws IOException {
 		try {
 			int fd = getFileDescriptor(chan);
 			int assocID = getAssocId(chan);
-			
+
 			switch(option) {
 			case SCTP_DISABLEFRAGMENTS:
 				chan.setOption(SctpStandardSocketOptions.SCTP_DISABLE_FRAGMENTS, ((sctp_boolean) extra).value);
@@ -156,7 +184,7 @@ public class SctpSocketOptionHelper {
 			throw new IOException(e);
 		}
 	}
-	
+
 	public void setOption(SctpServerChannel chan, SctpSocketOption option, Object extra) throws IOException {
 		try {
 			int fd = getFileDescriptor(chan);
@@ -178,193 +206,365 @@ public class SctpSocketOptionHelper {
 			throw new IOException(e);
 		}
 	}
-	
+
 	public void setOption(int fd, int assocID, SctpSocketOption option, Object param) throws IOException {
 		switch(option) {
 		case SCTP_ADAPTATION_LAYER:
-			n_setSCTP_ADAPTATION_LAYER(fd, (sctp_setadaptation) param);
+			setSCTP_ADAPTATION_LAYER(fd, (sctp_setadaptation) param);
 			break;
 		case SCTP_ASSOCINFO:
-			n_setSCTP_ASSOCINFO(fd, (sctp_assocparams) param); 
+			setSCTP_ASSOCINFO(fd, (sctp_assocparams) param); 
 			break;
 		case SCTP_AUTH_ACTIVE_KEY:
-			n_setSCTP_AUTH_ACTIVE_KEY(fd, (sctp_authkeyid) param);
+			setSCTP_AUTH_ACTIVE_KEY(fd, (sctp_authkeyid) param);
 			break;
 		case SCTP_AUTH_CHUNK:
-			n_setSCTP_AUTH_CHUNK(fd, (sctp_authchunk) param);
+			setSCTP_AUTH_CHUNK(fd, (sctp_authchunk) param);
 			break;
 		case SCTP_AUTH_DELETE_KEY:
-			n_setSCTP_AUTH_DELETE_KEY(fd, (sctp_authkeyid) param);
+			setSCTP_AUTH_DELETE_KEY(fd, (sctp_authkeyid) param);
 			break;
 		case SCTP_AUTH_KEY:
-			n_setSCTP_AUTH_KEY(fd, (sctp_authkey) param);
+			setSCTP_AUTH_KEY(fd, (sctp_authkey) param);
 			break;
-//		case SCTP_AUTOCLOSE:
-//			setSCTP_AUTOCLOSE(chan, (Long) param); 
-//			break;
 		case SCTP_CONTEXT:
-			n_setSCTP_CONTEXT(fd, (sctp_assoc_value) param); 
+			setSCTP_CONTEXT(fd, (sctp_assoc_value) param); 
 			break;
 		case SCTP_DEFAULT_SEND_PARAM:
-			n_setSCTP_DEFAULT_SEND_PARAM(fd, (sctp_sndrcvinfo) param);
+			setSCTP_DEFAULT_SEND_PARAM(fd, (sctp_sndrcvinfo) param);
 			break;
 		case SCTP_DELAYED_SACK:
-			n_setSCTP_DELAYED_SACK(fd, (sctp_sack_info) param);
+			setSCTP_DELAYED_SACK(fd, (sctp_sack_info) param);
 			break;
 		case SCTP_EVENTS:
-			n_setSCTP_EVENTS(fd, (sctp_event_subscribe) param);
+			setSCTP_EVENTS(fd, (sctp_event_subscribe) param);
 			break;
 		case SCTP_FRAGMENT_INTERLEAVE:
-			n_setSCTP_FRAGMENT_INTERLEAVE(fd, ((sctp_boolean) param).value);
+			setSCTP_FRAGMENT_INTERLEAVE(fd, ((sctp_boolean) param).value);
 			break;
 		case SCTP_HMAC_IDENT:
-			n_setSCTP_HMAC_IDENT(fd, (sctp_hmacalgo) param);
+			setSCTP_HMAC_IDENT(fd, (sctp_hmacalgo) param);
 			break;
 		case SCTP_INITMSG:
-			n_setSCTP_INITMSG(fd, (sctp_initmsg) param);
+			setSCTP_INITMSG(fd, (sctp_initmsg) param);
 			break;
 		case SCTP_I_WANT_MAPPED_V4_ADDR:
-			n_setSCTP_I_WANT_MAPPED_V4_ADDR(fd, ((sctp_boolean) param).value);
+			setSCTP_I_WANT_MAPPED_V4_ADDR(fd, ((sctp_boolean) param).value);
 			break;
 		case SCTP_MAXSEG:
-			n_setSCTP_MAXSEG(fd, (sctp_assoc_value) param);
+			setSCTP_MAXSEG(fd, (sctp_assoc_value) param);
 			break;
 		case SCTP_MAX_BURST:
-			n_setSCTP_MAX_BURST(fd, (sctp_assoc_value) param);
+			setSCTP_MAX_BURST(fd, (sctp_assoc_value) param);
 			break;
 		case SCTP_PARTIAL_DELIVERY_POINT:
-			n_setSCTP_PARTIAL_DELIVERY_POINT(fd, ((sctp_assoc_value) param).assoc_value); 
+			setSCTP_PARTIAL_DELIVERY_POINT(fd, ((sctp_assoc_value) param).assoc_value); 
 			break;
 		case SCTP_PEER_ADDR_PARAMS:
-			n_setSCTP_PEER_ADDR_PARAMS(fd, (sctp_paddrparams) param);
+			setSCTP_PEER_ADDR_PARAMS(fd, (sctp_paddrparams) param);
 			break;
 		case SCTP_RTOINFO:
-			n_setSCTP_RTOINFO(fd, (sctp_rtoinfo) param);
+			setSCTP_RTOINFO(fd, (sctp_rtoinfo) param);
 			break;
-//		case SCTP_SET_PEER_PRIMARY_ADDR:
-//			setSCTP_SET_PEER_PRIMARY_ADDR(chan, (SocketAddress) param);
-//			break;
 		case SCTP_SO_REUSEADDR:
-			n_setSCTP_REUSE_ADDR(fd, ((sctp_boolean) param).value);
+			setSO_REUSEADDR(fd, ((sctp_boolean) param).value);
 			break;
 		default:
 			throw new IOException("Operation not supported");
-		
+
 		}
 	}
-	
-	private native sctp_rtoinfo n_getSCTP_RTOINFO(int fd, int associd);
-	private native void n_setSCTP_RTOINFO(int fd, sctp_rtoinfo rtoinfo) throws IOException;
 
-	private native sctp_assocparams n_getSCTP_ASSOCINFO(int fd, int assocID);
-	private native void n_setSCTP_ASSOCINFO(int fd, sctp_assocparams associnfo) throws IOException;
+	private sctp_rtoinfo getSCTP_RTOINFO(int fd, int assocID) {
+		sctp_rtoinfo rtoinfo = new sctp_rtoinfo(assocID);
+		Memory m = new Memory(rtoinfo.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_RTOINFO, rtoinfo.toJNA(m), new IntByReference(rtoinfo.jnaSize()).getPointer());
+		return rtoinfo.fromJNA(m);
+	}
 	
-	private native sctp_initmsg n_getSCTP_INITMSG(int fd);
-	private native void n_setSCTP_INITMSG(int fd, sctp_initmsg initmsg) throws IOException;
-	
-//	/* SCTP_AUTOCLOSE */
-//	private long getSCTP_AUTOCLOSE(SctpChannel chan) throws IOException {
-//		try {
-//			return n_getSCTP_AUTOCLOSE(getFileDescriptor(chan));
-//		} catch(Exception e) {
-//			throw new IOException(e.getMessage());
-//		}
-//	}
-//	
-//	private void setSCTP_AUTOCLOSE(SctpChannel chan, long seconds) throws IOException {
-//		try {
-//			n_setSCTP_AUTOCLOSE(getFileDescriptor(chan), seconds);
-//		} catch(Exception e) {
-//			throw new IOException(e.getMessage());
-//		} 
-//	}
-	
-//	private native long n_getSCTP_AUTOCLOSE(int fd);
-//	private native void n_setSCTP_AUTOCLOSE(int fd, long seconds) throws IOException;
-	
-//	/* SCTP_SET_PRIMARY_PEER_ADDR */
-//	private void setSCTP_SET_PEER_PRIMARY_ADDR(SctpChannel chan, SocketAddress peerprimaryaddr) throws IOException {
-//		chan.setOption(SctpStandardSocketOptions.SCTP_SET_PEER_PRIMARY_ADDR, peerprimaryaddr);
-//	}
-	
-	private native sctp_setadaptation n_getSCTP_ADAPTATION_LAYER(int fd);
-	private native void n_setSCTP_ADAPTATION_LAYER(int fd, sctp_setadaptation layer) throws IOException;
-	
-	private native sctp_paddrparams n_getSCTP_PEER_ADDR_PARAMS(int fd, int assocID);
-	private native void n_setSCTP_PEER_ADDR_PARAMS(int fd, sctp_paddrparams peeraddrparams) throws IOException;
-	
-	private native sctp_sndrcvinfo n_getSCTP_DEFAULT_SEND_PARAM(int fd, int associd);
-	private native void n_setSCTP_DEFAULT_SEND_PARAM(int fd, sctp_sndrcvinfo sndrcvinfo) throws IOException;
-	
-	private native sctp_event_subscribe n_getSCTP_EVENTS(int fd);
-	private native void n_setSCTP_EVENTS(int fd, sctp_event_subscribe events) throws IOException;
-	
-	private native boolean n_getSCTP_I_WANT_MAPPED_V4_ADDR(int fd);
-	private native void n_setSCTP_I_WANT_MAPPED_V4_ADDR(int fd, boolean iwantmappedv4addr) throws IOException;
-	
-	private native sctp_assoc_value n_getSCTP_MAXSEG(int fd, int associd);
-	private native void n_setSCTP_MAXSEG(int fd, sctp_assoc_value maxseg) throws IOException;
-	
-	private native sctp_status n_getSCTP_STATUS(int fd, int assocID);
-	
-	private native sctp_paddrinfo n_getSCTP_PEER_ADDR_INFO(int fd, int associd, InetSocketAddress peer);
+	private void setSCTP_RTOINFO(int fd, sctp_rtoinfo rtoinfo) {
+		Memory m = new Memory(rtoinfo.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_RTOINFO, rtoinfo.toJNA(m), rtoinfo.jnaSize());
+	}
 
-	private native sctp_sack_info n_getSCTP_DELAYED_SACK(int fd, int associd);
-	private native void n_setSCTP_DELAYED_SACK(int fd, sctp_sack_info sackinfo) throws IOException;
+	private sctp_assocparams getSCTP_ASSOCINFO(int fd, int assocID) {
+		sctp_assocparams associnfo = new sctp_assocparams(assocID);
+		Memory m = new Memory(associnfo.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_ASSOCINFO, associnfo.toJNA(m), new IntByReference(associnfo.jnaSize()).getPointer());
+		return associnfo.fromJNA(m);
+	}
 	
-	private native sctp_assoc_value n_getSCTP_CONTEXT(int fd, int associd);
-	private native void n_setSCTP_CONTEXT(int fd, sctp_assoc_value assocvalue) throws IOException;
+	private void setSCTP_ASSOCINFO(int fd, sctp_assocparams associnfo) {
+		Memory m = new Memory(associnfo.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_ASSOCINFO, associnfo.toJNA(m), associnfo.jnaSize());
+	}
+
+	private sctp_initmsg getSCTP_INITMSG(int fd) {
+		sctp_initmsg initmsg = new sctp_initmsg();
+		Memory m = new Memory(initmsg.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_INITMSG, initmsg.toJNA(m), new IntByReference(initmsg.jnaSize()).getPointer());
+		return initmsg.fromJNA(m);
+	}	
+	private void setSCTP_INITMSG(int fd, sctp_initmsg initmsg) {
+		Memory m = new Memory(initmsg.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_INITMSG, initmsg.toJNA(m), initmsg.jnaSize());
+	}
+
+	private sctp_setadaptation getSCTP_ADAPTATION_LAYER(int fd) {
+		sctp_setadaptation layer = new sctp_setadaptation();
+		Memory m = new Memory(layer.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_ADAPTATION_LAYER, layer.toJNA(m), new IntByReference(layer.jnaSize()).getPointer());
+		return layer.fromJNA(m);
+	}
 	
-	private native boolean n_getSCTP_FRAGMENT_INTERLEAVE(int fd);
-	private native void n_setSCTP_FRAGMENT_INTERLEAVE(int fd, boolean fragmentinterleave) throws IOException;
+	private void setSCTP_ADAPTATION_LAYER(int fd, sctp_setadaptation layer) {
+		Memory m = new Memory(layer.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_ADAPTATION_LAYER, layer.toJNA(m), layer.jnaSize());
+	}
+
+	private sctp_paddrparams getSCTP_PEER_ADDR_PARAMS(int fd, int assocID) throws IOException {
+		sctp_paddrparams paddr = new sctp_paddrparams(assocID);
+		Memory m = new Memory(paddr.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_PEER_ADDR_PARAMS, paddr.toJNA(m), new IntByReference(paddr.jnaSize()).getPointer());
+		try {
+			return paddr.fromJNA(m);	
+		} catch (UnknownHostException e) {
+			throw new IOException(e);
+		}
+	};
 	
-	private native boolean n_getSCTP_REUSE_ADDR(int fd);
-	private native void n_setSCTP_REUSE_ADDR(int fd, boolean reuseaddr) throws IOException;
+	private void setSCTP_PEER_ADDR_PARAMS(int fd, sctp_paddrparams paddr) {
+		Memory m = new Memory(paddr.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_PEER_ADDR_PARAMS, paddr.toJNA(m), paddr.jnaSize());
+	}
 	
-	private native long n_getSCTP_PARTIAL_DELIVERY_POINT(int fd);
-	private native void n_setSCTP_PARTIAL_DELIVERY_POINT(int fd, long partialdeliverypoint) throws IOException;
+	private sctp_sndrcvinfo getSCTP_DEFAULT_SEND_PARAM(int fd, int associd) {
+		sctp_sndrcvinfo sndrcvinfo = new sctp_sndrcvinfo(associd);
+		Memory m = new Memory(sndrcvinfo.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_DEFAULT_SEND_PARAM, sndrcvinfo.toJNA(m), new IntByReference(sndrcvinfo.jnaSize()).getPointer());
+		return sndrcvinfo.fromJNA(m);
+	}
 	
-	private native sctp_assoc_value n_getSCTP_MAX_BURST(int fd, int associd);
-	private native void n_setSCTP_MAX_BURST(int fd, sctp_assoc_value assocvalue) throws IOException;
+	private void setSCTP_DEFAULT_SEND_PARAM(int fd, sctp_sndrcvinfo sndrcvinfo) {
+		Memory m = new Memory(sndrcvinfo.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_DEFAULT_SEND_PARAM, sndrcvinfo.toJNA(m), sndrcvinfo.jnaSize());
+	}
 	
-	private native void n_setSCTP_AUTH_CHUNK(int fd, sctp_authchunk authchunk) throws IOException;
+	private sctp_event_subscribe getSCTP_EVENTS(int fd) {
+		sctp_event_subscribe events = new sctp_event_subscribe();
+		Memory m = new Memory(events.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_EVENTS, events.toJNA(m), new IntByReference(events.jnaSize()).getPointer());
+		return events.fromJNA(m);
+	}
 	
-	private native sctp_hmacalgo n_getSCTP_HMAC_IDENT(int fd);
-	private native void n_setSCTP_HMAC_IDENT(int fd, sctp_hmacalgo hmacalgo) throws IOException;
+	private void setSCTP_EVENTS(int fd, sctp_event_subscribe events) {
+		Memory m = new Memory(events.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_EVENTS, events.toJNA(m), events.jnaSize());
+	}
 	
-	private native void n_setSCTP_AUTH_KEY(int fd, sctp_authkey authkey) throws IOException;
+	private boolean getSCTP_I_WANT_MAPPED_V4_ADDR(int fd) {
+		Memory m = new Memory(4); //1 boolean
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_I_WANT_MAPPED_V4_ADDR, m, new IntByReference(4).getPointer());
+		return (m.getInt(0) != 0);
+	}
 	
-	private native sctp_authkeyid n_getSCTP_AUTH_ACTIVE_KEY(int fd, int associd);
-	private native void n_setSCTP_AUTH_ACTIVE_KEY(int fd, sctp_authkeyid authkeyid) throws IOException;
+	private void setSCTP_I_WANT_MAPPED_V4_ADDR(int fd, boolean iwantmappedv4addr) {
+		Memory m = new Memory(4); //1 boolean
+		m.setInt(0, iwantmappedv4addr ? 1 : 0);
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_I_WANT_MAPPED_V4_ADDR, m, 4);
+	}
 	
-	private native void n_setSCTP_AUTH_DELETE_KEY(int fd, sctp_authkeyid authkeyid) throws IOException;
+	private sctp_assoc_value getSCTP_MAXSEG(int fd, int associd) {
+		sctp_assoc_value maxseg = new sctp_assoc_value(0);
+		Memory m = new Memory(maxseg.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_MAXSEG, maxseg.toJNA(m), new IntByReference(maxseg.jnaSize()).getPointer());
+		return maxseg.fromJNA(m);
+	}
 	
-	private native sctp_authchunks n_getSCTP_PEER_AUTH_CHUNKS(int fd, int assocID) throws IOException;
+	private void setSCTP_MAXSEG(int fd, sctp_assoc_value maxseg) {
+		Memory m = new Memory(maxseg.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_MAXSEG, maxseg.toJNA(m), maxseg.jnaSize());
+	}
+
+	private sctp_status getSCTP_STATUS(int fd, int assocID) throws IOException {
+		sctp_status status = new sctp_status(assocID);
+		Memory m = new Memory(status.jnaSize());
+		m.clear();
+		try {
+			helper.getsockopt(fd, IPPROTO_SCTP, SCTP_STATUS, status.toJNA(m), new IntByReference(status.jnaSize()).getPointer());
+			return status.fromJNA(m);
+		} catch(UnknownHostException e) {
+			throw new IOException(e);
+		}
+	}
+
+	private sctp_paddrinfo getSCTP_PEER_ADDR_INFO(int fd, int associd, InetSocketAddress peer) throws IOException {
+		sctp_paddrinfo paddr = new sctp_paddrinfo(associd, peer);
+		Memory m = new Memory(paddr.jnaSize());
+		m.clear();
+		try {
+			helper.getsockopt(fd, IPPROTO_SCTP, SCTP_GET_PEER_ADDR_INFO, paddr.toJNA(m, 0), new IntByReference(paddr.jnaSize()).getPointer());
+			return paddr.fromJNA(m, 0);
+		} catch(UnknownHostException e) {
+			throw new IOException(e);
+		}
+	};
+
+	private sctp_sack_info getSCTP_DELAYED_SACK(int fd, int associd) {
+		sctp_sack_info sackinfo = new sctp_sack_info(associd);
+		Memory m = new Memory(sackinfo.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_DELAYED_SACK, sackinfo.toJNA(m), new IntByReference(sackinfo.jnaSize()).getPointer());
+		return sackinfo.fromJNA(m);
+	}
 	
-	private native sctp_authchunks n_getSCTP_LOCAL_AUTH_CHUNKS(int fd, int assocID) throws IOException;
+	private void setSCTP_DELAYED_SACK(int fd, sctp_sack_info sackinfo) {
+		Memory m = new Memory(sackinfo.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_DELAYED_SACK, sackinfo.toJNA(m), sackinfo.jnaSize());
+	}
+
+	private sctp_assoc_value getSCTP_MAX_BURST(int fd, int associd) {
+		sctp_assoc_value burst = new sctp_assoc_value(0);
+		Memory m = new Memory(burst.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_MAX_BURST, burst.toJNA(m), new IntByReference(burst.jnaSize()).getPointer());
+		return burst.fromJNA(m);
+	}
 	
-//	/* SCTP_GET_ASSOC_NUMBER */
-//	private long getSCTP_GET_ASSOC_NUMBER(SctpChannel chan) throws IOException {
-//		try {
-//			return n_getSCTP_GET_ASSOC_NUMBER(getFileDescriptor(chan));
-//		} catch (Exception e) {
-//			throw new IOException(e.getMessage());
-//		}
-//	}
-//
-//	private native long n_getSCTP_GET_ASSOC_NUMBER(int fd) throws IOException;
-		
+	private void setSCTP_MAX_BURST(int fd, sctp_assoc_value burst) {
+		Memory m = new Memory(burst.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_MAX_BURST, burst.toJNA(m), burst.jnaSize());
+	}
+	
+	private boolean getSCTP_FRAGMENT_INTERLEAVE(int fd) {
+		Memory m = new Memory(4); //1 boolean
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_FRAGMENT_INTERLEAVE, m, new IntByReference(4).getPointer());
+		return (m.getInt(0) != 0);
+	}
+	
+	private void setSCTP_FRAGMENT_INTERLEAVE(int fd, boolean fragmentinterleave) {
+		Memory m = new Memory(4); //1 boolean
+		m.setInt(0, fragmentinterleave ? 1 : 0);
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_FRAGMENT_INTERLEAVE, m, 4);
+	}
+	
+	private boolean getSO_REUSEADDR(int fd) {
+		Memory m = new Memory(4); //1 boolean
+		m.clear();
+		helper.getsockopt(fd, SOL_SOCKET, SO_REUSEADDR, m, new IntByReference(4).getPointer());
+		return (m.getInt(0) != 0);
+	}
+	
+	private void setSO_REUSEADDR(int fd, boolean reuse) {
+		Memory m = new Memory(4); //1 boolean
+		m.setInt(0, reuse ? 1 : 0);
+		helper.setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, m, 4);
+	}
+	
+	private long getSCTP_PARTIAL_DELIVERY_POINT(int fd) {
+		Memory m = new Memory(4); //1 int
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_PARTIAL_DELIVERY_POINT, m, new IntByReference(4).getPointer());
+		return m.getInt(0);
+	}
+	
+	private void setSCTP_PARTIAL_DELIVERY_POINT(int fd, long partialdeliverypoint) {
+		Memory m = new Memory(4); //1 int
+		m.setInt(0, (int) partialdeliverypoint);
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_PARTIAL_DELIVERY_POINT, m, 4);
+	}
+
+	private sctp_assoc_value getSCTP_CONTEXT(int fd, int associd) {
+		sctp_assoc_value context = new sctp_assoc_value(0);
+		Memory m = new Memory(context.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_CONTEXT, context.toJNA(m), new IntByReference(context.jnaSize()).getPointer());
+		return context.fromJNA(m);
+	}
+	
+	private void setSCTP_CONTEXT(int fd, sctp_assoc_value context) {
+		Memory m = new Memory(context.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_CONTEXT, context.toJNA(m), context.jnaSize());
+	}
+
+	private void setSCTP_AUTH_CHUNK(int fd, sctp_authchunk authchunk) {
+		Memory m = new Memory(authchunk.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_AUTH_CHUNK, authchunk.toJNA(m), authchunk.jnaSize());
+	}
+
+	private sctp_hmacalgo getSCTP_HMAC_IDENT(int fd) {
+		sctp_hmacalgo hmacalgo = new sctp_hmacalgo(0, new sctp_hmacalgo.idents[0]);
+		Memory m = new Memory(hmacalgo.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_HMAC_IDENT, hmacalgo.toJNA(m), new IntByReference(hmacalgo.jnaSize()).getPointer());
+		return hmacalgo.fromJNA(m);
+	}
+	
+	private void setSCTP_HMAC_IDENT(int fd, sctp_hmacalgo hmacalgo) {
+		Memory m = new Memory(hmacalgo.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_HMAC_IDENT, hmacalgo.toJNA(m), hmacalgo.jnaSize());
+	}
+
+	private void setSCTP_AUTH_KEY(int fd, sctp_authkey authkey) {
+		Memory m = new Memory(authkey.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_AUTH_KEY, authkey.toJNA(m), authkey.jnaSize());
+	}
+
+	private sctp_authkeyid getSCTP_AUTH_ACTIVE_KEY(int fd, int associd) {
+		sctp_authkeyid authkeyid = new sctp_authkeyid(associd, 0);
+		Memory m = new Memory(authkeyid.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_AUTH_ACTIVE_KEY, authkeyid.toJNA(m), new IntByReference(authkeyid.jnaSize()).getPointer());
+		return authkeyid.fromJNA(m);
+	}
+	
+	private void setSCTP_AUTH_ACTIVE_KEY(int fd, sctp_authkeyid authkeyid) {
+		Memory m = new Memory(authkeyid.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_AUTH_ACTIVE_KEY, authkeyid.toJNA(m), authkeyid.jnaSize());
+	}
+
+	private void setSCTP_AUTH_DELETE_KEY(int fd, sctp_authkeyid authkeyid) {
+		Memory m = new Memory(authkeyid.jnaSize());
+		helper.setsockopt(fd, IPPROTO_SCTP, SCTP_AUTH_DELETE_KEY, authkeyid.toJNA(m), authkeyid.jnaSize());
+	}
+
+	private sctp_authchunks getSCTP_PEER_AUTH_CHUNKS(int fd, int associd) {
+		sctp_authchunks chunks = new sctp_authchunks(associd);
+		Memory m = new Memory(chunks.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_PEER_AUTH_CHUNKS, chunks.toJNA(m), new IntByReference(chunks.jnaSize()).getPointer());
+		return chunks.fromJNA(m);
+	}
+
+	private sctp_authchunks getSCTP_LOCAL_AUTH_CHUNKS(int fd, int associd) {
+		sctp_authchunks chunks = new sctp_authchunks(associd);
+		Memory m = new Memory(chunks.jnaSize());
+		m.clear();
+		helper.getsockopt(fd, IPPROTO_SCTP, SCTP_LOCAL_AUTH_CHUNKS, chunks.toJNA(m), new IntByReference(chunks.jnaSize()).getPointer());
+		return chunks.fromJNA(m);
+	}
+
 	private int getFileDescriptor(SctpChannel chan) throws Exception {
 		Field f = chan.getClass().getDeclaredField("fdVal");
 		f.setAccessible(true);
 		return (Integer) f.get(chan);		
 	}
-	
+
 	private int getAssocId(SctpChannel chan) throws Exception {
 		Association assoc = chan.association();
 		return assoc == null ? 0 : assoc.associationID();
 	}
-	
+
 	private int getFileDescriptor(SctpServerChannel chan) throws Exception {
 		Field f = chan.getClass().getDeclaredField("fdVal");
 		f.setAccessible(true);

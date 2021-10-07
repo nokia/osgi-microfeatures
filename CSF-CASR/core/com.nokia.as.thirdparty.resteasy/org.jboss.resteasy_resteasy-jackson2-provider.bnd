@@ -1,31 +1,31 @@
-CSF-Embedded:                  org.jboss.resteasy:resteasy-jackson2-provider:3.14.0.Final
-Bundle-Version:                3.14.0.Final
-Bundle-Name:                   CASR - org.jboss.resteasy:resteasy-jackson2-provider:3.14.0.Final
+CSF-Embedded:                  org.jboss.resteasy:resteasy-jackson2-provider:3.15.2.Final
+Bundle-Version:                3.15.2.Final
+Bundle-Name:                   CASR - org.jboss.resteasy:resteasy-jackson2-provider:3.15.2.Final
 Bundle-SymbolicName:           com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-jackson2-provider
--includeresource:              @resteasy-jackson2-provider-3.14.0.Final.jar;lib:=true
--exportcontents:               *; version=3.14.0.Final
 Fragment-Host:		       com.nokia.as.thirdparty.org.jboss.resteasy_resteasy-client
+-includeresource:              @resteasy-jackson2-provider-3.15.2.Final.jar;lib:=true
+-exportcontents:               *; version=3.15.2.Final
 Import-Package: \
-  com.fasterxml.jackson.core;version="[2.10,3)",\
-  com.fasterxml.jackson.databind;version="[2.10,3)",\
-  com.fasterxml.jackson.databind.exc;version="[2.10,3)",\
-  com.fasterxml.jackson.databind.jsontype;version="[2.10,3)",\
-  com.fasterxml.jackson.databind.jsontype.impl;version="[2.10,3)",\
-  com.fasterxml.jackson.databind.type;version="[2.10,3)",\
-  com.fasterxml.jackson.jaxrs.cfg;version="[2.10,3)",\
-  com.fasterxml.jackson.jaxrs.json;version="[2.10,3)",\
-  com.fasterxml.jackson.jaxrs.util;version="[2.10,3)",\
+  com.fasterxml.jackson.core;version="[2.11,3)",\
+  com.fasterxml.jackson.databind;version="[2.11,3)",\
+  com.fasterxml.jackson.databind.exc;version="[2.11,3)",\
+  com.fasterxml.jackson.databind.jsontype;version="[2.11,3)",\
+  com.fasterxml.jackson.databind.jsontype.impl;version="[2.11,3)",\
+  com.fasterxml.jackson.databind.type;version="[2.11,3)",\
+  com.fasterxml.jackson.jaxrs.cfg;version="[2.11,3)",\
+  com.fasterxml.jackson.jaxrs.json;version="[2.11,3)",\
+  com.fasterxml.jackson.jaxrs.util;version="[2.11,3)",\
   com.github.fge.jsonpatch;version="[1.9,2)",\
   javax.annotation,\
   javax.ws.rs;version="[2.1,3)",\
   javax.ws.rs.container;version="[2.1,3)",\
   javax.ws.rs.core;version="[2.1,3)",\
   javax.ws.rs.ext;version="[2.1,3)",\
-  org.jboss.resteasy.annotations.providers;version="[3.14,4)",\
-  org.jboss.resteasy.annotations.providers.jackson;version="[3.14,4)",\
-  org.jboss.resteasy.core;version="[3.14,4)",\
-  org.jboss.resteasy.microprofile.config;version="[3.14,4)",\
-  org.jboss.resteasy.resteasy_jaxrs.i18n;version="[3.14,4)",\
-  org.jboss.resteasy.specimpl;version="[3.14,4)",\
-  org.jboss.resteasy.spi;version="[3.14,4)",\
-  org.jboss.resteasy.util;version="[3.14,4)"
+  org.jboss.resteasy.annotations.providers;version="[3.15,4)",\
+  org.jboss.resteasy.annotations.providers.jackson;version="[3.15,4)",\
+  org.jboss.resteasy.core;version="[3.15,4)",\
+  org.jboss.resteasy.microprofile.config;version="[3.15,4)",\
+  org.jboss.resteasy.resteasy_jaxrs.i18n;version="[3.15,4)",\
+  org.jboss.resteasy.specimpl;version="[3.15,4)",\
+  org.jboss.resteasy.spi;version="[3.15,4)",\
+  org.jboss.resteasy.util;version="[3.15,4)"

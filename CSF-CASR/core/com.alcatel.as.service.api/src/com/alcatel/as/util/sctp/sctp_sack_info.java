@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import com.sun.jna.Pointer;
+
 /**
  * struct sctp_sack_info {
  *	sctp_assoc_t	sack_assoc_id;
@@ -19,6 +21,10 @@ public class sctp_sack_info implements SctpSocketParam {
 	public long sack_freq;
 	
 	public sctp_sack_info() { }
+	
+	public sctp_sack_info(int sack_assoc_id) {
+		this(sack_assoc_id, 0, 0);
+	}
 
 	public sctp_sack_info(long sack_delay, long sack_freq) {
 		this(0, sack_delay, sack_freq);
@@ -63,5 +69,23 @@ public class sctp_sack_info implements SctpSocketParam {
                 else freq = other.sack_freq;
 
 		return new sctp_sack_info(delay, freq);
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setInt(0, sack_assoc_id);
+		p.setInt(4, (int) sack_delay);
+		p.setInt(8, (int) sack_freq);
+		return p;
+	}
+	
+	public sctp_sack_info fromJNA(Pointer p) {
+		sack_assoc_id = p.getInt(0);
+		sack_delay = p.getInt(4);
+		sack_freq = p.getInt(8);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 12; //3 int
 	}
 }

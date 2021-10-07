@@ -35,7 +35,7 @@ Private-Package: \
 Export-Package: \
 	org.quartz;version=${Bundle-Version}
 
-Bundle-Version: 1.0.6
+Bundle-Version: 1.0.7
 Import-Package: \
 	com.mchange.v2.c3p0;resolution:=optional,\
 	javax.ejb;resolution:=optional,\

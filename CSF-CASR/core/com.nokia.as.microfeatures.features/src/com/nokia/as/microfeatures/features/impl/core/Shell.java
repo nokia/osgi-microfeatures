@@ -685,27 +685,48 @@ public class Shell {
 	 * Check if the same package is exported by multiple bundles.
 	 * @throws MalformedURLException
 	 */
+//	private void checkSplitPackagesFromLocalObr() throws MalformedURLException {
+//		Map<String, List<Capability>> packages = loadAllPackagesFromLocalObr();
+//		
+//		packages.forEach((pkg, capabilities) -> {
+//			List<Version> versions = capabilities
+//					.stream()
+//					.filter(cap -> ! isFragment(cap))
+//					.map(cap -> new Version(cap.getAttributes().get("version").toString()))
+//					.collect(Collectors.toList());
+//			
+//			List<Version> distinctVersions = versions.stream().distinct().collect(Collectors.toList());
+//			if (versions.size() != distinctVersions.size()) {				
+//				List<String> urls = capabilities.stream()
+//						.map(cap -> cap.getResource().getCapabilities("osgi.content").get(0).getAttributes().get("url").toString())
+//						.map(url -> getFileName(url))
+//						.collect(Collectors.toList());
+//				
+//				System.out.println("package " + pkg + " exported by multiple bundles: " + urls);
+//			}
+//		});
+//	}
+	
 	private void checkSplitPackagesFromLocalObr() throws MalformedURLException {
 		Map<String, List<Capability>> packages = loadAllPackagesFromLocalObr();
-		
-		packages.forEach((pkg, capabilities) -> {
-			List<Version> versions = capabilities
+		packages.
+			forEach((pkg, capabilities) -> {
+				long exports = capabilities
 					.stream()
 					.filter(cap -> ! isFragment(cap))
-					.map(cap -> new Version(cap.getAttributes().get("version").toString()))
-					.collect(Collectors.toList());
-			
-			List<Version> distinctVersions = versions.stream().distinct().collect(Collectors.toList());
-			if (versions.size() != distinctVersions.size()) {				
+					.collect(Collectors.counting());
+				
+			// a package is exported by multiple bundles
+			if (exports > 1) {
 				List<String> urls = capabilities.stream()
 						.map(cap -> cap.getResource().getCapabilities("osgi.content").get(0).getAttributes().get("url").toString())
 						.map(url -> getFileName(url))
 						.collect(Collectors.toList());
-				
-				System.out.println("package " + pkg + " exported by multiple bundles: " + urls);
+				System.out.println("Please double check package " + pkg + " which is exported by multiple bundles: " + urls);
 			}
 		});
 	}
+
 		
 	private boolean isFragment(Capability cap) {
 		return "osgi.fragment".equals(cap.getResource().getCapabilities("osgi.identity").get(0).getAttributes().get("type"));

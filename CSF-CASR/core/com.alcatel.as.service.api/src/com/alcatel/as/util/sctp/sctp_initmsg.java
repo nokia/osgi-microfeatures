@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import com.sun.jna.Native;
+import com.sun.jna.Pointer;
+
 /**
  * struct sctp_initmsg {
  *	__u16 sinit_num_ostreams;
@@ -74,6 +77,26 @@ public class sctp_initmsg implements SctpSocketParam {
                 else max_init_timeo = other.sinit_max_init_timeo;
 
 		return new sctp_initmsg(num_ostreams, max_instreams, max_attempts, max_init_timeo);
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setShort(0, (short) sinit_num_ostreams);
+		p.setShort(2, (short) sinit_max_instreams);
+		p.setShort(4, (short) sinit_max_attempts);
+		p.setShort(6, (short) sinit_max_init_timeo);
+		return p;
+	}
+	
+	public sctp_initmsg fromJNA(Pointer p) {
+		sinit_num_ostreams = p.getShort(0);
+		sinit_max_instreams = p.getShort(2);
+		sinit_max_attempts = p.getShort(4);
+		sinit_max_init_timeo = p.getShort(6);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 8; //4 shorts
 	}
 
 }

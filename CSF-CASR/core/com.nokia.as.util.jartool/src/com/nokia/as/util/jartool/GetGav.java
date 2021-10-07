@@ -1,5 +1,7 @@
 package com.nokia.as.util.jartool;
 
+import static java.util.Comparator.comparing;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -8,10 +10,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
-import static java.util.Comparator.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.jar.JarFile;
@@ -69,6 +71,19 @@ public class GetGav {
 				// we can't return the version, since this method is only used for sorting, we return a default 0.0.0 version
 				return new Version("0.0.0");
 			}
+		}
+		
+		public boolean equals(Object that) {
+			if (! Artifact.class.equals(that.getClass())) {
+				return false;
+			}
+			
+			Artifact thatArtifact = (Artifact) that;
+			return thatArtifact.groupId.equals(groupId) && thatArtifact.artifactId.equals(artifactId) && thatArtifact.version.equals(version);
+		}
+		
+		public int hashCode() {
+			return Objects.hash(groupId, artifactId, version);
 		}
 	}
 	

@@ -1,9 +1,13 @@
 package com.alcatel.as.util.sctp;
 
-import java.util.Arrays;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.util.Arrays;
+
+import org.apache.log4j.Logger;
+
+import com.sun.jna.Pointer;
 
 /**
  * struct sctp_hmacalgo {
@@ -52,5 +56,39 @@ public class sctp_hmacalgo implements SctpSocketParam {
 
 	public SctpSocketParam merge(SctpSocketParam other) {
 		return other;
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setInt(0, (int) shmac_num_idents);
+		for(int i = 0; i < shmac_num_idents; i++) {
+			if(shmac_idents[i] == idents.SCTP_AUTH_HMAC_ID_SHA1) {
+				p.setShort(4 + (i*2), (short) 1);
+			} else {
+				p.setShort(4 + (i*2), (short) 3);
+			}
+		}
+		return p;
+	}
+	
+	public sctp_hmacalgo fromJNA(Pointer p) {
+		shmac_num_idents = p.getInt(0);
+		shmac_idents = new idents[(int) shmac_num_idents];
+		for(int i = 0; i < shmac_num_idents; i++) {
+			short ident = p.getShort(4 + i*2);
+			if(ident == 1) {
+				shmac_idents[i] = idents.SCTP_AUTH_HMAC_ID_SHA1;
+			} else {
+				shmac_idents[i] = idents.SCTP_AUTH_HMAC_ID_SHA256;
+			}
+		}
+		return this;
+	}
+	
+	public int jnaSize() {
+		if(shmac_num_idents == 0) {
+			return 4 + 64; // enough space to get
+		} else {
+			return 4 + (2 * (int) shmac_num_idents);
+		}
 	}
 }

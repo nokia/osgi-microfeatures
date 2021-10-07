@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+import com.sun.jna.Pointer;
+
 /**
  * struct sctp_authkeyid {
  *	sctp_assoc_t	scact_assoc_id;
@@ -42,5 +44,21 @@ public class sctp_authkeyid implements SctpSocketParam {
 
 	public SctpSocketParam merge(SctpSocketParam other) {
 		return other;
+	}
+	
+	public Pointer toJNA(Pointer p) {
+		p.setInt(0, scact_assoc_id);
+		p.setShort(4, (short) scact_keynumber);
+		return p;
+	}
+	
+	public sctp_authkeyid fromJNA(Pointer p) {
+		scact_assoc_id = p.getInt(0);
+		scact_keynumber = p.getShort(4);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 8; //int + short + 2 padding
 	}
 }

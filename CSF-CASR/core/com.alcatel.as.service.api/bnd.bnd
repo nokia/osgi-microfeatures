@@ -8,6 +8,7 @@
 	org.apache.felix.dependencymanager;version=4.4,\
 	org.apache.felix.dependencymanager.annotation;version=4.2,\
 	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.sun.jna;version=4.5,\
 	com.nokia.as.thirdparty.json;version=1.0
 	
 Bundle-Name: PlatformServicesAPI
@@ -39,4 +40,4 @@ Export-Package: \
 	com.alcatel.as.service.ioh,\
 	com.alcatel.as.service.recorder
 		
-Bundle-Version: 2.5.1
+Bundle-Version: 2.6.0

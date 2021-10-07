@@ -1,9 +1,12 @@
 package com.alcatel.as.util.sctp;
 
-import java.net.InetSocketAddress;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
+
+import com.sun.jna.Pointer;
 
 /**
  * struct sctp_paddrinfo {
@@ -35,6 +38,10 @@ public class sctp_paddrinfo implements SctpSocketParam {
 	public long				spinfo_mtu;
 	
 	public sctp_paddrinfo() { }
+	
+	public sctp_paddrinfo(int spinfo_assoc_id, InetSocketAddress spinfo_address) {
+		this(spinfo_assoc_id, spinfo_address, sctp_spinfo_state.SCTP_INACTIVE, 0, 0, 0, 0);
+	}
 
 	public sctp_paddrinfo(InetSocketAddress spinfo_address, sctp_spinfo_state spinfo_state,
 			long spinfo_cwnd, long spinfo_srtt, long spinfo_rto, long spinfo_mtu) {
@@ -86,6 +93,37 @@ public class sctp_paddrinfo implements SctpSocketParam {
 
 	public SctpSocketParam merge(SctpSocketParam other) {
 		throw new UnsupportedOperationException("This options is GET only, can't be merged");
+	}
+	
+	public Pointer toJNA(Pointer p, long offset) {
+		p.setInt(offset, spinfo_assoc_id);
+		sockaddr_storage.toJNA(spinfo_address, p, offset + 4);
+		return p; //no need to set the other values, only getsockopt is permitted on this struct
+	}
+	
+	public sctp_paddrinfo fromJNA(Pointer p, long offset) throws UnknownHostException {
+		spinfo_assoc_id = p.getInt(offset);
+		spinfo_address = sockaddr_storage.fromJNA(p, offset + 4);
+		int size = sockaddr_storage.jnaSize();
+		
+		int state = p.getInt(offset + size + 4);
+		switch(state) {
+			case 0: spinfo_state = sctp_spinfo_state.SCTP_INACTIVE; break;
+			case 1: spinfo_state = sctp_spinfo_state.SCTP_PF; break;
+			case 2: spinfo_state = sctp_spinfo_state.SCTP_ACTIVE; break;
+			case 3: spinfo_state = sctp_spinfo_state.SCTP_UNCONFIRMED; break;
+			default: spinfo_state = sctp_spinfo_state.SCTP_UNKNOWN;
+		}
+		
+		spinfo_cwnd = p.getInt(offset + size + 8);
+		spinfo_srtt = p.getInt(offset + size + 12);
+		spinfo_rto = p.getInt(offset + size + 16);
+		spinfo_mtu = p.getInt(offset + size + 20);
+		return this;
+	}
+	
+	public int jnaSize() {
+		return 24 + sockaddr_storage.jnaSize(); //6 int + 128 sockaddr_storage
 	}
 	
 }
