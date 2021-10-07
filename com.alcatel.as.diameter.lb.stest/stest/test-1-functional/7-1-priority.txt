@@ -1,0 +1,132 @@
+#
+# Only for ASR5.0SP3 and later
+#
+
+play: @init.incl
+
+hate.declare: test1 "DiameterLBTest-07.001 Session-Priority AVP"
+
+set: lowWM 100000
+set: highWM 1000000
+# for info : diff = 180000
+set: buffer0 10
+set: buffer1 280010
+set: buffer2 460010
+set: buffer3 640010
+set: buffer4 820010
+set: buffer5 1000010
+diameter.avp : TcpBuffer0 5 123 /$buffer0
+diameter.avp : TcpBuffer1 5 123 /$buffer1
+diameter.avp : TcpBuffer2 5 123 /$buffer2
+diameter.avp : TcpBuffer3 5 123 /$buffer3
+diameter.avp : TcpBuffer4 5 123 /$buffer4
+diameter.avp : TcpBuffer5 5 123 /$buffer5
+diameter.avp : Priority0 650 10415 /0
+diameter.avp : Priority1 650 10415 /1
+diameter.avp : Priority2 650 10415 /2
+diameter.avp : Priority3 650 10415 /3
+diameter.avp : Priority4 650 10415 /4
+
+hate.enter: test1
+
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer0
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer0 Priority0
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer0 Priority1
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer0 Priority2
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer0 Priority3
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer0 Priority4
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer1 Priority0
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer1 Priority1
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer1 Priority2
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer1 Priority3
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer1 Priority4
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer2 Priority0
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer2 Priority1
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer2 Priority2
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer2 Priority3
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer2 Priority4
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer3 Priority0
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer3 Priority1
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer3 Priority2
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer3 Priority3
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer3 Priority4
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer4 Priority0
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /2001
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer4 Priority1
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer4 Priority2
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer4 Priority3
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer4 Priority4
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer5 Priority0
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer5 Priority1
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer5 Priority2
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer5 Priority3
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+diameter.send-req: 123 110 diameter.avp.OriginHost diameter.avp.OriginRealm TcpBuffer5 Priority4
+diameter.read-resp
+diameter.check-resp-avp: 268 0 /3004
+
+#we clean
+diameter.close

@@ -1,0 +1,9 @@
+<servers>
+  <server ip="127.0.0.1" port="3868" processor="diameter.lb.def" name="1" secure="false">
+     <property name="diameter.lb.client.id">i1</property>
+  </server>
+
+  <server ip="127.0.0.1" port="4001" processor="diameter.test.server" name="1">
+  </server>
+</servers>
+

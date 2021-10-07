@@ -1,1 +1,0 @@
-ansible-playbook  -i /opt/proxy/etc/ansible/asr deploy.yml

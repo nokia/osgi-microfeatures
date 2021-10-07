@@ -1,0 +1,9 @@
+
+diameter.open: $server $port
+
+diameter.cer
+diameter.read-resp
+diameter.check-resp
+diameter.check-resp-avp: diameter.avp.ResultCode
+
+

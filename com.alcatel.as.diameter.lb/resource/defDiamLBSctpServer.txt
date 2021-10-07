@@ -1,0 +1,10 @@
+<servers>
+
+  <!-- This is the external diameter listening endpoint.
+       Change the client id to use a real farm.
+       You can add others : clone this section and change the ip/port/name -->
+  <server ip="0.0.0.0" port="3868" processor="diameter.lb.def" name="DiamLBSctp">
+     <property name="diameter.lb.client.id">main</property>
+  </server>
+
+</servers>

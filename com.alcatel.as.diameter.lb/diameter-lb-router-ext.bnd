@@ -1,0 +1,12 @@
+Bundle-Name: ExtraDiameterRouters
+Bundle-SymbolicName: com.alcatel.as.diameter.lb.impl.router.ext
+Bundle-Category: diameter, lb, router
+Private-Package: com.alcatel.as.diameter.lb.impl.router.ext;
+
+-dsannotations: *
+
+Include-Resource:  \
+ META-INF/defRoutingTable.props=resource/defRoutingTable.props
+
+Bundle-Version: 1.0.7
+

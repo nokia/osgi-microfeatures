@@ -1,0 +1,6 @@
+<servers>
+  <server ip="%IOHANDLER_VIRT_IP_EXT_DIAMETER%" port="3868" processor="diameter.lb.def" name="main">
+    <property name="diameter.lb.client.id">i1</property>
+  </server>
+</servers>
+

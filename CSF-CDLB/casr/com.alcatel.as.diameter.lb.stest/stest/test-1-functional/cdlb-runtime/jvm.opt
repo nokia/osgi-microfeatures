@@ -1,1 +1,0 @@
--server -Xms1g -Xmx1g -Das.diameter.lb.test=true

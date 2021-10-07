@@ -1,0 +1,12 @@
+
+hate.enter: test "DiameterLBTest-04.003 Functional - Fillback test"
+
+play: @init.incl
+
+diameter.send-req: 123 100 diameter.avp.OriginHost diameter.avp.OriginRealm diameter.avp.TestFillback2000
+diameter.read-resp
+diameter.check-resp-avp-len: 4 123 2000
+
+diameter.close
+
+

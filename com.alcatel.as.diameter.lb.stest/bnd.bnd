@@ -1,0 +1,15 @@
+groupId: com.nokia.cdlb
+
+-buildpath: \
+	${osgi},\
+	${bndlib},\
+	${junit},\
+	com.alcatel.as.diameter.lb;version=1.0.0
+
+-testpath: \
+	${junit}
+
+javac.source: 1.8
+javac.target: 1.8
+
+-sub: *.bnd
