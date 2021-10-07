@@ -9,7 +9,7 @@ SCRIPTDIR=`(unset CDPATH ; cd $SCRIPTDIR ; pwd)`
 #
 if [ ! -f $SCRIPTDIR/biz.aQute.bnd*.jar ]; then
     echo "Missing biz.aQute.bnd jar from $SCRIPTDIR/. Downloading it (the http proxy is assumed to be correctly configured)"
-    wget https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered/biz/aQute/bnd/biz.aQute.bnd/\[RELEASE\]/biz.aQute.bnd-\[RELEASE\].jar -O $SCRIPTDIR/biz.aQute.bnd.jar
+    wget -O $SCRIPTDIR/biz.aQute.bnd.jar https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/6.0.0/biz.aQute.bnd-6.0.0.jar
 fi
 java -jar $SCRIPTDIR/biz.aQute.bnd*.jar $@
 

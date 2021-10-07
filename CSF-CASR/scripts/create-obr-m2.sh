@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Determine current directory
-RUNTIME=`which $0`
-RUNTIME=`dirname $RUNTIME`
-RUNTIME=`(unset CDPATH ; cd $RUNTIME ; pwd)`
+SCRIPTS=`which $0`
+SCRIPTS=`dirname $SCRIPTS`
+SCRIPTS=`(unset CDPATH ; cd $SCRIPTS ; pwd)`
 
-if [ "$RUNTIME" == "" ]; then
+if [ "$SCRIPTS" == "" ]; then
     echo "Can't determine runtime directory."
     exit 1
 fi
@@ -119,8 +119,8 @@ function generateObr() {
     done
     mkdir -p `dirname $obr`
     echo "Generating ~/.m2/repository/$obr and ~/.m2/repository/${obr}.gz"
-    ${JAVA_HOME}/bin/java -cp $RUNTIME/repoindex.jar org.osgi.impl.bundle.bindex.cli.Index --pretty -r $obr -t ${ROOTPATH}"%p%f" -n "$obrversion" $BUNDLES
-#    $RUNTIME/../scripts/biz.aQute.bnd index -r $obr -n "$obrversion" $BUNDLES
+    ${JAVA_HOME}/bin/java -cp $SCRIPTS/repoindex.jar org.osgi.impl.bundle.bindex.cli.Index --pretty -r $obr -t ${ROOTPATH}"%p%f" -n "$obrversion" $BUNDLES
+#    $SCRIPTS/../scripts/biz.aQute.bnd index -r $obr -n "$obrversion" $BUNDLES
     \cp -f $obr $obr.bak
     gzip -f $obr
     mv $obr.bak $obr
@@ -156,10 +156,10 @@ fi
 
 # get all runtime 3rd party dependencies defined in all workspace cnf/artifactory.mvn files
 echo "Collecting all 3rd party runtime dependencies"
-[ -f $RUNTIME/../core/cnf/artifactory.mvn ] && getBundlesFromIndex $RUNTIME/../core/cnf/artifactory.mvn
-[ -f $RUNTIME/../core/cnf/mvndeps.mvn ] && getBundlesFromIndex $RUNTIME/../core/cnf/mvndeps.mvn
-[ -f  $RUNTIME/../../CSF-CJDIA/casr/cnf/artifactory.mvn ] && getBundlesFromIndex $RUNTIME/../../CSF-CJDIA/casr/cnf/artifactory.mvn
-[ -f  $RUNTIME/../../CSF-CDLB/casr/cnf/artifactory.mvn ] && getBundlesFromIndex $RUNTIME/../../CSF-CDLB/casr/cnf/artifactory.mvn
+[ -f $SCRIPTS/../core/cnf/artifactory.mvn ] && getBundlesFromIndex $SCRIPTS/../core/cnf/artifactory.mvn
+[ -f $SCRIPTS/../core/cnf/mvndeps.mvn ] && getBundlesFromIndex $SCRIPTS/../core/cnf/mvndeps.mvn
+[ -f  $SCRIPTS/../../CSF-CJDIA/casr/cnf/artifactory.mvn ] && getBundlesFromIndex $SCRIPTS/../../CSF-CJDIA/casr/cnf/artifactory.mvn
+[ -f  $SCRIPTS/../../CSF-CDLB/casr/cnf/artifactory.mvn ] && getBundlesFromIndex $SCRIPTS/../../CSF-CDLB/casr/cnf/artifactory.mvn
 
 # sort all maven coordinates
 sortGavs
