@@ -1,5 +1,7 @@
+groupId: com.nokia.cjdi
+
 -buildpath: \
-	${osgi},\
+        ${osgi},\
 	${bndlib},\
 	${junit},\
 	org.apache.felix.dependencymanager.annotation;version=5.0,\

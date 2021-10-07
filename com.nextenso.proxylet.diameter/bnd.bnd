@@ -1,13 +1,11 @@
  root bnd file
 
+groupId: com.nokia.cjdi
+
 -buildpath: \
 	${osgi},\
 	com.nextenso.proxylet.api;version=1.0
     
--testpath: \
-	${junit},\
-	org.mockito.mockito-all
-	
 Bundle-Name: DiameterAPI
 Bundle-Category: proxylet, diameter, api
 X-Obsoletes: DiameterAPI

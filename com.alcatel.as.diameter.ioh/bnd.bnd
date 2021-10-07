@@ -1,5 +1,7 @@
 # root bnd file
 
+groupId: com.nokia.cjdi
+
 -buildpath: \
 	${osgi},\
 	com.alcatel.as.ioh;version=1.0,\

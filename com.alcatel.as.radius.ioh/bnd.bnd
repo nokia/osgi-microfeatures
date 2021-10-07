@@ -1,5 +1,7 @@
+groupId: com.nokia.cjdi
+
 -buildpath: \
-	${osgi},\
+        ${osgi},\
 	${bndlib},\
 	com.alcatel.as.ioh;version=1.0,\
 	com.alcatel_lucent.as.management.annotation;version=1.0,\

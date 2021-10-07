@@ -135,6 +135,7 @@ net.jcip:jcip-annotations:1.0
 net.sf.ezmorph:ezmorph:1.0.6
 net.sf.json-lib:json-lib:jar:jdk15:2.4
 org.acplt:oncrpc:1.0.7
+org.apache.commons:commons-compress:1.13
 org.apache.felix:org.apache.felix.dependencymanager.annotation:5.0.2
 org.apache.felix:org.apache.felix.framework:7.0.0
 org.apache.felix:org.apache.felix.gogo.jline:1.1.0

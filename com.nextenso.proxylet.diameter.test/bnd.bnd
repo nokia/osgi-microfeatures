@@ -1,5 +1,7 @@
 # root bnd file
 
+groupId: com.nokia.cjdi
+
 -buildpath: \
 	${osgi},\
 	com.nokia.as.thirdparty.log4j;version=1.2,\
