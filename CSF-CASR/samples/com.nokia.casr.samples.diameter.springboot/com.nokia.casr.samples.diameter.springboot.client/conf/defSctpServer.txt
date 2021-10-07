@@ -1,6 +1,0 @@
-<servers>
-
-  <!--server ip="127.0.0.1" port="3868" processor="xxxx" name="main">
-  </server-->
-
-</servers>

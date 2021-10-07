@@ -1,1 +1,0 @@
--server -Xms1g -Xmx1g -Dagent.launcherMode=true -Dconfig.dir=instance,/casr/conf,/tmp/conf -Djavax.net.ssl.trustStore=/tmp/truststore -Djavax.net.ssl.trustStorePassword=changeit -Dorg.apache.ace.obr.storage.file:fileLocation=/tmp/store -Dmicrofeatures.version=1.0.37 

@@ -1,4 +1,0 @@
-# Add the following property when running the test server
-#-Das.diameter.lb.test=true
-
--server -Xms1g -Xmx1g

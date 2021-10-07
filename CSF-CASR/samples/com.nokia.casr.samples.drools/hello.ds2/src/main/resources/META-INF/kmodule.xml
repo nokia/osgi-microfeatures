@@ -1,5 +1,0 @@
-<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
-    <kbase name="sampleKBase" packages="com.nokia.casr.rules" default="true">
-        <ksession name="sampleKSession" default="true" />
-    </kbase>
-</kmodule>

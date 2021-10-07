@@ -1,3 +1,0 @@
-This sample contains a demo where you can define some jaxrs resources from a main() class (outside osgi).
-
-Check https://confluence.app.alcatel-lucent.com/display/plateng/Running+jaxrs+container+from+main documentation for more information.

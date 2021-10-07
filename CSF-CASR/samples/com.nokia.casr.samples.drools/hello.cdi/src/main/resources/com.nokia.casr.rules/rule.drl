@@ -1,9 +1,0 @@
-package com.nokia.casr.rules;
-
-import com.nokia.casr.samples.Account
-rule "accountBalanceAtLeast"
-  when
-  $account : Account( balance < 100 )
-  then
-    System.out.println("XXXXXXX rule activated");
-end

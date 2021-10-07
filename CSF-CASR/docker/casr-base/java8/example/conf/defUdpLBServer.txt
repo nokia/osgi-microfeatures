@@ -1,9 +1,0 @@
-<servers>
-  <server ip="0.0.0.0" port="10000" processor="ioh.lb.direct.round-robin" name="LB-UDP">
-    <property name="lb.dest.id">main</property> 
-    <property name="session.timeout">5000</property>
-    <property name="session.max">1500</property>
-    <property name="session.pool">500</property>
-    <property name="track.pod.label">com.nokia.casr.loadbalancer:${TRACK_POD_LABEL-udplb}</property>
-  </server>
-</servers>

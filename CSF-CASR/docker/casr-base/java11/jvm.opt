@@ -1,1 +1,0 @@
--server -Xms1g -Xmx1g -Dagent.launcherMode=true -Dconfig.dir=instance,/casr/conf,/tmp/conf
