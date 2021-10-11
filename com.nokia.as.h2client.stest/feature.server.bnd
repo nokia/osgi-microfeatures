@@ -1,9 +1,0 @@
-Bundle-Version: 1.0.0
-Bundle-Name: com.nokia.as.h2client.test.server Feature
-Private-Package:
-Provide-Capability: com.nokia.as.feature;com.nokia.as.feature="stest.h2client.server";category:List<String>="test"; internal=true
-Require-Capability: \
-  osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.junit)',\
-  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.junit4osgi.tester)',\
-  osgi.identity;filter:='(osgi.identity=com.nokia.as.util.test)',\
-  osgi.identity;filter:='(osgi.identity=com.nokia.as.h2client.stest.server)'

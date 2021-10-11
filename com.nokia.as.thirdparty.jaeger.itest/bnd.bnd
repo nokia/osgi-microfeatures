@@ -43,7 +43,6 @@ Private-Package: com.nokia.as.thirdparty.jaeger.itest
 	com.alcatel.as.service.metering2;version=snapshot,\
 	com.alcatel.as.service.metering2.impl;version=snapshot,\
 	org.jline;version=latest,\
-        com.nokia.as.service.tlsexport;version=snapshot,\
         com.nokia.as.thirdparty.com.bettercloud_vault.java.driver;version=snapshot,\
 	com.nokia.as.util.test;version=snapshot,\
 	org.apache.felix.log;version=latest,\

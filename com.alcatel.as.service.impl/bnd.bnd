@@ -28,7 +28,11 @@
 	org.apache.aries.util;version=1.1,\
 	com.alcatel.as.ioh;version=1.13
 	
--testpath: ${junit}
+-testpath: \
+	org.apache.servicemix.bundles.junit;version="[4.11,5)",\
+	org.mockito.mockito-core;version=1.10,\
+	org.objenesis;version=2.5,\
+	org.assertj.core;version="[3.10,4)"
 	
 -sub: \
     *.bnd

@@ -18,7 +18,7 @@ itest: ${junit},${mockito}
 
 Test-Cases: ${classes;CONCRETE;ANNOTATED;org.junit.runner.RunWith}
 -runfw: org.apache.felix.framework
--runvm: -javaagent:${workspace}/cnf/libs/jacocoagent.jar=destfile=generated/jacoco/test.exec
+-runvm: -javaagent:${workspace}/jars/jacocoagent.jar=destfile=generated/jacoco/test.exec
 -runee: JavaSE-1.8
 	
 -runsystemcapabilities: ${native_capability} 

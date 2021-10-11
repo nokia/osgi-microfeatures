@@ -197,6 +197,7 @@ org.jvnet.staxex:stax-ex:1.8
 org.keycloak:keycloak-admin-client:10.0.1
 org.keycloak:keycloak-jaxrs-oauth-client:10.0.1
 org.lz4:lz4-java:1.7.1
+org.mockito:mockito-all:1.10.19
 org.openjsse:openjsse:1.1.0
 org.osgi:osgi.annotation:6.0.1
 org.osgi:osgi.annotation:7.0.0

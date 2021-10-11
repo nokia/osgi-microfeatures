@@ -6,7 +6,7 @@ allprojects {
 
     repositories {
        maven {
-          url "https://repo.lab.pl.alcatel-lucent.com/jcenter"
+          url "https://repo1.maven.org/maven2"
         }
     }
     jacoco {
@@ -18,7 +18,7 @@ allprojects {
 buildscript {
   repositories {
     maven {
-      url "https://repo.lab.pl.alcatel-lucent.com/jcenter"
+      url "https://repo1.maven.org/maven2"
     }
   }
   dependencies {

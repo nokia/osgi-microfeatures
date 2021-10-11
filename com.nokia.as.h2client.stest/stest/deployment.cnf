@@ -1,6 +1,0 @@
-__java11_runtimes=jaxrs__runtime_1,jaxrs__runtime_2,jaxrs__runtime_3,client-tlsexport
-jaxrs__runtime_1=lib.csf.casr:1.0.0,runtime.felix.log4j1:1.0.0,ioh.server.jersey:1.0.0,stest.h2client.server,lib.csf.casr.tlsexport,lib.csf.casr.hkdf
-jaxrs__runtime_2=lib.csf.casr:1.0.0,runtime.felix.log4j1:1.0.0,ioh.server.jersey:1.0.0,stest.h2client.server,lib.csf.casr.tlsexport,lib.csf.casr.hkdf
-jaxrs__runtime_3=lib.csf.casr:1.0.0,runtime.felix.log4j1:1.0.0,ioh.server.jersey:1.0.0,stest.h2client.server,lib.csf.casr.tlsexport,lib.csf.casr.hkdf
-client=lib.csf.casr:1.0.0,runtime.felix.log4j1:1.0.0,lib.csf.casr.h2client,stest.h2client.client
-client-tlsexport=lib.csf.casr:1.0.0,runtime.felix.log4j1:1.0.0,lib.csf.casr.h2client,stest.h2client.tlsexport,lib.csf.casr.hkdf:1.0.0,lib.csf.casr.tlsexport

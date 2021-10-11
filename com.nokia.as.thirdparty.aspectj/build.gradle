@@ -5,7 +5,7 @@ clean.dependsOn('cleanAspectjDependencies')
 
 repositories {
   maven {
-    url 'http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered'
+    url 'https://repo1.maven.org/maven2'
   }
   mavenLocal()
 }

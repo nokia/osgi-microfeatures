@@ -6,7 +6,7 @@
 
 -testpath: \
 	${junit},\
-	${workspace}/jars/osgi.demo.helloservice.jar;version=file,\
+	include-libs/osgi.demo.helloservice.jar;version=file,\
 	resources;version=file
 
 javac.source: 1.8

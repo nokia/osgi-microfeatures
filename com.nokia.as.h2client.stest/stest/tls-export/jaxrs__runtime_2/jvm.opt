@@ -1,1 +1,0 @@
--server -Xms1g -Xmx1g -Dagent.launcherMode=true -Dcom.nokia.as.tlsexport.rfc7627_5.4=false

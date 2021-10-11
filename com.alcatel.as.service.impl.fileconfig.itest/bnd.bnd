@@ -41,7 +41,6 @@ javac.target: 1.8
 # We need JUnit and Mockito to resolve the test cases at runtime. 
 # Other runtime dependencies should be added as necessary
 -runbundles: \
-    com.nokia.as.service.tlsexport;version=snapshot,\
     com.nokia.as.thirdparty.com.bettercloud_vault.java.driver;version=snapshot,\
 	com.alcatel.as.service.api;version=snapshot,\
 	com.alcatel.as.service.impl.concurrent;version=snapshot,\

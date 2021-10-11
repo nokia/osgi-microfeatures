@@ -5,7 +5,7 @@ clean.dependsOn('cleanLauncherDependencies')
 
 repositories {
   maven {
-    url 'http://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered'
+    url 'https://repo1.maven.org/maven2'
   }
   mavenLocal()
 }
@@ -22,12 +22,14 @@ dependencies {
   testDeps('org.apache.felix:org.apache.felix.eventadmin:1.4.8') { transitive = false }
   testDeps('org.apache.felix:org.apache.felix.log:1.2.4') { transitive = false }
   testDeps('org.apache.felix:org.apache.felix.metatype:1.1.2') { transitive = false }
+  testDeps('com.nokia.casr:com.nokia.as.thirdparty.servlet.api:[3.1,4.0.0)') { transitive = false }  
   testDeps('org.lucee:commons-logging:1.2.0') { transitive = false }
+  testDeps('com.nokia.casr:com.nokia.as.thirdparty.log4j:[1.2.19,2.0.0)') { transitive = false }
 }
 
 task copyDependencies(type: Copy) {
   from configurations.testDeps
-  from "$projectDir/include-libs"
+  from "$projectDir/include-libs"  
   into "$projectDir/dependencies"
 }
 

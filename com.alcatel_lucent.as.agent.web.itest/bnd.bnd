@@ -98,7 +98,6 @@ Private-Package: \
 -runbundles: \
 	org.apache.felix.log;version=latest,\
 	org.jline;version=latest,\
-	com.nokia.as.service.tlsexport;version=snapshot,\
 	com.nokia.as.thirdparty.com.bettercloud_vault.java.driver;version=snapshot,\
 	com.eclipsesource.jaxrs.provider.multipart;version='[2.2.0,2.2.1)',\
 	com.eclipsesource.jaxrs.provider.security;version='[2.2.0,2.2.1)',\

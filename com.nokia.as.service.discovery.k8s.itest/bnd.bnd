@@ -87,7 +87,6 @@ Private-Package: \
 -runbundles: \
 	org.apache.commons.commons-io;version=2.11,\
 	org.jline;version=latest,\
-	com.nokia.as.service.tlsexport;version=snapshot,\
 	com.nokia.as.thirdparty.com.bettercloud_vault.java.driver;version=snapshot,\
 	com.alcatel.as.service.api;version=snapshot,\
 	com.alcatel.as.service.impl.concurrent;version=snapshot,\
