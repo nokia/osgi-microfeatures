@@ -4,5 +4,5 @@ Bundle-Category: sip, api
 X-Obsoletes: SipServlet
 Include-Resource: @sipservlet.jar
 -exportcontents: *;version=1.0
--classpath: jars/10/sipservlet.jar
+-classpath: ${workspace}/jars/sipservlet.jar
 Bundle-Version: 1.0.0

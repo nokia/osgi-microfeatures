@@ -1,8 +1,0 @@
-CSF-Embedded:                  net.javacrumbs.future-converter:future-converter-java8-common:1.2.0
-Bundle-Version:                1.2.0
-Bundle-Name:                   com.nokia.as.thirdparty.net.javacrumbs.future.converter_future.converter.java8.common
-Bundle-SymbolicName:           com.nokia.as.thirdparty.net.javacrumbs.future.converter_future.converter.java8.common
--includeresource:              @future-converter-java8-common-1.2.0.jar;lib:=true
--exportcontents:               *; version=1.2.0
-
--manifest net.javacrumbs.future.converter_future.converter.java8.common.mf

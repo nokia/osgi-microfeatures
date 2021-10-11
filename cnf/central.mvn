@@ -116,6 +116,7 @@ io.opentracing:opentracing-noop:0.33.0
 io.opentracing:opentracing-util:0.33.0
 io.perfmark:perfmark-api:0.23.0
 io.prometheus.jmx:jmx_prometheus_javaagent:0.10
+io.prometheus.jmx:jmx_prometheus_javaagent:0.11.0
 io.prometheus:simpleclient_httpserver:0.9.0
 io.swagger.core.v3:swagger-annotations:2.0.8
 io.swagger:swagger-core:1.5.3
@@ -149,6 +150,7 @@ org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1
 org.apache.httpcomponents:httpclient-osgi:4.5.13
 org.apache.httpcomponents:httpclient:4.5.12
 org.apache.httpcomponents:httpcore:4.4.13
+org.apache.kafka:kafka-clients:2.8.1
 org.apache.kafka:kafka_2.12:2.5.1
 org.apache.logging.log4j:log4j-1.2-api:2.13.2
 org.apache.logging.log4j:log4j-api:2.8.2
@@ -286,9 +288,6 @@ com.nokia.casr:io.kubernetes.client-java:11.0.1.2
 com.nokia.casr:io.kubernetes.client-java:4.0.0.1
 com.nokia.casr:io.kubernetes.client-java:8.0.0.1
 com.nokia.casr:org.apache.servicemix.bundles.okhttp:2.7.5.1
-com.nokia.ckaf:csf-kafka:4.0.0-2038
-com.nokia.csdc:jsdc:2.1.11
-com.nokia.csdc:jsdc:jar:jar-with-dependencies:1.5.76
 com.nokia.logging:unified-logging-api:1.1.13-0
 com.sun.activation:javax.activation:1.2.0
 com.sun.istack:istack-commons-runtime:3.0.10

@@ -10,6 +10,8 @@ if [ "$SCRIPTS" == "" ]; then
     exit 1
 fi
 
+WORKSPACE=${SCRIPTS}/..
+
 function getLatestArtifacts() {
     for dir in $* ; do
 	pushd  $dir 2>&1 > /dev/null; 
@@ -119,7 +121,7 @@ function generateObr() {
     done
     mkdir -p `dirname $obr`
     echo "Generating ~/.m2/repository/$obr and ~/.m2/repository/${obr}.gz"
-    ${JAVA_HOME}/bin/java -cp $SCRIPTS/repoindex.jar org.osgi.impl.bundle.bindex.cli.Index --pretty -r $obr -t ${ROOTPATH}"%p%f" -n "$obrversion" $BUNDLES
+    ${JAVA_HOME}/bin/java -cp $WORKSPACE/jars/repoindex.jar org.osgi.impl.bundle.bindex.cli.Index --pretty -r $obr -t ${ROOTPATH}"%p%f" -n "$obrversion" $BUNDLES
 #    $SCRIPTS/../scripts/biz.aQute.bnd index -r $obr -n "$obrversion" $BUNDLES
     \cp -f $obr $obr.bak
     gzip -f $obr
@@ -156,10 +158,8 @@ fi
 
 # get all runtime 3rd party dependencies defined in all workspace cnf/artifactory.mvn files
 echo "Collecting all 3rd party runtime dependencies"
-[ -f $SCRIPTS/../core/cnf/artifactory.mvn ] && getBundlesFromIndex $SCRIPTS/../core/cnf/artifactory.mvn
-[ -f $SCRIPTS/../core/cnf/mvndeps.mvn ] && getBundlesFromIndex $SCRIPTS/../core/cnf/mvndeps.mvn
-[ -f  $SCRIPTS/../../CSF-CJDIA/casr/cnf/artifactory.mvn ] && getBundlesFromIndex $SCRIPTS/../../CSF-CJDIA/casr/cnf/artifactory.mvn
-[ -f  $SCRIPTS/../../CSF-CDLB/casr/cnf/artifactory.mvn ] && getBundlesFromIndex $SCRIPTS/../../CSF-CDLB/casr/cnf/artifactory.mvn
+[ -f $SCRIPTS/../cnf/central.mvn ] && getBundlesFromIndex $SCRIPTS/../cnf/central.mvn
+[ -f $SCRIPTS/../cnf/confluence.mvn ] && getBundlesFromIndex $SCRIPTS/../cnf/confluence.mvn
 
 # sort all maven coordinates
 sortGavs

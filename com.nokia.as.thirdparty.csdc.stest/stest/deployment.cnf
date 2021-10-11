@@ -1,5 +1,0 @@
-# this file contains all the runtimes needed to execute the tests
-# Here, we deploy two runtimes ("client" and "server")
-# NOTE: the runtimes must be started in the order they are declared in this file
-
-test=runtime.felix,lib.log.log4j:2.0.0,lib.csf.casr,lib.csf.csdc:1.0.0,stest.csdc.test

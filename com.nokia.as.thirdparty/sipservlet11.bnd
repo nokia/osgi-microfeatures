@@ -1,4 +1,4 @@
--classpath: libs/sipservlet-1.1.jar
+-classpath: ${workspace}/jars/sipservlet-1.1.jar
 Bundle-Version: 1.1.0
 Bundle-Name: SipServlet11
 Bundle-Category: sip, api

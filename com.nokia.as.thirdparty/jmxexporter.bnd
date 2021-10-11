@@ -1,8 +1,8 @@
--classpath: libs/jmx_prometheus_javaagent-0.11-SNAPSHOT.jar
+CSF-Embedded: io.prometheus.jmx:jmx_prometheus_javaagent:0.11.0
 Bundle-Version: 0.11.0
 Bundle-Name: CdpJmxExporter
 Bundle-Category: metering
-Include-Resource: @jmx_prometheus_javaagent-0.11-SNAPSHOT.jar
+Include-Resource: @jmx_prometheus_javaagent-0.11.0.jar
 -exportcontents: *;version="0.11"
 Import-Package: *
 -manifest jmxexporter.mf

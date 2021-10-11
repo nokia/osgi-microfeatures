@@ -1,0 +1,5 @@
+io.confluent:common-config:5.5.2
+io.confluent:common-utils:5.5.2
+io.confluent:kafka-avro-serializer:5.5.2
+io.confluent:kafka-schema-registry-client:5.5.2
+io.confluent:kafka-schema-serializer:5.5.2

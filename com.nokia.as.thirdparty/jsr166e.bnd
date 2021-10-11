@@ -1,4 +1,4 @@
--classpath: libs/jsr166e.jar
+-classpath: ${workspace}/jars/jsr166e.jar
 Bundle-Name: Jsr166e
 Bundle-Category: core, api
 Bundle-Version: 1.7.0

@@ -1,6 +1,6 @@
 # root bnd file
 
--classpath ${workspace}/com.alcatel.as.sipservlet10/jars/10/sipservlet.jar
+-classpath ${workspace}/jars/sipservlet.jar
 
 -sub: \
     *.bnd
