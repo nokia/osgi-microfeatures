@@ -11,7 +11,7 @@ import aQute.bnd.osgi.Constants
 buildscript {
   repositories {
     maven {
-      url "https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered/"
+      url "https://repo1.maven.org/maven2/"
     }
   }
 	dependencies { classpath "biz.aQute.bnd:biz.aQute.bnd.gradle:${bnd_version}" }
