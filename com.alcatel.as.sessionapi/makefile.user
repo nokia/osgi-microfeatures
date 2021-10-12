@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 API_SRC_PREFIX := src
 API_SRC_DIR := api/src
 API_SRC_JAR := $(API_SRC_PREFIX)-$(notdir $(SESSIONAPI_TARGET))
