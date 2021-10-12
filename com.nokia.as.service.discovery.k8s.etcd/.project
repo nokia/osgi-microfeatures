@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2000-2021 Nokia
+
+ Licensed under the Apache License 2.0
+ SPDX-License-Identifier: Apache-2.0
+-->
 <projectDescription>
 	<name>com.nokia.as.service.discovery.k8s.etcd</name>
 	<comment></comment>
