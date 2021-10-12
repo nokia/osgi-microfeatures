@@ -1,3 +1,11 @@
+/**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
 import Nokia_logo_blue from '@nokia-csf-uxr/csfWidgets/images/Nokia_logo_blue.svg'
 import Nokia_logo_white from '@nokia-csf-uxr/csfWidgets/images/Nokia_logo_white.svg'
 //

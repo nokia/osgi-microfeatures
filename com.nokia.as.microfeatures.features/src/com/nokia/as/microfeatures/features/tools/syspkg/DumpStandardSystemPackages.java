@@ -1,3 +1,9 @@
+// Copyright 2000-2021 Nokia
+//
+// Licensed under the Apache License 2.0
+// SPDX-License-Identifier: Apache-2.0
+//
+
 package com.nokia.as.microfeatures.features.tools.syspkg;
 
 import java.util.List;

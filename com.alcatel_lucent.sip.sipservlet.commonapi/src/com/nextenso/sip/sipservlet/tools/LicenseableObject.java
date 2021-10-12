@@ -1,3 +1,9 @@
+// Copyright 2000-2021 Nokia
+//
+// Licensed under the Apache License 2.0
+// SPDX-License-Identifier: Apache-2.0
+//
+
 package com.nextenso.sip.sipservlet.tools;
 /**
  *Capacity for an object to be licensed. A LicenseableObject can be checked by the LicenseManager.

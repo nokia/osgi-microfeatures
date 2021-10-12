@@ -1,3 +1,9 @@
+// Copyright 2000-2021 Nokia
+//
+// Licensed under the Apache License 2.0
+// SPDX-License-Identifier: Apache-2.0
+//
+
 package org.json;
 /**
  * The <code>JSONString</code> interface allows a <code>toJSONString()</code> 

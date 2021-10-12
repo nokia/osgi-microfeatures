@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><Licence licenceXMLSchemaVersion="2.0">
+<!--
+ Copyright 2000-2021 Nokia
+
+ Licensed under the Apache License 2.0
+ SPDX-License-Identifier: Apache-2.0
+
+-->
+
 <LicenceData Id="licRAN2123.3LK">
 <licenceInfo licenceCode="RAN2123.3LK" licenceName="HSDPA BTS processing set 3 RLK"></licenceInfo>
 <order orderId="LIC"></order>

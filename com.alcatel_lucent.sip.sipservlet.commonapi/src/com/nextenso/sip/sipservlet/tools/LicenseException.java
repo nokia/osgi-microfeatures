@@ -1,3 +1,9 @@
+// Copyright 2000-2021 Nokia
+//
+// Licensed under the Apache License 2.0
+// SPDX-License-Identifier: Apache-2.0
+//
+
 package com.nextenso.sip.sipservlet.tools;
 /**  Description of the Class */
 public class LicenseException extends SecurityException {

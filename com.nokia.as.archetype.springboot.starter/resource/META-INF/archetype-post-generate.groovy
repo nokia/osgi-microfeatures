@@ -1,3 +1,9 @@
+// Copyright 2000-2021 Nokia
+//
+// Licensed under the Apache License 2.0
+// SPDX-License-Identifier: Apache-2.0
+//
+
 def moduleDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
 def springFactories = new File(request.getOutputDirectory() + "/" + request.getArtifactId() + "/src/main/resources/META-INF")  
 def bundlesMarker = "\$BUNDLE-ARTIFACTS\$" 

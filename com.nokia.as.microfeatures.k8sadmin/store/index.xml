@@ -1,3 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!--
+ Copyright 2000-2021 Nokia
+
+ Licensed under the Apache License 2.0
+ SPDX-License-Identifier: Apache-2.0
+
+-->
+
 <repository increment='1571312486697' name='Untitled' xmlns='http://www.osgi.org/xmlns/repository/v1.0.0'>
 </repository>

@@ -1,3 +1,11 @@
+/**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import SearchwChips from '@nokia-csf-uxr/csfWidgets/SearchwChips';

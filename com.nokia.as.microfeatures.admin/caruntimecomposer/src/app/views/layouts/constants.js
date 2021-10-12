@@ -1,3 +1,11 @@
+/**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
 // Views identifiers useful for actions and paths
 import { views } from '../../state/ducks/views/constants'
 

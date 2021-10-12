@@ -1,4 +1,10 @@
 #!/bin/bash
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 
 # Retrieve a unique instance UID. We first try to get an UID from the Jetty and, if it does
 # not work, use a random number and cross our fingers... UIDs assigned by the Jetty are at

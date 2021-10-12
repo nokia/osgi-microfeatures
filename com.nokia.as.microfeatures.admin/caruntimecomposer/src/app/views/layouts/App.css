@@ -1,3 +1,11 @@
+/**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
 /* Formlayout minor fix - Jessee spoke to Paul to fix it for FormLayout in future release */
 .csfWidgets.formLayout.formLayout {
   overflow: visible !important;

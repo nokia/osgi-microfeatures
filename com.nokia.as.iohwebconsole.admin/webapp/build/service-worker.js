@@ -1,4 +1,12 @@
 /**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
+/**
  * Welcome to your Workbox-powered service worker!
  *
  * You'll need to register this file in your web app and you should

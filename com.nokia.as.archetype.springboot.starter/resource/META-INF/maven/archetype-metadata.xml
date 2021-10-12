@@ -1,3 +1,11 @@
+<!--
+ Copyright 2000-2021 Nokia
+
+ Licensed under the Apache License 2.0
+ SPDX-License-Identifier: Apache-2.0
+
+-->
+
 <archetype-descriptor
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"

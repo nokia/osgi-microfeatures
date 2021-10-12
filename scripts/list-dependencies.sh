@@ -1,4 +1,10 @@
 #!/bin/bash
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 
 # This script displays dependencies to add to CASR project
 # by default, the command displays all dependencies to be added to cnf/artifactory.mvn

@@ -1,3 +1,11 @@
+/**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
 import React, { Component } from 'react';
 import * as Labels from '../labels';
 import FormLayout from '@nokia-csf-uxr/csfWidgets/FormLayout';

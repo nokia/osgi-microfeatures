@@ -1,4 +1,10 @@
 #!/bin/bash
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 #################################################################################################
 # This script is used to patch the node_modules/react-scripts/config/webpack.config.prod.js file.
 # The file is used to configure the build task to produice a web application in production.

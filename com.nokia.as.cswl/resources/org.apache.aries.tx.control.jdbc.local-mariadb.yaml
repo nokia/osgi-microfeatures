@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 org.apache.aries.tx.control.jdbc.local:
   - url: jdbc:mariadb://localhost:3306/ood
     user: ood

@@ -1,4 +1,10 @@
 #!/bin/bash
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 
 CONFLUENCE=confluent-5.2.1
 CONFLUENCE_URL="${CSF_REPO_DELIVERED:-https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered}/com/nokia/casr/tpl/confluent-5.2.1-2.12.tar.gz"

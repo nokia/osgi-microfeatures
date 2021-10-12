@@ -1,4 +1,10 @@
 #!/bin/bash
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 
 DOWNLOAD_URL="${CSF_REPO_DELIVERED:-https://repo.lab.pl.alcatel-lucent.com/csf-mvn-delivered}/com/nokia/casr/tpl"
 ETCD=etcd-v3.3.13-linux-amd64

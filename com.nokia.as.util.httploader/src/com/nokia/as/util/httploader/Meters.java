@@ -1,3 +1,9 @@
+// Copyright 2000-2021 Nokia
+//
+// Licensed under the Apache License 2.0
+// SPDX-License-Identifier: Apache-2.0
+//
+
 package com.nokia.as.util.httploader;
 
 import com.alcatel.as.service.metering2.Meter;

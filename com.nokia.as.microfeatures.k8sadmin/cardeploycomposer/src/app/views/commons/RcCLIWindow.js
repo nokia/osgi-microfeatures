@@ -1,4 +1,12 @@
 /**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
+/**
  * COMPONENT PATCHED ( CLIWindow UX release npm 17.40.2 )
  * On unmount, the Terminal is not disposed and the connection still exist
  * This patched component solves this issue

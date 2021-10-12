@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2000-2021 Nokia
+
+ Licensed under the Apache License 2.0
+ SPDX-License-Identifier: Apache-2.0
+
+-->
+
 <!DOCTYPE mbeans-descriptors PUBLIC "-//Apache Software Foundation//DTD Model MBeans Configuration File" "http://jakarta.apache.org/commons/dtds/mbeans-descriptors.dtd">
 
 <mbeans-descriptors>

@@ -1,3 +1,11 @@
+/**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
 /* Actions are defined here */
 export const START_2D = "START_2D";
 export const STOP_2D = "STOP_2D";

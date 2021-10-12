@@ -1,3 +1,9 @@
+// Copyright 2000-2021 Nokia
+//
+// Licensed under the Apache License 2.0
+// SPDX-License-Identifier: Apache-2.0
+//
+
 package com.alcatel.as.service.reporter.impl.standalone;
 
 import static com.alcatel.as.service.reporter.api.CommandScopes.APP_COUNTER_SCOPE;

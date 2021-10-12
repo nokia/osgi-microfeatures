@@ -1,3 +1,11 @@
+/**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
 /* Utility class */
 import uniqueId from 'lodash/uniqueId'
 import { get } from 'lodash'

@@ -1,3 +1,9 @@
+// Copyright 2000-2021 Nokia
+//
+// Licensed under the Apache License 2.0
+// SPDX-License-Identifier: Apache-2.0
+//
+
 package com.nextenso.radius.agent.client;
 
 import com.nextenso.proxylet.radius.RadiusClient;

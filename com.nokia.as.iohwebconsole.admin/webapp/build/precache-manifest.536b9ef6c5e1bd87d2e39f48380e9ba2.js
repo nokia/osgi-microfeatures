@@ -1,3 +1,11 @@
+/**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
 self.__precacheManifest = [
   {
     "revision": "5a791823a51dcc6a68b4179d4d7b9d22",

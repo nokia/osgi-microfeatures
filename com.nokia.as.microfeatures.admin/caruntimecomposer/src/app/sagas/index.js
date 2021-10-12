@@ -1,3 +1,11 @@
+/**
+ * Copyright 2000-2021 Nokia
+ *
+ * Licensed under the Apache License 2.0
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ */
+
 
 //import { take, put, call, fork, select, all, takeEvery } from 'redux-saga/effects'
 import { put, call, select, takeEvery, all } from 'redux-saga/effects'
