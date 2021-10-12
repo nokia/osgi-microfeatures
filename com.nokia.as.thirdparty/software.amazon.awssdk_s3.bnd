@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  software.amazon.awssdk:s3:2.5.25
 Bundle-Version:                2.5.25
 Bundle-Name:                   software.amazon.awssdk:s3:2.5.25

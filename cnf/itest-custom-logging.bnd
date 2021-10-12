@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 ## Juan's very own itest.bnd, becuase runproperties cannot be overidden apparently!
 
 -include ${workspace}/cnf/itest-common.bnd

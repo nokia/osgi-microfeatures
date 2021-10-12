@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  com.github.wnameless:json-flattener:0.4.1
 Bundle-Version:                0.4.1
 Bundle-Name:                   com.nokia.as.thirdparty.com.github.wnameless_json.flattener

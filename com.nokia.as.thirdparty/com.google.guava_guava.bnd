@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  com.google.guava:guava:30.1-jre
 Bundle-Version:                30.1-jre
 Bundle-Name:                   CASR - com.google.guava:guava:30.1-jre

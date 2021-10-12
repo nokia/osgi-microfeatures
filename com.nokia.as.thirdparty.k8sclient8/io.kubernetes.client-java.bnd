@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  io.kubernetes:client-java:8.0.0
 Bundle-Version:                8.0.0.1
 Bundle-Name:                   CASR - io.kubernetes:client-java:8.0.0

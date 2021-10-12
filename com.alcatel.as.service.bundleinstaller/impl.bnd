@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 Bundle-Name: BundleInstaller
 Bundle-Version: 1.0.18
 Bundle-Activator: com.alcatel.as.service.bundleinstaller.impl.BundleInstallerImpl

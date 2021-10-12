@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  org.jboss.resteasy:resteasy-jackson2-provider:3.15.2.Final
 Bundle-Version:                3.15.2.Final
 Bundle-Name:                   CASR - org.jboss.resteasy:resteasy-jackson2-provider:3.15.2.Final

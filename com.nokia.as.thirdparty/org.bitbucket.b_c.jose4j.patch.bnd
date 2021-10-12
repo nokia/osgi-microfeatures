@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # This fragment attaches to org.bitbucket.b_c.jose4j bundle in order to add export package
 # for org.jose4j.json.internal.json_simple.parser and org.jose4j.json.internal.json_simple
 # Indeed, the k8s client-java bundle violates the jose4j API and refers to the two above

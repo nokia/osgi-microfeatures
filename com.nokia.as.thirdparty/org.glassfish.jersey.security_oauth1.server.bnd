@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  org.glassfish.jersey.security:oauth1-server:2.22.2
 Bundle-Version:                2.22.2
 Bundle-Name:                   com.nokia.as.thirdparty.org.glassfish.jersey.security_oauth1.server

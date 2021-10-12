@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  com.google.http-client:google-http-client-jackson2:1.38.0
 Bundle-Version:                1.38.0
 Bundle-Name:                   CASR - com.google.http-client:google-http-client-jackson2:1.38.0

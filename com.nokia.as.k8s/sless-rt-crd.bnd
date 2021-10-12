@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 Bundle-Version: 2.0.6
 Bundle-Name: Sless CRD Runtime
 Private-Package: com.nokia.as.k8s.sless.fwk.runtime.impl.crd

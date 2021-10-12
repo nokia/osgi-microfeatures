@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 Bundle-Name: Metering Service (V2)
 Bundle-SymbolicName: com.alcatel.as.service.metering2.impl
 Private-Package: com.alcatel.as.service.metering2.impl

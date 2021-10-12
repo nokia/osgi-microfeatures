@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  com.bettercloud:vault-java-driver:5.1.0
 Bundle-Version:                5.1.0
 Bundle-Name:                   com.nokia.as.thirdparty.com.bettercloud_vault.java.driver

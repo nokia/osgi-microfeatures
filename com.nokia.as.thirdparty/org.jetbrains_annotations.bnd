@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  org.jetbrains:annotations:16.0.3
 Bundle-Version:                16.0.3
 Bundle-Name:                   com.nokia.as.thirdparty.org.jetbrains_annotations

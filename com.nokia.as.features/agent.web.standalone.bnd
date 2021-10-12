@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # Web Agent + Jersey 2.22 (JAX-RS 2.0)
 
 Bundle-Version: 1.0.6

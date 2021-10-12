@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # Define the buildpath, we need to set this buildpath in order to allow bnd to generate the imported packages with the proper version ranges.
 
 # Defines the human readable bundle description

@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  com.squareup.okio:okio:1.17.2
 Bundle-Version:                1.17.2
 Bundle-Name:                   com.nokia.as.thirdparty.com.squareup.okio_okio

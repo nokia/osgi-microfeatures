@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  io.swagger:swagger-core:1.5.3
 Bundle-Version:                1.5.3
 Bundle-Name:                   CASR - io.swagger:swagger-core:1.5.3

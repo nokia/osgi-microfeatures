@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # we just need to repackage the geronimo-jta_1.1_spec bundle to make it a fragment of the framework system bundle.
 # (because jdk 1.8 exports javax.sql, which is also using javax.transaction.xa
 

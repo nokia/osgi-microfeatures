@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 #
 # This bundle adds the special MDCFriend class in the com.nokia.as.thirdparty.log4j2.log4j12.api
 #

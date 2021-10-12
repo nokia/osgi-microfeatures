@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 Bundle-Version: 1.0.6
 Bundle-Name: Jersey Bundles (JAX-RS 2.1 API)
 Provide-Capability: com.nokia.as.feature; com.nokia.as.feature="lib.jaxrs-2.1.jersey.min"; internal=true

@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded: javax.annotation:javax.annotation-api:1.3.2
 Bundle-Description: Java(TM) Common Annotations 1.3 API Design Specification
 Bundle-License: https://github.com/javaee/javax.annotation/blob/master/LICENSE

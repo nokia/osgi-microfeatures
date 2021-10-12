@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  com.google.auto.value:auto-value-annotations:1.7.4
 Bundle-Version:                1.7.4
 Bundle-Name:                   CASR - com.google.auto.value:auto-value-annotations:1.7.4

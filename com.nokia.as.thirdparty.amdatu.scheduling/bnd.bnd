@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # Disable the base feature as we are inlining another version of slf4j in this bundle
 -buildfeatures.blueprint-base:
 -buildpath: \

@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  com.github.vladimir-bukhtoyarov:bucket4j-core:4.10.0
 Bundle-Version:                4.10.0
 Bundle-Name:                   CASR - com.github.vladimir-bukhtoyarov:bucket4j-core:4.10.0

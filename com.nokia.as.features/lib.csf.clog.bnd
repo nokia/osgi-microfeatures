@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # Feature for CLOG Unified Logging API (requires log4j2)
 
 Bundle-Version: 1.0.3

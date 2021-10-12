@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # If you change the Bundle-Version, you must also change
 # resource/META-INF/maven/com.nokia.casr/com.nokia.as.archetype.lib.starter/pom.properties and
 # resource/META-INF/maven/com.nokia.casr/com.nokia.as.archetype.lib.starter/pom.xml !

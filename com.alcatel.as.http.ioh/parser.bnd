@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 Bundle-Version: 5.14.0
 Bundle-Name: IOH Http Parser
 Export-Package: com.alcatel.as.http.parser, \

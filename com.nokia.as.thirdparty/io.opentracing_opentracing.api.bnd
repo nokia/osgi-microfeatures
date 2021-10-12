@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  io.opentracing:opentracing-api:0.33.0
 Bundle-Version:                0.33.0
 Bundle-Name:                   com.nokia.as.thirdparty.io.opentracing_opentracing.api

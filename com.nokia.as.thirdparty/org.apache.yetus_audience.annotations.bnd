@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  org.apache.yetus:audience-annotations:0.5.0
 Bundle-Version:                0.5.0
 Bundle-Name:                   com.nokia.as.thirdparty.org.apache.yetus_audience.annotations

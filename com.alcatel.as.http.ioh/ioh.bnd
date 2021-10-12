@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 Bundle-SymbolicName: com.alcatel.as.http.ioh
 Bundle-Version: 7.2.3
 # Bundle-Name is used by proxyapp deployment (legacy)

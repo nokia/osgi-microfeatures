@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  com.kohlschutter.junixsocket:junixsocket-common:2.0.4
 Bundle-Version:                2.0.4
 Bundle-Name:                   com.nokia.as.thirdparty.com.kohlschutter.junixsocket_junixsocket.common

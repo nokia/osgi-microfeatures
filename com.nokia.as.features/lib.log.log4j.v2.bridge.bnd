@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # log4j2 briges allowing to redirect other logging API to log4j2 (like slf4j, log4j1).
 # This feature is auto installed when log4j2 is only used.
 # We blacklist log4j1 and specific log4j1 bundles.

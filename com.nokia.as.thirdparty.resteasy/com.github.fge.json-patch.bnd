@@ -1,3 +1,9 @@
+# Copyright 2000-2021 Nokia
+#
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+#
+
 CSF-Embedded:                  com.github.fge:json-patch:1.9
 Bundle-Version:                1.9
 Bundle-Name:                   CASR - com.github.fge:json-patch:1.9
