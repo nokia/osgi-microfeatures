@@ -1,0 +1,12 @@
+Bundle-Name: tools.diameter.loader CASR Feature
+Bundle-Version: 1.0.0
+Private-Package: 
+
+Provide-Capability: com.nokia.as.feature;\
+                    com.nokia.as.feature="tools.diameter.loader";\
+                    version:Version="1.0.0";\
+                    desc="Diameter loader";\
+                    doc="https://confluence.app.alcatel-lucent.com/"
+
+Require-Capability: \
+    	osgi.identity;filter:='(osgi.identity=com.nokia.as.diameter.tools.loader)'

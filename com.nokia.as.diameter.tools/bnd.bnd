@@ -1,0 +1,18 @@
+# root bnd file
+
+groupId: com.nokia.cjdi
+
+-buildpath: \
+	${osgi},\
+	com.alcatel.as.service.api;version=1.1,\
+	com.alcatel_lucent.as.management.annotation;version=1.0,\
+	com.alcatel.as.utils;version=2.1,\
+	com.nextenso.proxylet.api;version=1.1,\
+	com.nokia.as.thirdparty.log4j;version=1.2,\
+	org.apache.felix.dependencymanager.annotation;version=5.0,\
+	org.apache.felix.dependencymanager;version=4.4,\
+	com.nextenso.proxylet.diameter;version=2.7,\
+	com.nokia.as.thirdparty.jsr166e;version=1.7
+
+-sub: \
+    *.bnd
