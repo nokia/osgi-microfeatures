@@ -353,8 +353,8 @@ jaxen:jaxen:1.2.0
 joda-time:joda-time:2.10.8
 net.bytebuddy:byte-buddy-agent:1.5.5
 net.bytebuddy:byte-buddy:1.5.5
-net.java.dev.jna:jna-platform:5.6.0
-net.java.dev.jna:jna:5.6.0
+net.java.dev.jna:jna-platform:5.9.0
+net.java.dev.jna:jna:5.9.0
 net.jodah:failsafe:2.3.1
 net.sf.jopt-simple:jopt-simple:5.0.4
 org.apache.aries.jmx:org.apache.aries.jmx.whiteboard:1.1.5
