@@ -31,7 +31,7 @@ dependencies {
   testDeps('commons-beanutils:commons-beanutils:[1.8.0,2.0.0)') { transitive = false }
   testDeps('commons-collections:commons-collections:[3.2.1,4.0.0)') { transitive = false }
   testDeps('com.nokia.casr:com.nokia.as.thirdparty.log4j:[1.2.19,2.0.0)') { transitive = false }
-  testDeps('net.java.dev.jna:jna:[4.5.2,5.0.0)') { transitive = false }
+  testDeps('net.java.dev.jna:jna:[5.9.0,6.0.0)') { transitive = false }
   testDeps('org.apache.felix:org.apache.felix.configadmin:[1.9.10,2.0.0)') { transitive = false }
   testDeps('org.apache.felix:org.apache.felix.dependencymanager:[4.6.0,5.0.0)') { transitive = false }
   testDeps('org.apache.felix:org.apache.felix.dependencymanager.lambda:[1.2.1,2.0.0)') { transitive = false }

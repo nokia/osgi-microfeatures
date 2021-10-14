@@ -13,8 +13,9 @@
 	org.apache.felix.dependencymanager.annotation;version=4.5,\
 	com.nokia.as.thirdparty.json;version=1.0.1,\
 	com.nokia.as.thirdparty.log4j;version=latest,\
-	org.knopflerfish.bundle.http;version=3.1
-	
+	${workspace}/jars/org.knopflerfish.bundle.http-3.1.5.jar;version=file,\
+	${workspace}/jars/org.apache.ace.obr.metadata-2.0.1.jar;version=file,\
+	${workspace}/jars/org.apache.ace.obr.storage-2.1.0.jar;version=file
 
 -testpath: \
 	${junit}

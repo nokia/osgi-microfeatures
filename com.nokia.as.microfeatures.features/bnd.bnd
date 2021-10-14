@@ -14,7 +14,7 @@
 	org.apache.commons.commons-compress;version=1.18,\
 	com.nokia.as.thirdparty.log4j;version=1.2,\
 	com.nokia.as.microfeatures.packager;version=latest,\
-	org.apache.ace.obr.storage;version=2.1,\
+	${workspace}/jars/org.apache.ace.obr.storage-2.1.0.jar; version=file,\
 	com.nokia.as.osgi.jre18;version=latest,\
 	org.apache.aries.util;version=1.1,\
 	org.apache.felix.gogo.jline;version=1.1

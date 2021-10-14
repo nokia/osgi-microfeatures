@@ -1,8 +1,0 @@
-// First, apply the instruction which allows to use a javac version 11
-apply from: cnf.file('java11.gradle')
-
-// Next, ensure that we use the --patch-module jdk option
-compileJava {
-    options.compilerArgs.addAll(['--patch-module', "java.base=${project.projectDir}/src"])
-}
-

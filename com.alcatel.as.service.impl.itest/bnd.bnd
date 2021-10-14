@@ -50,7 +50,7 @@ Bundle-Version: 1.0.3
 	com.nokia.as.thirdparty.log4j;version=snapshot,\
 	com.nokia.as.thirdparty.servlet.api;version=snapshot,\
 	com.nokia.as.util.test;version=snapshot,\
-	com.sun.jna;version='[4.5.2,4.5.3)',\
+	com.sun.jna;version='[4.5.2,6)',\
 	com.sun.mail.javax.mail;version='[1.6.1,1.6.2)',\
 	org.apache.aries.util;version='[1.1.3,1.1.4)',\
 	org.apache.commons.configuration;version='[1.9.0,1.9.1)',\

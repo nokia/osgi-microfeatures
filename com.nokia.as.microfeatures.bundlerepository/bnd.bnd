@@ -10,8 +10,8 @@
 	org.apache.felix.dependencymanager.annotation;version=4.5,\
 	org.apache.felix.gogo.runtime;version=0.16,\
 	org.apache.felix.resolver;version=2.0,\
+	${workspace}/jars/org.apache.ace.obr.storage-2.1.0.jar; version=file,\
 	com.nokia.as.thirdparty.log4j;version=1.2,\
-	org.apache.ace.obr.storage;version=2.1,\
 	biz.aQute.bndlib;version=4.1,\
 	biz.aQute.repository;version=4.1
 

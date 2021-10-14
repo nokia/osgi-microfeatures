@@ -43,19 +43,20 @@
 # the com.nokia.as.microfeatures.features.init must be started first
 
 -runbundles: \
+	com.sun.jna;version='[4.5.2,6)',\
 	org.apache.felix.log;version='[1.2.4,1.2.5)',\
 	com.alcatel.as.service.api;version=snapshot,\
 	com.alcatel.as.service.impl.mbeanparser;version=snapshot,\
 	com.alcatel_lucent.as.management.annotation;version=snapshot,\
 	com.nokia.as.thirdparty.json;version=snapshot,\
-	org.apache.ace.obr.metadata;version='[2.0.1,2.0.2)',\
-	org.apache.ace.obr.storage;version='[2.1.0,2.1.1)',\
+	${workspace}/jars/org.apache.ace.obr.metadata-2.0.1.jar;version=file,\
+	${workspace}/jars/org.apache.ace.obr.storage-2.1.0.jar;version=file,\
 	org.apache.aries.util;version='[1.1.3,1.1.4)',\
 	org.apache.commons.configuration;version='[1.9.0,1.9.1)',\
 	org.apache.commons.lang;version='[2.6.0,2.6.1)',\
 	org.apache.felix.http.servlet-api;version='[1.1.2,1.1.3)',\
 	org.apache.felix.metatype;version='[1.2.4,3)',\
-	org.knopflerfish.bundle.http;version='[3.1.5,3.1.6)',\
+	${workspace}/jars/org.knopflerfish.bundle.http-3.1.5.jar;version=file,\
 	org.lucee.commons.logging;version='[1.2.0,1.2.1)',\
 	slf4j.api;version='[1.7.25,2.0.0)',\
 	slf4j.log4j12;version='[1.7.25,2.0.0)',\

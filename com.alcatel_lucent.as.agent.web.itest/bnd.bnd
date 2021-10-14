@@ -193,7 +193,7 @@ Private-Package: \
 	com.nokia.as.thirdparty.slf4j.log4j12.ext;version=latest,\
 	com.nokia.as.util.gogoclient;version=latest,\
 	com.nokia.as.util.test;version=latest,\
-	com.sun.jna;version='[4.5.2,4.5.3)',\
+	com.sun.jna;version='[4.5.2,6)',\
 	com.sun.mail.javax.mail;version='[1.6.1,1.6.2)',\
 	javassist;version='[3.25.0,3.25.1)',\
 	javax.annotation-api;version='[1.3.2,1.3.3)',\
