@@ -9,7 +9,7 @@
 # See http://enroute.osgi.org/tutorial_maven/050-start.html
 #
 
-repo-baseurl:  	 ${env;CSF_REPO;https://repo.lab.pl.alcatel-lucent.com}
+repo-baseurl:  	 ${env;REPOSITORY;https://localhost:8081/repository/myrepo}
 central:	 https://repo1.maven.org/maven2
 confluent:	 https://packages.confluent.io/maven
 
