@@ -9,9 +9,9 @@
 # See http://enroute.osgi.org/tutorial_maven/050-start.html
 #
 
-repo-baseurl:  	 ${env;REPOSITORY;https://localhost:8081/repository/myrepo}
-central:	 https://repo1.maven.org/maven2
-confluent:	 https://packages.confluent.io/maven
+baseurl:  	 ${env;MICROFEATURES_REPO_BASEURL;https://localhost:8081}
+central:	 ${env;MICROFEATURES_REPO;https://repo1.maven.org/maven2}
+confluent:	 ${env;MICROFEATURES_REPO;https://packages.confluent.io/maven}
 
 #
 # Set here the maven group id for the workspace bundles
@@ -116,18 +116,18 @@ groupId: com.nokia.casr
 -baselinerepo: Baseline
 
 #
-# Artifactory connection settings
+# Connection settings
 #
-usr = ${env;ARTIFACTORY_BUILD_LOGIN_USR;}
-pwd = ${env;ARTIFACTORY_BUILD_LOGIN_PSW;}
--connection-settings: ${if;${pwd};server;-dummy};id=${repo-baseurl};username=${usr};password=${pwd}, -bnd
+usr = ${env;MICROFEATURES_REPO_USER;}
+pwd = ${env;MICROFEATURES_REPO_PASSWORD;}
+-connection-settings: ${if;${pwd};server;-dummy};id=${baseurl};username=${usr};password=${pwd}, -bnd
 
 #
 # include sources in generated bundles. For baselining, we need to include source.
 # But when we release from jenkins to artifactory, then we don't include source
-# (the jenkins jobs always use CSF_BUNDLE_SOURCES=false env property)
 #
--sources: ${env;CSF_BUNDLE_SOURCES;true}
+-sources: true
+
 #
 # Java parameters
 #
@@ -148,114 +148,6 @@ osgi: osgi.annotation, osgi.core, osgi.cmpn
 # bndlib
 #
 bndlib=biz.aQute.bndlib;version=6.0.0
-
-#
-# plugin path used when using ASR MBD Annotation plugin
-#
-mbdpath=${workspace}/com.alcatel_lucent.as.management.annotation/generated/com.alcatel_lucent.as.management.annotation.jar
-mbdversion=1.0.8
-
-#
-# Bnd Plugins
-#
--plugin: org.apache.felix.dm.annotation.plugin.bnd.AnnotationPlugin;add-require-capability=true,\
-         easeUrl = '${repo-candidate}-local, ${repo-delivered}'; \
-    snapshotUrl = '${repo-snapshot}-local, ${repo-delivered}'; \
-    name = Artifactory; \
-    index = ${.}/artifactory.mvn; \
-    noupdateOnRelease=true
-
-#
-# Baseline repo. You can deploy your bundles here before releasing to Artifactory. Doing so will make it possible to use
-# Semantic Versioning.
-#
--plugin.4.Baseline: aQute.bnd.deployer.repository.LocalIndexedRepo; \
-    name = Baseline; \
-    pretty = true; \
-    local = ${.}/baseline
-
-#
-# Local repo. You can add whatever bundles here, they will be made available in buildpath.
-#
--plugin.5.Local: aQute.bnd.deployer.repository.LocalIndexedRepo; \
-    name = Local; \
-    pretty = true; \
-    local = ${.}/local
-
-#
-# Always write generated bundles in ~/.m2/repository
-#
--plugin.6.M2: \
-    aQute.bnd.repository.maven.provider.MavenBndRepository; \
-    name = M2; \
-    noupdateOnRelease=true
-
-#
-# Templates used to create new projects under Eclipse. Don't remove that.
-#
--plugin.7.Templates: \
-    aQute.bnd.deployer.repository.LocalIndexedRepo; \
-    name = Templates; \
-    pretty = true; \
-    local = ${build}/templates
-
-#
-# Make sure all compiled artifacts are always pushed to local ~/.m2/repository
-#
--buildrepo: M2
-
-#
-# Name of the repositories where we want to deploy our bundles.
-# By default, we deploy artifacts to our local Baseline repo.
-# but you can deploy to artifactory either using "gradlew -Dreleaserepo=Artifactory,Baseline", or
-# from Eclipse -> Release Workspace Bundles menu you can select "Release" repo.
-#
--releaserepo: ${def;releaserepo;Baseline}
-
-#
-# baseline repo
-#
--baselinerepo: Baseline
-
-#
-# Artifactory connection settings
-#
-usr = ${env;ARTIFACTORY_BUILD_LOGIN_USR;}
-pwd = ${env;ARTIFACTORY_BUILD_LOGIN_PSW;}
--connection-settings: ${if;${pwd};server;-dummy};id=${repo-baseurl};username=${usr};password=${pwd}, -bnd
-
-#
-# include sources in generated bundles. For baselining, we need to include source.
-# But when we release from jenkins to artifactory, then we don't include source
-# (the jenkins jobs always use CSF_BUNDLE_SOURCES=false env property)
-#
--sources: ${env;CSF_BUNDLE_SOURCES;true}
-#
-# Java parameters
-#
-javac.source: 1.8
-javac.target: 1.8
-
-#
-# JUnit
-#
-junit: org.apache.servicemix.bundles.junit; version=4.12
-
-#
-# Common osgi build-time dependencies
-#
-osgi: osgi.annotation, osgi.core, osgi.cmpn
-
-#
-# bndlib
-#
-bndlib=biz.aQute.bndlib;version=6.0.0
-
-#
-# plugin path used when using ASR MBD Annotation plugin
-#
-mbdpath=${workspace}/com.alcatel_lucent.as.management.annotation/generated/com.alcatel_lucent.as.management.annotation.jar
-mbdversion=1.0.3
 
 #
 # Dependency Manager Annotations support
@@ -267,11 +159,6 @@ mbdversion=1.0.3
 # Removes some headers in order to reduce binary diff between same bundles that are not changed between subsequent releases.
 #
 -removeheaders: Bnd-LastModified,Tool,Created-By,Include-Resource
-
-#
-# Generic header used to indicate that the generated bundle is a CSF artifact (not an external artifact from maven central)
-#
-CSF-Artifact: true
 
 #
 # specify manifest header names and resource paths to ignore during baseline comparison.
