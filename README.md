@@ -50,7 +50,9 @@ and build everything:
 
 To create an osgi runtime, you can use the com.nokia.as.microfeatures.admin/generated/distributions/executable/launch.jar standalone jar, like this:
 
+```
 java -Dobr=file://$HOME/.m2/repository/obr.xml -Dcreate=myruntime,1.0.0,runtime.felix,ioh.mux.diameter,agent.proxylet.diameter -jar com.nokia.as.microfeatures.admin/generated/distributions/executable/launch.jar
+```
 
 The above command will generate a zip file, containing a diameter load balancer, as well as a local diameter proxylet container.
 unzip it and start the runtime:
