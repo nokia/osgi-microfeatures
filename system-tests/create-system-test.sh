@@ -24,7 +24,7 @@ if [ "$SYSTEMTESTS" == "" ]; then
     exit 1
 fi
 
-RUNTIME=`(unset CDPATH ; cd $SYSTEMTESTS/../runtime ; pwd)`
+SCRIPTDIR=`(unset CDPATH ; cd $SYSTEMTESTS/../scripts ; pwd)`
 cd $SYSTEMTESTS
 
 if [ "$1" == "-m2" ]; then
@@ -52,7 +52,7 @@ bulk_stest_create() {
     done < "$stestList"
 
     finalArg=${finalArg%?}
-    $RUNTIME/create-multiple-runtimes.sh $finalArg
+    $SCRIPTDIR/create-multiple-runtimes.sh $finalArg
 
     echo "unpacking zips..."
     for stest in ${stestArray[@]}; do
@@ -87,7 +87,7 @@ if [ -d "$name" ]; then
     rm -rf $name
 fi
 
-../runtime/create-runtime.sh $obr test 0.0.0 "$feature"
+$SCRIPTDIR/create-runtime.sh $obr test 0.0.0 "$feature"
 mkdir -p $name
 cd $name
 tar zxvf /tmp/runtime/test-0.0.0.tgz

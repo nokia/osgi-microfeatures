@@ -14,7 +14,7 @@ onError() {
 
 trap onError ERR
 
-JACOCO_AGENT_URL="https://repo.lab.pl.alcatel-lucent.com/maven2/org/jacoco/org.jacoco.agent/0.8.4/org.jacoco.agent-0.8.4-runtime.jar"
+JACOCO_AGENT_URL="https://repo1.maven.org/maven2/org/jacoco/org.jacoco.agent/0.8.4/org.jacoco.agent-0.8.4.jar"
 JACOCO_AGENT_PATH="/tmp/jacoco-agent-stest.jar"
 JAVA11_PSEUDO_RUNTIME="__java11_runtimes"
 OLD_JAVA_HOME=$JAVA_HOME
@@ -186,10 +186,10 @@ while read line; do
     else
         if containsElement ${tokens[0]} ${java11_runtimes[@]} ; then 
             echo "Generating Java 11 runtime: ${tokens[0]}"
-            JAVA_HOME=$JAVA11_HOME ../../runtime/create-runtime.sh $obr ${tokens[0]} 0.0.0 ${tokens[1]}
+            JAVA_HOME=$JAVA11_HOME ../../scripts/create-runtime.sh $obr ${tokens[0]} 0.0.0 ${tokens[1]}
         else
             echo "Generating Java 8 runtime: ${tokens[0]}"
-            JAVA_HOME=$OLD_JAVA_HOME ../../runtime/create-runtime.sh $obr ${tokens[0]} 0.0.0 ${tokens[1]}
+            JAVA_HOME=$OLD_JAVA_HOME ../../scripts/create-runtime.sh $obr ${tokens[0]} 0.0.0 ${tokens[1]}
         fi
 
         if [[ ! -f /tmp/runtime/${tokens[0]}-0.0.0.tgz ]]; then 
