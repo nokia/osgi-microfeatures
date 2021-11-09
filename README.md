@@ -15,7 +15,7 @@ These MicroFeatures are currently focusing on various domains, for example:
 
 # To build the binaries:
 
-## First, create the following ~/.gradle/gradle.properties file with the following content:
+First, create the following ~/.gradle/gradle.properties file with the following content:
 
 ```
 org.gradle.daemon=false
@@ -29,13 +29,14 @@ org.gradle.jvmargs=-Xmx3g -Xms3g -XX:MaxMetaspaceSize=1024m -Dfile.encoding=UTF-
 ```
 Use 3 GB at minimum for jvmargs, or more. Optionaly configure proxy settings.
 
-## configure a jdk8 path:
+Now, configure a jdk8 path:
 
 ```
 export PATH=<path-to-jdk8/bin>:$PATH
 export JAVA_HOME=<path-to-jdk8>
 ```
-## Build everything:
+
+and build everything:
 
 ```
 ./gradlew jar
@@ -45,11 +46,16 @@ export JAVA_HOME=<path-to-jdk8>
 
 (the last command creates an OSGi bundle repository to $HOME/.m2/repository/obr.xml)
 
-## To create an osgi runtime, you can use the com.nokia.as.microfeatures.admin/generated/distributions/executable/launch.jar standalone jar, like this:
+# Example:
+
+To create an osgi runtime, you can use the com.nokia.as.microfeatures.admin/generated/distributions/executable/launch.jar standalone jar, like this:
 
 java -Dobr=file://$HOME/.m2/repository/obr.xml -Dcreate=myruntime,1.0.0,runtime.felix,ioh.mux.diameter,agent.proxylet.diameter -jar com.nokia.as.microfeatures.admin/generated/distributions/executable/launch.jar
 
-The above command will generate a zip file, unzip it and start the runtime:
+The above command will generate a zip file, containing a diameter load balancer, as well as a local diameter proxylet container.
+unzip it and start the runtime:
+
+TODO: describe the diameter load balancer, and the diameter proxylet container
 
 ```
 unzip myruntime-1.0.0.zip
@@ -80,7 +86,12 @@ Then connect to the osgi framework using this script:
 
 (you can type some gogo commands like "lb", help", etc ...)
 
-## Microfeatures list
+To stop the container:
+
+```
+./stop.sh
+```
+# Microfeatures list
 
 TODO: describe all available microfeatures
 
