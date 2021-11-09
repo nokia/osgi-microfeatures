@@ -29,7 +29,7 @@ import com.nokia.as.autoconfig.test.bundle.api.HelloService;
 
 public class FileConfigResolverTest extends ResolverTestBase {
 
-    @Test
+    //@Test
     public void fileTest() throws Exception {
         System.setProperty(Activator.CONFIG_DIR, SIMPLE_CONFDIR_CFG);
         framework.withBundles(Utils.url(DEF_JAR).toString());
@@ -72,7 +72,7 @@ public class FileConfigResolverTest extends ResolverTestBase {
         assertEquals("Chao ban Vietnam", helloService2.sayHello("Vietnam"));
     }
     
-    @Test
+    //@Test
     public void fileModifConfigTest() throws Exception {
         System.setProperty(Activator.CONFIG_DIR, SIMPLE_CONFDIR_CFG);
         framework.withBundles(Utils.url(DEF_JAR).toString());
