@@ -1,11 +1,11 @@
 # Nokia microfeatures project
 
 This project provides some java components used as the underlying runtime for other Nokia assets such as Diameter, or Radius containers.
-All is based on OSGI, and a proprietary "microfeatures" installer tool allows to create an OSGI runtime, based on generic "microfeatures".
+All is based on OSGI [Apache Felix](http://felix.apache.org), and on a proprietary "microfeatures" installer tool allows to create an OSGI runtime, based on generic "microfeatures".
 
 Generic "microfeatures" provides a coherent set of OSGi bundles, when combined, providing some given functions. The OSGI resolver service is used to calculate dependencies in order to generate a consistent set of resolvable bundles.
 
-CASR uses [Apache Felix](http://felix.apache.org) as its core OSGi engine. 
+[Apache Felix](http://felix.apache.org) as its core OSGi engine. 
 These MicroFeatures are currently focusing on various domains, for example:
 
  - protocol support : HTTP, HTTP2, Diameter, Radius
