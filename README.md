@@ -5,7 +5,6 @@ All is based on OSGI [Apache Felix](http://felix.apache.org), and on a proprieta
 
 Generic "microfeatures" provides a coherent set of OSGi bundles, when combined, providing some given functions. The OSGI resolver service is used to calculate dependencies in order to generate a consistent set of resolvable bundles.
 
-[Apache Felix](http://felix.apache.org) as its core OSGi engine. 
 These MicroFeatures are currently focusing on various domains, for example:
 
  - protocol support : HTTP, HTTP2, Diameter, Radius
