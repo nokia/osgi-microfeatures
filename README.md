@@ -98,7 +98,11 @@ TODO: describe all available microfeatures
 
 # License
 
+```
 Copyright 2021 Nokia
 
 Licensed under the Apache License 2.0
 SPDX-License-Identifier: Apache-2.0
+```
+
+see LICENSE file.
