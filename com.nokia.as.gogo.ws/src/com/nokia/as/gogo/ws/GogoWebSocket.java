@@ -36,7 +36,6 @@ import org.jline.reader.impl.completer.StringsCompleter;
 import org.jline.terminal.Size;
 import org.jline.terminal.Terminal.Signal;
 import org.jline.terminal.impl.LineDisciplineTerminal;
-import org.jline.utils.Log;
 
 import com.alcatel.as.service.concurrent.PlatformExecutor;
 
@@ -59,7 +58,7 @@ public class GogoWebSocket implements TcpClientChannelListener {
         try {
           session.getRemote().sendString(Character.valueOf((char) b).toString());
         } catch (WebSocketException e) {
-          Log.warn("Got WebSocketException: " + e.getMessage());
+          LOG.warn("Got WebSocketException: " + e.getMessage());
           session.close();
           session = null;
         }
@@ -73,7 +72,7 @@ public class GogoWebSocket implements TcpClientChannelListener {
         try {
           session.getRemote().sendString(str);
         } catch (WebSocketException e) {
-          Log.warn("Got WebSocketException: " + e.getMessage());
+          LOG.warn("Got WebSocketException: " + e.getMessage());
           if (session != null) {
             session.close();
             session = null;
@@ -139,7 +138,7 @@ public class GogoWebSocket implements TcpClientChannelListener {
             }
           }
         } catch (UserInterruptException e) {
-          Log.warn("Interrupted");
+          LOG.warn("Interrupted");
           Thread.currentThread().interrupt();
         } catch (EndOfFileException e) {
           LOG.info("EOF");
